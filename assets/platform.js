@@ -10,6 +10,42 @@
   var slug = segs.length ? segs[segs.length - 1] : "";
   var classId = segs.length > 1 ? segs[segs.length - 2] : "";
 
+  // ---- Menu déroulant des noms (si un roster existe pour la classe) ----
+  function setupRoster() {
+    var input = document.getElementById("stuName");
+    if (!input || !classId) return;
+    fetch(API + "/api/roster?class=" + encodeURIComponent(classId))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var names = (d && d.names) || [];
+        if (!names.length) return; // pas de roster -> on garde le champ libre
+        var sel = document.createElement("select");
+        sel.id = "stuNameSelect";
+        sel.style.cssText = input.style.cssText;
+        sel.style.minWidth = "220px";
+        sel.innerHTML = '<option value="">— Choisis ton nom —</option>' +
+          names.map(function (n) { return '<option>' + n.replace(/</g, "&lt;") + '</option>'; }).join("") +
+          '<option value="__other__">— Autre / absent de la liste —</option>';
+        input.parentNode.insertBefore(sel, input);
+        input.style.display = "none"; // caché par défaut, on force le choix dans la liste
+        sel.addEventListener("change", function () {
+          if (sel.value === "__other__") {
+            input.style.display = "";
+            input.value = "";
+            input.focus();
+          } else {
+            input.style.display = "none";
+            input.value = sel.value;
+            input.dispatchEvent(new Event("input", { bubbles: true }));
+            input.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+        });
+      })
+      .catch(function () {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setupRoster);
+  else setupRoster();
+
   function getCode() {
     var el = document.getElementById("exportCode");
     var v = el ? (el.value || el.textContent || "") : "";
