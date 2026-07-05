@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Test — BTS ELEC 1 CL2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --ink:#1d1d1f; --ink-soft:#454548; --ink-faint:#6c6c70;
+    --line:#e2e0db; --line-strong:#c9c6bf;
+    --sea:#2b6a86; --sea-soft:#eef4f6;
+    --amber:#b5710f; --emerald:#1f6b4a;
+    --red:#b23838; --green:#1f6b4a;
+    --paper:#ffffff; --tint:#f7f6f3;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);
+    background:#ecebe6;margin:0;font-size:11.5pt;line-height:1.6;padding-bottom:90px;}
+  .page{max-width:820px;padding:34px 38px 30px;margin:22px auto;background:var(--paper);
+    border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--ink);line-height:1.12;}
+  h1{font-size:30pt;margin:0 0 4pt;letter-spacing:-.4pt;}
+  h2{font-size:17pt;margin:0 0 12pt;padding-bottom:6pt;border-bottom:1.5px solid var(--line-strong);}
+  h3{font-size:13pt;margin:14pt 0 5pt;}
+  p{margin:0 0 9pt;}
+  strong{font-weight:600;}
+  em{color:var(--ink-soft);}
+
+  .kicker{font-family:'Inter';font-weight:600;font-size:8.5pt;letter-spacing:2.2pt;
+    text-transform:uppercase;color:var(--sea);margin:0 0 10pt;}
+  .lede{font-size:12pt;color:var(--ink-soft);max-width:66ch;}
+  .section{margin-top:30pt;}
+  .part-no{font-family:'DM Serif Display',serif;font-style:italic;color:var(--ink-faint);font-size:14pt;margin-right:6pt;}
+
+  .masthead{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:2.5px solid var(--ink);padding-bottom:12pt;flex-wrap:wrap;gap:10px;}
+  .masthead .meta{text-align:right;font-size:8.8pt;color:var(--ink-faint);line-height:1.5;}
+  .masthead .meta b{color:var(--ink-soft);font-weight:600;}
+
+  /* identity bar */
+  .idbar{display:flex;gap:18px;flex-wrap:wrap;margin:14pt 0 0;padding:11pt 14pt;
+    background:var(--tint);border:1px solid var(--line);border-radius:5px;font-size:10pt;}
+  .idbar label{display:flex;align-items:center;gap:7px;color:var(--ink-soft);font-weight:600;}
+  .idbar input{font-family:'Inter';font-size:10.5pt;border:none;border-bottom:1.5px solid var(--line-strong);
+    background:#fff;padding:3px 8px;border-radius:3px 3px 0 0;outline:none;}
+  .idbar input:focus{border-bottom-color:var(--sea);}
+  .id-name{width:230px;} .id-date{width:130px;}
+
+  .rules{border:1px solid var(--line);border-left:3px solid var(--amber);background:#fcf8f0;
+    border-radius:4px;padding:11pt 15pt;margin:14pt 0 0;font-size:10pt;color:var(--ink-soft);}
+  .rules b{color:var(--ink);}
+
+  .exercise{border:1px solid var(--line);border-radius:5px;padding:14pt 16pt;margin:13pt 0;background:#fff;}
+  .exercise .tag{font-size:8.2pt;font-weight:600;letter-spacing:1.2pt;text-transform:uppercase;
+    color:var(--sea);margin-bottom:3pt;}
+  .exercise h3{margin-top:0;}
+  .exercise .pts{float:right;font-family:'Inter';font-size:8.5pt;font-weight:600;color:var(--ink-faint);
+    letter-spacing:.5pt;text-transform:none;}
+  .instr{font-style:italic;color:var(--ink-soft);font-size:10.2pt;margin-bottom:10pt;}
+
+  ol.q{margin:0;padding-left:20pt;}
+  ol.q li{margin-bottom:11pt;line-height:2.1;}
+
+  input[type=text]{font-family:'Inter',sans-serif;font-size:10.8pt;color:var(--ink);
+    border:none;border-bottom:1.5px solid var(--line-strong);background:var(--sea-soft);
+    border-radius:3px 3px 0 0;padding:3px 7px;margin:0 2px;outline:none;transition:.15s;}
+  input[type=text]:focus{border-bottom-color:var(--sea);background:#e4eef2;}
+  select{font-family:'Inter',sans-serif;font-size:10.8pt;color:var(--ink);
+    border:1px solid var(--line-strong);background:var(--sea-soft);border-radius:4px;padding:3px 6px;margin:0 2px;outline:none;}
+  select:focus{outline:none;border-color:var(--sea);}
+  .in-s{width:128px;} .in-m{width:205px;}
+  input.correct,select.correct{background:#e6f3ec;border-bottom-color:var(--green);border-color:var(--green);}
+  input.incorrect,select.incorrect{background:#fbe9e9;border-bottom-color:var(--red);border-color:var(--red);}
+
+  table.vocab{width:100%;border-collapse:collapse;font-size:10pt;}
+  table.vocab td{border:1px solid var(--line);padding:6pt 9pt;vertical-align:middle;}
+  table.vocab td.num{width:24pt;text-align:center;font-weight:600;color:var(--sea);}
+
+  /* sticky action bar */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(6px);border-top:1.5px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 20px;
+    box-shadow:0 -2px 10px rgba(0,0,0,.06);flex-wrap:wrap;}
+  .btn{font-family:'Inter';font-weight:600;font-size:11pt;border:none;border-radius:30px;
+    padding:10px 26px;cursor:pointer;transition:.15s;}
+  .btn.check{background:var(--sea);color:#fff;}
+  .btn.check:hover{background:#235871;}
+  .btn.reset{background:#fff;color:var(--ink-soft);border:1.5px solid var(--line-strong);}
+  .btn.reset:hover{background:var(--tint);}
+  .score{font-family:'DM Serif Display',serif;font-size:15pt;color:var(--ink);min-width:150px;text-align:center;}
+  .score small{font-family:'Inter';font-size:9pt;color:var(--ink-faint);display:block;font-weight:500;}
+
+  .banner{display:none;border-radius:6px;padding:16pt 20pt;margin:18pt 0 0;border:1px solid var(--line);background:var(--sea-soft);}
+  .banner.show{display:block;}
+  .banner h3{margin:0 0 6pt;color:var(--sea);font-size:16pt;}
+  .banner .grade{font-family:'DM Serif Display',serif;font-size:26pt;color:var(--ink);margin:2pt 0 8pt;}
+  .banner .subs{font-size:9.8pt;color:var(--ink-soft);line-height:1.95;}
+  .banner .subs b{color:var(--ink);}
+  .banner.good{background:#e6f3ec;border-color:#bfe0cc;}
+  .banner.good h3{color:var(--green);}
+  .banner .grade .g20{color:var(--sea);}
+  .banner.good .grade .g20{color:var(--green);}
+
+  .export{margin-top:14pt;border-top:1px dashed var(--line-strong);padding-top:12pt;}
+  .export-title{font-family:'Inter';font-weight:700;font-size:9pt;letter-spacing:1pt;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 8pt;}
+  .export-steps{font-size:10pt;color:var(--ink-soft);margin:0 0 10pt;}
+  .export-steps b{color:var(--ink);}
+  .export-btns{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn.xp{font-size:11.5pt;padding:11px 28px;background:var(--sea);color:#fff;}
+  .btn.xp:hover{background:#235871;}
+  .btn.xp.done{background:var(--green);}
+  .btn.xp.ghost{background:#fff;color:var(--ink-soft);border:1.5px solid var(--line-strong);}
+  .btn.xp.ghost:hover{background:var(--tint);}
+  .export-help{font-size:9pt;color:var(--ink-faint);margin:11pt 0 6pt;}
+  .export-code{width:100%;height:62px;font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:8.4pt;
+    color:var(--ink-soft);border:1px solid var(--line-strong);border-radius:4px;background:#fff;padding:7px 9px;resize:vertical;}
+  @media print{.export{display:none!important;}}
+
+  .footer{margin-top:24pt;border-top:1px solid var(--line);padding-top:8pt;
+    font-size:8.5pt;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+
+  @media print{
+    body{background:#fff;padding-bottom:0;}
+    .page{box-shadow:none;margin:0;max-width:100%;}
+    .bar{display:none!important;}
+    input[type=text],select{background:#fff;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <div class="masthead">
+    <div>
+      <p class="kicker">BTS Électrotechnique · ELEC 1 CL2 · Grammar test</p>
+      <h1>Grammar Test — Tenses, TO/FOR &amp; Pronouns</h1>
+    </div>
+    <div class="meta">
+      <b>Skills:</b> Grammar<br>
+      <b>Level:</b> B1 / B2<br>
+      <b>Total:</b> 35 points
+    </div>
+  </div>
+
+  <div class="idbar">
+    <label>Name: <input type="text" class="id-name" id="stuName" placeholder="First name + surname"></label>
+    <label>Class: <input type="text" class="id-date" id="stuClass" value="ELEC 1 CL2"></label>
+    <label>Date: <input type="text" class="id-date" id="stuDate" placeholder="dd/mm/yyyy"></label>
+  </div>
+
+  <div class="rules">
+    <b>How it works.</b> Fill in every blank with one word (or short form, e.g. <em>doesn't, hasn't</em>).
+    When you have finished, click <b>Submit my paper</b> at the bottom. The test will mark itself and give you a mark out of 35
+    (and out of 20). <b>No spell-check, no dictionary.</b> Good luck.
+  </div>
+
+  <!-- ===== PART A — TENSES ===== -->
+  <div class="section">
+    <h2><span class="part-no">A.</span> Verb tenses — Present Simple · Past Simple · Present Perfect</h2>
+
+    <!-- A1 Affirmative -->
+    <div class="exercise">
+      <div class="tag">Exercise A1 — Affirmative<span class="pts">6 pts</span></div>
+      <p class="instr">Put the verb in brackets in the correct tense (positive form).</p>
+      <ol class="q">
+        <li>An electric motor <input type="text" class="in-s" id="a1_1"> (turn) electrical energy into movement. <em>(general fact)</em></li>
+        <li>Last Tuesday, the main breaker <input type="text" class="in-s" id="a1_2"> (trip) during a power surge.</li>
+        <li>The site <input type="text" class="in-m" id="a1_3"> (use) this control panel <strong>since 2019</strong>.</li>
+        <li>The night team <input type="text" class="in-s" id="a1_4"> (inspect) the cables <strong>every week</strong>.</li>
+        <li>Two hours ago, an electrician <input type="text" class="in-s" id="a1_5"> (replace) the burnt fuse.</li>
+        <li>The supplier <input type="text" class="in-m" id="a1_6"> (already / deliver) the new motor, so we can start the repair.</li>
+      </ol>
+    </div>
+
+    <!-- A2 Negative -->
+    <div class="exercise">
+      <div class="tag">Exercise A2 — Negative<span class="pts">5 pts</span></div>
+      <p class="instr">Put the verb in brackets in the <strong>negative</strong>, in the correct tense (don't / doesn't / didn't / haven't / hasn't …).</p>
+      <ol class="q">
+        <li>A modern relay <input type="text" class="in-m" id="a2_1"> (not / make) a clicking noise when it works well.</li>
+        <li>The technicians <input type="text" class="in-m" id="a2_2"> (not / finish) the wiring yesterday because a part was missing.</li>
+        <li>We <input type="text" class="in-m" id="a2_3"> (not / test) the new sensor <strong>yet</strong>.</li>
+        <li>Apprentices <input type="text" class="in-m" id="a2_4"> (not / open) a live cabinet before they switch off the supply.</li>
+        <li>The factory <input type="text" class="in-m" id="a2_5"> (not / change) the insulating oil <strong>since</strong> last winter.</li>
+      </ol>
+    </div>
+
+    <!-- A3 Questions -->
+    <div class="exercise">
+      <div class="tag">Exercise A3 — Questions &amp; short answers<span class="pts">6 pts</span></div>
+      <p class="instr">Form the question, then give the short answer, in the correct tense.</p>
+      <ol class="q">
+        <li><input type="text" class="in-s" id="a3_1a"> the maintenance team <input type="text" class="in-s" id="a3_1b"> (hear) an alarm last night? — Yes, they <input type="text" class="in-s" id="a3_1c"> .</li>
+        <li><input type="text" class="in-s" id="a3_2a"> you ever <input type="text" class="in-s" id="a3_2b"> (work) with three-phase current? — No, I <input type="text" class="in-s" id="a3_2c"> .</li>
+      </ol>
+    </div>
+
+    <!-- A4 Mixed -->
+    <div class="exercise">
+      <div class="tag">Exercise A4 — Spot the tense from the time word<span class="pts">4 pts</span></div>
+      <p class="instr">Use the <strong>time marker in bold</strong> to choose the right tense.</p>
+      <ol class="q">
+        <li>We <input type="text" class="in-m" id="a4_1"> (monitor) the temperature <strong>for</strong> six months now.</li>
+        <li>The cable <input type="text" class="in-s" id="a4_2"> (melt) <strong>two days ago</strong> under a heavy load.</li>
+        <li>The team <input type="text" class="in-s" id="a4_3"> (check) the earth connection <strong>every month</strong>.</li>
+        <li>The supplier <input type="text" class="in-m" id="a4_4"> (not / send) the spare parts <strong>yet</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ===== PART B — TO / FOR ===== -->
+  <div class="section">
+    <h2><span class="part-no">B.</span> TO or FOR?</h2>
+    <div class="exercise">
+      <div class="tag">Exercise B — TO or FOR<span class="pts">8 pts</span></div>
+      <p class="instr">Choose <strong>TO</strong> or <strong>FOR</strong> in each blank.</p>
+      <ol class="q">
+        <li>The foreman called the electrician <select id="b_1"><option value=""></option><option>to</option><option>for</option></select> ask for help.</li>
+        <li>Lucas has worked on this line <select id="b_2"><option value=""></option><option>to</option><option>for</option></select> ten years.</li>
+        <li>They stopped the machine <select id="b_3"><option value=""></option><option>to</option><option>for</option></select> replace the belt.</li>
+        <li>The lab tested the oil <select id="b_4"><option value=""></option><option>to</option><option>for</option></select> the whole team.</li>
+        <li>The plant uses a generator <select id="b_5"><option value=""></option><option>to</option><option>for</option></select> supply power during outages.</li>
+        <li>A multimeter is a tool <select id="b_6"><option value=""></option><option>to</option><option>for</option></select> measuring voltage.</li>
+        <li>The crew decided <select id="b_7"><option value=""></option><option>to</option><option>for</option></select> shut down the unit.</li>
+        <li>The line was down <select id="b_8"><option value=""></option><option>to</option><option>for</option></select> three hours after the fault.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ===== PART C — PRONOUNS ===== -->
+  <div class="section">
+    <h2><span class="part-no">C.</span> Object pronouns</h2>
+    <div class="exercise">
+      <div class="tag">Exercise C — Fill in the pronoun<span class="pts">6 pts</span></div>
+      <p class="instr">Write the correct object pronoun (him, her, it, them, us, me, you) in each blank.</p>
+      <ol class="q">
+        <li>The motor was old, so the team replaced <input type="text" class="in-s" id="c_1"> with a new one.</li>
+        <li>Sophie is very experienced, so the manager always trusts <input type="text" class="in-s" id="c_2"> .</li>
+        <li>The machines stopped, and the electricians could not restart <input type="text" class="in-s" id="c_3"> .</li>
+        <li>"Bring me the gloves," said Lucas, "I need <input type="text" class="in-s" id="c_4"> now."</li>
+        <li>The manager called the chief electrician because she needed <input type="text" class="in-s" id="c_5"> .</li>
+        <li>"Can you help <input type="text" class="in-s" id="c_6"> ?" the new apprentice asked the foreman politely.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ===== RESULTS BANNER ===== -->
+  <div class="banner" id="banner">
+    <h3 id="bannerTitle">Your result</h3>
+    <div class="grade" id="bannerGrade"></div>
+    <div class="subs" id="bannerSubs"></div>
+
+    <div class="export" id="exportBox">
+      <p class="export-title">Envoyer ta note au professeur</p>
+      <p class="export-steps">Clique sur <b>Envoyer ma note</b> : un e-mail pré-rempli (avec ton nom, ta note et ton code) s'ouvre — il te reste juste à l'<b>envoyer</b>.</p>
+      <div class="export-btns">
+        <button class="btn xp" type="button" id="mailBtn" onclick="emailResult()">✉ Envoyer ma note par e-mail</button>
+        <button class="btn xp ghost" type="button" id="copyBtn" onclick="copyCode()">⧉ Copier mon code</button>
+      </div>
+      <p class="export-help">Si l'e-mail ne s'ouvre pas, clique sur <b>Copier mon code</b> et colle-le dans un message au professeur. Le code est aussi visible ci-dessous :</p>
+      <textarea class="export-code" id="exportCode" readonly onclick="this.select()"></textarea>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Grammar Test · BTS Électrotechnique — ELEC 1 CL2</span>
+    <span>Self-marking · 35 points</span>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ===== STICKY ACTION BAR ===== -->
+<div class="bar">
+  <button class="btn check" onclick="submitPaper()">Submit my paper ⚡</button>
+  <div class="score" id="scoreBox"><span id="scoreNum">— / 20</span><small>your mark</small></div>
+  <button class="btn reset" onclick="resetAll()">Reset</button>
+</div>
+
+<script>
+// ---------- Answer key (canonical first; all accepted alternatives) ----------
+var ANS = {
+  // A1 — Affirmative
+  a1_1:["turns"],
+  a1_2:["tripped"],
+  a1_3:["has used","'s used"],
+  a1_4:["inspects"],
+  a1_5:["replaced"],
+  a1_6:["has already delivered","'s already delivered"],
+  // A2 — Negative
+  a2_1:["doesn't make","does not make"],
+  a2_2:["didn't finish","did not finish"],
+  a2_3:["haven't tested","have not tested"],
+  a2_4:["don't open","do not open"],
+  a2_5:["hasn't changed","has not changed"],
+  // A3 — Questions & short answers
+  a3_1a:["did"], a3_1b:["hear"], a3_1c:["did"],
+  a3_2a:["have"], a3_2b:["worked"], a3_2c:["haven't","have not"],
+  // A4 — Mixed
+  a4_1:["have monitored","'ve monitored"],
+  a4_2:["melted"],
+  a4_3:["checks"],
+  a4_4:["hasn't sent","has not sent"],
+  // B — TO / FOR
+  b_1:["to"], b_2:["for"], b_3:["to"], b_4:["for"],
+  b_5:["to"], b_6:["for"], b_7:["to"], b_8:["for"],
+  // C — Pronouns
+  c_1:["it"], c_2:["her"], c_3:["them"], c_4:["them"], c_5:["him"], c_6:["me"]
+};
+
+var SECTIONS = [
+  {name:"A1 Affirmative", ids:["a1_1","a1_2","a1_3","a1_4","a1_5","a1_6"]},
+  {name:"A2 Negative",    ids:["a2_1","a2_2","a2_3","a2_4","a2_5"]},
+  {name:"A3 Questions",   ids:["a3_1a","a3_1b","a3_1c","a3_2a","a3_2b","a3_2c"]},
+  {name:"A4 Mixed",       ids:["a4_1","a4_2","a4_3","a4_4"]},
+  {name:"B TO/FOR",       ids:["b_1","b_2","b_3","b_4","b_5","b_6","b_7","b_8"]},
+  {name:"C Pronouns",     ids:["c_1","c_2","c_3","c_4","c_5","c_6"]}
+];
+
+var TOTAL = (function(){ var n=0; for(var k in ANS){ if(ANS.hasOwnProperty(k)) n++; } return n; })();
+
+// Build a short human label per id (e.g. "A1.2") for the teacher's statistics.
+var LABELS = {};
+(function(){
+  for(var s=0;s<SECTIONS.length;s++){
+    var sec = SECTIONS[s];
+    var prefix = sec.name.split(" ")[0]; // "A1", "A2", "B", "C"...
+    for(var i=0;i<sec.ids.length;i++){ LABELS[sec.ids[i]] = prefix + "." + (i+1); }
+  }
+})();
+
+var TEACHER_EMAIL = "Thomas.sean.murphy@gmail.com";
+var LAST = null; // last computed result object
+
+function norm(s){
+  return (s||"")
+    .toLowerCase()
+    .replace(/[‘’ʼ′`]/g,"'")
+    .replace(/[.,;:!?…–—]/g,"")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function isCorrect(id, val){
+  var v = norm(val);
+  if(v === "") return false;
+  var alts = ANS[id];
+  for(var i=0;i<alts.length;i++){ if(norm(alts[i]) === v) return true; }
+  return false;
+}
+function getVal(id){
+  var el = document.getElementById(id);
+  return el ? el.value : "";
+}
+
+function submitPaper(){
+  var score = 0;
+  var perSection = [];
+  var items = [];
+  for(var s=0;s<SECTIONS.length;s++){
+    var sec = SECTIONS[s], sc = 0;
+    for(var i=0;i<sec.ids.length;i++){
+      var id = sec.ids[i], el = document.getElementById(id);
+      if(!el) continue;
+      var given = el.value;
+      var ok = isCorrect(id, given);
+      el.classList.remove("correct","incorrect");
+      el.classList.add(ok ? "correct" : "incorrect");
+      if(ok){ sc++; score++; }
+      items.push({id:id, label:LABELS[id]||id, section:sec.name, ok:ok ? 1 : 0, given:(given||"").trim()});
+    }
+    perSection.push({name:sec.name, sc:sc, max:sec.ids.length});
+  }
+
+  // mark out of 20 (rounded to nearest half point)
+  var out20 = Math.round((score/TOTAL)*20*2)/2;
+
+  // store result for export
+  LAST = {
+    test: "Grammar Test ELEC1 CL2",
+    name: (getVal("stuName")||"").trim(),
+    cls:  (getVal("stuClass")||"").trim(),
+    date: (getVal("stuDate")||"").trim(),
+    submitted: new Date().toISOString(),
+    score: score, total: TOTAL, out20: out20,
+    sections: perSection,
+    items: items
+  };
+
+  document.getElementById("scoreNum").textContent = out20.toString().replace(".",",") + " / 20";
+
+  var b = document.getElementById("banner");
+  var good = (score/TOTAL) >= 0.6;
+  b.classList.add("show");
+  b.classList.toggle("good", good);
+
+  var name = LAST.name;
+  document.getElementById("bannerTitle").textContent = name ? ("Result — " + name) : "Your result";
+  document.getElementById("bannerGrade").innerHTML =
+    "<span class='g20'>" + out20.toString().replace(".",",") + " / 20</span>" +
+    "  <span style='font-size:14pt;color:var(--ink-faint);'>(" + score + " / " + TOTAL + " correct)</span>";
+
+  var rows = "";
+  for(var p=0;p<perSection.length;p++){
+    var ps = perSection[p];
+    rows += "<b>" + ps.name + "</b>: " + ps.sc + " / " + ps.max + " &nbsp;·&nbsp; ";
+  }
+  document.getElementById("bannerSubs").innerHTML =
+    rows + "<br>" + (good
+      ? "Well done — solid work. Review the red boxes to see what to fix."
+      : "Keep practising: look at every red box and check the rule again.");
+
+  // fill the copy-paste code
+  if(!LAST.name){
+    document.getElementById("exportCode").value = "⚠ Type your NAME at the top first, then click Submit again.";
+  } else {
+    document.getElementById("exportCode").value = "GTEST1::" + btoa(unescape(encodeURIComponent(JSON.stringify(LAST))));
+  }
+
+  b.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+function safeName(){
+  var n = (LAST && LAST.name) ? LAST.name : "student";
+  return n.replace(/[^a-z0-9]+/gi,"_").replace(/^_|_$/g,"") || "student";
+}
+
+function downloadResult(){
+  if(!LAST){ return; }
+  if(!LAST.name){ alert("Type your NAME at the top, then click Submit again before downloading."); return; }
+  var blob = new Blob([JSON.stringify(LAST,null,2)], {type:"application/json"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "GTEST_ELEC1CL2_" + safeName() + ".json";
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
+function emailResult(){
+  if(!LAST){ return; }
+  if(!LAST.name){ alert("Type your NAME at the top, then click Submit again."); return; }
+  var subject = "Grammar Test ELEC1 CL2 — " + LAST.name;
+  var lines = [];
+  lines.push("Name: " + LAST.name);
+  lines.push("Class: " + LAST.cls + "   Date: " + LAST.date);
+  lines.push("Mark: " + LAST.out20.toString().replace(".",",") + " / 20  (" + LAST.score + " / " + LAST.total + ")");
+  lines.push("");
+  for(var p=0;p<LAST.sections.length;p++){
+    lines.push(LAST.sections[p].name + ": " + LAST.sections[p].sc + " / " + LAST.sections[p].max);
+  }
+  lines.push("");
+  lines.push("Please also attach the downloaded .json file if your teacher asked for it.");
+  lines.push("");
+  lines.push("---RESULT CODE (do not edit)---");
+  lines.push(document.getElementById("exportCode").value);
+  var body = lines.join("\n");
+  window.location.href = "mailto:" + TEACHER_EMAIL +
+    "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
+function copyCode(){
+  var ta = document.getElementById("exportCode");
+  if(!ta.value || ta.value.indexOf("GTEST1::")!==0){
+    alert("Écris d'abord ton NOM en haut, puis clique sur « Submit my paper » avant de copier.");
+    return;
+  }
+  ta.select(); ta.setSelectionRange(0, 99999);
+  var done=false;
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ta.value); done=true;
+    } else { done = document.execCommand("copy"); }
+  }catch(e){ try{ done = document.execCommand("copy"); }catch(e2){} }
+  var btn = document.getElementById("copyBtn");
+  if(btn){
+    btn.textContent = done ? "✓ Code copié !" : "Sélectionne le code ci-dessous";
+    btn.classList.toggle("done", done);
+    setTimeout(function(){ btn.textContent="⧉ Copier mon code"; btn.classList.remove("done"); }, 2500);
+  }
+}
+
+function resetAll(){
+  for(var k in ANS){
+    if(!ANS.hasOwnProperty(k)) continue;
+    var el = document.getElementById(k);
+    if(!el) continue;
+    if(el.tagName === "SELECT"){ el.selectedIndex = 0; }
+    else { el.value = ""; }
+    el.classList.remove("correct","incorrect");
+  }
+  document.getElementById("scoreNum").textContent = "— / 20";
+  var ec = document.getElementById("exportCode"); if(ec){ ec.value = ""; }
+  LAST = null;
+  var b = document.getElementById("banner");
+  b.classList.remove("show","good");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
+</body>
+</html>

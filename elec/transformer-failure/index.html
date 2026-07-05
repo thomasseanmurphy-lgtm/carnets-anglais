@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Day the Transformer Failed — English Workbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --ink:#1d1d1f;
+    --ink-soft:#454548;
+    --ink-faint:#6c6c70;
+    --line:#e2e0db;
+    --line-strong:#c9c6bf;
+    --sea:#2b6a86;
+    --sea-soft:#eef4f6;
+    --amber:#b5710f;
+    --emerald:#1f6b4a;
+    --paper:#ffffff;
+    --tint:#f7f6f3;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    margin:0;
+    font-size:11pt;
+    line-height:1.6;
+  }
+
+  .page{
+    width:210mm;
+    min-height:297mm;
+    padding:20mm 19mm 18mm;
+    margin:0 auto;
+    background:var(--paper);
+  }
+
+  /* ---------- Typography ---------- */
+  h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--ink);line-height:1.12;}
+  h1{font-size:30pt;margin:0 0 4pt;letter-spacing:-.4pt;}
+  h2{
+    font-size:17pt;margin:0 0 10pt;padding-bottom:6pt;
+    border-bottom:1.5px solid var(--line-strong);
+  }
+  h3{font-size:12.5pt;margin:14pt 0 5pt;}
+  p{margin:0 0 9pt;}
+  strong{font-weight:600;}
+  em{color:var(--ink-soft);}
+  a{color:var(--sea);text-decoration:none;}
+
+  .kicker{
+    font-family:'Inter';font-weight:600;font-size:8.5pt;letter-spacing:2.2pt;
+    text-transform:uppercase;color:var(--sea);margin:0 0 10pt;
+  }
+  .lede{font-size:12pt;color:var(--ink-soft);max-width:62ch;}
+
+  .section{margin-top:26pt;}
+  .part-no{
+    font-family:'DM Serif Display',serif;font-style:italic;
+    color:var(--ink-faint);font-size:13pt;margin-right:6pt;
+  }
+
+  /* ---------- Header ---------- */
+  .masthead{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:2.5px solid var(--ink);padding-bottom:12pt;}
+  .masthead .meta{text-align:right;font-size:8.5pt;color:var(--ink-faint);line-height:1.5;}
+  .masthead .meta b{color:var(--ink-soft);font-weight:600;}
+
+  /* ---------- Reading text ---------- */
+  .reading{
+    background:var(--tint);
+    border:1px solid var(--line);
+    border-left:3px solid var(--sea);
+    padding:14pt 16pt 6pt;
+    border-radius:3px;
+    font-size:11pt;
+  }
+  .reading p:first-of-type::first-letter{
+    font-family:'DM Serif Display',serif;font-size:30pt;line-height:.8;
+    float:left;padding:4pt 6pt 0 0;color:var(--sea);
+  }
+
+  /* ---------- Generic boxes ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12pt;}
+  .card{border:1px solid var(--line);border-radius:4px;padding:11pt 13pt;background:#fff;}
+  .card h3{margin-top:0;}
+  .card.tinted{background:var(--tint);}
+
+  ul.clean{margin:4pt 0 9pt;padding-left:16pt;}
+  ul.clean li{margin-bottom:4pt;}
+
+  .pill{display:inline-block;font-size:7.6pt;font-weight:600;letter-spacing:.5pt;
+    text-transform:uppercase;padding:2pt 7pt;border-radius:20px;margin-bottom:6pt;}
+  .pill.amber{background:#fbf2e3;color:var(--amber);}
+  .pill.em{background:#e8f3ed;color:var(--emerald);}
+  .pill.sea{background:var(--sea-soft);color:var(--sea);}
+
+  /* ---------- Reminder box ---------- */
+  .reminder{
+    background:var(--sea-soft);
+    border:1px solid var(--line);
+    border-left:3px solid var(--sea);
+    border-radius:4px;
+    padding:13pt 15pt;
+    margin:11pt 0;
+  }
+  .reminder h3{margin-top:0;color:var(--sea);}
+  .reminder p{margin-bottom:6pt;}
+  .reminder ul{margin:4pt 0 6pt;padding-left:16pt;}
+  .reminder ul li{margin-bottom:4pt;}
+
+  table.rem{width:100%;border-collapse:collapse;font-size:9.5pt;margin:6pt 0 8pt;}
+  table.rem th,table.rem td{border:1px solid var(--line-strong);padding:6pt 9pt;vertical-align:top;text-align:left;}
+  table.rem th{background:#fff;font-weight:600;color:var(--ink-soft);font-size:8.5pt;text-transform:uppercase;letter-spacing:.6pt;}
+  table.rem td:first-child{white-space:nowrap;font-weight:600;}
+
+  /* ---------- Exercises ---------- */
+  .exercise{border:1px solid var(--line);border-radius:5px;padding:13pt 15pt;margin:11pt 0;background:#fff;}
+  .exercise .tag{font-size:8pt;font-weight:600;letter-spacing:1.2pt;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:3pt;}
+  .exercise h3{margin-top:0;}
+  .instr{font-style:italic;color:var(--ink-soft);font-size:10pt;margin-bottom:8pt;}
+
+  ol.q{margin:0;padding-left:18pt;}
+  ol.q li{margin-bottom:10pt;}
+  ol.q li .build{display:block;margin-top:4pt;}
+  .blank{display:inline-block;border-bottom:1px solid var(--ink-faint);min-width:90pt;height:11pt;}
+  .blankS{display:inline-block;border-bottom:1px solid var(--ink-faint);min-width:48pt;height:11pt;}
+  .prompt{color:var(--ink-faint);font-style:italic;font-size:9.5pt;}
+
+  table.vocab{width:100%;border-collapse:collapse;font-size:10pt;}
+  table.vocab td{border:1px solid var(--line);padding:6pt 9pt;vertical-align:top;}
+  table.vocab td.num{width:24pt;text-align:center;font-weight:600;color:var(--sea);}
+  table.vocab td.let{width:24pt;text-align:center;font-weight:600;color:var(--amber);}
+  table.vocab td.box{width:30pt;text-align:center;}
+  .lbox{display:inline-block;border:1px solid var(--ink-faint);border-radius:3px;width:22pt;height:14pt;vertical-align:middle;}
+
+  table.fr{width:100%;border-collapse:collapse;font-size:10pt;}
+  table.fr td,table.fr th{border:1px solid var(--line);padding:6pt 9pt;vertical-align:top;}
+  table.fr th{background:var(--tint);font-size:8.5pt;text-transform:uppercase;letter-spacing:.6pt;color:var(--ink-soft);font-weight:600;text-align:left;}
+  table.fr td.num{width:24pt;text-align:center;font-weight:600;color:var(--sea);}
+  table.fr td.en{width:45%;}
+
+  .wordbank{background:var(--tint);border:1px solid var(--line);border-radius:4px;
+    padding:8pt 12pt;font-size:10pt;margin-bottom:8pt;}
+  .wordbank b{color:var(--sea);}
+
+  /* ---------- Answer key ---------- */
+  .akey{border:1px solid var(--line);border-radius:5px;padding:11pt 15pt;margin:11pt 0;background:var(--tint);}
+  .akey .tag{font-size:8pt;font-weight:600;letter-spacing:1.2pt;text-transform:uppercase;
+    color:var(--amber);margin-bottom:4pt;}
+  .akey h3{margin-top:0;font-size:11.5pt;}
+  .akey ol{margin:0;padding-left:18pt;font-size:9.5pt;}
+  .akey ol li{margin-bottom:2pt;}
+  .akey .line{font-size:9.5pt;margin-bottom:4pt;}
+  .akey .line b{color:var(--ink);}
+
+  .footer{margin-top:20pt;border-top:1px solid var(--line);padding-top:8pt;
+    font-size:8pt;color:var(--ink-faint);display:flex;justify-content:space-between;}
+
+  @media print{
+    @page{size:A4;margin:13mm 15mm 11mm;}
+    body{font-size:10pt;line-height:1.45;}
+    .page{margin:0;padding:0;width:auto;min-height:0;}
+    .section{margin-top:12pt;}
+    /* protect only tables and boxes from splitting; let exercises flow to pack pages */
+    table.vocab,.reading,.card,.reminder,.akey{break-inside:avoid;}
+    .exercise{padding:9pt 12pt;margin:8pt 0;}
+    .exercise .tag{break-after:avoid;}
+    h2,h3{break-after:avoid;}
+    ol.q li{margin-bottom:5pt;}
+    table.vocab td{padding:4pt 7pt;}
+    .reading{padding:11pt 13pt 4pt;}
+    .reading p{margin-bottom:7pt;}
+  }
+  .pb{break-before:page;}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <div class="masthead">
+    <div>
+      <p class="kicker">BTS Électrotechnique · English workbook</p>
+      <h1>The Day the Transformer Failed</h1>
+    </div>
+    <div class="meta">
+      <b>Topic:</b> High-voltage &amp; transformers<br>
+      <b>Level:</b> B1 / B2<br>
+      <b>Skills:</b> Read · Vocabulary · Grammar
+    </div>
+  </div>
+
+  <p class="lede" style="margin-top:14pt;">A loud bang, smoke, and a whole plant in the dark. In this workbook you will
+  read the story of a transformer failure, build the technical vocabulary, and practise the grammar an electrician
+  needs at work: verb tenses, <em>to</em> vs <em>for</em>, and object pronouns.</p>
+
+  <!-- ===== PART I — READING ===== -->
+  <div class="section">
+    <h2><span class="part-no">I.</span> Reading: The Day the Transformer Failed</h2>
+    <div class="reading">
+      <p>A transformer is a key part of any high-voltage installation. It changes the voltage so that factories can
+      use electricity safely. When a transformer works well, nobody notices it. But when it fails, the whole plant
+      can stop in a second.</p>
+
+      <p>This is exactly what happened last March at a food-processing plant. The site uses a large oil-filled
+      transformer to feed its heavy machines. One morning, the maintenance team heard a loud bang. Smoke came out
+      of the transformer, and oil started to leak from the bottom of the tank. All the machines downstream lost
+      their power immediately.</p>
+
+      <p>The chief technician, Marco, has worked at the plant for fifteen years, so the manager called him first.
+      "We need you here now," she told him. Marco arrived in ten minutes. He looked at the transformer and said to
+      his team: "Don't touch it yet. Safety first."</p>
+
+      <p>The technicians took an oil sample to find the cause. The laboratory ran a Dissolved Gas Analysis for them.
+      The results were clear: the oil contained too much moisture, and water had destroyed the insulation. An
+      internal electric arc had then burned the windings.</p>
+
+      <p>The team could not repair the unit quickly, so they decided to bring a mobile transformer to the site. It
+      arrived three days later. They connected it carefully and gave the plant its power back.</p>
+
+      <p>Since that day, the company has tested the oil every month. Good maintenance protects the equipment — and
+      it protects the workers too.</p>
+    </div>
+    <p style="font-size:8.5pt;color:var(--ink-faint);font-style:italic;margin-top:5pt;">
+      Word count: ~250 · Reading text — B1/B2 — ELEC 1 CL2.</p>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<div class="page">
+
+  <!-- ===== PART II — VOCABULARY ===== -->
+  <div class="section" style="margin-top:0;">
+    <h2><span class="part-no">II.</span> Vocabulary</h2>
+    <p class="instr">All the words come from the reading text and the high-voltage / transformer / maintenance theme.</p>
+
+    <div class="exercise">
+      <div class="tag">Exercise 1 — Match</div>
+      <p class="instr">Match each word or phrase (1–10) with the correct definition (a–j). Write the letter in the box.</p>
+      <table class="vocab">
+        <tr>
+          <td class="num">1</td><td>transformer</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">a</td><td>the coils of wire inside a transformer</td>
+        </tr>
+        <tr>
+          <td class="num">2</td><td>voltage</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">b</td><td>a sudden flash of electricity that jumps across a gap</td>
+        </tr>
+        <tr>
+          <td class="num">3</td><td>oil-filled</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">c</td><td>small amounts of water in a material</td>
+        </tr>
+        <tr>
+          <td class="num">4</td><td>leak</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">d</td><td>a device that changes the level of the electrical voltage</td>
+        </tr>
+        <tr>
+          <td class="num">5</td><td>tank</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">e</td><td>the closed container that holds the oil</td>
+        </tr>
+        <tr>
+          <td class="num">6</td><td>downstream</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">f</td><td>a material that stops electricity from passing where it should not</td>
+        </tr>
+        <tr>
+          <td class="num">7</td><td>moisture</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">g</td><td>filled with oil to cool it and protect it</td>
+        </tr>
+        <tr>
+          <td class="num">8</td><td>insulation</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">h</td><td>when liquid escapes from a container through a hole</td>
+        </tr>
+        <tr>
+          <td class="num">9</td><td>arc</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">i</td><td>the electrical "pressure" that pushes the current</td>
+        </tr>
+        <tr>
+          <td class="num">10</td><td>windings</td><td class="box"><span class="lbox"></span></td>
+          <td class="let">j</td><td>further along the circuit, after this point (toward the machines)</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 2 — Complete the sentences (gap-fill)</div>
+      <p class="instr">Complete each sentence with one word from the word bank. Each word is used once.</p>
+      <div class="wordbank"><b>Word bank:</b> maintenance · technician · equipment · sample · high-voltage · power · failure · safely</div>
+      <ol class="q">
+        <li>Before any work on the <span class="blank"></span>, the team must cut the supply so that nobody gets a shock.</li>
+        <li>A regular <span class="blank"></span> check helps to find a problem before the transformer breaks down.</li>
+        <li>The laboratory needs a small oil <span class="blank"></span> to test the condition of the unit.</li>
+        <li>A trained <span class="blank"></span> wears gloves and a helmet when he works near live parts.</li>
+        <li>Every <span class="blank"></span> installation must be protected by clear warning signs and locked doors.</li>
+        <li>After the repair, the engineers gave the plant its <span class="blank"></span> back and the machines started again.</li>
+        <li>A serious <span class="blank"></span> can stop the whole production line in only a few seconds.</li>
+        <li>When the procedure is respected, the team can do the job <span class="blank"></span> and without accidents.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 3 — French → English</div>
+      <p class="instr">Translate each French technical word or expression into English. Write your answer in the empty column.</p>
+      <table class="fr">
+        <tr><th class="num">#</th><th>Français</th><th class="en">English</th></tr>
+        <tr><td class="num">1</td><td>un transformateur</td><td class="en"></td></tr>
+        <tr><td class="num">2</td><td>la tension (électrique)</td><td class="en"></td></tr>
+        <tr><td class="num">3</td><td>la haute tension</td><td class="en"></td></tr>
+        <tr><td class="num">4</td><td>une fuite</td><td class="en"></td></tr>
+        <tr><td class="num">5</td><td>la cuve / le réservoir</td><td class="en"></td></tr>
+        <tr><td class="num">6</td><td>l'huile</td><td class="en"></td></tr>
+        <tr><td class="num">7</td><td>l'humidité</td><td class="en"></td></tr>
+        <tr><td class="num">8</td><td>l'isolation / l'isolant</td><td class="en"></td></tr>
+        <tr><td class="num">9</td><td>les enroulements / bobinages</td><td class="en"></td></tr>
+        <tr><td class="num">10</td><td>un arc électrique</td><td class="en"></td></tr>
+        <tr><td class="num">11</td><td>la maintenance / l'entretien</td><td class="en"></td></tr>
+        <tr><td class="num">12</td><td>un technicien</td><td class="en"></td></tr>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /page 2 -->
+
+
+<div class="page">
+
+  <!-- ===== PART III — GRAMMAR: TENSES ===== -->
+  <div class="section" style="margin-top:0;">
+    <h2><span class="part-no">III.</span> Grammar: Verb Tenses</h2>
+    <p class="instr">Present Simple vs Past Simple vs Present Perfect.</p>
+
+    <div class="reminder">
+      <h3>Reminder — the three tenses</h3>
+      <table class="rem">
+        <tr><th>Tense</th><th>Use</th><th>Typical time markers</th></tr>
+        <tr><td>Present Simple</td><td>facts &amp; habits (things that are always or generally true)</td>
+          <td><em>every day, usually, often, always, normally, once a month</em></td></tr>
+        <tr><td>Past Simple</td><td>a finished action at a finished past time</td>
+          <td><em>yesterday, last March, in 2023, two days ago, when I was an apprentice</em></td></tr>
+        <tr><td>Present Perfect</td><td>a link with <strong>now</strong> / an unfinished period of time</td>
+          <td><em>since, for, already, yet, ever, never, just, recently, so far</em></td></tr>
+      </table>
+      <p style="margin-bottom:3pt;"><strong>Quick test:</strong></p>
+      <ul>
+        <li>Is it always true / a routine? → <strong>Present Simple</strong> (<em>The transformer changes the voltage.</em>)</li>
+        <li>Is it over, at a clear past moment? → <strong>Past Simple</strong> (<em>The transformer failed last March.</em>)</li>
+        <li>Does it connect the past to now (no exact date)? → <strong>Present Perfect</strong> (<em>The company has tested the oil since that day.</em>)</li>
+      </ul>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 4 — Positive (affirmative): put the verb in the correct tense</div>
+      <p class="instr">Read the time marker, then write the verb in brackets in the Present Simple, Past Simple or Present Perfect.</p>
+      <ol class="q">
+        <li>A transformer <span class="blankS"></span> <span class="prompt">(change)</span> the voltage so that factories can use electricity safely. <span class="prompt">(general fact)</span></li>
+        <li>Last March, smoke <span class="blankS"></span> <span class="prompt">(come)</span> out of the transformer at the food-processing plant.</li>
+        <li>Marco <span class="blankS"></span> <span class="prompt">(work)</span> at the plant for fifteen years.</li>
+        <li>The maintenance team <span class="blankS"></span> <span class="prompt">(check)</span> the oil level <strong>every month</strong>.</li>
+        <li>The laboratory <span class="blankS"></span> <span class="prompt">(run)</span> a Dissolved Gas Analysis on the sample <strong>yesterday</strong>.</li>
+        <li>The technicians <span class="blank"></span> <span class="prompt">(already / connect)</span> the mobile transformer, so the plant has power again.</li>
+        <li>Two days ago, the team <span class="blankS"></span> <span class="prompt">(take)</span> an oil sample to find the cause of the fault.</li>
+        <li>Since the accident, the company <span class="blank"></span> <span class="prompt">(improve)</span> its safety procedures.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 5 — Negative form</div>
+      <p class="instr">Write the verb in brackets in the <strong>negative</strong>, in the correct tense (don't / doesn't / didn't / haven't / hasn't …).</p>
+      <ol class="q">
+        <li>A good transformer <span class="blank"></span> <span class="prompt">(not / make)</span> a loud noise when it works normally.</li>
+        <li>The technicians <span class="blank"></span> <span class="prompt">(not / repair)</span> the damaged unit last week — it was too dangerous.</li>
+        <li>We <span class="blank"></span> <span class="prompt">(not / test)</span> the new transformer yet.</li>
+        <li>The plant <span class="blank"></span> <span class="prompt">(not / lose)</span> power yesterday because the back-up system started.</li>
+        <li>Apprentices <span class="blank"></span> <span class="prompt">(not / touch)</span> a high-voltage unit before they switch off the supply.</li>
+        <li>Marco <span class="blank"></span> <span class="prompt">(not / find)</span> the cause of the fault until the lab sent the results.</li>
+        <li>The company <span class="blank"></span> <span class="prompt">(not / change)</span> the insulating oil since January.</li>
+        <li>This old breaker <span class="blank"></span> <span class="prompt">(not / protect)</span> the circuit properly nowadays.</li>
+      </ol>
+    </div>
+  </div>
+
+</div><!-- /page 3 -->
+
+
+<div class="page">
+
+  <div class="section" style="margin-top:0;">
+    <div class="exercise">
+      <div class="tag">Exercise 6 — Questions &amp; short answers</div>
+      <p class="instr">Form the question, or give the short answer, in the correct tense.</p>
+      <ol class="q">
+        <li><span class="blankS"></span> the maintenance team <span class="blankS"></span> <span class="prompt">(hear)</span> a loud bang last March? — Yes, they <span class="blankS"></span>.</li>
+        <li><span class="blankS"></span> a transformer <span class="blankS"></span> <span class="prompt">(need)</span> regular oil tests? — Yes, it <span class="blankS"></span>.</li>
+        <li><span class="blankS"></span> you ever <span class="blankS"></span> <span class="prompt">(work)</span> on a high-voltage installation? — No, I <span class="blankS"></span>.</li>
+        <li>How long <span class="blankS"></span> Marco <span class="blankS"></span> <span class="prompt">(be)</span> the chief technician at the plant?</li>
+        <li><span class="blankS"></span> the laboratory <span class="blankS"></span> <span class="prompt">(finish)</span> the Dissolved Gas Analysis yet? — Yes, it <span class="blankS"></span>.</li>
+        <li>When <span class="blankS"></span> the mobile transformer <span class="blankS"></span> <span class="prompt">(arrive)</span> on site? — It <span class="blankS"></span> three days later.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 7 — Mixed: spot the tense from the time word</div>
+      <p class="instr">Each sentence contains a <strong>key temporal word</strong> (in bold). Use it to choose the right tense and write the verb in brackets.</p>
+      <ol class="q">
+        <li>We <span class="blank"></span> <span class="prompt">(test)</span> the insulating oil <strong>for</strong> three years now.</li>
+        <li>The transformer <span class="blankS"></span> <span class="prompt">(explode)</span> <strong>two days ago</strong> during a heavy load.</li>
+        <li>The technicians <span class="blankS"></span> <span class="prompt">(inspect)</span> every breaker <strong>every month</strong>.</li>
+        <li>Marco <span class="blankS"></span> <span class="prompt">(work)</span> here <strong>since</strong> 2011.</li>
+        <li>I <span class="blank"></span> <span class="prompt">(not / see)</span> such a serious fault <strong>when I was an apprentice</strong>.</li>
+        <li>The team <span class="blankS"></span> <span class="blankS"></span> <span class="prompt">(just / replace)</span> the burnt windings.</li>
+        <li><strong>In 2024</strong>, the plant <span class="blankS"></span> <span class="prompt">(install)</span> a brand-new oil-filled transformer.</li>
+        <li>The laboratory <span class="blank"></span> <span class="prompt">(not / send)</span> the results <strong>yet</strong>.</li>
+        <li>The supply voltage <span class="blankS"></span> <span class="prompt">(be)</span> stable <strong>right now</strong>.</li>
+        <li>We <span class="blankS"></span> <span class="prompt">(finish)</span> the maintenance report <strong>last week</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 8 — Find and correct the mistake</div>
+      <p class="instr">Each sentence has <strong>one</strong> wrong tense (typical Franglais errors). Rewrite the sentence correctly.</p>
+      <ol class="q">
+        <li>Since two years I work at this power plant.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+        <li>The transformer is failing last March and the whole plant stopped.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+        <li>Marco works here for fifteen years.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+        <li>Yesterday the lab has run a Dissolved Gas Analysis on the oil.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+        <li>We didn't tested the moisture level yet.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+        <li>Every month the company tested the insulating oil.<span class="build"><span class="blank" style="min-width:330pt;"></span></span></li>
+      </ol>
+    </div>
+  </div>
+
+</div><!-- /page 4 -->
+
+
+<div class="page">
+
+  <!-- ===== PART IV — GRAMMAR: TO/FOR & PRONOUNS ===== -->
+  <div class="section" style="margin-top:0;">
+    <h2><span class="part-no">IV.</span> Grammar: <em>To</em> vs <em>For</em> &amp; Object Pronouns</h2>
+
+    <div class="reminder">
+      <h3>Reminder — TO vs FOR</h3>
+      <p style="margin-bottom:4pt;"><strong>TO</strong></p>
+      <ul>
+        <li><strong>+ verb = purpose / goal:</strong> <em>He came <strong>to repair</strong> the transformer.</em></li>
+        <li><strong>direction / recipient:</strong> <em>She said <strong>to him</strong>, "We need you here now."</em></li>
+      </ul>
+      <p style="margin-bottom:4pt;"><strong>FOR</strong></p>
+      <ul>
+        <li><strong>+ noun / -ing = beneficiary:</strong> <em>The lab ran the test <strong>for the team</strong>.</em></li>
+        <li><strong>duration:</strong> <em>Marco has worked here <strong>for fifteen years</strong>.</em></li>
+        <li><strong>reason / use:</strong> <em>It is a tool <strong>for testing</strong> the oil.</em></li>
+      </ul>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 9 — TO or FOR?</div>
+      <p class="instr">Write <strong>TO</strong> or <strong>FOR</strong> in each blank.</p>
+      <ol class="q">
+        <li>The manager called Marco <span class="blankS"></span> ask for help with the transformer.</li>
+        <li>Marco has worked at the plant <span class="blankS"></span> fifteen years.</li>
+        <li>The technicians took an oil sample <span class="blankS"></span> find the cause of the failure.</li>
+        <li>The laboratory ran a Dissolved Gas Analysis <span class="blankS"></span> the maintenance team.</li>
+        <li>The plant uses a large oil-filled transformer <span class="blankS"></span> feed its heavy machines.</li>
+        <li>The DGA is a useful test <span class="blankS"></span> checking the condition of the oil.</li>
+        <li>The team decided <span class="blankS"></span> bring a mobile transformer to the site.</li>
+        <li>The site had no power <span class="blankS"></span> three days after the failure.</li>
+        <li>Good maintenance is important <span class="blankS"></span> the safety of the workers.</li>
+        <li>The technicians wore gloves <span class="blankS"></span> protect their hands from the hot oil.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 10 — Build the sentence</div>
+      <p class="instr">Complete each sentence using <strong>TO</strong> or <strong>FOR</strong> plus the given words.</p>
+      <ol class="q">
+        <li><span class="prompt">Marco arrived in ten minutes / check / the transformer.</span><br>
+          → Marco arrived in ten minutes <span class="blank" style="min-width:220pt;"></span>.</li>
+        <li><span class="prompt">The company tests the oil every month / the safety / of the plant.</span><br>
+          → The company tests the oil every month <span class="blank" style="min-width:220pt;"></span>.</li>
+        <li><span class="prompt">The technicians used a sample / find / the cause of the fault.</span><br>
+          → The technicians used a sample <span class="blank" style="min-width:220pt;"></span>.</li>
+        <li><span class="prompt">A multimeter is a tool / measure / voltage.</span><br>
+          → A multimeter is <span class="blank" style="min-width:260pt;"></span>.</li>
+        <li><span class="prompt">The plant was without power / two days / after the bang.</span><br>
+          → The plant was without power <span class="blank" style="min-width:230pt;"></span>.</li>
+      </ol>
+    </div>
+  </div>
+
+</div><!-- /page 5 -->
+
+
+<div class="page">
+
+  <div class="section" style="margin-top:0;">
+    <div class="reminder">
+      <h3>Reminder — Object pronouns</h3>
+      <table class="vocab" style="font-size:9.5pt;">
+        <tr>
+          <td style="background:var(--tint);font-weight:600;width:60pt;">Subject</td>
+          <td style="background:var(--tint);font-weight:600;width:55pt;">Object</td>
+          <td style="background:var(--tint);font-weight:600;">Themed example</td>
+        </tr>
+        <tr><td>I</td><td><strong>me</strong></td><td>The manager called <strong>me</strong> at 6 a.m.</td></tr>
+        <tr><td>you</td><td><strong>you</strong></td><td>"We need <strong>you</strong> here now," she said.</td></tr>
+        <tr><td>he</td><td><strong>him</strong></td><td>The manager called <strong>him</strong> first.</td></tr>
+        <tr><td>she</td><td><strong>her</strong></td><td>Marco trusts <strong>her</strong> decisions.</td></tr>
+        <tr><td>it</td><td><strong>it</strong></td><td>The transformer failed, so they replaced <strong>it</strong>.</td></tr>
+        <tr><td>we</td><td><strong>us</strong></td><td>The lab ran the test for <strong>us</strong>.</td></tr>
+        <tr><td>they</td><td><strong>them</strong></td><td>The windings were burned, so we changed <strong>them</strong>.</td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 11 — Replace with the correct pronoun</div>
+      <p class="instr">Replace the <strong>bold</strong> word(s) with the correct object pronoun (him, her, it, them, us, me, you).</p>
+      <ol class="q">
+        <li>The manager called <strong>Marco</strong> first.<br>
+          → The manager called <span class="blankS"></span> first.</li>
+        <li>The technicians took <strong>an oil sample</strong> to the laboratory.<br>
+          → The technicians took <span class="blankS"></span> to the laboratory.</li>
+        <li>The laboratory ran a Dissolved Gas Analysis for <strong>the maintenance team</strong>.<br>
+          → The laboratory ran a Dissolved Gas Analysis for <span class="blankS"></span>.</li>
+        <li>The arc burned <strong>the windings</strong>.<br>
+          → The arc burned <span class="blankS"></span>.</li>
+        <li>Marco said to <strong>his team</strong>, "Don't touch it yet."<br>
+          → Marco said to <span class="blankS"></span>, "Don't touch it yet."</li>
+        <li>The manager trusts <strong>Marco</strong> completely.<br>
+          → The manager trusts <span class="blankS"></span> completely.</li>
+        <li>Water destroyed <strong>the insulation</strong>.<br>
+          → Water destroyed <span class="blankS"></span>.</li>
+        <li>The team connected <strong>the mobile transformer</strong> carefully.<br>
+          → The team connected <span class="blankS"></span> carefully.</li>
+        <li>"We need <strong>you and me</strong> on site now," the manager told the engineers.<br>
+          → "We need <span class="blankS"></span> on site now," the manager told the engineers.</li>
+        <li>The company has tested <strong>the oil</strong> every month since March.<br>
+          → The company has tested <span class="blankS"></span> every month since March.</li>
+      </ol>
+    </div>
+
+    <div class="exercise">
+      <div class="tag">Exercise 12 — Fill in the pronoun</div>
+      <p class="instr">Write the correct object pronoun (him, her, it, them, us, me, you) in each blank.</p>
+      <ol class="q">
+        <li>The transformer was old, so the team replaced <span class="blankS"></span> with a mobile unit.</li>
+        <li>Marco is very experienced, so the manager always listens to <span class="blankS"></span>.</li>
+        <li>The machines lost their power, and the technicians could not restart <span class="blankS"></span>.</li>
+        <li>"Bring me the tools," said Marco, "I need <span class="blankS"></span> now."</li>
+        <li>The manager called the chief technician because she trusted <span class="blankS"></span>.</li>
+        <li>"Stay back," Marco told his team. "I don't want <span class="blankS"></span> near the tank."</li>
+        <li>The oil contained too much moisture, so the lab tested <span class="blankS"></span> again.</li>
+        <li>"Can you help <span class="blankS"></span>?" the new apprentice asked Marco politely.</li>
+      </ol>
+    </div>
+  </div>
+
+</div><!-- /page 6 -->
+
+
+<!-- ===== PART V — ANSWER KEY (teacher pages) ===== -->
+<div class="page pb">
+
+  <div class="section pb" style="margin-top:0;">
+    <h2><span class="part-no">V.</span> Answer Key <span style="font-size:9pt;color:var(--ink-faint);font-style:italic;font-family:'Inter';">(teacher copy — give students pages 1–7 only)</span></h2>
+
+    <h3 style="color:var(--sea);">Vocabulary</h3>
+
+    <div class="akey">
+      <div class="tag">Exercise 1 — Match</div>
+      <div class="line">1 → <b>d</b> · 2 → <b>i</b> · 3 → <b>g</b> · 4 → <b>h</b> · 5 → <b>e</b> · 6 → <b>j</b> · 7 → <b>c</b> · 8 → <b>f</b> · 9 → <b>b</b> · 10 → <b>a</b></div>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 2 — Gap-fill</div>
+      <div class="line">1. equipment &nbsp; 2. maintenance &nbsp; 3. sample &nbsp; 4. technician &nbsp; 5. high-voltage &nbsp; 6. power &nbsp; 7. failure &nbsp; 8. safely</div>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 3 — French → English</div>
+      <div class="line">1. a transformer &nbsp; 2. voltage &nbsp; 3. high voltage / high-voltage &nbsp; 4. a leak &nbsp; 5. the tank &nbsp; 6. oil &nbsp;
+        7. moisture / humidity &nbsp; 8. insulation &nbsp; 9. the windings &nbsp; 10. an (electric) arc &nbsp; 11. maintenance &nbsp; 12. a technician</div>
+    </div>
+
+    <h3 style="color:var(--sea);margin-top:16pt;">Verb Tenses</h3>
+
+    <div class="akey">
+      <div class="tag">Exercise 4</div>
+      <ol>
+        <li><b>changes</b> (Present Simple — general fact)</li>
+        <li><b>came</b> (Past Simple — <em>last March</em>)</li>
+        <li><b>has worked</b> (Present Perfect — <em>for fifteen years</em>)</li>
+        <li><b>checks</b> (Present Simple — <em>every month</em>)</li>
+        <li><b>ran</b> (Past Simple — <em>yesterday</em>)</li>
+        <li><b>have already connected</b> (Present Perfect — <em>already</em>)</li>
+        <li><b>took</b> (Past Simple — <em>two days ago</em>)</li>
+        <li><b>has improved</b> (Present Perfect — <em>since the accident</em>)</li>
+      </ol>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 5</div>
+      <ol>
+        <li><b>doesn't make</b> (Present Simple)</li>
+        <li><b>didn't repair</b> (Past Simple — <em>last week</em>)</li>
+        <li><b>haven't tested</b> (Present Perfect — <em>yet</em>)</li>
+        <li><b>didn't lose</b> (Past Simple — <em>yesterday</em>)</li>
+        <li><b>don't touch</b> (Present Simple — general rule)</li>
+        <li><b>didn't find</b> (Past Simple — <em>until …</em>)</li>
+        <li><b>hasn't changed</b> (Present Perfect — <em>since January</em>)</li>
+        <li><b>doesn't protect</b> (Present Simple — <em>nowadays</em>)</li>
+      </ol>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 6</div>
+      <ol>
+        <li><b>Did</b> the maintenance team <b>hear</b> a loud bang last March? — Yes, they <b>did</b>.</li>
+        <li><b>Does</b> a transformer <b>need</b> regular oil tests? — Yes, it <b>does</b>.</li>
+        <li><b>Have</b> you ever <b>worked</b> on a high-voltage installation? — No, I <b>haven't</b>.</li>
+        <li>How long <b>has</b> Marco <b>been</b> the chief technician at the plant? <em>(Present Perfect — link with now)</em></li>
+        <li><b>Has</b> the laboratory <b>finished</b> the Dissolved Gas Analysis yet? — Yes, it <b>has</b>.</li>
+        <li>When <b>did</b> the mobile transformer <b>arrive</b> on site? — It <b>arrived</b> three days later.</li>
+      </ol>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 7</div>
+      <ol>
+        <li><b>have tested</b> (Present Perfect — <em>for … now</em>)</li>
+        <li><b>exploded</b> (Past Simple — <em>two days ago</em>)</li>
+        <li><b>inspect</b> (Present Simple — <em>every month</em>)</li>
+        <li><b>has worked</b> (Present Perfect — <em>since</em>)</li>
+        <li><b>didn't see</b> (Past Simple — <em>when I was an apprentice</em>)</li>
+        <li><b>have just replaced</b> (Present Perfect — <em>just</em>)</li>
+        <li><b>installed</b> (Past Simple — <em>in 2024</em>)</li>
+        <li><b>hasn't sent</b> (Present Perfect — <em>yet</em>)</li>
+        <li><b>is</b> (Present Simple — <em>right now</em>, state verb)</li>
+        <li><b>finished</b> (Past Simple — <em>last week</em>)</li>
+      </ol>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 8</div>
+      <ol>
+        <li><b>I have worked at this power plant for two years.</b> (<em>since two years</em> → <em>for two years</em> + Present Perfect)</li>
+        <li><b>The transformer failed last March and the whole plant stopped.</b> (Past Simple with <em>last March</em>)</li>
+        <li><b>Marco has worked here for fifteen years.</b> (Present Perfect with <em>for</em>)</li>
+        <li><b>Yesterday the lab ran a Dissolved Gas Analysis on the oil.</b> (Past Simple with <em>yesterday</em>)</li>
+        <li><b>We haven't tested the moisture level yet.</b> (Present Perfect with <em>yet</em>)</li>
+        <li><b>Every month the company tests the insulating oil.</b> (Present Simple with <em>every month</em>)</li>
+      </ol>
+    </div>
+
+    <h3 style="color:var(--sea);margin-top:16pt;">TO / FOR &amp; Object Pronouns</h3>
+
+    <div class="akey">
+      <div class="tag">Exercise 9 — TO or FOR?</div>
+      <div class="line">1. to &nbsp; 2. for &nbsp; 3. to &nbsp; 4. for &nbsp; 5. to &nbsp; 6. for &nbsp; 7. to &nbsp; 8. for &nbsp; 9. for &nbsp; 10. to</div>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 10 — Build the sentence</div>
+      <ol>
+        <li>…<b>to check</b> the transformer.</li>
+        <li>…<b>for the safety</b> of the plant.</li>
+        <li>…<b>to find</b> the cause of the fault.</li>
+        <li>…a tool <b>for measuring</b> voltage. <em>(also accepted: a tool <strong>to measure</strong> voltage)</em></li>
+        <li>…<b>for two days</b> after the bang.</li>
+      </ol>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 11 — Replace with the correct pronoun</div>
+      <div class="line">1. him &nbsp; 2. it &nbsp; 3. them &nbsp; 4. them &nbsp; 5. them &nbsp; 6. him &nbsp; 7. it &nbsp; 8. it &nbsp; 9. us &nbsp; 10. it</div>
+    </div>
+
+    <div class="akey">
+      <div class="tag">Exercise 12 — Fill in the pronoun</div>
+      <div class="line">1. it &nbsp; 2. him &nbsp; 3. them &nbsp; 4. them &nbsp; 5. him &nbsp; 6. them &nbsp; 7. it &nbsp; 8. me</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>The Day the Transformer Failed · BTS Électrotechnique — English workbook · ELEC 1 CL2</span>
+    <span>Answer Key — teacher copy</span>
+  </div>
+
+</div><!-- /answer key -->
+
+</body>
+</html>

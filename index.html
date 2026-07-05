@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carnets d'anglais — Murphy</title>
+<style>
+  :root{--ink:#16332a;--muted:#5f6a75;--accent:#127a55;--faint:#9aa6b2;}
+  *{box-sizing:border-box;}
+  body{font-family:system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#eafff4,#eafaff);
+    color:var(--ink);margin:0;min-height:100vh;padding:36px 20px 56px;display:flex;flex-direction:column;align-items:center;}
+  h1{font-size:30px;text-align:center;margin:0 0 4px;}
+  .sub{color:var(--muted);text-align:center;margin:0 0 26px;font-size:15px;}
+  .wrap{width:100%;max-width:560px;}
+  .classhdr{display:flex;align-items:center;gap:10px;margin:26px 4px 12px;}
+  .classhdr h2{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0;}
+  .classhdr .line{flex:1;height:1px;background:#cfe5da;}
+  a.chap{display:block;background:#fff;border-radius:18px;padding:16px 20px;margin:9px 0;
+    box-shadow:0 8px 22px rgba(40,90,70,.12);text-decoration:none;color:var(--accent);font-weight:700;font-size:17px;
+    transition:.15s;}
+  a.chap:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(40,90,70,.2);}
+  a.chap small{display:block;color:var(--faint);font-weight:600;font-size:12.5px;margin-top:3px;}
+  .eval{border-left:4px solid #e0a43b;}
+  .eval small b{color:#c8871f;}
+  footer{margin-top:40px;text-align:center;color:var(--faint);font-size:12px;line-height:1.6;}
+  footer a{color:var(--accent);text-decoration:none;font-weight:600;}
+</style>
+</head>
+<body>
+  <h1>📘 Carnets d'anglais</h1>
+  <p class="sub">Exercices interactifs auto-corrigés /20 · trouve ta classe ci-dessous</p>
+
+  <div class="wrap">
+
+    <div class="classhdr"><h2>🏗️ BTS MS — Maintenance</h2><span class="line"></span></div>
+    <a class="chap" href="ms/crane-installation/">🏗️ Heavy Lift &amp; Installation<small>Livraison &amp; installation d'une presse par grue · reading &amp; grammar · B1–B2</small></a>
+    <a class="chap" href="ms/insurance-audit/">🛡️ The Insurance Audit<small>Audit des risques dans une usine · reading &amp; grammar · B1–B2</small></a>
+
+    <div class="classhdr"><h2>🛠️ BTS CPRP — Conception</h2><span class="line"></span></div>
+    <a class="chap" href="cprp/recycling-drive/">♻️ Machining Workshop — Recycling Drive<small>Recyclage à l'atelier · reading &amp; grammar · B1</small></a>
+    <a class="chap" href="cprp/delivery-qc/">📐 Delivery, Calibration &amp; Quality Control<small>Réception, calibration &amp; contrôle qualité · B1</small></a>
+    <a class="chap" href="cprp/nuclear-series/">⚙️ A New Series<small>Nouvelle série de pièces · reading &amp; grammar · A1–A2</small></a>
+    <a class="chap" href="cprp/nuclear-series-2/">⚙️ Workshop &amp; Machines (No 2)<small>Atelier &amp; machines · reading &amp; grammar · A1–A2</small></a>
+    <a class="chap" href="cprp/nuclear-series-engineer/">⚙️ A New Series — Engineer<small>Version approfondie · reading &amp; grammar · B1</small></a>
+
+    <div class="classhdr"><h2>⚡ BTS ELEC — Électrotechnique</h2><span class="line"></span></div>
+    <a class="chap" href="elec/industrial-electrician/">⚡ Industrial Electrician<small>Le métier d'électricien industriel · reading &amp; grammar · B1</small></a>
+    <a class="chap" href="elec/industrial-electrician-b2/">⚡ Industrial Electrician — B2<small>Version approfondie · reading &amp; grammar · B2</small></a>
+    <a class="chap" href="elec/transformer-failure/">🔌 The Day the Transformer Failed<small>Panne de transformateur · carnet complet · B1</small></a>
+    <a class="chap eval" href="elec/grammar-test/">📝 Grammar Test — ELEC 1<small><b>Évaluation</b> · temps, TO/FOR, pronoms · noté /20</small></a>
+
+    <div class="classhdr"><h2>🚚 BAC PRO — Logistique (Théo)</h2><span class="line"></span></div>
+    <a class="chap" href="aftral/theo-ch1/">🔎 Théo Ch.1 — Finding the Company<small>Théo cherche son entreprise de stage · A2–B1</small></a>
+    <a class="chap" href="aftral/theo-ch2/">🤝 Théo Ch.2 — The Interview<small>L'entretien de stage · A2–B1</small></a>
+
+  </div>
+
+  <footer>
+    Chaque carnet s'ouvre dans ton navigateur, se corrige tout seul sur /20 et génère un code de résultat.<br>
+    <a href="stats.html">🔐 Espace prof — statistiques</a>
+  </footer>
+</body>
+</html>

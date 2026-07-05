@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♻️ Machining Workshop — CPRP 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap');
+
+  :root{
+    --ink:#20303a;
+    --grape:#2f9e6f; --grape-d:#1e7a52;
+    --pink:#f0803c; --sun:#ffc93c; --mint:#37d9a0; --sky:#38bdf8;
+    --card:#ffffff; --soft:#eafaf1;
+    --red:#ff5a6e; --green:#20c997;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;color:var(--ink);margin:0;font-size:17px;line-height:1.5;
+    padding-bottom:120px;
+    background:linear-gradient(125deg,#e6fff0,#e4f6ff,#f3ffe0,#e8fff4);
+    background-size:400% 400%;animation:bgshift 22s ease infinite;
+  }
+  @keyframes bgshift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  /* floating deco emojis */
+  .deco{position:fixed;z-index:0;font-size:42px;opacity:.35;pointer-events:none;filter:saturate(1.2);}
+  .deco.d1{top:8%;left:4%;animation:float1 9s ease-in-out infinite;}
+  .deco.d2{top:22%;right:5%;animation:float2 11s ease-in-out infinite;}
+  .deco.d3{bottom:16%;left:6%;animation:float2 8s ease-in-out infinite;}
+  .deco.d4{bottom:8%;right:7%;animation:float1 13s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-22px) rotate(12deg);}}
+  @keyframes float2{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(20px) rotate(-14deg);}}
+
+  .page{position:relative;z-index:1;max-width:800px;margin:26px auto;padding:0 16px;}
+
+  /* ---- HERO ---- */
+  .hero{background:linear-gradient(135deg,var(--grape),var(--sky));border-radius:30px;
+    padding:26px 28px;color:#fff;box-shadow:0 18px 40px rgba(47,158,111,.35);
+    position:relative;overflow:hidden;}
+  .hero::after{content:"♻️";position:absolute;right:-14px;bottom:-28px;font-size:150px;opacity:.16;transform:rotate(-12deg);}
+  .hero .pill{display:inline-block;background:rgba(255,255,255,.25);border-radius:999px;
+    padding:5px 14px;font-family:'Baloo 2';font-weight:700;font-size:13px;letter-spacing:.5px;margin-bottom:8px;}
+  .hero h1{font-family:'Baloo 2';font-weight:800;font-size:34px;margin:2px 0 4px;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.08);}
+  .hero .lvl{font-weight:700;opacity:.95;}
+  .hero .lvl b{background:var(--sun);color:#5a3d00;padding:2px 10px;border-radius:999px;margin-left:4px;}
+
+  /* ---- ID CHIPS ---- */
+  .idbar{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0;}
+  .chip{background:var(--card);border-radius:18px;padding:10px 14px;box-shadow:0 6px 16px rgba(30,122,82,.12);
+    display:flex;align-items:center;gap:8px;font-family:'Baloo 2';font-weight:700;color:var(--grape-d);flex:1;min-width:150px;}
+  .chip input{font-family:'Nunito';font-weight:700;font-size:16px;border:none;outline:none;background:transparent;
+    color:var(--ink);width:100%;border-bottom:2px dashed #bfe8d4;padding:2px 2px;}
+  .chip input:focus{border-bottom-color:var(--pink);}
+
+  /* ---- PROGRESS ---- */
+  .track{margin:18px 0 4px;height:16px;background:#e2f6ec;border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(30,122,82,.14);}
+  .track > i{display:block;height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,var(--mint),var(--sky),var(--grape));transition:width .5s cubic-bezier(.2,.9,.3,1.2);}
+  .track-label{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--grape-d);text-align:center;margin-bottom:20px;}
+
+  /* ---- STORY / READING ---- */
+  .story{background:var(--card);border-radius:26px;padding:22px 24px;margin:16px 0;
+    box-shadow:0 12px 30px rgba(30,122,82,.14);border:3px solid #fff;position:relative;}
+  .story .badge{position:absolute;top:-16px;left:22px;background:var(--sky);color:#fff;
+    font-family:'Baloo 2';font-weight:800;font-size:15px;padding:6px 16px;border-radius:999px;box-shadow:0 6px 14px rgba(56,189,248,.4);}
+  .story h2{font-family:'Baloo 2';font-weight:800;font-size:22px;margin:6px 0 10px;color:var(--grape-d);}
+  .story p{font-size:18px;line-height:1.75;margin:0 0 8px;}
+  .hl{background:linear-gradient(180deg,transparent 55%,#c9f6dd 55%);border-radius:3px;padding:0 2px;font-weight:700;}
+
+  /* ---- EXERCISE CARDS ---- */
+  .card{background:var(--card);border-radius:26px;padding:22px 24px 24px;margin:22px 0;
+    box-shadow:0 12px 30px rgba(30,122,82,.14);border:3px solid #fff;position:relative;
+    animation:pop .5s cubic-bezier(.2,.9,.3,1.25) both;}
+  @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97);}to{opacity:1;transform:none;}}
+  .card .head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .card .ico{font-size:30px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12));}
+  .card h3{font-family:'Baloo 2';font-weight:800;font-size:21px;margin:0;color:var(--ink);}
+  .card .pts{margin-left:auto;background:var(--soft);color:var(--grape-d);font-family:'Baloo 2';font-weight:800;
+    font-size:13px;padding:5px 12px;border-radius:999px;white-space:nowrap;}
+  .c-pink{border-top:6px solid var(--pink);} .c-mint{border-top:6px solid var(--mint);}
+  .c-sun{border-top:6px solid var(--sun);} .c-sky{border-top:6px solid var(--sky);} .c-grape{border-top:6px solid var(--grape);}
+
+  ol.q{margin:0;padding-left:26px;}
+  ol.q li{margin-bottom:14px;line-height:2.2;font-size:17px;}
+  ol.q li::marker{font-family:'Baloo 2';font-weight:800;color:var(--pink);}
+  .tw{background:var(--sun);color:#5a3d00;font-family:'Baloo 2';font-weight:700;font-size:14px;padding:1px 9px;border-radius:999px;}
+
+  /* ---- FUN SELECTS ---- */
+  select{font-family:'Baloo 2';font-weight:700;font-size:15.5px;color:var(--grape-d);
+    border:2.5px solid #cdeeda;background:#f5fdf9;border-radius:999px;padding:5px 12px;margin:0 3px;outline:none;
+    cursor:pointer;transition:.18s;appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%232f9e6f' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;padding-right:28px;}
+  select:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(47,158,111,.2);}
+  select:focus{border-color:var(--grape);background-color:#fff;}
+  select.wide{min-width:150px;}
+  .vmatch li{margin-bottom:16px;}
+  .vmatch select{display:block;width:100%;max-width:340px;margin:7px 0 0;}
+  select.correct{background-color:#e2fbf1;border-color:var(--green);color:#0f7a55;animation:pop2 .4s ease;}
+  select.incorrect{background-color:#ffe6e9;border-color:var(--red);color:#c0293c;animation:shake .4s ease;}
+  @keyframes pop2{0%{transform:scale(1);}45%{transform:scale(1.18);}100%{transform:scale(1);}}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+
+  /* ---- MATCH ---- */
+  .match{display:flex;gap:20px;flex-wrap:wrap;}
+  .match .col{flex:1;min-width:250px;}
+  .wordrow{display:flex;align-items:center;gap:10px;background:#f5fdf9;border-radius:16px;padding:8px 12px;margin-bottom:9px;
+    box-shadow:0 3px 8px rgba(30,122,82,.08);}
+  .wordrow .n{width:26px;height:26px;flex:0 0 26px;border-radius:50%;background:var(--pink);color:#fff;
+    font-family:'Baloo 2';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .wordrow .w{font-family:'Baloo 2';font-weight:700;font-size:16px;flex:1;}
+  .defs{list-style:none;margin:0;padding:0;}
+  .defs li{background:#f4fff9;border:2px solid #d4f5e6;border-radius:16px;padding:8px 12px;margin-bottom:9px;font-size:15.5px;}
+  .defs b{display:inline-flex;width:24px;height:24px;background:var(--mint);color:#fff;border-radius:50%;
+    align-items:center;justify-content:center;font-family:'Baloo 2';font-weight:800;margin-right:8px;font-size:13px;}
+
+  /* ---- STICKY BAR ---- */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid #d9f2e5;
+    display:flex;align-items:center;justify-content:center;gap:14px;padding:14px 18px;flex-wrap:wrap;
+    padding-bottom:calc(14px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(30,122,82,.14);}
+  .btn{font-family:'Baloo 2';font-weight:800;font-size:17px;border:none;border-radius:999px;
+    padding:13px 30px;cursor:pointer;transition:.16s;box-shadow:0 8px 18px rgba(0,0,0,.14);
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn:active{transform:translateY(2px) scale(.98);}
+  .btn.go{background:linear-gradient(135deg,var(--grape),var(--sky));color:#fff;font-size:18px;}
+  .btn.go:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 26px rgba(47,158,111,.4);}
+  .btn.ghost{background:#fff;color:var(--grape-d);border:2.5px solid #cdeeda;box-shadow:none;}
+  .btn.ghost:hover{background:var(--soft);}
+  .scorebox{font-family:'Baloo 2';font-weight:800;font-size:20px;color:var(--grape-d);
+    background:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 6px 16px rgba(30,122,82,.16);min-width:130px;text-align:center;}
+  .scorebox small{display:block;font-size:11px;font-weight:700;color:#94c9b0;letter-spacing:.5px;}
+
+  /* ---- RESULT BANNER ---- */
+  .banner{display:none;border-radius:28px;padding:26px;margin:22px 0;text-align:center;
+    background:linear-gradient(135deg,#fff,#f2fff8);border:3px solid #fff;box-shadow:0 16px 40px rgba(30,122,82,.2);}
+  .banner.show{display:block;animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both;}
+  .banner .emo{font-size:60px;line-height:1;animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-10px) rotate(4deg);}}
+  .banner h3{font-family:'Baloo 2';font-weight:800;font-size:24px;margin:6px 0 2px;color:var(--grape-d);}
+  .dial{font-family:'Baloo 2';font-weight:800;font-size:52px;margin:6px 0;color:var(--grape-d);}
+  .dial .u{font-size:24px;color:#9fd4bd;}
+  .banner.win{background:linear-gradient(135deg,#e8fff5,#eafcff);} .banner.win h3,.banner.win .dial{color:var(--green);}
+  .subs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
+  .subs span{background:#fff;border-radius:999px;padding:6px 14px;font-family:'Baloo 2';font-weight:700;font-size:14px;
+    color:var(--grape-d);box-shadow:0 4px 10px rgba(30,122,82,.1);}
+  .subs span b{color:var(--pink);}
+
+  .export{margin-top:20px;padding-top:18px;border-top:2px dashed #cdeeda;}
+  .export-title{font-family:'Baloo 2';font-weight:800;font-size:16px;color:var(--ink);margin:0 0 6px;}
+  .export-steps{font-size:15px;color:#5f7a6d;margin:0 0 12px;}
+  .export-steps b{color:var(--grape-d);}
+  .export-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .btn.xp{background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;font-size:17px;}
+  .btn.xp.done{background:var(--green);}
+  .export-code{width:100%;margin-top:12px;height:64px;font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:11px;
+    color:#5f7a6d;border:2px solid #cdeeda;border-radius:16px;background:#f5fdf9;padding:10px 12px;resize:vertical;text-align:left;}
+  @media print{.export,.bar,.deco{display:none!important;}}
+
+  .foot{text-align:center;font-family:'Baloo 2';font-weight:700;color:#94c9b0;font-size:13px;margin:16px 0 4px;}
+
+  /* confetti */
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden;}
+  .conf{position:absolute;top:-20px;width:11px;height:16px;border-radius:2px;animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(105vh) rotate(720deg);}}
+
+  /* per-section validate + burst */
+  .modfoot{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:14px;border-top:2px dashed #e2f6ec;}
+  .btn-val{font-family:'Baloo 2';font-weight:800;font-size:15px;border:none;border-radius:999px;padding:11px 24px;cursor:pointer;
+    background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;box-shadow:0 6px 14px rgba(55,217,160,.35);transition:.16s;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn-val:hover{transform:translateY(-2px);}
+  .btn-val:active{transform:translateY(1px) scale(.97);}
+  .btn-val.done{background:var(--green);}
+  .modmsg{font-family:'Baloo 2';font-weight:700;font-size:14px;color:var(--grape-d);}
+  .burst-p{position:fixed;z-index:80;width:10px;height:10px;border-radius:2px;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards;}
+  @keyframes burst{from{transform:translate(0,0) rotate(0);opacity:1;}to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0;}}
+
+  /* printable result sheet (Save as PDF on phone) */
+  #printSheet{display:none;}
+  .ps-card{font-family:'Nunito',sans-serif;color:#14261d;max-width:720px;margin:0 auto;padding:24px;}
+  .ps-head{border-bottom:3px solid var(--pink);padding-bottom:10px;margin-bottom:14px;}
+  .ps-title{font-family:'Baloo 2';font-size:25px;font-weight:800;color:var(--grape-d);}
+  .ps-sub{font-size:13px;color:#5f7a6d;}
+  .ps-id{font-size:16px;margin:12px 0 2px;}
+  .ps-mark{font-family:'Baloo 2';font-size:42px;font-weight:800;color:var(--grape-d);margin:6px 0 16px;}
+  .ps-mark span{font-size:18px;color:#9fd4bd;}
+  .ps-table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:16px;}
+  .ps-table td{border-bottom:1px solid #e2f6ec;padding:8px 4px;font-family:'Baloo 2';font-weight:700;color:#3c5a4c;}
+  .ps-table td.v{text-align:right;color:var(--grape-d);}
+  .ps-codeh{font-family:'Baloo 2';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9fd4bd;margin-bottom:4px;}
+  .ps-code{font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:8.5px;word-break:break-all;
+    border:1px solid #cdeeda;border-radius:8px;padding:8px 10px;color:#5f7a6d;}
+  .ps-foot{margin-top:16px;font-size:11px;color:#9fd4bd;}
+  @media print{
+    @page{margin:14mm;}
+    body.print-result{background:#fff!important;animation:none!important;}
+    body.print-result .page,body.print-result .bar,body.print-result .deco,body.print-result #confetti{display:none!important;}
+    body.print-result #printSheet{display:block!important;}
+  }
+</style>
+</head>
+<body>
+
+<span class="deco d1">⚙️</span><span class="deco d2">♻️</span><span class="deco d3">🔧</span><span class="deco d4">🌱</span>
+<div id="confetti"></div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="pill">BTS CPRP 1 · MACHINING WORKSHOP</span>
+    <h1>A Clean Sweep:<br>The Recycling Drive ♻️</h1>
+    <div class="lvl">Reading &amp; Grammar · Level <b>B1+</b></div>
+  </div>
+
+  <!-- ID -->
+  <div class="idbar">
+    <div class="chip">🙂 <input id="stuName" placeholder="Your name"></div>
+    <div class="chip">🏷️ <input id="stuClass" value="CPRP 1"></div>
+    <div class="chip">📅 <input id="stuDate" placeholder="dd/mm"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="track"><i id="bar"></i></div>
+  <div class="track-label" id="progTxt">0 / 48 ✍️</div>
+
+  <!-- STORY -->
+  <div class="story">
+    <span class="badge">📖 The story</span>
+    <h2>Read me first!</h2>
+    <p>Hugo <span class="hl">is</span> a machinist in a metalworking workshop. He <span class="hl">operates</span> a CNC lathe and a milling machine. Every day, the cutting tools <span class="hl">produce</span> a lot of swarf, and the machines <span class="hl">use</span> coolant to stay cool. Safety comes first: operators <span class="hl">must wear</span> glasses, and they <span class="hl">mustn't pour</span> used coolant into the drain.</p>
+    <p>Last month, the workshop <span class="hl">started</span> a big recycling drive. First, the team <span class="hl">sorted</span> the waste into three skips: one for scrap metal, one for plastic and one for cardboard. Then Hugo <span class="hl">emptied</span> the coolant tank and <span class="hl">sent</span> the old fluid to a treatment plant. The drive <span class="hl">was harder</span> than expected, but the results <span class="hl">were better</span> than last year.</p>
+    <p>Since the drive began, the team <span class="hl">has collected</span> two tonnes of scrap metal and <span class="hl">has recycled</span> almost 90% of its waste. They <span class="hl">haven't sent</span> any swarf to landfill yet. Hugo says recycling <span class="hl">is cheaper</span> than throwing metal away, and it is one of <span class="hl">the best</span> things the workshop has ever done. 🌱</p>
+  </div>
+
+  <!-- A1 MATCH -->
+  <div class="card c-pink">
+    <div class="head"><span class="ico">🧩</span><h3>Match the word &amp; the meaning</h3><span class="pts">8 pts</span></div>
+    <ol class="q vmatch">
+      <li>a machine that turns a workpiece against a cutting tool → <select class="wide" id="m_1"><option value=""></option><option>sort</option><option>scrap metal</option><option>salvage</option><option>skip</option><option>milling machine</option><option>lathe</option><option>coolant</option><option>swarf</option></select></li>
+      <li>a machine that removes metal with a rotating cutter → <select class="wide" id="m_2"><option value=""></option><option>salvage</option><option>sort</option><option>scrap metal</option><option>coolant</option><option>swarf</option><option>lathe</option><option>skip</option><option>milling machine</option></select></li>
+      <li>the small curled pieces of metal cut away during machining → <select class="wide" id="m_3"><option value=""></option><option>swarf</option><option>coolant</option><option>salvage</option><option>lathe</option><option>scrap metal</option><option>milling machine</option><option>skip</option><option>sort</option></select></li>
+      <li>the liquid that cools and lubricates the cutting tool → <select class="wide" id="m_4"><option value=""></option><option>swarf</option><option>lathe</option><option>scrap metal</option><option>coolant</option><option>sort</option><option>milling machine</option><option>skip</option><option>salvage</option></select></li>
+      <li>waste metal that can be melted and used again → <select class="wide" id="m_5"><option value=""></option><option>lathe</option><option>scrap metal</option><option>skip</option><option>swarf</option><option>milling machine</option><option>coolant</option><option>salvage</option><option>sort</option></select></li>
+      <li>a large open container for collecting waste → <select class="wide" id="m_6"><option value=""></option><option>milling machine</option><option>swarf</option><option>lathe</option><option>skip</option><option>salvage</option><option>sort</option><option>scrap metal</option><option>coolant</option></select></li>
+      <li>to separate waste into different types → <select class="wide" id="m_7"><option value=""></option><option>salvage</option><option>scrap metal</option><option>swarf</option><option>sort</option><option>milling machine</option><option>lathe</option><option>skip</option><option>coolant</option></select></li>
+      <li>to save useful material from waste instead of throwing it away → <select class="wide" id="m_8"><option value=""></option><option>lathe</option><option>salvage</option><option>sort</option><option>milling machine</option><option>swarf</option><option>skip</option><option>scrap metal</option><option>coolant</option></select></li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="A1 Match">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- A2 GAP-FILL -->
+  <div class="card c-mint">
+    <div class="head"><span class="ico">🔤</span><h3>Complete the sentence</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>Hugo fixes the <select class="wide" id="g_1"><option value=""></option><option>recycle</option><option>coolant</option><option>skip</option><option>workpiece</option><option>swarf</option><option>sort</option><option>lathe</option><option>scrap</option></select> in the chuck before he starts.</li>
+      <li>The <select class="wide" id="g_2"><option value=""></option><option>coolant</option><option>sort</option><option>workpiece</option><option>skip</option><option>swarf</option><option>recycle</option><option>lathe</option><option>scrap</option></select> turns the part while the tool cuts it.</li>
+      <li>Every hour he clears the <select class="wide" id="g_3"><option value=""></option><option>coolant</option><option>workpiece</option><option>scrap</option><option>recycle</option><option>skip</option><option>lathe</option><option>sort</option><option>swarf</option></select> off the machine bed.</li>
+      <li>The used <select class="wide" id="g_4"><option value=""></option><option>skip</option><option>lathe</option><option>swarf</option><option>workpiece</option><option>coolant</option><option>sort</option><option>recycle</option><option>scrap</option></select> is drained into a sealed tank.</li>
+      <li>Please <select class="wide" id="g_5"><option value=""></option><option>lathe</option><option>coolant</option><option>scrap</option><option>swarf</option><option>recycle</option><option>skip</option><option>sort</option><option>workpiece</option></select> the metal, the plastic and the cardboard into the three skips.</li>
+      <li>The blue <select class="wide" id="g_6"><option value=""></option><option>workpiece</option><option>lathe</option><option>coolant</option><option>scrap</option><option>sort</option><option>recycle</option><option>skip</option><option>swarf</option></select> outside is only for metal.</li>
+      <li>The plant can <select class="wide" id="g_7"><option value=""></option><option>recycle</option><option>coolant</option><option>scrap</option><option>sort</option><option>lathe</option><option>swarf</option><option>workpiece</option><option>skip</option></select> almost 90% of its scrap back into new metal.</li>
+      <li>Old brass offcuts are sold as <select class="wide" id="g_8"><option value=""></option><option>skip</option><option>scrap</option><option>lathe</option><option>workpiece</option><option>coolant</option><option>recycle</option><option>swarf</option><option>sort</option></select>.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="A2 Gap-fill">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- B1 PRESENT PERFECT vs PAST -->
+  <div class="card c-sun">
+    <div class="head"><span class="ico">⏳</span><h3>Present perfect or past simple?</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li><span class="tw">Since Monday</span>, the team <select id="b1_1"><option value=""></option><option>collected</option><option>has collected</option><option>collects</option></select> two tonnes of scrap.</li>
+      <li><span class="tw">Yesterday</span>, Hugo <select id="b1_2"><option value=""></option><option>empties</option><option>has emptied</option><option>emptied</option></select> the coolant tank.</li>
+      <li>The workshop <select id="b1_3"><option value=""></option><option>has recycled</option><option>recycles</option><option>recycled</option></select> scrap metal <span class="tw">for ten years</span>.</li>
+      <li>We <select id="b1_4"><option value=""></option><option>don't sort</option><option>didn't sort</option><option>haven't sorted</option></select> the plastic <span class="tw">yet</span>.</li>
+      <li><span class="tw">Last month</span>, the plant <select id="b1_5"><option value=""></option><option>bought</option><option>has bought</option><option>buys</option></select> a new chip conveyor.</li>
+      <li><select id="b1_6"><option value=""></option><option>Have</option><option>Do</option><option>Did</option></select> you <span class="tw">ever</span> visited a recycling centre?</li>
+      <li>The lorry has <span class="tw">just</span> <select id="b1_7"><option value=""></option><option>took</option><option>taken</option><option>take</option></select> the full skip away.</li>
+      <li><span class="tw">In 2019</span>, the company <select id="b1_8"><option value=""></option><option>has started</option><option>starts</option><option>started</option></select> the recycling drive.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="B1 Perfect/Past">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- TR TRANSLATE FR -> EN -->
+  <div class="card c-pink">
+    <div class="head"><span class="ico">🇫🇷</span><h3>Traduis : present perfect ou prétérit ?</h3><span class="pts">8 pts</span></div>
+    <p style="font-size:15px;color:#5f7a6d;margin:-4px 0 12px;">Lis la phrase française et choisis la <b>bonne traduction anglaise</b>. Le repère de temps te dit quel temps utiliser.</p>
+    <ol class="q vmatch">
+      <li>« Depuis ce matin, la machine n'a pas produit de copeaux. »
+        <select id="tr_1"><option value=""></option><option>Since this morning, the machine didn't produce any swarf.</option><option>Since this morning, the machine hasn't produced any swarf.</option></select></li>
+      <li>« Hier, nous avons rempli trois bennes. »
+        <select id="tr_2"><option value=""></option><option>Yesterday, we filled three skips.</option><option>Yesterday, we have filled three skips.</option></select></li>
+      <li>« Il travaille dans l'atelier depuis 2020. »
+        <select id="tr_3"><option value=""></option><option>He has worked in the workshop since 2020.</option><option>He worked in the workshop since 2020.</option></select></li>
+      <li>« Le fournisseur a déjà emporté la ferraille. »
+        <select id="tr_4"><option value=""></option><option>The supplier already took the scrap.</option><option>The supplier has already taken the scrap.</option></select></li>
+      <li>« Il y a deux ans, l'usine a réduit ses déchets de moitié. »
+        <select id="tr_5"><option value=""></option><option>Two years ago, the plant cut its waste by half.</option><option>Two years ago, the plant has cut its waste by half.</option></select></li>
+      <li>« Je n'ai jamais utilisé cette fraiseuse. »
+        <select id="tr_6"><option value=""></option><option>I have never used this milling machine.</option><option>I never used this milling machine.</option></select></li>
+      <li>« La semaine dernière, le technicien a changé l'huile. »
+        <select id="tr_7"><option value=""></option><option>Last week, the technician has changed the oil.</option><option>Last week, the technician changed the oil.</option></select></li>
+      <li>« Nous recyclons le carton depuis trois mois. »
+        <select id="tr_8"><option value=""></option><option>We recycled cardboard for three months.</option><option>We have recycled cardboard for three months.</option></select></li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="TR Traduction">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- B2 MODALS -->
+  <div class="card c-sky">
+    <div class="head"><span class="ico">⚠️</span><h3>Rules &amp; advice (modals)</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>You <select id="b2_1"><option value=""></option><option>must</option><option>needn't</option><option>mustn't</option></select> wear safety glasses near the machines.</li>
+      <li>You <select id="b2_2"><option value=""></option><option>must</option><option>don't have to</option><option>mustn't</option></select> pour used coolant into the drain — it's illegal.</li>
+      <li>Every operator <select id="b2_3"><option value=""></option><option>doesn't have to</option><option>mustn't</option><option>has to</option></select> sort the swarf before the break.</li>
+      <li>The bins are labelled, so you <select id="b2_4"><option value=""></option><option>don't have to</option><option>have to</option><option>must</option></select> guess where the waste goes.</li>
+      <li>If a skip is full, you <select id="b2_5"><option value=""></option><option>mustn't</option><option>should</option><option>shouldn't</option></select> call the supplier.</li>
+      <li>You <select id="b2_6"><option value=""></option><option>shouldn't</option><option>should</option><option>don't have to</option></select> leave oily rags near the machines; it's a fire risk.</li>
+      <li>Visitors <select id="b2_7"><option value=""></option><option>needn't</option><option>mustn't</option><option>must</option></select> enter the workshop without a helmet.</li>
+      <li>We <select id="b2_8"><option value=""></option><option>have to</option><option>don't have to</option><option>mustn't</option></select> cut our waste if we want the ISO 14001 label.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="B2 Modals">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- B3 COMPARE & QUANTIFY -->
+  <div class="card c-grape">
+    <div class="head"><span class="ico">📊</span><h3>Compare &amp; measure</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>Recycling metal is <select id="b3_1"><option value=""></option><option>more cheap</option><option>cheaper</option><option>cheapest</option></select> than throwing it away.</li>
+      <li>The new mill is the <select id="b3_2"><option value=""></option><option>much</option><option>most</option><option>more</option></select> efficient machine in the shop.</li>
+      <li>Sorting waste is not as <select id="b3_3"><option value=""></option><option>hardest</option><option>hard</option><option>harder</option></select> as people think.</li>
+      <li>This year we produce <select id="b3_4"><option value=""></option><option>fewer</option><option>less</option><option>least</option></select> swarf than last year.</li>
+      <li>There aren't <select id="b3_5"><option value=""></option><option>many</option><option>a lot</option><option>much</option></select> plastic parts in this batch.</li>
+      <li>How <select id="b3_6"><option value=""></option><option>more</option><option>many</option><option>much</option></select> coolant do you recycle each month?</li>
+      <li>Aluminium is one of the <select id="b3_7"><option value=""></option><option>more</option><option>much</option><option>most</option></select> recycled metals in the world.</li>
+      <li>The blue skip is the <select id="b3_8"><option value=""></option><option>biggest</option><option>bigger</option><option>big</option></select> one in the yard.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="B3 Compare">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- IN-FLOW SUBMIT (always reachable on phone) -->
+  <div style="text-align:center;margin:8px 0 2px;">
+    <button type="button" class="btn go" data-act="submit">✨ Check my answers!</button>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner" id="banner">
+    <div class="emo" id="bEmo">🎉</div>
+    <h3 id="bTitle">Your result</h3>
+    <div class="dial" id="bDial"></div>
+    <div class="subs" id="bSubs"></div>
+
+    <div class="export">
+      <p class="export-title">🎁 Envoie ton code au prof</p>
+      <p class="export-steps">Colle ton <b>code</b> dans un message au prof, ou enregistre un <b>PDF</b> de ton résultat.</p>
+      <div class="export-btns">
+        <button type="button" class="btn xp" id="copyBtn" data-act="copy">⧉ Copier mon code</button>
+        <button type="button" class="btn xp" data-act="pdf">📄 Enregistrer en PDF</button>
+      </div>
+      <textarea class="export-code" id="exportCode" readonly onclick="this.select()"></textarea>
+    </div>
+  </div>
+
+  <div class="foot">♻️ CPRP 1 · Machining &amp; Recycling — B1+ · self-marking ♻️</div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="bar">
+  <button type="button" class="btn go" data-act="submit">✨ Check my answers!</button>
+  <div class="scorebox"><span id="scoreNum">— / 20</span><small>MY MARK</small></div>
+  <button type="button" class="btn ghost" data-act="reset">↻ Reset</button>
+</div>
+
+<div id="printSheet"></div>
+
+<script>
+var ANS = {
+  m_1:["lathe"], m_2:["milling machine"], m_3:["swarf"], m_4:["coolant"], m_5:["scrap metal"], m_6:["skip"], m_7:["sort"], m_8:["salvage"],
+  g_1:["workpiece"], g_2:["lathe"], g_3:["swarf"], g_4:["coolant"],
+  g_5:["sort"], g_6:["skip"], g_7:["recycle"], g_8:["scrap"],
+  b1_1:["has collected"], b1_2:["emptied"], b1_3:["has recycled"], b1_4:["haven't sorted","have not sorted"],
+  b1_5:["bought"], b1_6:["Have"], b1_7:["taken"], b1_8:["started"],
+  tr_1:["Since this morning, the machine hasn't produced any swarf.","Since this morning, the machine has not produced any swarf."],
+  tr_2:["Yesterday, we filled three skips."],
+  tr_3:["He has worked in the workshop since 2020."],
+  tr_4:["The supplier has already taken the scrap."],
+  tr_5:["Two years ago, the plant cut its waste by half."],
+  tr_6:["I have never used this milling machine."],
+  tr_7:["Last week, the technician changed the oil."],
+  tr_8:["We have recycled cardboard for three months."],
+  b2_1:["must"], b2_2:["mustn't","must not"], b2_3:["has to"], b2_4:["don't have to","do not have to"],
+  b2_5:["should"], b2_6:["shouldn't","should not"], b2_7:["mustn't","must not"], b2_8:["have to"],
+  b3_1:["cheaper"], b3_2:["most"], b3_3:["hard"], b3_4:["less"],
+  b3_5:["many"], b3_6:["much"], b3_7:["most"], b3_8:["biggest"]
+};
+var SECTIONS = [
+  {name:"A1 Match",         ids:["m_1","m_2","m_3","m_4","m_5","m_6","m_7","m_8"]},
+  {name:"A2 Gap-fill",      ids:["g_1","g_2","g_3","g_4","g_5","g_6","g_7","g_8"]},
+  {name:"B1 Perfect/Past",  ids:["b1_1","b1_2","b1_3","b1_4","b1_5","b1_6","b1_7","b1_8"]},
+  {name:"TR Traduction",    ids:["tr_1","tr_2","tr_3","tr_4","tr_5","tr_6","tr_7","tr_8"]},
+  {name:"B2 Modals",        ids:["b2_1","b2_2","b2_3","b2_4","b2_5","b2_6","b2_7","b2_8"]},
+  {name:"B3 Compare",       ids:["b3_1","b3_2","b3_3","b3_4","b3_5","b3_6","b3_7","b3_8"]}
+];
+// theme of each item (for the class statistics — "difficultés par thème")
+var THEME={
+  m_1:"Vocabulaire",m_2:"Vocabulaire",m_3:"Vocabulaire",m_4:"Vocabulaire",m_5:"Vocabulaire",m_6:"Vocabulaire",m_7:"Vocabulaire",m_8:"Vocabulaire",
+  g_1:"Vocabulaire",g_2:"Vocabulaire",g_3:"Vocabulaire",g_4:"Vocabulaire",g_5:"Vocabulaire",g_6:"Vocabulaire",g_7:"Vocabulaire",g_8:"Vocabulaire",
+  b1_1:"Present perfect vs prétérit",b1_2:"Present perfect vs prétérit",b1_3:"Present perfect vs prétérit",b1_4:"Present perfect vs prétérit",b1_5:"Present perfect vs prétérit",b1_6:"Present perfect vs prétérit",b1_7:"Present perfect vs prétérit",b1_8:"Present perfect vs prétérit",
+  tr_1:"Traduction FR→EN (perfect/prétérit)",tr_2:"Traduction FR→EN (perfect/prétérit)",tr_3:"Traduction FR→EN (perfect/prétérit)",tr_4:"Traduction FR→EN (perfect/prétérit)",tr_5:"Traduction FR→EN (perfect/prétérit)",tr_6:"Traduction FR→EN (perfect/prétérit)",tr_7:"Traduction FR→EN (perfect/prétérit)",tr_8:"Traduction FR→EN (perfect/prétérit)",
+  b2_1:"Modaux — obligation/conseil",b2_2:"Modaux — obligation/conseil",b2_3:"Modaux — obligation/conseil",b2_4:"Modaux — obligation/conseil",b2_5:"Modaux — obligation/conseil",b2_6:"Modaux — obligation/conseil",b2_7:"Modaux — obligation/conseil",b2_8:"Modaux — obligation/conseil",
+  b3_1:"Comparatifs & quantifieurs",b3_2:"Comparatifs & quantifieurs",b3_3:"Comparatifs & quantifieurs",b3_4:"Comparatifs & quantifieurs",b3_5:"Comparatifs & quantifieurs",b3_6:"Comparatifs & quantifieurs",b3_7:"Comparatifs & quantifieurs",b3_8:"Comparatifs & quantifieurs"
+};
+var TOTAL = (function(){var n=0;for(var k in ANS){if(ANS.hasOwnProperty(k))n++;}return n;})();
+var LABELS = {};
+(function(){for(var s=0;s<SECTIONS.length;s++){var sec=SECTIONS[s],p=sec.name.split(" ")[0];
+  for(var i=0;i<sec.ids.length;i++){LABELS[sec.ids[i]]=p+"."+(i+1);}}})();
+var ALLIDS = (function(){var a=[];for(var s=0;s<SECTIONS.length;s++)a=a.concat(SECTIONS[s].ids);return a;})();
+var LAST=null;
+
+function norm(s){return (s||"").toLowerCase().replace(/[‘’ʼ′`]/g,"'").replace(/[.,;:!?…–—]/g,"").replace(/\s+/g," ").trim();}
+function isCorrect(id,val){var v=norm(val);if(v==="")return false;var a=ANS[id];for(var i=0;i<a.length;i++){if(norm(a[i])===v)return true;}return false;}
+function getVal(id){var el=document.getElementById(id);return el?el.value:"";}
+
+// live progress
+function updateProgress(){
+  var done=0;for(var i=0;i<ALLIDS.length;i++){if((getVal(ALLIDS[i])||"")!=="")done++;}
+  var pct=Math.round(done/TOTAL*100);
+  document.getElementById("bar").style.width=pct+"%";
+  document.getElementById("progTxt").textContent=done+" / "+TOTAL+(done===TOTAL?" ✅ ready!":" ✍️");
+}
+// stay neutral while answering: clear green/red as soon as an answer changes (re-color only on Validate/Submit)
+document.addEventListener("change",function(e){if(e.target&&e.target.tagName==="SELECT"){e.target.classList.remove("correct","incorrect");updateProgress();}});
+
+function confettiBurst(){
+  var box=document.getElementById("confetti");
+  var cols=["#f0803c","#ffc93c","#37d9a0","#38bdf8","#2f9e6f"];
+  for(var i=0;i<90;i++){
+    var c=document.createElement("div");c.className="conf";
+    c.style.left=(i/90*100)+"%";
+    c.style.background=cols[i%cols.length];
+    c.style.animationDuration=(2.2+ (i%5)*0.4)+"s";
+    c.style.animationDelay=((i%9)*0.06)+"s";
+    c.style.transform="rotate("+((i*37)%360)+"deg)";
+    box.appendChild(c);
+    (function(el){setTimeout(function(){el.remove();},4200);})(c);
+  }
+}
+
+// radial "explosion" from a point (x,y)
+function boom(x,y){
+  var box=document.getElementById("confetti");
+  var cols=["#f0803c","#ffc93c","#37d9a0","#38bdf8","#2f9e6f"];
+  for(var i=0;i<32;i++){
+    var ang=Math.PI*2*i/32, dist=70+(i%5)*30;
+    var p=document.createElement("div");p.className="burst-p";
+    p.style.left=x+"px";p.style.top=y+"px";p.style.background=cols[i%cols.length];
+    p.style.setProperty("--dx",(Math.cos(ang)*dist).toFixed(1)+"px");
+    p.style.setProperty("--dy",(Math.sin(ang)*dist).toFixed(1)+"px");
+    p.style.setProperty("--r",((i*47)%360)+"deg");
+    box.appendChild(p);
+    (function(el){setTimeout(function(){el.remove();},950);})(p);
+  }
+}
+
+// validate ONE section; explode confetti when it is all correct
+function validateSection(name,btn){
+  var sec=null;for(var s=0;s<SECTIONS.length;s++){if(SECTIONS[s].name===name){sec=SECTIONS[s];break;}}
+  if(!sec)return;
+  var sc=0;
+  for(var i=0;i<sec.ids.length;i++){
+    var el=document.getElementById(sec.ids[i]);if(!el)continue;
+    var ok=isCorrect(sec.ids[i],el.value);
+    el.classList.remove("correct","incorrect");el.classList.add(ok?"correct":"incorrect");
+    if(ok)sc++;
+  }
+  var max=sec.ids.length,msg=btn.parentNode.querySelector(".modmsg");
+  if(sc===max){
+    btn.classList.add("done");btn.textContent="✓ Perfect!";
+    if(msg)msg.textContent=sc+" / "+max+" 🎉";
+    var r=btn.getBoundingClientRect();boom(r.left+r.width/2,r.top+r.height/2);
+  }else{
+    btn.classList.remove("done");btn.textContent="✓ Validate";
+    if(msg)msg.textContent=sc+" / "+max+" — try again!";
+  }
+}
+
+function submitPaper(){
+  var score=0,perSection=[],items=[];
+  for(var s=0;s<SECTIONS.length;s++){
+    var sec=SECTIONS[s],sc=0;
+    for(var i=0;i<sec.ids.length;i++){
+      var id=sec.ids[i],el=document.getElementById(id);if(!el)continue;
+      var given=el.value,ok=isCorrect(id,given);
+      el.classList.remove("correct","incorrect");
+      el.classList.add(ok?"correct":"incorrect");
+      if(ok){sc++;score++;}
+      items.push({id:id,label:LABELS[id]||id,section:sec.name,theme:(THEME[id]||sec.name),ok:ok?1:0,given:(given==="__blank__"?"(blanc)":(given||"").trim())});
+    }
+    perSection.push({name:sec.name,sc:sc,max:sec.ids.length});
+  }
+  var out20=Math.round((score/TOTAL)*20*2)/2;
+  LAST={test:"CPRP1 Machining & Recycling (B1+)",name:(getVal("stuName")||"").trim(),
+    cls:(getVal("stuClass")||"").trim(),date:(getVal("stuDate")||"").trim(),
+    submitted:new Date().toISOString(),score:score,total:TOTAL,out20:out20,sections:perSection,items:items};
+
+  document.getElementById("scoreNum").textContent=out20.toString().replace(".",",")+" / 20";
+
+  var b=document.getElementById("banner");
+  var ratio=score/TOTAL,win=ratio>=0.6;
+  b.classList.add("show");b.classList.toggle("win",win);
+  document.getElementById("bEmo").textContent = ratio>=0.9?"🏆":ratio>=0.6?"🎉":ratio>=0.4?"💪":"🔧";
+  document.getElementById("bTitle").textContent = LAST.name?("Nice one, "+LAST.name+"!"):"Your result";
+  document.getElementById("bDial").innerHTML = out20.toString().replace(".",",")+" <span class='u'>/ 20</span>";
+  var subs="";
+  for(var p=0;p<perSection.length;p++){subs+="<span>"+perSection[p].name+" <b>"+perSection[p].sc+"/"+perSection[p].max+"</b></span>";}
+  document.getElementById("bSubs").innerHTML=subs;
+
+  if(!LAST.name){document.getElementById("exportCode").value="⚠ Écris ton NOM en haut, puis clique encore !";}
+  else{document.getElementById("exportCode").value="GTEST1::"+btoa(unescape(encodeURIComponent(JSON.stringify(LAST))));}
+
+  if(win)confettiBurst();
+  b.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+// build a clean one-page result sheet and open the print dialog (Save as PDF on phone)
+function buildPrintSheet(){
+  if(!LAST) return;
+  var rows="";
+  for(var p=0;p<LAST.sections.length;p++){
+    var ps=LAST.sections[p];
+    rows+="<tr><td>"+ps.name+"</td><td class='v'>"+ps.sc+" / "+ps.max+"</td></tr>";
+  }
+  var code=document.getElementById("exportCode").value;
+  document.getElementById("printSheet").innerHTML=
+    "<div class='ps-card'>"
+   +"<div class='ps-head'><div class='ps-title'>Result — CPRP 1 · English</div>"
+   +"<div class='ps-sub'>Machining &amp; Recycling · B1+ · self-marking</div></div>"
+   +"<div class='ps-id'><b>"+(LAST.name||"—")+"</b> &nbsp;·&nbsp; "+(LAST.cls||"")+" &nbsp;·&nbsp; "+(LAST.date||"")+"</div>"
+   +"<div class='ps-mark'>"+LAST.out20.toString().replace(".",",")+" / 20 <span>("+LAST.score+" / "+LAST.total+" correct)</span></div>"
+   +"<table class='ps-table'>"+rows+"</table>"
+   +"<div class='ps-codeh'>Result code (for the teacher)</div><div class='ps-code'>"+code+"</div>"
+   +"</div>";
+}
+function exportPDF(){
+  if(!LAST||!LAST.name){alert("Écris ton NOM en haut, puis clique sur « Check my answers ! » avant d'exporter.");return;}
+  buildPrintSheet();
+  document.body.classList.add("print-result");
+  setTimeout(function(){window.print();},60);
+}
+window.addEventListener("afterprint",function(){document.body.classList.remove("print-result");});
+
+function copyCode(){
+  var ta=document.getElementById("exportCode");
+  if(!ta.value||ta.value.indexOf("GTEST1::")!==0){alert("Écris d'abord ton NOM en haut, puis clique sur « Check my answers ! » avant de copier.");return;}
+  ta.select();ta.setSelectionRange(0,99999);var done=false;
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value);done=true;}else{done=document.execCommand("copy");}}
+  catch(e){try{done=document.execCommand("copy");}catch(e2){}}
+  var btn=document.getElementById("copyBtn");
+  if(btn){btn.textContent=done?"✓ Copié !":"Sélectionne le code";btn.classList.toggle("done",done);
+    setTimeout(function(){btn.textContent="⧉ Copier mon code";btn.classList.remove("done");},2500);}
+}
+
+function resetAll(){
+  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(!el)continue;el.selectedIndex=0;el.classList.remove("correct","incorrect");}
+  document.getElementById("scoreNum").textContent="— / 20";
+  var ec=document.getElementById("exportCode");if(ec)ec.value="";
+  LAST=null;document.getElementById("banner").classList.remove("show","win");
+  updateProgress();window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// --- iOS-robust: handle every button via event delegation (inline onclick can be unreliable in mobile viewers) ---
+document.addEventListener("click",function(e){
+  var t=e.target,b=(t&&t.closest)?t.closest("[data-act]"):null;
+  if(!b)return;
+  e.preventDefault();
+  var act=b.getAttribute("data-act");
+  if(act==="submit")submitPaper();
+  else if(act==="reset")resetAll();
+  else if(act==="copy")copyCode();
+  else if(act==="pdf")exportPDF();
+  else if(act==="validate")validateSection(b.getAttribute("data-sec"),b);
+},false);
+
+// --- shuffle the answer options in EVERY dropdown so the correct answer never sits in a predictable slot
+//     (runs first, keeps option[0] = the empty placeholder, marks each menu as shuffled) ---
+(function(){
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  for(var i=0;i<ALLIDS.length;i++){
+    var el=document.getElementById(ALLIDS[i]); if(!el) continue;
+    var opts=[]; for(var k=1;k<el.options.length;k++){opts.push(el.options[k]);} // keep the empty first option
+    shuffle(opts);
+    for(var j2=0;j2<opts.length;j2++){el.appendChild(opts[j2]);} // re-append in random order
+  }
+})();
+
+// --- add an explicit "je ne sais pas" (blank) choice to every dropdown; it counts as answered but is always wrong ---
+(function(){
+  for(var i=0;i<ALLIDS.length;i++){
+    var el=document.getElementById(ALLIDS[i]); if(!el) continue;
+    if(el.querySelector('option[value="__blank__"]')) continue;
+    var o=document.createElement("option"); o.value="__blank__"; o.textContent="— je ne sais pas —";
+    if(el.options.length>1) el.add(o,el.options[1]); else el.add(o);
+  }
+})();
+updateProgress();
+</script>
+</body>
+</html>

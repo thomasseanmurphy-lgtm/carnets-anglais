@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Industrial Electrician — B2 · ELEC 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap');
+
+  :root{
+    --ink:#2a2350;
+    --grape:#7c5cff; --grape-d:#5b3ee0;
+    --pink:#ff5fa2; --sun:#ffc93c; --mint:#37d9a0; --sky:#38bdf8;
+    --card:#ffffff; --soft:#f3f0ff;
+    --red:#ff5a6e; --green:#20c997;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;color:var(--ink);margin:0;font-size:17px;line-height:1.5;
+    padding-bottom:120px;
+    background:linear-gradient(125deg,#ffe6f2,#e9e4ff,#e0f7ff,#e8fff4);
+    background-size:400% 400%;animation:bgshift 22s ease infinite;
+  }
+  @keyframes bgshift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  /* floating deco emojis */
+  .deco{position:fixed;z-index:0;font-size:42px;opacity:.35;pointer-events:none;filter:saturate(1.2);}
+  .deco.d1{top:8%;left:4%;animation:float1 9s ease-in-out infinite;}
+  .deco.d2{top:22%;right:5%;animation:float2 11s ease-in-out infinite;}
+  .deco.d3{bottom:16%;left:6%;animation:float2 8s ease-in-out infinite;}
+  .deco.d4{bottom:8%;right:7%;animation:float1 13s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-22px) rotate(12deg);}}
+  @keyframes float2{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(20px) rotate(-14deg);}}
+
+  .page{position:relative;z-index:1;max-width:800px;margin:26px auto;padding:0 16px;}
+
+  /* ---- HERO ---- */
+  .hero{background:linear-gradient(135deg,var(--grape),var(--pink));border-radius:30px;
+    padding:26px 28px;color:#fff;box-shadow:0 18px 40px rgba(124,92,255,.35);
+    position:relative;overflow:hidden;}
+  .hero::after{content:"⚡";position:absolute;right:-14px;bottom:-28px;font-size:150px;opacity:.16;transform:rotate(-12deg);}
+  .hero .pill{display:inline-block;background:rgba(255,255,255,.25);border-radius:999px;
+    padding:5px 14px;font-family:'Baloo 2';font-weight:700;font-size:13px;letter-spacing:.5px;margin-bottom:8px;}
+  .hero h1{font-family:'Baloo 2';font-weight:800;font-size:34px;margin:2px 0 4px;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.08);}
+  .hero .lvl{font-weight:700;opacity:.95;}
+  .hero .lvl b{background:var(--sun);color:#5a3d00;padding:2px 10px;border-radius:999px;margin-left:4px;}
+  .hero .intro{margin:12px 0 0;font-weight:600;opacity:.95;font-size:15px;line-height:1.5;}
+
+  /* ---- ID CHIPS ---- */
+  .idbar{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0;}
+  .chip{background:var(--card);border-radius:18px;padding:10px 14px;box-shadow:0 6px 16px rgba(90,70,180,.12);
+    display:flex;align-items:center;gap:8px;font-family:'Baloo 2';font-weight:700;color:var(--grape-d);flex:1;min-width:150px;}
+  .chip input{font-family:'Nunito';font-weight:700;font-size:16px;border:none;outline:none;background:transparent;
+    color:var(--ink);width:100%;border-bottom:2px dashed #d8d0ff;padding:2px 2px;}
+  .chip input:focus{border-bottom-color:var(--pink);}
+
+  /* ---- PROGRESS ---- */
+  /* progress bar — sticky, follows the scroll */
+  .progwrap{position:sticky;top:0;z-index:50;margin:8px -16px 20px;padding:10px 16px 8px;
+    background:rgba(255,255,255,.85);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+    border-bottom:2px solid #ece5ff;box-shadow:0 6px 18px rgba(90,70,180,.12);}
+  .track{margin:0;height:16px;background:#efeaff;border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(90,70,180,.14);}
+  .track > i{display:block;height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,var(--mint),var(--sky),var(--grape));transition:width .5s cubic-bezier(.2,.9,.3,1.2);}
+  .track-label{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--grape-d);text-align:center;margin:6px 0 0;}
+
+  /* per-section validate button + result message */
+  .modfoot{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:14px;border-top:2px dashed #eee6ff;}
+  .btn-val{font-family:'Baloo 2';font-weight:800;font-size:15px;border:none;border-radius:999px;padding:11px 24px;cursor:pointer;
+    background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;box-shadow:0 6px 14px rgba(55,217,160,.35);transition:.16s;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn-val:hover{transform:translateY(-2px);}
+  .btn-val:active{transform:translateY(1px) scale(.97);}
+  .btn-val.done{background:var(--green);}
+  .btn-val:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+  .modmsg{font-family:'Baloo 2';font-weight:700;font-size:14px;color:var(--grape-d);}
+
+  /* explosive confetti particle (random directions, not a falling spiral) */
+  .burst-p{position:fixed;z-index:80;width:10px;height:10px;border-radius:2px;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards;}
+  @keyframes burst{from{transform:translate(0,0) rotate(0);opacity:1;}to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0;}}
+
+  /* whole-screen shake (used beyond two mistakes) */
+  @keyframes screenshake{
+    0%,100%{transform:translate(0,0);} 10%{transform:translate(-9px,4px);} 20%{transform:translate(8px,-6px);}
+    30%{transform:translate(-10px,-3px);} 40%{transform:translate(9px,6px);} 50%{transform:translate(-7px,3px);}
+    60%{transform:translate(8px,-5px);} 70%{transform:translate(-6px,4px);} 80%{transform:translate(5px,-3px);} 90%{transform:translate(-3px,2px);}
+  }
+  .page.shake{animation:screenshake .55s cubic-bezier(.36,.07,.19,.97);}
+
+  /* ---- DAY STEP LABELS (chronology, no reading text) ---- */
+  .when{display:inline-block;font-family:'Baloo 2';font-weight:800;font-size:12.5px;letter-spacing:.4px;
+    color:var(--grape-d);background:var(--soft);border-radius:999px;padding:3px 12px;margin:0 0 10px;}
+
+  /* ---- EXERCISE CARDS ---- */
+  .card{background:var(--card);border-radius:26px;padding:22px 24px 24px;margin:22px 0;
+    box-shadow:0 12px 30px rgba(90,70,180,.14);border:3px solid #fff;position:relative;
+    animation:pop .5s cubic-bezier(.2,.9,.3,1.25) both;}
+  @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97);}to{opacity:1;transform:none;}}
+  .card .head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .card .ico{font-size:30px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12));}
+  .card h3{font-family:'Baloo 2';font-weight:800;font-size:21px;margin:0;color:var(--ink);}
+  .card .pts{margin-left:auto;background:var(--soft);color:var(--grape-d);font-family:'Baloo 2';font-weight:800;
+    font-size:13px;padding:5px 12px;border-radius:999px;white-space:nowrap;}
+  .c-pink{border-top:6px solid var(--pink);} .c-mint{border-top:6px solid var(--mint);}
+  .c-sun{border-top:6px solid var(--sun);} .c-sky{border-top:6px solid var(--sky);} .c-grape{border-top:6px solid var(--grape);}
+
+  ol.q{margin:0;padding-left:26px;}
+  ol.q li{margin-bottom:14px;line-height:2.2;font-size:17px;}
+  ol.q li::marker{font-family:'Baloo 2';font-weight:800;color:var(--pink);}
+
+  /* ---- FUN SELECTS ---- */
+  select{font-family:'Baloo 2';font-weight:700;font-size:15.5px;color:var(--grape-d);
+    border:2.5px solid #e0d8ff;background:#faf8ff;border-radius:999px;padding:5px 12px;margin:0 3px;outline:none;
+    cursor:pointer;transition:.18s;appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%237c5cff' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;padding-right:28px;}
+  select:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(124,92,255,.2);}
+  select:focus{border-color:var(--grape);background-color:#fff;}
+  select.wide{min-width:170px;}
+  select.correct{background-color:#e2fbf1;border-color:var(--green);color:#0f7a55;animation:pop2 .4s ease;}
+  select.incorrect{background-color:#ffe6e9;border-color:var(--red);color:#c0293c;animation:shake .4s ease;}
+  /* once saved, answers are locked but stay readable + keep their green/red */
+  select:disabled{opacity:1;cursor:not-allowed;-webkit-text-fill-color:currentColor;}
+  .lockwarn{font-family:'Baloo 2';font-weight:700;font-size:13.5px;color:#8a6526;background:#fff7e6;
+    border:2px solid #ffe2a8;border-radius:14px;padding:9px 14px;margin:0 auto 12px;max-width:520px;}
+  @keyframes pop2{0%{transform:scale(1);}45%{transform:scale(1.18);}100%{transform:scale(1);}}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+
+  /* ---- STICKY BAR ---- */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid #ece5ff;
+    display:flex;align-items:center;justify-content:center;gap:14px;padding:14px 18px;flex-wrap:wrap;
+    padding-bottom:calc(14px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(90,70,180,.14);}
+  .btn{font-family:'Baloo 2';font-weight:800;font-size:17px;border:none;border-radius:999px;
+    padding:13px 30px;cursor:pointer;transition:.16s;box-shadow:0 8px 18px rgba(0,0,0,.14);
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn:active{transform:translateY(2px) scale(.98);}
+  .btn.go{background:linear-gradient(135deg,var(--grape),var(--pink));color:#fff;font-size:18px;}
+  .btn.go:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 26px rgba(124,92,255,.4);}
+  .btn.ghost{background:#fff;color:var(--grape-d);border:2.5px solid #e0d8ff;box-shadow:none;}
+  .btn.ghost:hover{background:var(--soft);}
+  .scorebox{font-family:'Baloo 2';font-weight:800;font-size:20px;color:var(--grape-d);
+    background:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 6px 16px rgba(90,70,180,.16);min-width:130px;text-align:center;}
+  .scorebox small{display:block;font-size:11px;font-weight:700;color:#a99fd6;letter-spacing:.5px;}
+
+  /* ---- RESULT BANNER ---- */
+  .banner{display:none;border-radius:28px;padding:26px;margin:22px 0;text-align:center;
+    background:linear-gradient(135deg,#fff,#f6f2ff);border:3px solid #fff;box-shadow:0 16px 40px rgba(90,70,180,.2);}
+  .banner.show{display:block;animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both;}
+  .banner .emo{font-size:60px;line-height:1;animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-10px) rotate(4deg);}}
+  .banner h3{font-family:'Baloo 2';font-weight:800;font-size:24px;margin:6px 0 2px;color:var(--grape-d);}
+  .dial{font-family:'Baloo 2';font-weight:800;font-size:52px;margin:6px 0;color:var(--grape-d);}
+  .dial .u{font-size:24px;color:#b3a9dd;}
+  .banner.win{background:linear-gradient(135deg,#e8fff5,#eafcff);} .banner.win h3,.banner.win .dial{color:var(--green);}
+  .subs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
+  .subs span{background:#fff;border-radius:999px;padding:6px 14px;font-family:'Baloo 2';font-weight:700;font-size:14px;
+    color:var(--grape-d);box-shadow:0 4px 10px rgba(90,70,180,.1);}
+  .subs span b{color:var(--pink);}
+
+  .export{margin-top:20px;padding-top:18px;border-top:2px dashed #e0d8ff;}
+  .export-title{font-family:'Baloo 2';font-weight:800;font-size:16px;color:var(--ink);margin:0 0 6px;}
+  .export-steps{font-size:15px;color:#6b6390;margin:0 0 12px;}
+  .export-steps b{color:var(--grape-d);}
+  .export-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .btn.xp{background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;font-size:17px;}
+  .btn.xp.done{background:var(--green);}
+  .export-code{width:100%;margin-top:12px;height:64px;font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:11px;
+    color:#7a72a6;border:2px solid #e0d8ff;border-radius:16px;background:#faf8ff;padding:10px 12px;resize:vertical;text-align:left;}
+  @media print{.export,.bar,.deco{display:none!important;}}
+
+  .foot{text-align:center;font-family:'Baloo 2';font-weight:700;color:#a99fd6;font-size:13px;margin:16px 0 4px;}
+
+  /* confetti */
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden;}
+  .conf{position:absolute;top:-20px;width:11px;height:16px;border-radius:2px;animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(105vh) rotate(720deg);}}
+
+  /* printable result sheet (Save as PDF on phone) */
+  #printSheet{display:none;}
+  .ps-card{font-family:'Nunito',sans-serif;color:#1f1a3d;max-width:720px;margin:0 auto;padding:24px;}
+  .ps-head{border-bottom:3px solid var(--pink);padding-bottom:10px;margin-bottom:14px;}
+  .ps-title{font-family:'Baloo 2';font-size:25px;font-weight:800;color:var(--grape-d);}
+  .ps-sub{font-size:13px;color:#6b6390;}
+  .ps-id{font-size:16px;margin:12px 0 2px;}
+  .ps-mark{font-family:'Baloo 2';font-size:42px;font-weight:800;color:var(--grape-d);margin:6px 0 16px;}
+  .ps-mark span{font-size:18px;color:#a99fd6;}
+  .ps-table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:16px;}
+  .ps-table td{border-bottom:1px solid #ece5ff;padding:8px 4px;font-family:'Baloo 2';font-weight:700;color:#4b4470;}
+  .ps-table td.v{text-align:right;color:var(--grape-d);}
+  .ps-codeh{font-family:'Baloo 2';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#a99fd6;margin-bottom:4px;}
+  .ps-code{font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:8.5px;word-break:break-all;
+    border:1px solid #e0d8ff;border-radius:8px;padding:8px 10px;color:#7a72a6;}
+  .ps-foot{margin-top:16px;font-size:11px;color:#b3a9dd;}
+  @media print{
+    @page{margin:14mm;}
+    body.print-result{background:#fff!important;animation:none!important;}
+    body.print-result .page,body.print-result .bar,body.print-result .deco,body.print-result #confetti{display:none!important;}
+    body.print-result #printSheet{display:block!important;}
+  }
+</style>
+</head>
+<body>
+
+<span class="deco d1">⚡</span><span class="deco d2">🔌</span><span class="deco d3">💡</span><span class="deco d4">🔋</span>
+<div id="confetti"></div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="pill">BTS ELEC 1 · INDUSTRIAL ELECTRICIAN</span>
+    <h1>A Day on the<br>Plant Floor ⚡</h1>
+    <div class="lvl">Grammar in Action · Level <b>B2</b></div>
+    <p class="intro">Follow a full shift — from the pre-start checks to the end-of-day handover — and pick the one correct form in each sentence. Read carefully: the clues are in the sentence, not in the colours.</p>
+  </div>
+
+  <!-- ID -->
+  <div class="idbar">
+    <div class="chip">🙂 <input id="stuName" placeholder="Your name"></div>
+    <div class="chip">🏷️ <input id="stuClass" value="ELEC 1"></div>
+    <div class="chip">📅 <input id="stuDate" placeholder="dd/mm"></div>
+  </div>
+
+  <!-- PROGRESS (sticky — suit le défilement) -->
+  <div class="progwrap">
+    <div class="track"><i id="bar"></i></div>
+    <div class="track-label" id="progTxt">0 / 44 ✍️</div>
+  </div>
+
+  <!-- SECTION 1 — PASSIVE -->
+  <div class="card c-pink">
+    <span class="when">🕕 Before the shift · the plant is prepared</span>
+    <div class="head"><span class="ico">🔁</span><h3>Active or passive?</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>Before each shift, the main switchboard <select class="wide" id="p_1"><option value=""></option><option>is inspected</option><option>inspects</option><option>is inspecting</option></select> by the duty electrician.</li>
+      <li>Yesterday, the faulty contactor <select class="wide" id="p_2"><option value=""></option><option>was replaced</option><option>replaced</option><option>has been replaced</option></select> within an hour.</li>
+      <li>The new variable-speed drive <select class="wide" id="p_3"><option value=""></option><option>will be installed</option><option>will install</option><option>is installed</option></select> next week.</li>
+      <li>Right now, the transformer <select class="wide" id="p_4"><option value=""></option><option>is being tested</option><option>is tested</option><option>tests</option></select> by the maintenance team.</li>
+      <li>The lock-out procedure <select class="wide" id="p_5"><option value=""></option><option>has been followed</option><option>is following</option><option>was follow</option></select> on every job since 2019.</li>
+      <li>All the terminals <select class="wide" id="p_6"><option value=""></option><option>had been tightened</option><option>have been tightened</option><option>were tighten</option></select> before the panel was closed.</li>
+      <li>Each maintenance report must <select class="wide" id="p_7"><option value=""></option><option>be signed</option><option>be sign</option><option>being signed</option></select> by a qualified engineer.</li>
+      <li>Nobody knows exactly how the cable <select class="wide" id="p_8"><option value=""></option><option>was damaged</option><option>damaged</option><option>is damaging</option></select>.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Passive">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- SECTION 2 — TENSES -->
+  <div class="card c-mint">
+    <span class="when">🕗 Morning · the first faults come in</span>
+    <div class="head"><span class="ico">⏳</span><h3>Which tense fits?</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>Marta <select class="wide" id="t_1"><option value=""></option><option>has worked</option><option>works</option><option>worked</option></select> at this plant since 2015.</li>
+      <li>The overload alarm <select class="wide" id="t_2"><option value=""></option><option>triggered</option><option>has triggered</option><option>triggers</option></select> at 6:42 this morning.</li>
+      <li>He's exhausted — he <select class="wide" id="t_3"><option value=""></option><option>has been pulling</option><option>have been pulling</option><option>pulls</option></select> cables all day.</li>
+      <li>We <select class="wide" id="t_4"><option value=""></option><option>haven't located</option><option>didn't locate</option><option>don't locate</option></select> the earth fault yet.</li>
+      <li>By the time I arrived, the team <select class="wide" id="t_5"><option value=""></option><option>had already isolated</option><option>has already isolated</option><option>already isolated</option></select> the supply.</li>
+      <li>How long <select id="t_6"><option value=""></option><option>has</option><option>is</option><option>does</option></select> that motor been overheating?</li>
+      <li>The production line <select class="wide" id="t_7"><option value=""></option><option>went down</option><option>has gone down</option><option>has been going down</option></select> twice last week.</li>
+      <li>Since lunch, the oil pressure <select class="wide" id="t_8"><option value=""></option><option>has been rising</option><option>is rising</option><option>rises</option></select> steadily.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Tenses">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- SECTION 3 — MODALS -->
+  <div class="card c-sun">
+    <span class="when">🕙 Mid-morning · safety on the job</span>
+    <div class="head"><span class="ico">⚠️</span><h3>Rules, deductions &amp; regrets</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>You <select class="wide" id="mo_1"><option value=""></option><option>mustn't</option><option>don't have to</option><option>can</option></select> work on a live panel without a permit.</li>
+      <li>Visitors <select class="wide" id="mo_2"><option value=""></option><option>have to</option><option>could</option><option>might</option></select> wear a hard hat in the workshop.</li>
+      <li>You <select class="wide" id="mo_3"><option value=""></option><option>don't have to</option><option>mustn't</option><option>can't</option></select> come in early tomorrow — the job is finished.</li>
+      <li>The breaker keeps tripping, so there <select class="wide" id="mo_4"><option value=""></option><option>must</option><option>can</option><option>would</option></select> be a short circuit somewhere.</li>
+      <li>That reading <select class="wide" id="mo_5"><option value=""></option><option>can't</option><option>mustn't</option><option>shouldn't</option></select> be right — the meter is clearly faulty.</li>
+      <li>Apprentices <select class="wide" id="mo_6"><option value=""></option><option>aren't allowed to</option><option>needn't</option><option>don't need to</option></select> operate the crane on their own — only certified operators may.</li>
+      <li>We <select class="wide" id="mo_7"><option value=""></option><option>should have ordered</option><option>must have ordered</option><option>could order</option></select> the spare part yesterday, but we forgot.</li>
+      <li>The office is unlocked, so someone <select class="wide" id="mo_8"><option value=""></option><option>must have switched</option><option>should have switched</option><option>can have switched</option></select> the alarm off.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Modals">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- SECTION 4 — CONDITIONALS -->
+  <div class="card c-sky">
+    <span class="when">🕐 Afternoon · troubleshooting &amp; what-ifs</span>
+    <div class="head"><span class="ico">🔀</span><h3>Conditionals</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>If the load increases, the cable temperature <select class="wide" id="c_1"><option value=""></option><option>rises</option><option>would rise</option><option>rose</option></select>.</li>
+      <li>If we don't replace the seal, water <select class="wide" id="c_2"><option value=""></option><option>will get</option><option>got</option><option>would get</option></select> into the enclosure.</li>
+      <li>If the breaker <select class="wide" id="c_3"><option value=""></option><option>hadn't tripped</option><option>didn't trip</option><option>wouldn't trip</option></select> yesterday, the motor would have burned out.</li>
+      <li>If I <select class="wide" id="c_4"><option value=""></option><option>were</option><option>am</option><option>will be</option></select> the plant manager, I would upgrade the whole panel.</li>
+      <li>The alarm would have sounded if the sensor <select class="wide" id="c_5"><option value=""></option><option>had been</option><option>is</option><option>would be</option></select> connected.</li>
+      <li>Unless you <select class="wide" id="c_6"><option value=""></option><option>isolate</option><option>will isolate</option><option>isolated</option></select> the supply first, don't open the cabinet.</li>
+      <li>If the voltage <select class="wide" id="c_7"><option value=""></option><option>were</option><option>is</option><option>will be</option></select> stable, we wouldn't need this regulator.</li>
+      <li>Had we noticed the leak earlier, we <select class="wide" id="c_8"><option value=""></option><option>would have prevented</option><option>will prevent</option><option>prevented</option></select> the damage.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Conditionals">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- SECTION 5 — LINKERS -->
+  <div class="card c-grape">
+    <span class="when">🕓 Late afternoon · doing things in order</span>
+    <div class="head"><span class="ico">🔗</span><h3>Linking the steps</h3><span class="pts">6 pts</span></div>
+    <ol class="q">
+      <li><select id="l_1"><option value=""></option><option>Once</option><option>During</option><option>Unless</option></select> he had locked out the supply, he started the repair.</li>
+      <li>Always test for voltage <select id="l_2"><option value=""></option><option>before</option><option>after</option><option>until</option></select> you touch the busbar.</li>
+      <li>Keep the guard closed <select id="l_3"><option value=""></option><option>until</option><option>since</option><option>while</option></select> the motor has stopped completely.</li>
+      <li><select id="l_4"><option value=""></option><option>During</option><option>While</option><option>Once</option></select> the storm, three feeders tripped.</li>
+      <li>He checked the torque <select id="l_5"><option value=""></option><option>while</option><option>until</option><option>unless</option></select> tightening every bolt.</li>
+      <li><select class="wide" id="l_6"><option value=""></option><option>As long as</option><option>Until</option><option>By the time</option></select> the panel is energized, nobody may open it.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Linkers">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- SECTION 6 — REPORTED SPEECH -->
+  <div class="card c-pink">
+    <span class="when">🕔 End of shift · the handover</span>
+    <div class="head"><span class="ico">💬</span><h3>Reporting the day</h3><span class="pts">6 pts</span></div>
+    <ol class="q">
+      <li>Last week the supervisor said the line <select id="r_1"><option value=""></option><option>was</option><option>is</option><option>has</option></select> down; it's fine now.</li>
+      <li>She asked whether we <select class="wide" id="r_2"><option value=""></option><option>had signed</option><option>have signed</option><option>did sign</option></select> the report.</li>
+      <li>He told me <select class="wide" id="r_3"><option value=""></option><option>to lock</option><option>lock</option><option>locking</option></select> the main switch before leaving.</li>
+      <li>The engineer asked what <select class="wide" id="r_4"><option value=""></option><option>had caused</option><option>did cause</option><option>has caused</option></select> the fault.</li>
+      <li>They wanted to know how long the outage <select class="wide" id="r_5"><option value=""></option><option>had lasted</option><option>has lasted</option><option>lasts</option></select>.</li>
+      <li>Marta said she <select id="r_6"><option value=""></option><option>would</option><option>will</option><option>is going</option></select> finish the wiring the next day.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="Reported">✓ Vérifier</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- IN-FLOW SUBMIT (always reachable on phone) -->
+  <div style="text-align:center;margin:8px 0 2px;">
+    <p class="lockwarn">🔒 Attention : une fois enregistré, tu ne pourras <b>plus changer</b> tes réponses.</p>
+    <button type="button" class="btn go" data-act="submit">✅ Enregistrer mes réponses</button>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner" id="banner">
+    <div class="emo" id="bEmo">🎉</div>
+    <h3 id="bTitle">Your result</h3>
+    <div class="dial" id="bDial"></div>
+    <div class="subs" id="bSubs"></div>
+
+    <div class="export">
+      <p class="export-title">🎁 Envoie ton code au prof</p>
+      <p class="export-steps">Colle ton <b>code</b> dans un message au prof, ou enregistre un <b>PDF</b> de ton résultat.</p>
+      <div class="export-btns">
+        <button type="button" class="btn xp" id="copyBtn" data-act="copy">⧉ Copier mon code</button>
+        <button type="button" class="btn xp" data-act="pdf">📄 Enregistrer en PDF</button>
+      </div>
+      <textarea class="export-code" id="exportCode" readonly onclick="this.select()"></textarea>
+    </div>
+  </div>
+
+  <div class="foot">⚡ ELEC 1 · Industrial Electrician — B2 · self-marking ⚡</div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="bar">
+  <button type="button" class="btn go" data-act="submit">✅ Enregistrer mes réponses</button>
+  <div class="scorebox"><span id="scoreNum">— / 20</span><small>MY MARK</small></div>
+  <button type="button" class="btn ghost" data-act="reset">↻ Reset</button>
+</div>
+
+<div id="printSheet"></div>
+
+<script>
+var ANS = {
+  // 1 — Passive
+  p_1:["is inspected"], p_2:["was replaced"], p_3:["will be installed"], p_4:["is being tested"],
+  p_5:["has been followed"], p_6:["had been tightened"], p_7:["be signed"], p_8:["was damaged"],
+  // 2 — Tenses
+  t_1:["has worked"], t_2:["triggered"], t_3:["has been pulling"], t_4:["haven't located","have not located"],
+  t_5:["had already isolated"], t_6:["has"], t_7:["went down"], t_8:["has been rising"],
+  // 3 — Modals
+  mo_1:["mustn't","must not"], mo_2:["have to"], mo_3:["don't have to","do not have to"], mo_4:["must"],
+  mo_5:["can't","cannot","can not"], mo_6:["aren't allowed to","are not allowed to"], mo_7:["should have ordered"], mo_8:["must have switched"],
+  // 4 — Conditionals
+  c_1:["rises"], c_2:["will get"], c_3:["hadn't tripped","had not tripped"], c_4:["were"],
+  c_5:["had been"], c_6:["isolate"], c_7:["were"], c_8:["would have prevented"],
+  // 5 — Linkers
+  l_1:["Once"], l_2:["before"], l_3:["until"], l_4:["During"], l_5:["while"], l_6:["As long as"],
+  // 6 — Reported speech
+  r_1:["was"], r_2:["had signed"], r_3:["to lock"], r_4:["had caused"], r_5:["had lasted"], r_6:["would"]
+};
+var SECTIONS = [
+  {name:"Passive",      ids:["p_1","p_2","p_3","p_4","p_5","p_6","p_7","p_8"]},
+  {name:"Tenses",       ids:["t_1","t_2","t_3","t_4","t_5","t_6","t_7","t_8"]},
+  {name:"Modals",       ids:["mo_1","mo_2","mo_3","mo_4","mo_5","mo_6","mo_7","mo_8"]},
+  {name:"Conditionals", ids:["c_1","c_2","c_3","c_4","c_5","c_6","c_7","c_8"]},
+  {name:"Linkers",      ids:["l_1","l_2","l_3","l_4","l_5","l_6"]},
+  {name:"Reported",     ids:["r_1","r_2","r_3","r_4","r_5","r_6"]}
+];
+// theme of each item (for the class statistics — "difficultés par thème")
+var THEME={
+  p_1:"Voix passive",p_2:"Voix passive",p_3:"Voix passive",p_4:"Voix passive",p_5:"Voix passive",p_6:"Voix passive",p_7:"Voix passive",p_8:"Voix passive",
+  t_1:"Temps verbaux",t_2:"Temps verbaux",t_3:"Temps verbaux",t_4:"Temps verbaux",t_5:"Temps verbaux",t_6:"Temps verbaux",t_7:"Temps verbaux",t_8:"Temps verbaux",
+  mo_1:"Modaux",mo_2:"Modaux",mo_3:"Modaux",mo_4:"Modaux",mo_5:"Modaux",mo_6:"Modaux",mo_7:"Modaux",mo_8:"Modaux",
+  c_1:"Conditionnels",c_2:"Conditionnels",c_3:"Conditionnels",c_4:"Conditionnels",c_5:"Conditionnels",c_6:"Conditionnels",c_7:"Conditionnels",c_8:"Conditionnels",
+  l_1:"Connecteurs logiques",l_2:"Connecteurs logiques",l_3:"Connecteurs logiques",l_4:"Connecteurs logiques",l_5:"Connecteurs logiques",l_6:"Connecteurs logiques",
+  r_1:"Discours indirect",r_2:"Discours indirect",r_3:"Discours indirect",r_4:"Discours indirect",r_5:"Discours indirect",r_6:"Discours indirect"
+};
+var TOTAL = (function(){var n=0;for(var k in ANS){if(ANS.hasOwnProperty(k))n++;}return n;})();
+var LABELS = {};
+(function(){for(var s=0;s<SECTIONS.length;s++){var sec=SECTIONS[s],p=sec.name.split(" ")[0];
+  for(var i=0;i<sec.ids.length;i++){LABELS[sec.ids[i]]=p+"."+(i+1);}}})();
+var ALLIDS = (function(){var a=[];for(var s=0;s<SECTIONS.length;s++)a=a.concat(SECTIONS[s].ids);return a;})();
+var LAST=null;
+var LOCKED=false;
+
+function norm(s){return (s||"").toLowerCase().replace(/[‘’ʼ′`]/g,"'").replace(/[.,;:!?…–—]/g,"").replace(/\s+/g," ").trim();}
+function isCorrect(id,val){var v=norm(val);if(v==="")return false;var a=ANS[id];for(var i=0;i<a.length;i++){if(norm(a[i])===v)return true;}return false;}
+function getVal(id){var el=document.getElementById(id);return el?el.value:"";}
+
+// live progress
+function updateProgress(){
+  var done=0;for(var i=0;i<ALLIDS.length;i++){if((getVal(ALLIDS[i])||"")!=="")done++;}
+  var pct=Math.round(done/TOTAL*100);
+  document.getElementById("bar").style.width=pct+"%";
+  document.getElementById("progTxt").textContent=done+" / "+TOTAL+(done===TOTAL?" ✅ ready!":" ✍️");
+}
+// stay neutral while answering: clear green/red as soon as an answer changes (re-color only on Validate/Submit)
+document.addEventListener("change",function(e){if(e.target&&e.target.tagName==="SELECT"){e.target.classList.remove("correct","incorrect");updateProgress();}});
+
+// random explosive confetti from a point (NOT a falling spiral)
+function confettiExplode(n,cx,cy,power){
+  var box=document.getElementById("confetti");
+  var cols=["#ff5fa2","#ffc93c","#37d9a0","#38bdf8","#7c5cff"];
+  for(var i=0;i<n;i++){
+    var ang=Math.random()*Math.PI*2, dist=(power||150)*(0.35+Math.random()*0.95);
+    var p=document.createElement("div");p.className="burst-p";
+    p.style.left=cx+"px";p.style.top=cy+"px";
+    p.style.background=cols[(Math.random()*cols.length)|0];
+    p.style.width=(7+Math.random()*7).toFixed(0)+"px";
+    p.style.height=(9+Math.random()*8).toFixed(0)+"px";
+    p.style.setProperty("--dx",(Math.cos(ang)*dist).toFixed(1)+"px");
+    p.style.setProperty("--dy",(Math.sin(ang)*dist-(20+Math.random()*50)).toFixed(1)+"px");
+    p.style.setProperty("--r",((Math.random()*720)|0)+"deg");
+    p.style.animationDuration=(0.7+Math.random()*0.6).toFixed(2)+"s";
+    box.appendChild(p);
+    (function(el){setTimeout(function(){el.remove();},1500);})(p);
+  }
+}
+// big celebration = several random explosions across the screen
+function confettiBurst(){
+  var W=window.innerWidth,H=window.innerHeight;
+  for(var k=0;k<5;k++){
+    (function(kk){setTimeout(function(){
+      confettiExplode(26, W*(0.15+Math.random()*0.7), H*(0.2+Math.random()*0.5), 210);
+    },kk*150);})(k);
+  }
+}
+// whole-screen shake + device vibration (used when >2 mistakes)
+function shakeScreen(){
+  var pg=document.querySelector(".page");
+  if(pg){pg.classList.remove("shake");void pg.offsetWidth;pg.classList.add("shake");
+    setTimeout(function(){pg.classList.remove("shake");},650);}
+  if(navigator.vibrate){try{navigator.vibrate([40,30,40,30,70]);}catch(e){}}
+}
+// check ONE section: colour the student's own choices, celebrate or shake — the correct answer is never shown
+function validateSection(name,btn){
+  if(LOCKED)return;
+  var sec=null;for(var s=0;s<SECTIONS.length;s++){if(SECTIONS[s].name===name){sec=SECTIONS[s];break;}}
+  if(!sec)return;
+  var sc=0;
+  for(var i=0;i<sec.ids.length;i++){
+    var el=document.getElementById(sec.ids[i]);if(!el)continue;
+    var ok=isCorrect(sec.ids[i],el.value);
+    el.classList.remove("correct","incorrect");el.classList.add(ok?"correct":"incorrect");
+    if(ok)sc++;
+  }
+  var max=sec.ids.length, err=max-sc, msg=btn.parentNode.querySelector(".modmsg");
+  var r=btn.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+  if(err===0){
+    btn.classList.add("done");btn.textContent="✓ Parfait !";
+    if(msg){msg.style.color="";msg.textContent=sc+" / "+max+" 🎉";}
+    confettiExplode(70,cx,cy,240);                 // full explosion when everything is correct
+  }else{
+    btn.classList.remove("done");btn.textContent="✓ Vérifier";
+    if(msg){msg.style.color="var(--red)";msg.textContent=sc+" / "+max+" — "+err+(err>1?" fautes":" faute");}
+    confettiExplode(14,cx,cy,120);                 // a little confetti when there is a mistake
+    if(err>2)shakeScreen();                         // shake the screen beyond two mistakes
+  }
+}
+
+// lock the whole paper after saving: no more changes possible
+function lockPaper(){
+  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(el)el.disabled=true;}
+  var idf=["stuName","stuClass","stuDate"];
+  for(var j=0;j<idf.length;j++){var e=document.getElementById(idf[j]);if(e)e.readOnly=true;}
+  var subs=document.querySelectorAll('[data-act="submit"]');
+  for(var s=0;s<subs.length;s++){subs[s].disabled=true;subs[s].textContent="🔒 Enregistré";}
+  var rs=document.querySelectorAll('[data-act="reset"]');
+  for(var r=0;r<rs.length;r++){rs[r].disabled=true;}
+  var vs=document.querySelectorAll('.btn-val');
+  for(var v=0;v<vs.length;v++){vs[v].disabled=true;}
+}
+
+function submitPaper(){
+  if(LOCKED)return;                                   // already saved → ignore
+  var nm=(getVal("stuName")||"").trim();
+  if(!nm){alert("✏️ Écris d'abord ton NOM en haut, puis enregistre.");var n=document.getElementById("stuName");if(n)n.focus();return;}
+  if(!confirm("Une fois enregistré, tu ne pourras PLUS changer tes réponses.\n\nEnregistrer maintenant ?"))return;
+
+  var score=0,perSection=[],items=[];
+  for(var s=0;s<SECTIONS.length;s++){
+    var sec=SECTIONS[s],sc=0;
+    for(var i=0;i<sec.ids.length;i++){
+      var id=sec.ids[i],el=document.getElementById(id);if(!el)continue;
+      var given=el.value,ok=isCorrect(id,given);
+      // colour the student's own choice green/red (WHERE the mistakes are) — the correct answer is never shown
+      el.classList.remove("correct","incorrect");
+      el.classList.add(ok?"correct":"incorrect");
+      if(ok){sc++;score++;}
+      items.push({id:id,label:LABELS[id]||id,section:sec.name,theme:(THEME[id]||sec.name),ok:ok?1:0,given:(given==="__blank__"?"(blanc)":(given||"").trim())});
+    }
+    perSection.push({name:sec.name,sc:sc,max:sec.ids.length});
+  }
+  var out20=Math.round((score/TOTAL)*20*2)/2;
+  LAST={test:"ELEC1 Industrial Electrician (B2)",name:nm,
+    cls:(getVal("stuClass")||"").trim(),date:(getVal("stuDate")||"").trim(),
+    submitted:new Date().toISOString(),score:score,total:TOTAL,out20:out20,sections:perSection,items:items};
+
+  LOCKED=true; lockPaper();                           // freeze every answer
+
+  document.getElementById("scoreNum").textContent=out20.toString().replace(".",",")+" / 20";
+
+  var b=document.getElementById("banner");
+  var ratio=score/TOTAL,win=ratio>=0.6;
+  b.classList.add("show");b.classList.toggle("win",win);
+  document.getElementById("bEmo").textContent = ratio>=0.9?"🏆":ratio>=0.6?"🎉":ratio>=0.4?"💪":"🔧";
+  document.getElementById("bTitle").textContent = "Nice one, "+nm+"!";
+  document.getElementById("bDial").innerHTML = out20.toString().replace(".",",")+" <span class='u'>/ 20</span>";
+  // "Note /20 seulement" : pas de détail par section. Le vert/rouge en ligne montre OÙ sont les fautes, sans donner la bonne réponse.
+  document.getElementById("bSubs").innerHTML="<span>🔒 Réponses enregistrées — le <b>vert/rouge</b> montre où sont tes fautes</span>";
+
+  document.getElementById("exportCode").value="GTEST1::"+btoa(unescape(encodeURIComponent(JSON.stringify(LAST))));
+
+  if(win)confettiBurst();
+  b.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+// build a clean one-page result sheet and open the print dialog (Save as PDF on phone)
+function buildPrintSheet(){
+  if(!LAST) return;
+  var rows="";
+  for(var p=0;p<LAST.sections.length;p++){
+    var ps=LAST.sections[p];
+    rows+="<tr><td>"+ps.name+"</td><td class='v'>"+ps.sc+" / "+ps.max+"</td></tr>";
+  }
+  var code=document.getElementById("exportCode").value;
+  document.getElementById("printSheet").innerHTML=
+    "<div class='ps-card'>"
+   +"<div class='ps-head'><div class='ps-title'>Result — ELEC 1 · English</div>"
+   +"<div class='ps-sub'>Industrial Electrician · B2 · self-marking</div></div>"
+   +"<div class='ps-id'><b>"+(LAST.name||"—")+"</b> &nbsp;·&nbsp; "+(LAST.cls||"")+" &nbsp;·&nbsp; "+(LAST.date||"")+"</div>"
+   +"<div class='ps-mark'>"+LAST.out20.toString().replace(".",",")+" / 20 <span>("+LAST.score+" / "+LAST.total+" correct)</span></div>"
+   +"<table class='ps-table'>"+rows+"</table>"
+   +"<div class='ps-codeh'>Result code (for the teacher)</div><div class='ps-code'>"+code+"</div>"
+   +"</div>";
+}
+function exportPDF(){
+  if(!LAST||!LAST.name){alert("Écris ton NOM en haut, puis clique sur « Check my answers ! » avant d'exporter.");return;}
+  buildPrintSheet();
+  document.body.classList.add("print-result");
+  setTimeout(function(){window.print();},60);
+}
+window.addEventListener("afterprint",function(){document.body.classList.remove("print-result");});
+
+function copyCode(){
+  var ta=document.getElementById("exportCode");
+  if(!ta.value||ta.value.indexOf("GTEST1::")!==0){alert("Écris d'abord ton NOM en haut, puis clique sur « Check my answers ! » avant de copier.");return;}
+  ta.select();ta.setSelectionRange(0,99999);var done=false;
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value);done=true;}else{done=document.execCommand("copy");}}
+  catch(e){try{done=document.execCommand("copy");}catch(e2){}}
+  var btn=document.getElementById("copyBtn");
+  if(btn){btn.textContent=done?"✓ Copié !":"Sélectionne le code";btn.classList.toggle("done",done);
+    setTimeout(function(){btn.textContent="⧉ Copier mon code";btn.classList.remove("done");},2500);}
+}
+
+function resetAll(){
+  if(LOCKED)return;
+  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(!el)continue;el.selectedIndex=0;el.classList.remove("correct","incorrect");}
+  var vs=document.querySelectorAll('.btn-val');for(var v=0;v<vs.length;v++){vs[v].classList.remove("done");vs[v].textContent="✓ Vérifier";}
+  var ms=document.querySelectorAll('.modmsg');for(var m=0;m<ms.length;m++){ms[m].textContent="";ms[m].style.color="";}
+  document.getElementById("scoreNum").textContent="— / 20";
+  var ec=document.getElementById("exportCode");if(ec)ec.value="";
+  LAST=null;document.getElementById("banner").classList.remove("show","win");
+  updateProgress();window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// --- iOS-robust: handle every button via event delegation (inline onclick can be unreliable in mobile viewers) ---
+document.addEventListener("click",function(e){
+  var t=e.target,b=(t&&t.closest)?t.closest("[data-act]"):null;
+  if(!b)return;
+  e.preventDefault();
+  var act=b.getAttribute("data-act");
+  if(act==="submit")submitPaper();
+  else if(act==="reset")resetAll();
+  else if(act==="copy")copyCode();
+  else if(act==="pdf")exportPDF();
+  else if(act==="validate")validateSection(b.getAttribute("data-sec"),b);
+},false);
+
+// --- add an explicit "je ne sais pas" (blank) choice to every dropdown; it counts as answered but is always wrong ---
+(function(){
+  for(var i=0;i<ALLIDS.length;i++){
+    var el=document.getElementById(ALLIDS[i]); if(!el) continue;
+    if(el.querySelector('option[value="__blank__"]')) continue;
+    var o=document.createElement("option"); o.value="__blank__"; o.textContent="— je ne sais pas —";
+    if(el.options.length>1) el.add(o,el.options[1]); else el.add(o);
+  }
+})();
+updateProgress();
+</script>
+</body>
+</html>
