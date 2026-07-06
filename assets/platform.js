@@ -65,7 +65,7 @@
         v[el.id] = (el.type === "checkbox" || el.type === "radio") ? (el.checked ? "1" : "") : el.value;
       }
       st.v = v;
-      try { localStorage.setItem(stateKey, JSON.stringify(st)); } catch (e) {}
+      try { localStorage.setItem(stateKey, JSON.stringify(st)); localStorage.setItem(startedKey, "1"); } catch (e) {}
     }
     var timer;
     function saveSoon() { clearTimeout(timer); timer = setTimeout(saveNow, 400); }
@@ -108,6 +108,15 @@
     return v.indexOf("GTEST1::") === 0 ? v.trim() : "";
   }
   var storeKey = "carnet_me_" + classId + "_" + slug;
+  var startedKey = "carnet_started_" + classId + "_" + slug;
+  var doneKey = "carnet_done_" + classId + "_" + slug;
+
+  // Masquer les anciens boutons devenus inutiles (envoi par e-mail + copier le code) — remplacés par la plateforme
+  (function hideOldButtons() {
+    var css = document.createElement("style");
+    css.textContent = '#mailBtn,[onclick*="emailResult"],[data-act="copy"],#copyBtn{display:none !important;}';
+    (document.head || document.documentElement).appendChild(css);
+  })();
 
   // Panneau flottant
   var bar = document.createElement("div");
@@ -144,7 +153,7 @@
     }).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) {
         sendBtn.style.display = "none";
-        try { localStorage.setItem(storeKey, d.meUrl); } catch (e) {}
+        try { localStorage.setItem(storeKey, d.meUrl); localStorage.setItem(doneKey, "1"); } catch (e) {}
         showMe(d.meUrl);
         flash("✅ Résultats envoyés (" + String(d.out20).replace(".", ",") + "/20).");
       } else {

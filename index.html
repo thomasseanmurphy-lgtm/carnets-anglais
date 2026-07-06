@@ -15,13 +15,20 @@
   .classhdr{display:flex;align-items:center;gap:10px;margin:26px 4px 12px;}
   .classhdr h2{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0;}
   .classhdr .line{flex:1;height:1px;background:#cfe5da;}
-  a.chap{display:block;background:#fff;border-radius:18px;padding:16px 20px;margin:9px 0;
+  a.chap{position:relative;display:block;background:#fff;border-radius:18px;padding:16px 56px 16px 20px;margin:9px 0;
     box-shadow:0 8px 22px rgba(40,90,70,.12);text-decoration:none;color:var(--accent);font-weight:700;font-size:17px;
-    transition:.15s;}
+    transition:.15s;border-left:4px solid transparent;}
   a.chap:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(40,90,70,.2);}
   a.chap small{display:block;color:var(--faint);font-weight:600;font-size:12.5px;margin-top:3px;}
-  .eval{border-left:4px solid #e0a43b;}
+  .eval{border-left:4px solid #e0a43b !important;}
   .eval small b{color:#c8871f;}
+  a.chap.is-done{border-left-color:#2e9e6e;background:#f3fbf7;}
+  a.chap.is-started{border-left-color:#e0a43b;}
+  .badge{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px;}
+  .badge.done{background:#2e9e6e;color:#fff;} .badge.started{background:#fdf0d8;color:#c8871f;}
+  .legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:-14px 0 24px;color:var(--muted);font-size:12px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block;} .dot.g{background:#2e9e6e;} .dot.o{background:#e0a43b;}
   footer{margin-top:40px;text-align:center;color:var(--faint);font-size:12px;line-height:1.6;}
   footer a{color:var(--accent);text-decoration:none;font-weight:600;}
 </style>
@@ -29,6 +36,7 @@
 <body>
   <h1>📘 Carnets d'anglais</h1>
   <p class="sub">Exercices interactifs auto-corrigés /20 · trouve ta classe ci-dessous</p>
+  <div class="legend"><span><span class="dot g"></span> ✓ Fait</span><span><span class="dot o"></span> En cours</span></div>
 
   <div class="wrap">
 
@@ -56,8 +64,23 @@
   </div>
 
   <footer>
-    Chaque carnet s'ouvre dans ton navigateur, se corrige tout seul sur /20 et génère un code de résultat.<br>
+    Chaque carnet s'ouvre dans ton navigateur, se corrige tout seul sur /20. À la fin, clique sur « 📤 Envoyer mes résultats ».<br>
     <a href="stats.html">🔐 Espace prof — statistiques</a>
   </footer>
+
+<script>
+  (function(){
+    document.querySelectorAll('a.chap').forEach(function(a){
+      var parts = (a.getAttribute('href')||'').split('/').filter(Boolean);
+      if (parts.length < 2) return;
+      var cls = parts[0], slug = parts[1];
+      var done, started;
+      try { done = localStorage.getItem('carnet_done_'+cls+'_'+slug); started = localStorage.getItem('carnet_started_'+cls+'_'+slug); } catch(e){}
+      var b = document.createElement('span');
+      if (done) { a.classList.add('is-done'); b.className='badge done'; b.textContent='✓ Fait'; a.appendChild(b); }
+      else if (started) { a.classList.add('is-started'); b.className='badge started'; b.textContent='En cours'; a.appendChild(b); }
+    });
+  })();
+</script>
 </body>
 </html>
