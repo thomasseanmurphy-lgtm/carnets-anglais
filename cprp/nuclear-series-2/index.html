@@ -180,6 +180,11 @@
     body.print-result .page,body.print-result .bar,body.print-result .deco,body.print-result #confetti{display:none!important;}
     body.print-result #printSheet{display:block!important;}
   }
+  .btn-val.locked{background:#9aa6b2;cursor:default;}
+  .gate-hint{font-weight:800;font-size:14px;color:#7c8593;text-align:center;background:#eef1f5;border-radius:999px;padding:9px 18px;margin:6px auto;display:inline-block;}
+  select:disabled,input:disabled{opacity:1;cursor:not-allowed;}
+  .answer-reveal{display:inline-block;background:#e2fbf1;color:#0f7a55;border:2px solid #0f7a55;border-radius:999px;padding:1px 11px;margin:4px 0 0 6px;font-weight:700;font-size:14px;white-space:normal;}
+  .answer-reveal::before{content:"✔ ";}
 </style>
 </head>
 <body>
@@ -283,7 +288,7 @@
 
   <!-- IN-FLOW SUBMIT (always reachable on phone) -->
   <div style="text-align:center;margin:8px 0 2px;">
-    <button type="button" class="btn go" data-act="submit">✨ Check my answers!</button>
+    <div class="gate-hint"></div><button type="button" class="btn go" data-act="submit" style="display:none;">✨ Check my answers!</button>
   </div>
 
   <!-- BANNER -->
@@ -309,7 +314,7 @@
 
 <!-- STICKY BAR -->
 <div class="bar">
-  <button type="button" class="btn go" data-act="submit">✨ Check my answers!</button>
+  <div class="gate-hint"></div><button type="button" class="btn go" data-act="submit" style="display:none;">✨ Check my answers!</button>
   <div class="scorebox"><span id="scoreNum">— / 20</span><small>MY MARK</small></div>
   <button type="button" class="btn ghost" data-act="reset">↻ Reset</button>
 </div>
@@ -397,6 +402,31 @@ function boom(x,y){
 }
 
 // validate ONE section; explode confetti when it is all correct
+var VALIDATED={};
+function lockReveal(el,id,ok){
+  el.classList.remove("correct","incorrect");
+  el.classList.add(ok?"correct":"incorrect");
+  var prev=el.parentNode.querySelector('.answer-reveal[data-for="'+id+'"]');
+  if(prev)prev.remove();
+  if(!ok){
+    var a=ANS[id];var sol=(a&&a.length)?a[0]:"";
+    var span=document.createElement("span");
+    span.className="answer-reveal";span.setAttribute("data-for",id);span.textContent=sol;
+    el.parentNode.insertBefore(span,el.nextSibling);
+  }
+  el.disabled=true;
+}
+function updateSubmitGate(){
+  var done=0;for(var s=0;s<SECTIONS.length;s++){if(VALIDATED[SECTIONS[s].name])done++;}
+  var all=done>=SECTIONS.length;
+  var btns=document.querySelectorAll('[data-act="submit"]');
+  for(var i=0;i<btns.length;i++){btns[i].style.display=all?"":"none";}
+  var hints=document.querySelectorAll('.gate-hint');
+  for(var j=0;j<hints.length;j++){
+    if(all){hints[j].style.display="none";}
+    else{hints[j].style.display="";hints[j].textContent="🔒 Valide chaque section ("+done+" / "+SECTIONS.length+")";}
+  }
+}
 function validateSection(name,btn){
   var sec=null;for(var s=0;s<SECTIONS.length;s++){if(SECTIONS[s].name===name){sec=SECTIONS[s];break;}}
   if(!sec)return;
@@ -404,17 +434,19 @@ function validateSection(name,btn){
   for(var i=0;i<sec.ids.length;i++){
     var el=document.getElementById(sec.ids[i]);if(!el)continue;
     var ok=isCorrect(sec.ids[i],el.value);
-    el.classList.remove("correct","incorrect");el.classList.add(ok?"correct":"incorrect");
+    lockReveal(el,sec.ids[i],ok);
     if(ok)sc++;
   }
   var max=sec.ids.length,msg=btn.parentNode.querySelector(".modmsg");
+  btn.disabled=true;
+  VALIDATED[name]=true; updateSubmitGate();
   if(sc===max){
     btn.classList.add("done");btn.textContent="✓ Perfect!";
     if(msg)msg.textContent=sc+" / "+max+" 🎉";
     var r=btn.getBoundingClientRect();boom(r.left+r.width/2,r.top+r.height/2);
   }else{
-    btn.classList.remove("done");btn.textContent="✓ Validate";
-    if(msg)msg.textContent=sc+" / "+max+" — try again!";
+    btn.classList.add("locked");btn.textContent="🔒 Corrigé";
+    if(msg)msg.textContent=sc+" / "+max+" — réponses corrigées 👇";
   }
 }
 
@@ -494,7 +526,10 @@ function copyCode(){
 }
 
 function resetAll(){
-  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(!el)continue;el.selectedIndex=0;el.classList.remove("correct","incorrect");}
+  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(!el)continue;el.selectedIndex=0;el.value="";el.disabled=false;el.classList.remove("correct","incorrect");}
+  var rev=document.querySelectorAll(".answer-reveal");for(var r=0;r<rev.length;r++)rev[r].remove();
+  var vbtns=document.querySelectorAll(".btn-val");for(var vb=0;vb<vbtns.length;vb++){var bn=vbtns[vb];bn.disabled=false;bn.classList.remove("done","locked");bn.textContent="✓ Validate";var mm=bn.parentNode.querySelector(".modmsg");if(mm)mm.textContent="";}
+  VALIDATED={}; updateSubmitGate();
   document.getElementById("scoreNum").textContent="— / 20";
   var ec=document.getElementById("exportCode");if(ec)ec.value="";
   LAST=null;document.getElementById("banner").classList.remove("show","win");
@@ -502,6 +537,7 @@ function resetAll(){
 }
 
 // --- iOS-robust: handle every button via event delegation (inline onclick can be unreliable in mobile viewers) ---
+updateSubmitGate();
 document.addEventListener("click",function(e){
   var t=e.target,b=(t&&t.closest)?t.closest("[data-act]"):null;
   if(!b)return;
