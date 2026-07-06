@@ -46,6 +46,62 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setupRoster);
   else setupRoster();
 
+  // ---- Sauvegarde locale : ne rien perdre même si l'élève quitte un carnet inachevé ----
+  (function persistence() {
+    var stateKey = "carnet_state_" + classId + "_" + slug;
+    var st;
+    try { st = JSON.parse(localStorage.getItem(stateKey)) || {}; } catch (e) { st = {}; }
+    if (!st.v) st.v = {}; if (!st.sections) st.sections = [];
+    function isAnswer(el) {
+      if (!el.id) return false;
+      var t = (el.type || "").toLowerCase();
+      return !(t === "button" || t === "submit" || t === "reset" || t === "file");
+    }
+    function saveNow() {
+      var v = {};
+      var list = document.querySelectorAll("input[id], select[id], textarea[id]");
+      for (var i = 0; i < list.length; i++) {
+        var el = list[i]; if (!isAnswer(el)) continue;
+        v[el.id] = (el.type === "checkbox" || el.type === "radio") ? (el.checked ? "1" : "") : el.value;
+      }
+      st.v = v;
+      try { localStorage.setItem(stateKey, JSON.stringify(st)); } catch (e) {}
+    }
+    var timer;
+    function saveSoon() { clearTimeout(timer); timer = setTimeout(saveNow, 400); }
+    function cssEsc(s) { return (window.CSS && CSS.escape) ? CSS.escape(s) : String(s).replace(/"/g, '\\"'); }
+    function restore() {
+      var ids = Object.keys(st.v || {});
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]); if (!el) continue;
+        if (el.type === "checkbox" || el.type === "radio") el.checked = st.v[ids[i]] === "1";
+        else el.value = st.v[ids[i]];
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      // re-valide les sections déjà validées (reproduit l'état vert/verrouillé)
+      (st.sections || []).forEach(function (sec) {
+        var btn = document.querySelector('[data-act="validate"][data-sec="' + cssEsc(sec) + '"]');
+        if (btn) { try { btn.click(); } catch (e) {} }
+      });
+    }
+    document.addEventListener("input", saveSoon, true);
+    document.addEventListener("change", saveSoon, true);
+    document.addEventListener("click", function (e) {
+      var el = e.target;
+      var vb = el && el.closest ? el.closest('[data-act="validate"]') : null;
+      if (vb && vb.getAttribute("data-sec")) {
+        var sec = vb.getAttribute("data-sec");
+        if (st.sections.indexOf(sec) < 0) st.sections.push(sec);
+        setTimeout(saveNow, 60);
+      }
+      var rb = el && el.closest ? el.closest('[data-act="reset"]') : null;
+      if (rb) { try { localStorage.removeItem(stateKey); } catch (e) {} st = { v: {}, sections: [] }; }
+    }, true);
+    function go() { setTimeout(restore, 400); }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+  })();
+
   function getCode() {
     var el = document.getElementById("exportCode");
     var v = el ? (el.value || el.textContent || "") : "";
