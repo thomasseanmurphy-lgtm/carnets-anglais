@@ -217,7 +217,6 @@
   <div class="idbar">
     <div class="chip">🙂 <input id="stuName" placeholder="Your name"></div>
     <div class="chip">🏷️ <input id="stuClass" value="MS 1"></div>
-    <div class="chip">📅 <input id="stuDate" placeholder="dd/mm"></div>
   </div>
 
   <!-- PROGRESS -->
@@ -497,7 +496,7 @@ function submitPaper(){
   for(var vb=0;vb<vbtns.length;vb++){ if(!vbtns[vb].disabled){ vbtns[vb].disabled=true; vbtns[vb].classList.add("locked"); vbtns[vb].textContent="🔒 Corrigé"; } }
   var out20=Math.round((score/TOTAL)*20*2)/2;
   LAST={test:"MS1 Insurance Audit (B1-B2)",name:(getVal("stuName")||"").trim(),
-    cls:(getVal("stuClass")||"").trim(),date:(getVal("stuDate")||"").trim(),
+    cls:(getVal("stuClass")||"").trim(),date:new Date().toLocaleDateString("fr-FR"),
     submitted:new Date().toISOString(),score:score,total:TOTAL,out20:out20,sections:perSection,items:items};
 
   document.getElementById("scoreNum").textContent=out20.toString().replace(".",",")+" / 20";

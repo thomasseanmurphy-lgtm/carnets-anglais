@@ -46,6 +46,30 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setupRoster);
   else setupRoster();
 
+  // ---- Suivi des connexions : signale au serveur qui a ouvert le carnet ----
+  // Envoyé au plus 1 fois par jour, par carnet et par élève (le nom vient du champ,
+  // du menu déroulant, ou de la restauration automatique d'une visite précédente).
+  function pingVisit() {
+    var el = document.getElementById("stuName");
+    var name = el ? (el.value || "").trim() : "";
+    if (!name || !classId || !slug) return;
+    var day = new Date().toISOString().slice(0, 10);
+    var vKey = "carnet_visit_" + classId + "_" + slug + "_" + day + "_" + name.toLowerCase();
+    try { if (localStorage.getItem(vKey)) return; } catch (e) {}
+    fetch(API + "/api/visit", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ classId: classId, slug: slug, name: name })
+    }).then(function (r) {
+      if (r && r.ok) { try { localStorage.setItem(vKey, "1"); } catch (e) {} }
+    }).catch(function () {});
+  }
+  document.addEventListener("change", function (e) {
+    if (e.target && e.target.id === "stuName") setTimeout(pingVisit, 200);
+  }, true);
+  function initVisit() { setTimeout(pingVisit, 1500); } // après restauration du nom
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initVisit);
+  else initVisit();
+
   // ---- Sauvegarde locale : ne rien perdre même si l'élève quitte un carnet inachevé ----
   (function persistence() {
     var stateKey = "carnet_state_" + classId + "_" + slug;

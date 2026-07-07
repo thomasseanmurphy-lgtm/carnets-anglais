@@ -229,7 +229,6 @@
   <div class="idrow">
     <div class="field"><label>Name</label><input id="stuName" placeholder="First name + surname"></div>
     <div class="field"><label>Class</label><input id="stuClass" value="CPRP 1"></div>
-    <div class="field"><label>Date</label><input id="stuDate" placeholder="dd/mm/yyyy"></div>
   </div>
 
   <!-- PROGRESS -->
@@ -492,7 +491,7 @@ function submitPaper(){
   }
   var out20=Math.round((score/TOTAL)*20*2)/2;
   LAST={test:"CPRP1 Nuclear Series (A1-A2)",name:(getVal("stuName")||"").trim(),
-    cls:(getVal("stuClass")||"").trim(),date:(getVal("stuDate")||"").trim(),
+    cls:(getVal("stuClass")||"").trim(),date:new Date().toLocaleDateString("fr-FR"),
     submitted:new Date().toISOString(),score:score,total:TOTAL,out20:out20,sections:perSection,items:items};
 
   document.getElementById("scoreNum").textContent=out20.toString().replace(".",",")+" / 20";
