@@ -1,7 +1,8 @@
 /* Carnets d'anglais — branchement plateforme.
-   Ajouté à chaque carnet : quand l'élève a soumis (code GTEST1 prêt),
-   affiche un bouton « Envoyer mes résultats » qui POST vers l'API,
-   puis un lien vers sa page perso « Ma progression ». Additif : ne touche pas au carnet. */
+   Ajouté à chaque carnet : quand l'élève a validé (code GTEST1 prêt),
+   les résultats sont enregistrés AUTOMATIQUEMENT (POST vers l'API, sans bouton),
+   puis un lien vers sa page perso « Ma progression » (cumulée sur tous les carnets)
+   s'affiche. Additif : ne touche pas au carnet. */
 (function () {
   var API = "https://carnets-api.thomas-sean-murphy.workers.dev";
 
@@ -142,53 +143,67 @@
     (document.head || document.documentElement).appendChild(css);
   })();
 
-  // Panneau flottant
+  // Panneau flottant : enregistrement AUTOMATIQUE (plus de bouton « Envoyer »).
+  // L'élève ne voit que l'état + le lien vers sa progression cumulée sur tous les carnets.
   var bar = document.createElement("div");
   bar.id = "platformBar";
-  bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:99999;display:none;justify-content:center;gap:10px;flex-wrap:wrap;padding:12px 16px;background:rgba(255,255,255,.96);box-shadow:0 -6px 24px rgba(40,90,70,.16);font-family:system-ui,-apple-system,sans-serif;";
+  bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:99999;display:none;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;background:rgba(255,255,255,.96);box-shadow:0 -6px 24px rgba(40,90,70,.16);font-family:system-ui,-apple-system,sans-serif;";
   bar.innerHTML =
-    '<button id="pfSend" style="background:#127a55;color:#fff;border:none;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer;">📤 Envoyer mes résultats</button>' +
-    '<a id="pfMe" href="#" target="_blank" rel="noopener" style="display:none;align-items:center;background:#eafaf3;color:#127a55;border-radius:12px;padding:12px 18px;font-size:14px;font-weight:700;text-decoration:none;">📊 Voir ma progression →</a>' +
-    '<span id="pfMsg" style="display:none;align-items:center;color:#5f6a75;font-size:13px;"></span>';
+    '<span id="pfMsg" style="display:inline-flex;align-items:center;color:#5f6a75;font-size:14px;font-weight:600;"></span>' +
+    '<a id="pfMe" href="#" target="_blank" rel="noopener" style="display:none;align-items:center;background:#127a55;color:#fff;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;text-decoration:none;">📊 Voir ma progression →</a>' +
+    '<button id="pfRetry" style="display:none;background:#e0a43b;color:#fff;border:none;border-radius:12px;padding:11px 18px;font-size:14px;font-weight:700;cursor:pointer;">🔄 Réessayer</button>';
   function mount() { if (!document.getElementById("platformBar")) document.body.appendChild(bar); }
   if (document.body) mount(); else document.addEventListener("DOMContentLoaded", mount);
 
-  var sendBtn = bar.querySelector("#pfSend"), meLink = bar.querySelector("#pfMe"), msg = bar.querySelector("#pfMsg");
-
+  var meLink = bar.querySelector("#pfMe"), retryBtn = bar.querySelector("#pfRetry"), msg = bar.querySelector("#pfMsg");
+  function flash(text, warn) { msg.textContent = text; msg.style.color = warn ? "#c8871f" : "#2e9e6e"; msg.style.display = "inline-flex"; }
   function showMe(url) { meLink.href = url; meLink.style.display = "inline-flex"; }
+
   var saved = null; try { saved = localStorage.getItem(storeKey); } catch (e) {}
-  if (saved) showMe(saved);
+  if (saved) { showMe(saved); flash("✅ Ta progression est enregistrée."); bar.style.display = "flex"; }
 
-  // Révèle la barre dès qu'un code valide existe (après soumission du carnet)
-  var seen = false;
-  setInterval(function () {
-    var code = getCode();
-    if (code && !seen) { seen = true; bar.style.display = "flex"; }
-    if (!code && seen && !saved) { /* garde la barre visible */ }
-  }, 1000);
+  // Ne pas ré-envoyer un code déjà enregistré (évite de recompter un essai à la ré-ouverture d'un carnet fini).
+  var sentKey = "carnet_sentcode_" + classId + "_" + slug;
+  var sentCode = ""; try { sentCode = localStorage.getItem(sentKey) || ""; } catch (e) {}
+  var lastTried = "", pending = false;
 
-  sendBtn.addEventListener("click", function () {
-    var code = getCode();
-    if (!code) { flash("Termine d'abord le carnet et clique sur « Submit » (ta note doit s'afficher).", true); return; }
-    sendBtn.disabled = true; sendBtn.textContent = "Envoi…";
+  function autoSend(code) {
+    if (pending) return;
+    pending = true; lastTried = code; retryBtn.style.display = "none";
+    flash("⏳ Enregistrement de tes résultats…");
     fetch(API + "/api/submit", {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ classId: classId, slug: slug, code: code })
     }).then(function (r) { return r.json(); }).then(function (d) {
+      pending = false;
       if (d && d.ok) {
-        sendBtn.style.display = "none";
-        try { localStorage.setItem(storeKey, d.meUrl); localStorage.setItem(doneKey, "1"); } catch (e) {}
+        sentCode = code;
+        try { localStorage.setItem(sentKey, code); localStorage.setItem(storeKey, d.meUrl); localStorage.setItem(doneKey, "1"); } catch (e) {}
         showMe(d.meUrl);
-        flash("✅ Résultats envoyés (" + String(d.out20).replace(".", ",") + "/20).");
+        flash("✅ Progression enregistrée (" + String(d.out20).replace(".", ",") + "/20).");
+      } else if (d && d.error === "no_name") {
+        // le code sans nom reste "lastTried" : pas de boucle ; on re-tentera si l'élève choisit son nom et re-valide
+        flash("Choisis ton nom en haut du carnet, puis re-valide-le.", true);
       } else {
-        sendBtn.disabled = false; sendBtn.textContent = "📤 Envoyer mes résultats";
-        flash(d && d.error === "no_name" ? "Écris ton NOM en haut du carnet, puis Submit à nouveau." : "Échec de l'envoi, réessaie.", true);
+        flash("Enregistrement impossible pour l'instant.", true); retryBtn.style.display = "inline-flex";
       }
     }).catch(function () {
-      sendBtn.disabled = false; sendBtn.textContent = "📤 Envoyer mes résultats";
-      flash("Pas de connexion — réessaie.", true);
+      pending = false;
+      flash("Pas de connexion — tes résultats ne sont pas encore enregistrés.", true);
+      retryBtn.style.display = "inline-flex";
     });
+  }
+
+  retryBtn.addEventListener("click", function () {
+    var code = getCode();
+    if (!code) { flash("Termine d'abord le carnet (ta note doit s'afficher).", true); return; }
+    lastTried = ""; autoSend(code);
   });
 
-  function flash(text, warn) { msg.textContent = text; msg.style.color = warn ? "#c8871f" : "#2e9e6e"; msg.style.display = "inline-flex"; }
+  // Dès qu'un code valide apparaît (carnet validé), afficher la barre et enregistrer tout seul.
+  setInterval(function () {
+    var code = getCode();
+    if (code && bar.style.display === "none") bar.style.display = "flex";
+    if (code && code !== sentCode && code !== lastTried && !pending) autoSend(code);
+  }, 1000);
 })();
