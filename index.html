@@ -13,9 +13,27 @@
   .sub{color:var(--muted);text-align:center;margin:0 0 22px;font-size:15px;}
   .wrap{width:100%;max-width:560px;}
 
+  /* ---- centre = top-level collapsible (UIMM / AFTRAL) ---- */
+  .centre{margin:22px 0 0;}
+  button.centrehdr{display:flex;align-items:center;gap:12px;width:100%;padding:13px 16px;cursor:pointer;
+    font:inherit;color:#fff;text-align:left;border:none;border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),#38bdf8);box-shadow:0 8px 22px rgba(40,90,70,.15);
+    -webkit-tap-highlight-color:transparent;transition:filter .15s,transform .15s;}
+  button.centrehdr:hover{filter:brightness(1.05);transform:translateY(-1px);}
+  button.centrehdr:focus-visible{outline:3px solid rgba(255,255,255,.6);outline-offset:2px;}
+  .centrehdr .cicon{font-size:18px;line-height:1;}
+  .centrehdr .ctitle{flex:1;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;}
+  .centrehdr .cnt-c{font-size:11px;font-weight:800;background:rgba(255,255,255,.22);color:#fff;
+    border-radius:999px;padding:3px 10px;white-space:nowrap;}
+  .centrehdr .chev-c{font-size:13px;opacity:.9;transition:transform .28s ease;transform:rotate(-90deg);}
+  .centre.open .centrehdr .chev-c{transform:rotate(0);}
+  .centre-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+  .centre.open .centre-body{grid-template-rows:1fr;}
+  .centre-body-inner{overflow:hidden;min-height:0;padding:0 2px;}
+
   /* ---- class = collapsible section ---- */
   .class{margin:0;}
-  button.classhdr{display:flex;align-items:center;gap:10px;width:100%;margin:20px 4px 2px;padding:8px 6px;
+  button.classhdr{display:flex;align-items:center;gap:10px;width:100%;margin:16px 4px 2px;padding:8px 6px;
     background:none;border:none;cursor:pointer;font:inherit;color:inherit;text-align:left;border-radius:10px;
     -webkit-tap-highlight-color:transparent;transition:background .15s;}
   button.classhdr:hover{background:#ffffff8c;}
@@ -51,8 +69,6 @@
   .toolbar button{background:none;border:none;color:var(--accent);font:inherit;font-size:12.5px;font-weight:700;
     cursor:pointer;padding:4px 6px;border-radius:8px;}
   .toolbar button:hover{background:#ffffffb0;}
-  .bighdr{margin:38px 0 2px;text-align:center;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-    color:#fff;background:linear-gradient(135deg,var(--accent),#38bdf8);border-radius:12px;padding:9px 14px;box-shadow:0 8px 22px rgba(40,90,70,.15);}
   .soon{background:#ffffffa8;border:1px dashed #cfe5da;border-radius:18px;padding:16px 20px;margin:9px 0;color:var(--faint);font-size:14px;font-weight:600;}
   footer{margin-top:40px;text-align:center;color:var(--faint);font-size:12px;line-height:1.6;}
   footer a{color:var(--accent);text-decoration:none;font-weight:600;}
@@ -60,76 +76,85 @@
 </head>
 <body>
   <h1>📘 Carnets d'anglais</h1>
-  <p class="sub">Exercices interactifs auto-corrigés /20 · <b>clique sur ta classe</b> pour voir les carnets</p>
+  <p class="sub">Exercices interactifs auto-corrigés /20 · <b>choisis ton centre</b>, puis ta classe</p>
   <div class="legend"><span><span class="dot g"></span> ✓ Fait</span><span><span class="dot o"></span> En cours</span></div>
 
   <div class="wrap">
 
     <div class="toolbar"><button type="button" id="toggleAll">Tout dérouler</button></div>
 
-    <div class="bighdr">🏭 UIMM — Pôle Formation Dijon</div>
+    <section class="centre" data-centre="uimm">
+      <button class="centrehdr" type="button"><span class="cicon">🏭</span><span class="ctitle">UIMM — Pôle Formation Dijon</span><span class="cnt-c"></span><span class="chev-c">▾</span></button>
+      <div class="centre-body"><div class="centre-body-inner">
 
-    <section class="class" data-cls="ms">
-      <button class="classhdr" type="button"><h2>🏗️ BTS MS — Maintenance</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="ms/crane-installation/">🏗️ Heavy Lift &amp; Installation<small>Livraison &amp; installation d'une presse par grue · reading &amp; grammar · B1–B2</small></a>
-        <a class="chap" href="ms/insurance-audit/">🛡️ The Insurance Audit<small>Audit des risques dans une usine · reading &amp; grammar · B1–B2</small></a>
+        <section class="class" data-cls="ms">
+          <button class="classhdr" type="button"><h2>🏗️ BTS MS — Maintenance</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="ms/crane-installation/">🏗️ Heavy Lift &amp; Installation<small>Livraison &amp; installation d'une presse par grue · reading &amp; grammar · B1–B2</small></a>
+            <a class="chap" href="ms/insurance-audit/">🛡️ The Insurance Audit<small>Audit des risques dans une usine · reading &amp; grammar · B1–B2</small></a>
+          </div></div>
+        </section>
+
+        <section class="class" data-cls="cprp">
+          <button class="classhdr" type="button"><h2>🛠️ BTS CPRP — Conception</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="cprp/recycling-drive/">♻️ Machining Workshop — Recycling Drive<small>Recyclage à l'atelier · reading &amp; grammar · B1</small></a>
+            <a class="chap" href="cprp/delivery-qc/">📐 Delivery, Calibration &amp; Quality Control<small>Réception, calibration &amp; contrôle qualité · B1</small></a>
+            <a class="chap" href="cprp/nuclear-series/">⚙️ A New Series<small>Nouvelle série de pièces · reading &amp; grammar · A1–A2</small></a>
+            <a class="chap" href="cprp/nuclear-series-2/">⚙️ Workshop &amp; Machines (No 2)<small>Atelier &amp; machines · reading &amp; grammar · A1–A2</small></a>
+          </div></div>
+        </section>
+
+        <section class="class" data-cls="elec">
+          <button class="classhdr" type="button"><h2>⚡ BTS ELEC — Électrotechnique</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="elec/industrial-electrician/">⚡ Industrial Electrician<small>Le métier d'électricien industriel · reading &amp; grammar · B1</small></a>
+            <a class="chap" href="elec/industrial-electrician-b2/">⚡ Industrial Electrician — B2<small>Version approfondie · reading &amp; grammar · B2</small></a>
+            <a class="chap" href="elec/automation-grafcet/">🤖 Automation &amp; GRAFCET<small>Créer un GRAFCET : capteurs, vérins, API · passif, conditionnels &amp; connecteurs · B1–B2</small></a>
+            <a class="chap" href="elec/transformer-failure/">🔌 The Day the Transformer Failed<small>Panne de transformateur · carnet complet · B1</small></a>
+          </div></div>
+        </section>
+
       </div></div>
     </section>
 
-    <section class="class" data-cls="cprp">
-      <button class="classhdr" type="button"><h2>🛠️ BTS CPRP — Conception</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="cprp/recycling-drive/">♻️ Machining Workshop — Recycling Drive<small>Recyclage à l'atelier · reading &amp; grammar · B1</small></a>
-        <a class="chap" href="cprp/delivery-qc/">📐 Delivery, Calibration &amp; Quality Control<small>Réception, calibration &amp; contrôle qualité · B1</small></a>
-        <a class="chap" href="cprp/nuclear-series/">⚙️ A New Series<small>Nouvelle série de pièces · reading &amp; grammar · A1–A2</small></a>
-        <a class="chap" href="cprp/nuclear-series-2/">⚙️ Workshop &amp; Machines (No 2)<small>Atelier &amp; machines · reading &amp; grammar · A1–A2</small></a>
-        <a class="chap" href="cprp/nuclear-series-engineer/">⚙️ A New Series — Engineer<small>Version approfondie · reading &amp; grammar · B1</small></a>
-      </div></div>
-    </section>
+    <section class="centre" data-centre="aftral">
+      <button class="centrehdr" type="button"><span class="cicon">🎓</span><span class="ctitle">AFTRAL — Dijon</span><span class="cnt-c"></span><span class="chev-c">▾</span></button>
+      <div class="centre-body"><div class="centre-body-inner">
 
-    <section class="class" data-cls="elec">
-      <button class="classhdr" type="button"><h2>⚡ BTS ELEC — Électrotechnique</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="elec/industrial-electrician/">⚡ Industrial Electrician<small>Le métier d'électricien industriel · reading &amp; grammar · B1</small></a>
-        <a class="chap" href="elec/industrial-electrician-b2/">⚡ Industrial Electrician — B2<small>Version approfondie · reading &amp; grammar · B2</small></a>
-        <a class="chap" href="elec/automation-grafcet/">🤖 Automation &amp; GRAFCET<small>Créer un GRAFCET : capteurs, vérins, API · passif, conditionnels &amp; connecteurs · B1–B2</small></a>
-        <a class="chap" href="elec/transformer-failure/">🔌 The Day the Transformer Failed<small>Panne de transformateur · carnet complet · B1</small></a>
-      </div></div>
-    </section>
+        <section class="class" data-cls="theo">
+          <button class="classhdr" type="button"><h2>🚚 BAC PRO — Logistique (Théo)</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="aftral/theo-ch1/">🔎 Théo Ch.1 — Finding the Company<small>Théo cherche son entreprise de stage · A2–B1</small></a>
+            <a class="chap" href="aftral/theo-ch2/">🤝 Théo Ch.2 — The Interview<small>L'entretien de stage · A2–B1</small></a>
+          </div></div>
+        </section>
 
-    <div class="bighdr">🎓 AFTRAL — Dijon</div>
+        <section class="class" data-cls="ndrc">
+          <button class="classhdr" type="button"><h2>🛒 BTS NDRC — Vente</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="ndrc/first-day-store/">🛍️ First Day in the Store<small>Premier jour d'Emma en magasin · reading &amp; grammar · A1–A2</small></a>
+            <a class="chap" href="ndrc/closing-the-deal/">🤝 Closing the Deal<small>Négociation &amp; relance d'un prospect · reading &amp; grammar · B1–B2</small></a>
+            <a class="chap" href="ndrc/recruitment-drive/">💼 The Recruitment Drive<small>Recruter des entreprises partenaires + négociation · reading &amp; grammar · B1–B2</small></a>
+          </div></div>
+        </section>
 
-    <section class="class" data-cls="theo">
-      <button class="classhdr" type="button"><h2>🚚 BAC PRO — Logistique (Théo)</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="aftral/theo-ch1/">🔎 Théo Ch.1 — Finding the Company<small>Théo cherche son entreprise de stage · A2–B1</small></a>
-        <a class="chap" href="aftral/theo-ch2/">🤝 Théo Ch.2 — The Interview<small>L'entretien de stage · A2–B1</small></a>
-      </div></div>
-    </section>
+        <section class="class" data-cls="gtla">
+          <button class="classhdr" type="button"><h2>🚚 BTS GTLA — Transport</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <a class="chap" href="gtla/welcome-warehouse/">📦 Welcome to the Warehouse<small>Premier jour de Karim à l'entrepôt · reading &amp; grammar · A1–A2</small></a>
+            <a class="chap" href="gtla/late-shipment/">🚛 The Late Shipment<small>Un conteneur en retard : douane, tracking, litige · B1–B2</small></a>
+            <a class="chap" href="gtla/delivery-route/">🗺️ The New Delivery Route<small>Optimiser une tournée + négocier avec un client · reading &amp; grammar · B1–B2</small></a>
+          </div></div>
+        </section>
 
-    <section class="class" data-cls="ndrc">
-      <button class="classhdr" type="button"><h2>🛒 BTS NDRC — Vente</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="ndrc/first-day-store/">🛍️ First Day in the Store<small>Premier jour d'Emma en magasin · reading &amp; grammar · A1–A2</small></a>
-        <a class="chap" href="ndrc/closing-the-deal/">🤝 Closing the Deal<small>Négociation &amp; relance d'un prospect · reading &amp; grammar · B1–B2</small></a>
-        <a class="chap" href="ndrc/recruitment-drive/">💼 The Recruitment Drive<small>Recruter des entreprises partenaires + négociation · reading &amp; grammar · B1–B2</small></a>
-      </div></div>
-    </section>
+        <section class="class" data-cls="tourisme">
+          <button class="classhdr" type="button"><h2>✈️ BTS Tourisme</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
+          <div class="chaps"><div class="chaps-inner">
+            <div class="soon">Carnets à venir…</div>
+          </div></div>
+        </section>
 
-    <section class="class" data-cls="gtla">
-      <button class="classhdr" type="button"><h2>🚚 BTS GTLA — Transport</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <a class="chap" href="gtla/welcome-warehouse/">📦 Welcome to the Warehouse<small>Premier jour de Karim à l'entrepôt · reading &amp; grammar · A1–A2</small></a>
-        <a class="chap" href="gtla/late-shipment/">🚛 The Late Shipment<small>Un conteneur en retard : douane, tracking, litige · B1–B2</small></a>
-        <a class="chap" href="gtla/delivery-route/">🗺️ The New Delivery Route<small>Optimiser une tournée + négocier avec un client · reading &amp; grammar · B1–B2</small></a>
-      </div></div>
-    </section>
-
-    <section class="class" data-cls="tourisme">
-      <button class="classhdr" type="button"><h2>✈️ BTS Tourisme</h2><span class="line"></span><span class="cnt"></span><span class="chev">▾</span></button>
-      <div class="chaps"><div class="chaps-inner">
-        <div class="soon">Carnets à venir…</div>
       </div></div>
     </section>
 
@@ -149,6 +174,7 @@
       try { return !!localStorage.getItem('carnet_started_'+cls+'_'+slug); } catch(e){ return false; }
     }
 
+    // ---- classes (accordéon interne + badges par carnet) ----
     document.querySelectorAll('section.class').forEach(function(sec){
       var key = sec.getAttribute('data-cls');
       var hdr = sec.querySelector('.classhdr');
@@ -185,25 +211,59 @@
       });
     });
 
-    // "Tout dérouler / Tout replier"
+    // ---- centres (accordéon de tête : UIMM / AFTRAL) ----
+    document.querySelectorAll('section.centre').forEach(function(ctr){
+      var key = ctr.getAttribute('data-centre');
+      var hdr = ctr.querySelector('.centrehdr');
+      var cntEl = ctr.querySelector('.cnt-c');
+      var links = ctr.querySelectorAll('a.chap');
+      var total = links.length, nDone = 0;
+      links.forEach(function(a){
+        var parts = (a.getAttribute('href')||'').split('/').filter(Boolean);
+        if (parts.length >= 2 && done(parts[0], parts[1])) nDone++;
+      });
+      if (cntEl){
+        cntEl.innerHTML = total + ' carnet' + (total>1?'s':'') + (nDone ? ' · ✓ '+nDone : '');
+      }
+
+      // collapsed by default : l'élève choisit d'abord son centre
+      var open;
+      try { open = localStorage.getItem('carnet_centre_open_'+key); } catch(e){}
+      if (open === '1') ctr.classList.add('open');
+      hdr.setAttribute('aria-expanded', ctr.classList.contains('open') ? 'true' : 'false');
+
+      hdr.addEventListener('click', function(){
+        var now = ctr.classList.toggle('open');
+        hdr.setAttribute('aria-expanded', now ? 'true' : 'false');
+        try { localStorage.setItem('carnet_centre_open_'+key, now ? '1' : '0'); } catch(e){}
+      });
+    });
+
+    // ---- "Tout dérouler / Tout replier" (centres + classes) ----
     var btn = document.getElementById('toggleAll');
     if (btn){
-      btn.addEventListener('click', function(){
-        var secs = document.querySelectorAll('section.class');
-        var anyClosed = Array.prototype.some.call(secs, function(s){ return !s.classList.contains('open'); });
-        secs.forEach(function(s){
-          var k = s.getAttribute('data-cls');
-          if (anyClosed) s.classList.add('open'); else s.classList.remove('open');
-          var h = s.querySelector('.classhdr');
-          if (h) h.setAttribute('aria-expanded', anyClosed ? 'true' : 'false');
-          try { localStorage.setItem('carnet_class_open_'+k, anyClosed ? '1' : '0'); } catch(e){}
+      function anyClosed(){
+        var all = document.querySelectorAll('section.centre, section.class');
+        return Array.prototype.some.call(all, function(s){ return !s.classList.contains('open'); });
+      }
+      function setState(open){
+        document.querySelectorAll('section.centre').forEach(function(c){
+          c.classList.toggle('open', open);
+          var h = c.querySelector('.centrehdr'); if (h) h.setAttribute('aria-expanded', open ? 'true' : 'false');
+          try { localStorage.setItem('carnet_centre_open_'+c.getAttribute('data-centre'), open ? '1' : '0'); } catch(e){}
         });
-        btn.textContent = anyClosed ? 'Tout replier' : 'Tout dérouler';
+        document.querySelectorAll('section.class').forEach(function(s){
+          s.classList.toggle('open', open);
+          var h = s.querySelector('.classhdr'); if (h) h.setAttribute('aria-expanded', open ? 'true' : 'false');
+          try { localStorage.setItem('carnet_class_open_'+s.getAttribute('data-cls'), open ? '1' : '0'); } catch(e){}
+        });
+      }
+      btn.addEventListener('click', function(){
+        var open = anyClosed();
+        setState(open);
+        btn.textContent = open ? 'Tout replier' : 'Tout dérouler';
       });
-      // set initial label from current state
-      var secs0 = document.querySelectorAll('section.class');
-      var allOpen = Array.prototype.every.call(secs0, function(s){ return s.classList.contains('open'); });
-      btn.textContent = allOpen ? 'Tout replier' : 'Tout dérouler';
+      btn.textContent = anyClosed() ? 'Tout dérouler' : 'Tout replier';
     }
   })();
 </script>
