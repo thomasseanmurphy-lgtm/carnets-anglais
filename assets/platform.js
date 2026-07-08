@@ -143,6 +143,30 @@
     (document.head || document.documentElement).appendChild(css);
   })();
 
+  // ---- Barre fixe du bas (« Valide chaque section · — / 20 · Reset ») ----
+  // Cachée pendant les exercices ; révélée seulement quand TOUTES les sections
+  // sont validées. On s'aligne sur le "gate" du moteur : il n'affiche le(s)
+  // bouton(s) [data-act="submit"] qu'une fois chaque section validée.
+  (function gateStickyBar() {
+    var css = document.createElement("style");
+    css.textContent = 'body:not(.sections-done) .bar{display:none !important;}';
+    (document.head || document.documentElement).appendChild(css);
+    function allSectionsValidated() {
+      var btns = document.querySelectorAll('[data-act="submit"]');
+      if (!btns.length) return false;
+      for (var i = 0; i < btns.length; i++) {
+        if (getComputedStyle(btns[i]).display !== "none") return true; // gate ouvert
+      }
+      return false;
+    }
+    function sync() {
+      if (document.body) document.body.classList.toggle("sections-done", allSectionsValidated());
+    }
+    setInterval(sync, 400);
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", sync);
+    else sync();
+  })();
+
   // Panneau flottant : enregistrement AUTOMATIQUE (plus de bouton « Envoyer »).
   // L'élève ne voit que l'état + le lien vers sa progression cumulée sur tous les carnets.
   var bar = document.createElement("div");
