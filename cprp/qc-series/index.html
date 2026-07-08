@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔎 Quality Control on a Series — CPRP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap');
+
+  :root{
+    --ink:#3a2a12;
+    --grape:#e0872a; --grape-d:#b96812;
+    --pink:#ff6b6b; --sun:#ffc93c; --mint:#37d9a0; --sky:#38bdf8;
+    --card:#ffffff; --soft:#fff3e0;
+    --red:#ff5a6e; --green:#20c997;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;color:var(--ink);margin:0;font-size:17px;line-height:1.5;
+    padding-bottom:120px;
+    background:linear-gradient(125deg,#fff2df,#fff8e6,#ffefe0,#fffbe6);
+    background-size:400% 400%;animation:bgshift 22s ease infinite;
+  }
+  @keyframes bgshift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+  /* floating deco emojis */
+  .deco{position:fixed;z-index:0;font-size:42px;opacity:.35;pointer-events:none;filter:saturate(1.2);}
+  .deco.d1{top:8%;left:4%;animation:float1 9s ease-in-out infinite;}
+  .deco.d2{top:22%;right:5%;animation:float2 11s ease-in-out infinite;}
+  .deco.d3{bottom:16%;left:6%;animation:float2 8s ease-in-out infinite;}
+  .deco.d4{bottom:8%;right:7%;animation:float1 13s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-22px) rotate(12deg);}}
+  @keyframes float2{0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(20px) rotate(-14deg);}}
+
+  .page{position:relative;z-index:1;max-width:800px;margin:26px auto;padding:0 16px;}
+
+  /* ---- HERO ---- */
+  .hero{background:linear-gradient(135deg,var(--grape),var(--pink));border-radius:30px;
+    padding:26px 28px;color:#fff;box-shadow:0 18px 40px rgba(60,80,100,.30);
+    position:relative;overflow:hidden;}
+  .hero::after{content:"🔎";position:absolute;right:-14px;bottom:-28px;font-size:150px;opacity:.16;transform:rotate(-12deg);}
+  .hero .pill{display:inline-block;background:rgba(255,255,255,.25);border-radius:999px;
+    padding:5px 14px;font-family:'Baloo 2';font-weight:700;font-size:13px;letter-spacing:.5px;margin-bottom:8px;}
+  .hero h1{font-family:'Baloo 2';font-weight:800;font-size:34px;margin:2px 0 4px;line-height:1.05;text-shadow:0 2px 0 rgba(0,0,0,.08);}
+  .hero .lvl{font-weight:700;opacity:.95;}
+  .hero .lvl b{background:var(--sun);color:#5a3d00;padding:2px 10px;border-radius:999px;margin-left:4px;}
+
+  /* ---- ID CHIPS ---- */
+  .idbar{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 0;}
+  .chip{background:var(--card);border-radius:18px;padding:10px 14px;box-shadow:0 6px 16px rgba(60,80,100,.12);
+    display:flex;align-items:center;gap:8px;font-family:'Baloo 2';font-weight:700;color:var(--grape-d);flex:1;min-width:150px;}
+  .chip input{font-family:'Nunito';font-weight:700;font-size:16px;border:none;outline:none;background:transparent;
+    color:var(--ink);width:100%;border-bottom:2px dashed #cfd7e0;padding:2px 2px;}
+  .chip input:focus{border-bottom-color:var(--pink);}
+
+  /* ---- PROGRESS ---- */
+  .track{margin:18px 0 4px;height:16px;background:#e7edf3;border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(60,80,100,.14);}
+  .track > i{display:block;height:100%;width:0;border-radius:999px;
+    background:linear-gradient(90deg,var(--mint),var(--sky),var(--grape));transition:width .5s cubic-bezier(.2,.9,.3,1.2);}
+  .track-label{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--grape-d);text-align:center;margin-bottom:20px;}
+
+  /* ---- STORY / READING ---- */
+  .story{background:var(--card);border-radius:26px;padding:22px 24px;margin:16px 0;
+    box-shadow:0 12px 30px rgba(60,80,100,.14);border:3px solid #fff;position:relative;}
+  .story .badge{position:absolute;top:-16px;left:22px;background:var(--sky);color:#fff;
+    font-family:'Baloo 2';font-weight:800;font-size:15px;padding:6px 16px;border-radius:999px;box-shadow:0 6px 14px rgba(56,189,248,.4);}
+  .story h2{font-family:'Baloo 2';font-weight:800;font-size:22px;margin:6px 0 10px;color:var(--grape-d);}
+  .story p{font-size:18px;line-height:1.75;margin:0 0 8px;}
+  .hl{background:linear-gradient(180deg,transparent 55%,#ffe6b0 55%);border-radius:3px;padding:0 2px;font-weight:700;}
+
+  /* ---- EXERCISE CARDS ---- */
+  .card{background:var(--card);border-radius:26px;padding:22px 24px 24px;margin:22px 0;
+    box-shadow:0 12px 30px rgba(60,80,100,.14);border:3px solid #fff;position:relative;
+    animation:pop .5s cubic-bezier(.2,.9,.3,1.25) both;}
+  @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97);}to{opacity:1;transform:none;}}
+  .card .head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .card .ico{font-size:30px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12));}
+  .card h3{font-family:'Baloo 2';font-weight:800;font-size:21px;margin:0;color:var(--ink);}
+  .card .pts{margin-left:auto;background:var(--soft);color:var(--grape-d);font-family:'Baloo 2';font-weight:800;
+    font-size:13px;padding:5px 12px;border-radius:999px;white-space:nowrap;}
+  .c-pink{border-top:6px solid var(--pink);} .c-mint{border-top:6px solid var(--mint);}
+  .c-sun{border-top:6px solid var(--sun);} .c-sky{border-top:6px solid var(--sky);} .c-grape{border-top:6px solid var(--grape);}
+
+  ol.q{margin:0;padding-left:26px;}
+  ol.q li{margin-bottom:14px;line-height:2.2;font-size:17px;}
+  ol.q li::marker{font-family:'Baloo 2';font-weight:800;color:var(--pink);}
+  .tw{background:var(--sun);color:#5a3d00;font-family:'Baloo 2';font-weight:700;font-size:14px;padding:1px 9px;border-radius:999px;}
+  .instr{font-size:15px;color:#5f6a75;margin:-4px 0 12px;}
+
+  /* ---- FUN SELECTS ---- */
+  select{font-family:'Baloo 2';font-weight:700;font-size:15.5px;color:var(--grape-d);
+    border:2.5px solid #d6dde5;background:#f7f9fc;border-radius:999px;padding:5px 12px;margin:0 3px;outline:none;
+    cursor:pointer;transition:.18s;appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23e0872a' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 11px center;padding-right:28px;}
+  select:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(60,80,100,.2);}
+  select:focus{border-color:var(--grape);background-color:#fff;}
+  select.wide{min-width:150px;}
+  .vmatch li{margin-bottom:16px;}
+  .vmatch select{display:block;width:100%;max-width:360px;margin:7px 0 0;}
+  select.correct{background-color:#e2fbf1;border-color:var(--green);color:#0f7a55;animation:pop2 .4s ease;}
+  select.incorrect{background-color:#ffe6e9;border-color:var(--red);color:#c0293c;animation:shake .4s ease;}
+  @keyframes pop2{0%{transform:scale(1);}45%{transform:scale(1.18);}100%{transform:scale(1);}}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+
+  /* ---- STICKY BAR ---- */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid #e2e8ef;
+    display:flex;align-items:center;justify-content:center;gap:14px;padding:14px 18px;flex-wrap:wrap;
+    padding-bottom:calc(14px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(60,80,100,.14);}
+  .btn{font-family:'Baloo 2';font-weight:800;font-size:17px;border:none;border-radius:999px;
+    padding:13px 30px;cursor:pointer;transition:.16s;box-shadow:0 8px 18px rgba(0,0,0,.14);
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn:active{transform:translateY(2px) scale(.98);}
+  .btn.go{background:linear-gradient(135deg,var(--grape),var(--pink));color:#fff;font-size:18px;}
+  .btn.go:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 26px rgba(60,80,100,.4);}
+  .btn.ghost{background:#fff;color:var(--grape-d);border:2.5px solid #d6dde5;box-shadow:none;}
+  .btn.ghost:hover{background:var(--soft);}
+  .scorebox{font-family:'Baloo 2';font-weight:800;font-size:20px;color:var(--grape-d);
+    background:#fff;border-radius:999px;padding:8px 20px;box-shadow:0 6px 16px rgba(60,80,100,.16);min-width:130px;text-align:center;}
+  .scorebox small{display:block;font-size:11px;font-weight:700;color:#9aa6b2;letter-spacing:.5px;}
+
+  /* ---- RESULT BANNER ---- */
+  .banner{display:none;border-radius:28px;padding:26px;margin:22px 0;text-align:center;
+    background:linear-gradient(135deg,#fff,#f5f7fb);border:3px solid #fff;box-shadow:0 16px 40px rgba(60,80,100,.2);}
+  .banner.show{display:block;animation:pop .5s cubic-bezier(.2,.9,.3,1.3) both;}
+  .banner .emo{font-size:60px;line-height:1;animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-10px) rotate(4deg);}}
+  .banner h3{font-family:'Baloo 2';font-weight:800;font-size:24px;margin:6px 0 2px;color:var(--grape-d);}
+  .dial{font-family:'Baloo 2';font-weight:800;font-size:52px;margin:6px 0;color:var(--grape-d);}
+  .dial .u{font-size:24px;color:#9aa6b2;}
+  .banner.win{background:linear-gradient(135deg,#e8fff5,#eafcff);} .banner.win h3,.banner.win .dial{color:var(--green);}
+  .subs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
+  .subs span{background:#fff;border-radius:999px;padding:6px 14px;font-family:'Baloo 2';font-weight:700;font-size:14px;
+    color:var(--grape-d);box-shadow:0 4px 10px rgba(60,80,100,.1);}
+  .subs span b{color:var(--pink);}
+
+  .export{margin-top:20px;padding-top:18px;border-top:2px dashed #d6dde5;}
+  .export-title{font-family:'Baloo 2';font-weight:800;font-size:16px;color:var(--ink);margin:0 0 6px;}
+  .export-steps{font-size:15px;color:#5f6a75;margin:0 0 12px;}
+  .export-steps b{color:var(--grape-d);}
+  .export-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+  .btn.xp{background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;font-size:17px;}
+  .btn.xp.done{background:var(--green);}
+  .export-code{width:100%;margin-top:12px;height:64px;font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:11px;
+    color:#5f6a75;border:2px solid #d6dde5;border-radius:16px;background:#f7f9fc;padding:10px 12px;resize:vertical;text-align:left;}
+  @media print{.export,.bar,.deco{display:none!important;}}
+
+  .foot{text-align:center;font-family:'Baloo 2';font-weight:700;color:#9aa6b2;font-size:13px;margin:16px 0 4px;}
+
+  /* confetti */
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:70;overflow:hidden;}
+  .conf{position:absolute;top:-20px;width:11px;height:16px;border-radius:2px;animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(105vh) rotate(720deg);}}
+
+  /* per-section validate + burst */
+  .modfoot{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:14px;border-top:2px dashed #eef1f5;}
+  .btn-val{font-family:'Baloo 2';font-weight:800;font-size:15px;border:none;border-radius:999px;padding:11px 24px;cursor:pointer;
+    background:linear-gradient(135deg,var(--mint),var(--sky));color:#fff;box-shadow:0 6px 14px rgba(55,217,160,.35);transition:.16s;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-appearance:none;}
+  .btn-val:hover{transform:translateY(-2px);}
+  .btn-val:active{transform:translateY(1px) scale(.97);}
+  .btn-val.done{background:var(--green);}
+  .btn-val.locked{background:#9aa6b2;cursor:default;}
+  .gate-hint{font-family:'Baloo 2';font-weight:800;font-size:14px;color:#7c8593;text-align:center;
+    background:#eef1f5;border-radius:999px;padding:9px 18px;}
+  .modmsg{font-family:'Baloo 2';font-weight:700;font-size:14px;color:var(--grape-d);}
+  /* once checked, dropdowns lock (can't change an error) and the right answer is revealed on mistakes */
+  select:disabled{opacity:1;cursor:not-allowed;}
+  .answer-reveal{display:inline-block;background:#e2fbf1;color:#0f7a55;border:2px solid var(--green);
+    border-radius:999px;padding:1px 11px;margin:4px 0 0 6px;font-family:'Baloo 2';font-weight:700;font-size:14px;white-space:normal;}
+  .answer-reveal::before{content:"✔ ";}
+  .burst-p{position:fixed;z-index:80;width:10px;height:10px;border-radius:2px;animation:burst .9s cubic-bezier(.15,.7,.3,1) forwards;}
+  @keyframes burst{from{transform:translate(0,0) rotate(0);opacity:1;}to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0;}}
+
+  /* printable result sheet (Save as PDF on phone) */
+  #printSheet{display:none;}
+  .ps-card{font-family:'Nunito',sans-serif;color:#1a2430;max-width:720px;margin:0 auto;padding:24px;}
+  .ps-head{border-bottom:3px solid var(--pink);padding-bottom:10px;margin-bottom:14px;}
+  .ps-title{font-family:'Baloo 2';font-size:25px;font-weight:800;color:var(--grape-d);}
+  .ps-sub{font-size:13px;color:#5f6a75;}
+  .ps-id{font-size:16px;margin:12px 0 2px;}
+  .ps-mark{font-family:'Baloo 2';font-size:42px;font-weight:800;color:var(--grape-d);margin:6px 0 16px;}
+  .ps-mark span{font-size:18px;color:#9aa6b2;}
+  .ps-table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:16px;}
+  .ps-table td{border-bottom:1px solid #eef1f5;padding:8px 4px;font-family:'Baloo 2';font-weight:700;color:#43506080;}
+  .ps-table td{color:#435060;}
+  .ps-table td.v{text-align:right;color:var(--grape-d);}
+  .ps-codeh{font-family:'Baloo 2';font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aa6b2;margin-bottom:4px;}
+  .ps-code{font-family:'SFMono-Regular',Menlo,Consolas,monospace;font-size:8.5px;word-break:break-all;
+    border:1px solid #d6dde5;border-radius:8px;padding:8px 10px;color:#5f6a75;}
+  .ps-foot{margin-top:16px;font-size:11px;color:#9aa6b2;}
+  @media print{
+    @page{margin:14mm;}
+    body.print-result{background:#fff!important;animation:none!important;}
+    body.print-result .page,body.print-result .bar,body.print-result .deco,body.print-result #confetti{display:none!important;}
+    body.print-result #printSheet{display:block!important;}
+  }
+</style>
+</head>
+<body>
+
+<span class="deco d1">🔎</span><span class="deco d2">📏</span><span class="deco d3">📐</span><span class="deco d4">✅</span>
+<canvas id="confetti"></canvas>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="pill">BTS CPRP · QUALITY CONTROL</span>
+    <h1>Inspecting a<br>Series 🔎</h1>
+    <div class="lvl">Quality Control · Reading &amp; Grammar · Level <b>B1+</b></div>
+  </div>
+
+  <!-- ID -->
+  <div class="idbar">
+    <div class="chip">🙂 <input id="stuName" placeholder="Your name"></div>
+    <div class="chip">🏷️ <input id="stuClass" value="CPRP 1"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="track"><i id="bar"></i></div>
+  <div class="track-label" id="progTxt">0 / 48 ✍️</div>
+
+  <!-- STORY -->
+  <div class="story">
+    <span class="badge">📖 The story</span>
+    <h2>Read me first!</h2>
+    <p>Théo runs the final <span class="hl">quality control</span> of a <span class="hl">series</span> of 200 steel shafts. First, he takes a <span class="hl">sample</span> from the <span class="hl">batch</span>. Each shaft <span class="hl">is measured</span> with a caliper and a micrometer, and every dimension is compared to the <span class="hl">nominal</span> value on the drawing. A part that is <span class="hl">out of tolerance</span> is a <span class="hl">non-conforming</span> part, and it is put aside.</p>
+    <p>So far, Théo <span class="hl">has checked</span> fifty parts. Most of them are <span class="hl">within</span> the limits, but two shafts are 0.03 mm <span class="hl">larger than</span> the maximum size — they are <span class="hl">too big</span>. He <span class="hl">found</span> the same <span class="hl">deviation</span> yesterday, so the <span class="hl">reject rate</span> is higher than last week.</p>
+    <p>The team leader <span class="hl">said</span> that the whole batch <span class="hl">had to be</span> inspected 100 %. Théo thinks the tool <span class="hl">must be</span> worn, because the parts <span class="hl">can't</span> all drift by chance. He has written a non-conformity report, and the series has been put on hold until the machine is checked. ✅</p>
+  </div>
+
+  <!-- A1 Match -->
+  <div class="card c-pink">
+    <div class="head"><span class="ico">🧩</span><h3>Match the word &amp; the meaning</h3><span class="pts">8 pts</span></div>
+    <ol class="q vmatch">
+      <li>a small number of parts taken from the series to be checked → <select class="wide" id="a1_1"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>the complete group of parts produced together → <select class="wide" id="a1_2"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>the allowed range between the maximum and the minimum size → <select class="wide" id="a1_3"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>the target dimension written on the drawing → <select class="wide" id="a1_4"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>the difference between the measured value and the nominal value → <select class="wide" id="a1_5"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>a fault or imperfection that makes a part unacceptable → <select class="wide" id="a1_6"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>a go / no-go tool that shows if a part is within the limits → <select class="wide" id="a1_7"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+      <li>a part that is outside the tolerance and must be rejected → <select class="wide" id="a1_8"><option value=""></option><option>sample</option><option>batch</option><option>tolerance</option><option>nominal</option><option>deviation</option><option>defect</option><option>gauge</option><option>non-conforming</option></select></li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="A1 Match">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- A2 Gap-fill -->
+  <div class="card c-mint">
+    <div class="head"><span class="ico">🔤</span><h3>Complete the sentence</h3><span class="pts">8 pts</span></div>
+    <ol class="q">
+      <li>Every part is measured and checked for <select class="wide" id="a2_1"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select>.</li>
+      <li>Two shafts are <select class="wide" id="a2_2"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select> tolerance, so they are rejected.</li>
+      <li>The other parts are all <select class="wide" id="a2_3"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select> the limits.</li>
+      <li>This week the <select class="wide" id="a2_4"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select> has risen to 3 %.</li>
+      <li>The whole series was <select class="wide" id="a2_5"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select> 100 % after the alarm.</li>
+      <li>Each batch has a number for full <select class="wide" id="a2_6"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select> back to the machine.</li>
+      <li>The operator plots every measurement on a <select class="wide" id="a2_7"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select>.</li>
+      <li>A shaft that is too big is <select class="wide" id="a2_8"><option value=""></option><option>inspected</option><option>reject rate</option><option>within</option><option>out of</option><option>conformity</option><option>traceability</option><option>control chart</option><option>oversize</option></select>; a shaft that is too small is undersize.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="A2 Gap-fill">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- CP Compare -->
+  <div class="card c-sky">
+    <div class="head"><span class="ico">📏</span><h3>Comparing to the tolerance</h3><span class="pts">8 pts</span></div>
+    <p class="instr">Comparer une cote à la tolérance : comparatif, superlatif ou quantifieur (too / enough, more / less / fewer).</p>
+    <ol class="q">
+      <li>This shaft is 0.03 mm <select id="cp_1"><option value=""></option><option>large</option><option>larger</option><option>largest</option></select> than the maximum size.</li>
+      <li>The diameter is <select id="cp_2"><option value=""></option><option>too</option><option>enough</option><option>more</option></select> big; it does not fit the gauge.</li>
+      <li>The hole is not <select id="cp_3"><option value=""></option><option>wide enough</option><option>enough wide</option><option>too wide</option></select> for the pin to enter.</li>
+      <li>Batch B has <select id="cp_4"><option value=""></option><option>fewer</option><option>less</option><option>fewest</option></select> defects than batch A.</li>
+      <li>There is <select id="cp_5"><option value=""></option><option>less</option><option>fewer</option><option>least</option></select> deviation on the second series than on the first.</li>
+      <li>This is the <select id="cp_6"><option value=""></option><option>tighter</option><option>tightest</option><option>tight</option></select> tolerance of the three drawings.</li>
+      <li>The measured value is exactly the same <select id="cp_7"><option value=""></option><option>as</option><option>than</option><option>like</option></select> the nominal one.</li>
+      <li>The more we tighten the tolerance, the <select id="cp_8"><option value=""></option><option>more</option><option>most</option><option>many</option></select> parts we reject.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="CP Compare">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- PP Perfect -->
+  <div class="card c-sun">
+    <div class="head"><span class="ico">⏱️</span><h3>Reporting results — perfect vs past</h3><span class="pts">8 pts</span></div>
+    <p class="instr">Present perfect (résultat qui compte maintenant : so far / yet / already) ou prétérit (moment passé précis) ?</p>
+    <ol class="q">
+      <li>So far, Théo <select id="pp_1"><option value=""></option><option>has checked</option><option>checked</option><option>checks</option></select> fifty parts of the series.</li>
+      <li>He <select id="pp_2"><option value=""></option><option>found</option><option>has found</option><option>finds</option></select> the same defect yesterday morning.</li>
+      <li>The batch <select id="pp_3"><option value=""></option><option>hasn't</option><option>didn't</option><option>wasn't</option></select> left the workshop yet.</li>
+      <li>Last week, the reject rate <select id="pp_4"><option value=""></option><option>was</option><option>has been</option><option>is</option></select> only 1 %.</li>
+      <li>We <select id="pp_5"><option value=""></option><option>have</option><option>did</option><option>had</option></select> already recorded three non-conforming parts today.</li>
+      <li>The inspector <select id="pp_6"><option value=""></option><option>updated</option><option>has updated</option><option>updates</option></select> the control chart an hour ago.</li>
+      <li>This machine <select id="pp_7"><option value=""></option><option>has produced</option><option>produced</option><option>produces</option></select> 200 shafts since Monday.</li>
+      <li>When he <select id="pp_8"><option value=""></option><option>saw</option><option>has seen</option><option>sees</option></select> the deviation, he stopped the machine.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="PP Perfect">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- RS Reported -->
+  <div class="card c-grape">
+    <div class="head"><span class="ico">💬</span><h3>Reported speech (writing up the findings)</h3><span class="pts">8 pts</span></div>
+    <p class="instr">Discours rapporté : recule les temps (is→was, will→would, have→had) et adapte pronoms / repères.</p>
+    <ol class="q vmatch">
+      <li>"The part is out of tolerance." → The inspector said the part <select id="rs_1"><option value=""></option><option>was</option><option>is</option><option>were</option></select> out of tolerance.</li>
+      <li>"We have rejected two shafts." → He said they <select id="rs_2"><option value=""></option><option>had</option><option>have</option><option>has</option></select> rejected two shafts.</li>
+      <li>"I will inspect the whole batch." → She said she <select id="rs_3"><option value=""></option><option>would</option><option>will</option><option>will be</option></select> inspect the whole batch.</li>
+      <li>"Record every measurement." → The supervisor told us <select id="rs_4"><option value=""></option><option>to record</option><option>record</option><option>recording</option></select> every measurement.</li>
+      <li>"The tool is worn." → He explained that the tool <select id="rs_5"><option value=""></option><option>was</option><option>is</option><option>has</option></select> worn.</li>
+      <li>"Did you check the sample?" → He asked me <select id="rs_6"><option value=""></option><option>if</option><option>that</option><option>did</option></select> I had checked the sample.</li>
+      <li>"Don't accept a non-conforming part." → The foreman told the operator <select id="rs_7"><option value=""></option><option>not to</option><option>to not</option><option>don't</option></select> accept a non-conforming part.</li>
+      <li>"The batch passed the control." → The report stated that the batch <select id="rs_8"><option value=""></option><option>had passed</option><option>has passed</option><option>passed</option></select> the control.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="RS Reported">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- DE Deduction -->
+  <div class="card c-pink">
+    <div class="head"><span class="ico">🕵️</span><h3>Deduction — reading the results (must / might / can't)</h3><span class="pts">8 pts</span></div>
+    <p class="instr">Déduction logique : certitude (must), impossibilité (can't), possibilité (might / could).</p>
+    <ol class="q">
+      <li>All the parts are oversize, so the tool <select id="de_1"><option value=""></option><option>must</option><option>can't</option><option>needn't</option></select> be worn.</li>
+      <li>The deviation is only 0.01 mm — it <select id="de_2"><option value=""></option><option>can't</option><option>must</option><option>has to</option></select> be a serious problem.</li>
+      <li>We are not sure yet; the error <select id="de_3"><option value=""></option><option>might</option><option>must</option><option>can't</option></select> come from the machine or the operator.</li>
+      <li>The gauge shows green, so the part <select id="de_4"><option value=""></option><option>must</option><option>can't</option><option>mustn't</option></select> be within tolerance.</li>
+      <li>He isn't answering; he <select id="de_5"><option value=""></option><option>could</option><option>can't</option><option>must</option></select> be in the measuring room.</li>
+      <li>This value is impossible to reach by hand, so it <select id="de_6"><option value=""></option><option>must</option><option>might</option><option>can't</option></select> be a typing mistake.</li>
+      <li>The two batches are identical, so the difference <select id="de_7"><option value=""></option><option>can't</option><option>must</option><option>should</option></select> be random.</li>
+      <li>The temperature changed during the night; that <select id="de_8"><option value=""></option><option>might</option><option>can't</option><option>mustn't</option></select> explain the drift.</li>
+    </ol>
+    <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec="DE Deduction">✓ Validate</button><span class="modmsg"></span></div>
+  </div>
+
+  <!-- IN-FLOW SUBMIT (only appears once every section is validated) -->
+  <div style="text-align:center;margin:8px 0 2px;">
+    <div class="gate-hint"></div>
+    <button type="button" class="btn go" data-act="submit" style="display:none;">✨ Check my answers!</button>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner" id="banner">
+    <div class="emo" id="bEmo">🎉</div>
+    <h3 id="bTitle">Your result</h3>
+    <div class="dial" id="bDial"></div>
+    <div class="subs" id="bSubs"></div>
+
+    <div class="export">
+      <p class="export-title">🎁 Envoie ton code au prof</p>
+      <p class="export-steps">Colle ton <b>code</b> dans un message au prof, ou enregistre un <b>PDF</b> de ton résultat.</p>
+      <div class="export-btns">
+        <button type="button" class="btn xp" id="copyBtn" data-act="copy">⧉ Copier mon code</button>
+        <button type="button" class="btn xp" data-act="pdf">📄 Enregistrer en PDF</button>
+      </div>
+      <textarea class="export-code" id="exportCode" readonly onclick="this.select()"></textarea>
+    </div>
+  </div>
+
+  <div class="foot">🔎 CPRP · Quality Control on a Series — B1+ · self-marking 📏</div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="bar">
+  <div class="gate-hint"></div>
+  <button type="button" class="btn go" data-act="submit" style="display:none;">✨ Check my answers!</button>
+  <div class="scorebox"><span id="scoreNum">— / 20</span><small>MY MARK</small></div>
+  <button type="button" class="btn ghost" data-act="reset">↻ Reset</button>
+</div>
+
+<div id="printSheet"></div>
+
+<script>
+var ANS = {"a1_1": ["sample"], "a1_2": ["batch"], "a1_3": ["tolerance"], "a1_4": ["nominal"], "a1_5": ["deviation"], "a1_6": ["defect"], "a1_7": ["gauge"], "a1_8": ["non-conforming"], "a2_1": ["conformity"], "a2_2": ["out of"], "a2_3": ["within"], "a2_4": ["reject rate"], "a2_5": ["inspected"], "a2_6": ["traceability"], "a2_7": ["control chart"], "a2_8": ["oversize"], "cp_1": ["larger"], "cp_2": ["too"], "cp_3": ["wide enough"], "cp_4": ["fewer"], "cp_5": ["less"], "cp_6": ["tightest"], "cp_7": ["as"], "cp_8": ["more"], "pp_1": ["has checked"], "pp_2": ["found"], "pp_3": ["hasn't", "has not"], "pp_4": ["was"], "pp_5": ["have"], "pp_6": ["updated"], "pp_7": ["has produced"], "pp_8": ["saw"], "rs_1": ["was"], "rs_2": ["had"], "rs_3": ["would"], "rs_4": ["to record"], "rs_5": ["was"], "rs_6": ["if"], "rs_7": ["not to"], "rs_8": ["had passed"], "de_1": ["must"], "de_2": ["can't", "cannot"], "de_3": ["might"], "de_4": ["must"], "de_5": ["could"], "de_6": ["must"], "de_7": ["can't", "cannot"], "de_8": ["might"]};
+var SECTIONS = [{"name": "A1 Match", "ids": ["a1_1", "a1_2", "a1_3", "a1_4", "a1_5", "a1_6", "a1_7", "a1_8"]}, {"name": "A2 Gap-fill", "ids": ["a2_1", "a2_2", "a2_3", "a2_4", "a2_5", "a2_6", "a2_7", "a2_8"]}, {"name": "CP Compare", "ids": ["cp_1", "cp_2", "cp_3", "cp_4", "cp_5", "cp_6", "cp_7", "cp_8"]}, {"name": "PP Perfect", "ids": ["pp_1", "pp_2", "pp_3", "pp_4", "pp_5", "pp_6", "pp_7", "pp_8"]}, {"name": "RS Reported", "ids": ["rs_1", "rs_2", "rs_3", "rs_4", "rs_5", "rs_6", "rs_7", "rs_8"]}, {"name": "DE Deduction", "ids": ["de_1", "de_2", "de_3", "de_4", "de_5", "de_6", "de_7", "de_8"]}];
+// theme of each item (for the class statistics — "difficultés par thème")
+var THEME = {"a1_1": "Vocabulaire", "a1_2": "Vocabulaire", "a1_3": "Vocabulaire", "a1_4": "Vocabulaire", "a1_5": "Vocabulaire", "a1_6": "Vocabulaire", "a1_7": "Vocabulaire", "a1_8": "Vocabulaire", "a2_1": "Vocabulaire (texte à trous)", "a2_2": "Vocabulaire (texte à trous)", "a2_3": "Vocabulaire (texte à trous)", "a2_4": "Vocabulaire (texte à trous)", "a2_5": "Vocabulaire (texte à trous)", "a2_6": "Vocabulaire (texte à trous)", "a2_7": "Vocabulaire (texte à trous)", "a2_8": "Vocabulaire (texte à trous)", "cp_1": "Comparatifs & quantifieurs", "cp_2": "Comparatifs & quantifieurs", "cp_3": "Comparatifs & quantifieurs", "cp_4": "Comparatifs & quantifieurs", "cp_5": "Comparatifs & quantifieurs", "cp_6": "Comparatifs & quantifieurs", "cp_7": "Comparatifs & quantifieurs", "cp_8": "Comparatifs & quantifieurs", "pp_1": "Present perfect vs prétérit", "pp_2": "Present perfect vs prétérit", "pp_3": "Present perfect vs prétérit", "pp_4": "Present perfect vs prétérit", "pp_5": "Present perfect vs prétérit", "pp_6": "Present perfect vs prétérit", "pp_7": "Present perfect vs prétérit", "pp_8": "Present perfect vs prétérit", "rs_1": "Discours rapporté (reported speech)", "rs_2": "Discours rapporté (reported speech)", "rs_3": "Discours rapporté (reported speech)", "rs_4": "Discours rapporté (reported speech)", "rs_5": "Discours rapporté (reported speech)", "rs_6": "Discours rapporté (reported speech)", "rs_7": "Discours rapporté (reported speech)", "rs_8": "Discours rapporté (reported speech)", "de_1": "Modaux — déduction", "de_2": "Modaux — déduction", "de_3": "Modaux — déduction", "de_4": "Modaux — déduction", "de_5": "Modaux — déduction", "de_6": "Modaux — déduction", "de_7": "Modaux — déduction", "de_8": "Modaux — déduction"};
+var CONF_COLORS = ["#ff6b6b", "#ffc93c", "#37d9a0", "#38bdf8", "#e0872a"];
+var TOTAL = (function(){var n=0;for(var k in ANS){if(ANS.hasOwnProperty(k))n++;}return n;})();
+var LABELS = {};
+(function(){for(var s=0;s<SECTIONS.length;s++){var sec=SECTIONS[s],p=sec.name.split(" ")[0];
+  for(var i=0;i<sec.ids.length;i++){LABELS[sec.ids[i]]=p+"."+(i+1);}}})();
+var ALLIDS = (function(){var a=[];for(var s=0;s<SECTIONS.length;s++)a=a.concat(SECTIONS[s].ids);return a;})();
+var LAST=null;
+
+function norm(s){return (s||"").toLowerCase().replace(/[‘’ʼ′`]/g,"'").replace(/[.,;:!?…–—]/g,"").replace(/\s+/g," ").trim();}
+function isCorrect(id,val){var v=norm(val);if(v==="")return false;var a=ANS[id];for(var i=0;i<a.length;i++){if(norm(a[i])===v)return true;}return false;}
+function getVal(id){var el=document.getElementById(id);return el?el.value:"";}
+
+// live progress
+function updateProgress(){
+  var done=0;for(var i=0;i<ALLIDS.length;i++){if((getVal(ALLIDS[i])||"")!=="")done++;}
+  var pct=Math.round(done/TOTAL*100);
+  document.getElementById("bar").style.width=pct+"%";
+  document.getElementById("progTxt").textContent=done+" / "+TOTAL+(done===TOTAL?" ✅ ready!":" ✍️");
+}
+// stay neutral while answering: clear green/red as soon as an answer changes (re-color only on Validate/Submit)
+document.addEventListener("change",function(e){if(e.target&&e.target.tagName==="SELECT"){e.target.classList.remove("correct","incorrect");updateProgress();}});
+
+// --- the final "Check my answers" only appears once EVERY section has been validated one by one ---
+var VALIDATED={};
+function updateSubmitGate(){
+  var done=0;for(var s=0;s<SECTIONS.length;s++){if(VALIDATED[SECTIONS[s].name])done++;}
+  var all=done>=SECTIONS.length;
+  var btns=document.querySelectorAll('[data-act="submit"]');
+  for(var i=0;i<btns.length;i++){btns[i].style.display=all?"":"none";}
+  var hints=document.querySelectorAll('.gate-hint');
+  for(var j=0;j<hints.length;j++){
+    if(all){hints[j].style.display="none";}
+    else{hints[j].style.display="";hints[j].textContent="🔒 Valide chaque section ("+done+" / "+SECTIONS.length+")";}
+  }
+}
+
+/* ---------- Confetti engine (vanilla canvas, physics — burst + gravity + spin + fade) ---------- */
+var _cv,_ctx,_parts=[],_raf=null;
+function _confInit(){
+  _cv=document.getElementById("confetti"); if(!_cv||!_cv.getContext) return;
+  _ctx=_cv.getContext("2d"); _confResize(); window.addEventListener("resize",_confResize);
+}
+function _confResize(){ if(!_cv) return; _cv.width=window.innerWidth; _cv.height=window.innerHeight; }
+// physics burst of n particles shooting out from (x,y)
+function burst(x,y,n,power){
+  if(!_ctx) _confInit(); if(!_ctx) return;
+  n=n||90; power=power||1; var cols=CONF_COLORS;
+  for(var i=0;i<n;i++){
+    var ang=Math.random()*Math.PI*2, spd=(3+Math.random()*7)*power;
+    _parts.push({x:x,y:y,vx:Math.cos(ang)*spd,vy:Math.sin(ang)*spd-4,
+      g:0.16+Math.random()*0.14, size:5+Math.random()*7,
+      rot:Math.random()*6.28, vr:(Math.random()-0.5)*0.45,
+      color:cols[(Math.random()*cols.length)|0],
+      life:55+Math.random()*45, age:0, shape:Math.random()<0.5?"rect":"circ"});
+  }
+  if(!_raf) _raf=requestAnimationFrame(_confTick);
+}
+function _confTick(){
+  if(!_ctx) return;
+  _ctx.clearRect(0,0,_cv.width,_cv.height);
+  for(var i=_parts.length-1;i>=0;i--){
+    var p=_parts[i]; p.age++; p.vy+=p.g; p.vx*=0.99; p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+    var a=Math.max(0,1-p.age/p.life);
+    _ctx.save(); _ctx.globalAlpha=a; _ctx.translate(p.x,p.y); _ctx.rotate(p.rot); _ctx.fillStyle=p.color;
+    if(p.shape==="rect") _ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.6);
+    else { _ctx.beginPath(); _ctx.arc(0,0,p.size/2,0,6.28); _ctx.fill(); }
+    _ctx.restore();
+    if(p.age>=p.life || p.y>_cv.height+50) _parts.splice(i,1);
+  }
+  if(_parts.length) _raf=requestAnimationFrame(_confTick);
+  else { _raf=null; _ctx.clearRect(0,0,_cv.width,_cv.height); }
+}
+// section-perfect explosion from a point (name/signature kept for validateSection)
+function boom(x,y){ burst(x,y,70,1.2); }
+// final win: staggered mega-celebration across the top of the screen (name kept for submitPaper)
+function confettiBurst(){
+  if(!_ctx) _confInit();
+  burst(window.innerWidth/2, window.innerHeight*0.35, 120, 1.4);
+  var n=0, iv=setInterval(function(){
+    burst(Math.random()*window.innerWidth, Math.random()*window.innerHeight*0.5, 80, 1.3);
+    if(++n>=9) clearInterval(iv);
+  },160);
+}
+
+// mark one item: color it, reveal the right answer if wrong, then LOCK it (no changing an error afterwards)
+function lockReveal(el,id,ok){
+  el.classList.remove("correct","incorrect");
+  el.classList.add(ok?"correct":"incorrect");
+  var prev=el.parentNode.querySelector('.answer-reveal[data-for="'+id+'"]');
+  if(prev)prev.remove();
+  if(!ok){
+    var a=ANS[id];var sol=(a&&a.length)?a[0]:"";
+    var span=document.createElement("span");
+    span.className="answer-reveal";span.setAttribute("data-for",id);span.textContent=sol;
+    el.parentNode.insertBefore(span,el.nextSibling);
+  }
+  el.disabled=true;   // lock: the student can no longer change this answer
+}
+
+// validate ONE section; reveal answers + lock; explode confetti when it is all correct
+function validateSection(name,btn){
+  var sec=null;for(var s=0;s<SECTIONS.length;s++){if(SECTIONS[s].name===name){sec=SECTIONS[s];break;}}
+  if(!sec)return;
+  var sc=0;
+  for(var i=0;i<sec.ids.length;i++){
+    var el=document.getElementById(sec.ids[i]);if(!el)continue;
+    var ok=isCorrect(sec.ids[i],el.value);
+    lockReveal(el,sec.ids[i],ok);
+    if(ok)sc++;
+  }
+  var max=sec.ids.length,msg=btn.parentNode.querySelector(".modmsg");
+  btn.disabled=true;  // section is now locked
+  VALIDATED[name]=true; updateSubmitGate();  // unlock final submit once every section is done
+  if(sc===max){
+    btn.classList.add("done");btn.textContent="✓ Perfect!";
+    if(msg)msg.textContent=sc+" / "+max+" 🎉";
+    var r=btn.getBoundingClientRect();boom(r.left+r.width/2,r.top+r.height/2);
+  }else{
+    btn.classList.add("locked");btn.textContent="🔒 Corrigé";
+    if(msg)msg.textContent=sc+" / "+max+" — réponses corrigées 👇";
+  }
+}
+
+function submitPaper(){
+  var score=0,perSection=[],items=[];
+  for(var s=0;s<SECTIONS.length;s++){
+    var sec=SECTIONS[s],sc=0;
+    for(var i=0;i<sec.ids.length;i++){
+      var id=sec.ids[i],el=document.getElementById(id);if(!el)continue;
+      var given=el.value,ok=isCorrect(id,given);
+      lockReveal(el,id,ok);
+      if(ok){sc++;score++;}
+      items.push({id:id,label:LABELS[id]||id,section:sec.name,theme:(THEME[id]||sec.name),ok:ok?1:0,given:(given==="__blank__"?"(blanc)":(given||"").trim())});
+    }
+    perSection.push({name:sec.name,sc:sc,max:sec.ids.length});
+  }
+  // lock every section button too — nothing can be changed after checking
+  var vbtns=document.querySelectorAll('.btn-val');
+  for(var vb=0;vb<vbtns.length;vb++){ if(!vbtns[vb].disabled){ vbtns[vb].disabled=true; vbtns[vb].classList.add("locked"); vbtns[vb].textContent="🔒 Corrigé"; } }
+  var out20=Math.round((score/TOTAL)*20*2)/2;
+  LAST={test:"CPRP Quality Control on a Series (B1+)",name:(getVal("stuName")||"").trim(),
+    cls:(getVal("stuClass")||"").trim(),date:new Date().toLocaleDateString("fr-FR"),
+    submitted:new Date().toISOString(),score:score,total:TOTAL,out20:out20,sections:perSection,items:items};
+
+  document.getElementById("scoreNum").textContent=out20.toString().replace(".",",")+" / 20";
+
+  var b=document.getElementById("banner");
+  var ratio=score/TOTAL,win=ratio>=0.6;
+  b.classList.add("show");b.classList.toggle("win",win);
+  document.getElementById("bEmo").textContent = ratio>=0.9?"🏆":ratio>=0.6?"🎉":ratio>=0.4?"💪":"🔧";
+  document.getElementById("bTitle").textContent = LAST.name?("Nice one, "+LAST.name+"!"):"Your result";
+  document.getElementById("bDial").innerHTML = out20.toString().replace(".",",")+" <span class='u'>/ 20</span>";
+  var subs="";
+  for(var p=0;p<perSection.length;p++){subs+="<span>"+perSection[p].name+" <b>"+perSection[p].sc+"/"+perSection[p].max+"</b></span>";}
+  document.getElementById("bSubs").innerHTML=subs;
+
+  if(!LAST.name){document.getElementById("exportCode").value="⚠ Écris ton NOM en haut, puis clique encore !";}
+  else{document.getElementById("exportCode").value="GTEST1::"+btoa(unescape(encodeURIComponent(JSON.stringify(LAST))));}
+
+  if(win)confettiBurst();
+  b.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+// build a clean one-page result sheet and open the print dialog (Save as PDF on phone)
+function buildPrintSheet(){
+  if(!LAST) return;
+  var rows="";
+  for(var p=0;p<LAST.sections.length;p++){
+    var ps=LAST.sections[p];
+    rows+="<tr><td>"+ps.name+"</td><td class='v'>"+ps.sc+" / "+ps.max+"</td></tr>";
+  }
+  var code=document.getElementById("exportCode").value;
+  document.getElementById("printSheet").innerHTML=
+    "<div class='ps-card'>"
+   +"<div class='ps-head'><div class='ps-title'>Result — CPRP · English</div>"
+   +"<div class='ps-sub'>Quality Control on a Series · B1+ · self-marking</div></div>"
+   +"<div class='ps-id'><b>"+(LAST.name||"—")+"</b> &nbsp;·&nbsp; "+(LAST.cls||"")+" &nbsp;·&nbsp; "+(LAST.date||"")+"</div>"
+   +"<div class='ps-mark'>"+LAST.out20.toString().replace(".",",")+" / 20 <span>("+LAST.score+" / "+LAST.total+" correct)</span></div>"
+   +"<table class='ps-table'>"+rows+"</table>"
+   +"<div class='ps-codeh'>Result code (for the teacher)</div><div class='ps-code'>"+code+"</div>"
+   +"</div>";
+}
+function exportPDF(){
+  if(!LAST||!LAST.name){alert("Écris ton NOM en haut, puis clique sur « Check my answers ! » avant d'exporter.");return;}
+  buildPrintSheet();
+  document.body.classList.add("print-result");
+  setTimeout(function(){window.print();},60);
+}
+window.addEventListener("afterprint",function(){document.body.classList.remove("print-result");});
+
+function copyCode(){
+  var ta=document.getElementById("exportCode");
+  if(!ta.value||ta.value.indexOf("GTEST1::")!==0){alert("Écris d'abord ton NOM en haut, puis clique sur « Check my answers ! » avant de copier.");return;}
+  ta.select();ta.setSelectionRange(0,99999);var done=false;
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ta.value);done=true;}else{done=document.execCommand("copy");}}
+  catch(e){try{done=document.execCommand("copy");}catch(e2){}}
+  var btn=document.getElementById("copyBtn");
+  if(btn){btn.textContent=done?"✓ Copié !":"Sélectionne le code";btn.classList.toggle("done",done);
+    setTimeout(function(){btn.textContent="⧉ Copier mon code";btn.classList.remove("done");},2500);}
+}
+
+function resetAll(){
+  for(var i=0;i<ALLIDS.length;i++){var el=document.getElementById(ALLIDS[i]);if(!el)continue;el.selectedIndex=0;el.disabled=false;el.classList.remove("correct","incorrect");}
+  var rev=document.querySelectorAll(".answer-reveal");for(var r=0;r<rev.length;r++)rev[r].remove();
+  var vbtns=document.querySelectorAll(".btn-val");for(var vb=0;vb<vbtns.length;vb++){var bn=vbtns[vb];bn.disabled=false;bn.classList.remove("done","locked");bn.textContent="✓ Validate";var mm=bn.parentNode.querySelector(".modmsg");if(mm)mm.textContent="";}
+  VALIDATED={}; updateSubmitGate();  // re-lock the final submit on reset
+  document.getElementById("scoreNum").textContent="— / 20";
+  var ec=document.getElementById("exportCode");if(ec)ec.value="";
+  LAST=null;document.getElementById("banner").classList.remove("show","win");
+  updateProgress();window.scrollTo({top:0,behavior:"smooth"});
+}
+
+// --- iOS-robust: handle every button via event delegation (inline onclick can be unreliable in mobile viewers) ---
+document.addEventListener("click",function(e){
+  var t=e.target,b=(t&&t.closest)?t.closest("[data-act]"):null;
+  if(!b)return;
+  e.preventDefault();
+  var act=b.getAttribute("data-act");
+  if(act==="submit")submitPaper();
+  else if(act==="reset")resetAll();
+  else if(act==="copy")copyCode();
+  else if(act==="pdf")exportPDF();
+  else if(act==="validate")validateSection(b.getAttribute("data-sec"),b);
+},false);
+
+// --- shuffle the answer options in EVERY dropdown so the correct answer never sits in a predictable slot
+//     (runs first, keeps option[0] = the empty placeholder) ---
+(function(){
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  for(var i=0;i<ALLIDS.length;i++){
+    var el=document.getElementById(ALLIDS[i]); if(!el) continue;
+    var opts=[]; for(var k=1;k<el.options.length;k++){opts.push(el.options[k]);} // keep the empty first option
+    shuffle(opts);
+    for(var j2=0;j2<opts.length;j2++){el.appendChild(opts[j2]);} // re-append in random order
+  }
+})();
+
+// --- add an explicit "je ne sais pas" (blank) choice to every dropdown; it counts as answered but is always wrong ---
+(function(){
+  for(var i=0;i<ALLIDS.length;i++){
+    var el=document.getElementById(ALLIDS[i]); if(!el) continue;
+    if(el.querySelector('option[value="__blank__"]')) continue;
+    var o=document.createElement("option"); o.value="__blank__"; o.textContent="— je ne sais pas —";
+    if(el.options.length>1) el.add(o,el.options[1]); else el.add(o);
+  }
+})();
+updateProgress();
+updateSubmitGate();
+_confInit();
+</script>
+  <script src="../../assets/platform.js" defer></script>
+</body>
+</html>
