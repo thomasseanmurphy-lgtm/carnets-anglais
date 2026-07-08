@@ -144,23 +144,23 @@
   })();
 
   // ---- Barre fixe du bas (« Valide chaque section · — / 20 · Reset ») ----
-  // Cachée pendant les exercices ; révélée seulement quand TOUTES les sections
-  // sont validées. On s'aligne sur le "gate" du moteur : il n'affiche le(s)
-  // bouton(s) [data-act="submit"] qu'une fois chaque section validée.
+  // Cachée pendant les exercices ; révélée seulement quand le carnet est fini.
+  // Signal UNIVERSEL (ancien + nouveau carnet, avec ou sans "gate" par section) :
+  // toutes les réponses (menus déroulants des cartes) sont remplies.
   (function gateStickyBar() {
     var css = document.createElement("style");
     css.textContent = 'body:not(.sections-done) .bar{display:none !important;}';
     (document.head || document.documentElement).appendChild(css);
-    function allSectionsValidated() {
-      var btns = document.querySelectorAll('[data-act="submit"]');
-      if (!btns.length) return false;
-      for (var i = 0; i < btns.length; i++) {
-        if (getComputedStyle(btns[i]).display !== "none") return true; // gate ouvert
+    function readyToShow() {
+      var sels = document.querySelectorAll(".card select");
+      if (!sels.length) return true; // carnet sans dropdowns -> pas de gating, barre visible
+      for (var i = 0; i < sels.length; i++) {
+        if ((sels[i].value || "") === "") return false; // il reste une réponse vide
       }
-      return false;
+      return true;
     }
     function sync() {
-      if (document.body) document.body.classList.toggle("sections-done", allSectionsValidated());
+      if (document.body) document.body.classList.toggle("sections-done", readyToShow());
     }
     setInterval(sync, 400);
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", sync);
