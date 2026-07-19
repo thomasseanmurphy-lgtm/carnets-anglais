@@ -519,8 +519,12 @@
       var pos = items.length;
       (function (position, optionIndex, node) {
         node.addEventListener("mouseenter", function () { highlight(position); });
-        node.addEventListener("mousedown", function (ev) { ev.preventDefault(); }); // ne pas voler le focus avant le clic
-        node.addEventListener("click", function () { commit(optionIndex); });
+        node.addEventListener("mousedown", function (ev) { ev.preventDefault(); }); // ne pas voler le focus
+        // On valide sur « mouseup », pas « click » : comme sur un menu natif,
+        // l'élève peut presser le select, glisser jusqu'au mot et relâcher.
+        // (un « click » n'existe que si press ET release visent le même élément :
+        //  en glissant depuis le select il partirait sur <body> et serait perdu.)
+        node.addEventListener("mouseup", function (ev) { ev.preventDefault(); commit(optionIndex); });
       })(pos, opt.index, it);
       panel.appendChild(it);
       items.push(it); optIdx.push(opt.index);
