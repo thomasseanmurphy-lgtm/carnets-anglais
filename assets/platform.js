@@ -503,7 +503,7 @@
     var panel = document.createElement("div");
     panel.setAttribute("role", "listbox");
     panel.style.cssText = "position:fixed;z-index:100001;left:" + Math.round(rect.left) + "px;" +
-      "min-width:" + Math.round(rect.width) + "px;max-width:min(420px,90vw);max-height:260px;overflow-y:auto;" +
+      "min-width:" + Math.round(rect.width) + "px;max-width:min(420px,90vw);overflow-y:auto;overscroll-behavior:contain;" +
       "background:#fff;border:2px solid #e7e0f3;border-radius:14px;box-shadow:0 12px 34px rgba(50,60,90,.24);" +
       "padding:6px;box-sizing:border-box;font-family:" + cs.fontFamily + ";font-size:" + cs.fontSize + ";font-weight:700;";
     var items = [], optIdx = [];
@@ -526,11 +526,21 @@
       items.push(it); optIdx.push(opt.index);
     }
     if (!items.length) return;
+    // On adapte la hauteur à la place dispo pour que TOUTES les options soient
+    // atteignables (le carnet mélange l'ordre : une option ne doit jamais rester
+    // cachée sous un plafond fixe). On place du côté le plus dégagé, on ne
+    // rogne (scroll) qu'en dernier recours.
+    var GAP = 4, MARGIN = 8;
     document.body.appendChild(panel);
-    // Sous le select, ou au-dessus si ça déborde en bas.
-    var ph = panel.offsetHeight, below = rect.bottom + 4;
-    panel.style.top = (below + ph > window.innerHeight && rect.top - 4 - ph > 0)
-      ? Math.round(rect.top - 4 - ph) + "px" : Math.round(below) + "px";
+    var spaceBelow = window.innerHeight - rect.bottom - GAP - MARGIN;
+    var spaceAbove = rect.top - GAP - MARGIN;
+    var full = panel.scrollHeight;
+    var placeBelow = (full <= spaceBelow) || (spaceBelow >= spaceAbove);
+    var avail = placeBelow ? spaceBelow : spaceAbove;
+    panel.style.maxHeight = Math.max(120, Math.floor(avail)) + "px";
+    var ph = panel.offsetHeight;
+    panel.style.top = placeBelow ? Math.round(rect.bottom + GAP) + "px"
+                                 : Math.round(rect.top - GAP - ph) + "px";
     // Recadrer si ça déborde à droite.
     var pr = panel.getBoundingClientRect();
     if (pr.right > window.innerWidth - 6) panel.style.left = Math.round(Math.max(6, window.innerWidth - 6 - pr.width)) + "px";
