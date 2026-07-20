@@ -1,7 +1,16 @@
+# === Système ===
 .DS_Store
-_specs/
 ~$*
-Tableau de bord PROF — lien.docx
+
+# === Fiches sources des carnets (locales) ===
+# Le HTML généré est committé ; les sources JSON restent en local.
+_specs/
+
+# === Notes de travail PERSONNELLES — JAMAIS versionnées ===
+_journal/
 COMMENT LA PLATEFORME EST CONSTRUITE.md
-TASKS — Rentrée (menu déroulant noms).md
 TASKS.md
+Tableau de bord PROF — lien.docx
+
+# NB : docs/, notes/, CHANGELOG.md, CLAUDE.md et README.md SONT versionnés
+#      (documentation publique = source de vérité du fonctionnement).

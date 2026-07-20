@@ -1,34 +1,40 @@
-# Carnets d'anglais — plateforme unique
+# Carnets d'anglais — plateforme
 
-Site unique regroupant **tous les carnets d'exercices interactifs** (auto-corrigés /20,
-code `GTEST1::`) de toutes les classes, + l'outil de statistiques.
+Carnets d'exercices d'anglais **interactifs**, auto-corrigés **/20**, pour les centres de formation
+(UIMM, AFTRAL…). **Un seul lien** pour les élèves ; suivi individuel et par classe pour le prof.
 
-## 🔗 Un seul lien à partager aux élèves
-
+## 🔗 Le lien élèves
 **https://thomasseanmurphy-lgtm.github.io/carnets-anglais/**
+Le hub (`index.html`) va du centre → classe → carnet. L'élève choisit son nom (menu déroulant si la
+classe a une liste, sinon champ libre), répond, et sa progression **s'enregistre toute seule**.
 
-Le hub (`index.html`) est groupé par classe : l'élève trouve sa classe et clique sur son carnet.
+## Deux mondes
+- **Le site** (ce dépôt) — pages HTML **statiques** sur **GitHub Pages**. Ce que voient les élèves.
+- **Le serveur `carnets-api`** — **Cloudflare Worker + KV**, dans le dossier voisin
+  `../Carnets Anglais - API/`. Reçoit, garde et recalcule les résultats ; sert le tableau prof.
 
-## 📊 Espace prof
-
-`stats.html` — colle les codes `GTEST1::…` des élèves (toutes classes mélangées possibles),
-analyse complète : moyenne, réussite par thème, par question, par élève. Lien discret en bas du hub.
-
-## 📁 Structure
-
+## Structure
 ```
-index.html            hub élèves (un seul lien)
-stats.html            outil stats (prof)
-ms/                   crane-installation · insurance-audit
-cprp/                 recycling-drive · delivery-qc · nuclear-series (×3)
-elec/                 industrial-electrician (+B2) · transformer-failure · grammar-test (éval)
-aftral/               theo-ch1 · theo-ch2
+index.html                     hub élèves (centre → classe → carnet)
+stats.html                     outil stats prof (secours, legacy)
+assets/platform.js             le « tuyau » ajouté à chaque carnet (envoi auto, roster, sons)
+<classe>/<slug>/index.html     un carnet autonome (ms · cprp · elec · aftral · ndrc · gtla)
+docs/                          documentation (source de vérité du fonctionnement)
+notes/                         idées futures, non construites
+CHANGELOG.md                   historique des évolutions
+_specs/*.json                  fiches sources des carnets (locales, gitignorées)
 ```
 
-Ce dossier local **est** la copie de travail du repo GitHub `carnets-anglais` :
-un seul endroit sur l'ordinateur = ce qui est en ligne.
+## Documentation
+Tout est dans **[`docs/`](docs/)**. Points d'entrée :
+- **[Reproduire la plateforme de zéro](docs/reproduction.md)** — remonter site + serveur.
+- **[Architecture](docs/architecture.md)** — comment ça marche (flux, données, endpoints).
+- **[Exploitation](docs/exploitation.md)** — le quotidien : consulter, exporter, rosters, mises à jour.
 
-## Historique
+## Règle d'or
+**Ne jamais éditer le HTML d'un carnet à la main.** Un carnet est **généré** depuis
+`_specs/<nom>.json` via le générateur `worksheet-b1` — voir
+[`docs/anatomie-carnet.md`](docs/anatomie-carnet.md).
 
-Remplace les 3 anciens sites (`bts-ms-english`, `bts-cprp-english`, `theo-internship-adventure`),
-laissés en ligne pour ne pas casser les liens déjà partagés. À partir de maintenant : partager le lien unique ci-dessus.
+---
+*Notes de travail personnelles (journal de build, task list) : gardées **hors dépôt**.*
