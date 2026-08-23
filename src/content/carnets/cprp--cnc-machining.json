@@ -1,0 +1,624 @@
+{
+  "classe": "cprp",
+  "slug": "cnc-machining",
+  "title": "⚙️ CNC Machining & Quality — CPRP",
+  "palette": "amber",
+  "deco": [
+    "⚙️",
+    "🔩",
+    "🛠️",
+    "📐"
+  ],
+  "hero_watermark": "⚙️",
+  "hero_pill": "BTS CPRP · MACHINING",
+  "hero_h1": "Machining a<br/>Series ⚙️",
+  "hero_tagline": "CNC & Quality Control · Reading & Grammar",
+  "level": "B1+",
+  "class": "CPRP 1",
+  "test_name": "CPRP CNC Machining &amp; Quality (B1+)",
+  "ps_title": "Result — CPRP · English",
+  "ps_sub": "CNC Machining & Quality · B1+ · self-marking",
+  "foot": "⚙️ CPRP · CNC Machining & Quality — B1+ · self-marking 📐",
+  "story": [
+    "Théo is a <span class=\"hl\">machining apprentice</span>. This week, he <span class=\"hl\">sets up</span> a new <span class=\"hl\">CNC lathe</span> to produce a series of steel shafts. First, the <span class=\"hl\">blank</span> is clamped in the <span class=\"hl\">chuck</span>. A carbide <span class=\"hl\">cutting tool</span> removes the metal, and the diameter <span class=\"hl\">is turned</span> to size. During the operation, the <span class=\"hl\">coolant</span> cools the tool and the <span class=\"hl\">chips</span> fall into the tray. Every movement <span class=\"hl\">is controlled</span> by the CNC program.",
+    "First, the operator loads the blank and starts the cycle. <span class=\"hl\">As soon as</span> the <span class=\"hl\">spindle</span> reaches full speed, the tool moves in and the first cut begins. <span class=\"hl\">Subsequently</span>, the machine turns the second diameter and drills the center hole. When the program is finished, the part is unloaded; <span class=\"hl\">therefore</span> the next blank can be machined. If a dimension is out of <span class=\"hl\">tolerance</span>, the part is sent to <span class=\"hl\">scrap</span>.",
+    "Safety comes first. Théo <span class=\"hl\">must</span> stop the spindle before he opens the guard, and operators <span class=\"hl\">mustn't</span> remove a safety cover. After machining, each shaft <span class=\"hl\">is deburred</span> and measured with a <span class=\"hl\">caliper</span> and a <span class=\"hl\">micrometer</span>. If the operator presses the <span class=\"hl\">emergency stop</span>, the machine <span class=\"hl\">will stop</span> immediately. Since Monday, Théo has inspected every part, and the batch has passed quality control without a single reject. ⚙️"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "the rotating part of the machine that drives the tool and the workpiece → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "spindle"
+        },
+        {
+          "text": "the device that grips and holds the workpiece on a lathe → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "chuck"
+        },
+        {
+          "text": "the sharp part (or insert) that removes metal from the material → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "cutting tool"
+        },
+        {
+          "text": "the piece of metal that is being machined → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "workpiece"
+        },
+        {
+          "text": "a measuring tool that reads a dimension quickly, often to 0.02 mm → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "caliper"
+        },
+        {
+          "text": "a precise instrument used to measure small dimensions to 0.01 mm → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "micrometer"
+        },
+        {
+          "text": "the allowed variation between the maximum and minimum size → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "tolerance"
+        },
+        {
+          "text": "the fluid that cools and lubricates the tool during cutting → ___",
+          "options": [
+            "spindle",
+            "chuck",
+            "cutting tool",
+            "workpiece",
+            "caliper",
+            "micrometer",
+            "tolerance",
+            "coolant"
+          ],
+          "answer": "coolant"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire (texte à trous)",
+      "items": [
+        {
+          "text": "If the ___ is too high, the tool can break or overheat.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "feed rate"
+        },
+        {
+          "text": "After milling, each edge is ___ to remove the sharp burrs.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "deburred"
+        },
+        {
+          "text": "The operator checks every ___ against the drawing.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "dimension"
+        },
+        {
+          "text": "A go / no-go ___ tells the operator if the part is within tolerance.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "gauge"
+        },
+        {
+          "text": "A part that is out of tolerance is sent to ___.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "scrap"
+        },
+        {
+          "text": "During cutting, metal ___ fall into the tray under the machine.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "chips"
+        },
+        {
+          "text": "Before delivery, every batch goes through a final ___.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "inspection"
+        },
+        {
+          "text": "When the cutting edge is worn, the operator changes the ___.",
+          "options": [
+            "feed rate",
+            "deburred",
+            "dimension",
+            "gauge",
+            "scrap",
+            "chips",
+            "inspection",
+            "insert"
+          ],
+          "answer": "insert"
+        }
+      ]
+    },
+    {
+      "code": "PV",
+      "name": "PV Passive",
+      "heading": "The passive voice (describing the process)",
+      "icon": "🔁",
+      "points": 8,
+      "color": "c-sky",
+      "instr": "En anglais technique, on décrit un procédé à la voix passive : is / are + participe passé.",
+      "theme": "Voix passive",
+      "items": [
+        {
+          "text": "The blank ___ in the chuck before machining.",
+          "options": [
+            "clamps",
+            "is clamping",
+            "is clamped"
+          ],
+          "answer": "is clamped"
+        },
+        {
+          "text": "The workpiece ___ by a carbide cutting tool.",
+          "options": [
+            "machines",
+            "is machining",
+            "is machined"
+          ],
+          "answer": "is machined"
+        },
+        {
+          "text": "On the lathe, the two diameters ___ in a single operation.",
+          "options": [
+            "turns",
+            "turn",
+            "are turned"
+          ],
+          "answer": "are turned"
+        },
+        {
+          "text": "The program ___ into the CNC controller before the first part.",
+          "options": [
+            "loads",
+            "is loading",
+            "is loaded"
+          ],
+          "answer": "is loaded"
+        },
+        {
+          "text": "Each dimension ___ with a caliper after machining.",
+          "options": [
+            "measures",
+            "measuring",
+            "is measured"
+          ],
+          "answer": "is measured"
+        },
+        {
+          "text": "At the end of the batch, all the parts ___ and packed.",
+          "options": [
+            "inspect",
+            "are inspected",
+            "inspects"
+          ],
+          "answer": "are inspected"
+        },
+        {
+          "text": "The sharp edges ___ before the part leaves the workshop.",
+          "options": [
+            "deburr",
+            "deburrs",
+            "are deburred"
+          ],
+          "answer": "are deburred"
+        },
+        {
+          "text": "The whole machine ___ at any time with the emergency stop.",
+          "options": [
+            "stops",
+            "can be stopped",
+            "can stop"
+          ],
+          "answer": "can be stopped"
+        }
+      ]
+    },
+    {
+      "code": "CD",
+      "name": "CD Conditionals",
+      "heading": "Conditionals — machine logic",
+      "icon": "⚡",
+      "points": 8,
+      "color": "c-sun",
+      "instr": "Après if / when / as soon as, on n'utilise JAMAIS will : le verbe reste au présent.",
+      "theme": "Conditionnels",
+      "items": [
+        {
+          "text": "If the caliper ___ 20.05 mm, the part is out of tolerance.",
+          "options": [
+            "will read",
+            "is reading",
+            "reads"
+          ],
+          "answer": "reads"
+        },
+        {
+          "text": "When the spindle ___ full speed, the cut begins.",
+          "options": [
+            "reaches",
+            "reached",
+            "will reach"
+          ],
+          "answer": "reaches"
+        },
+        {
+          "text": "The machine stops as soon as the guard ___ opened.",
+          "options": [
+            "was",
+            "is",
+            "will be"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "If the tolerance ___ exceeded, the part is rejected.",
+          "options": [
+            "was",
+            "is",
+            "will be"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "When the program ___ finished, the operator removes the part.",
+          "options": [
+            "starts",
+            "is",
+            "will be"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "The tool overheats if the coolant ___ off.",
+          "options": [
+            "will be",
+            "is",
+            "was"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "If we buy a faster machine, the cycle time ___ shorter.",
+          "options": [
+            "is",
+            "will be",
+            "was"
+          ],
+          "answer": "will be"
+        },
+        {
+          "text": "If the operator ___ the tool offset, the dimension will be correct.",
+          "options": [
+            "will correct",
+            "corrects",
+            "corrected"
+          ],
+          "answer": "corrects"
+        }
+      ]
+    },
+    {
+      "code": "LK",
+      "name": "LK Linkers",
+      "heading": "Linking words (sequence, cause & contrast)",
+      "icon": "🔗",
+      "points": 8,
+      "color": "c-grape",
+      "block": true,
+      "instr": "Choisis le connecteur logique qui convient : séquence, cause → conséquence, condition ou contraste.",
+      "theme": "Connecteurs logiques",
+      "items": [
+        {
+          "text": "The part is out of tolerance; ___, it is sent to scrap.",
+          "options": [
+            "however",
+            "therefore",
+            "meanwhile"
+          ],
+          "answer": "therefore"
+        },
+        {
+          "text": "The blank is clamped. ___, the spindle starts and the tool moves in.",
+          "options": [
+            "Subsequently",
+            "However",
+            "Because"
+          ],
+          "answer": "Subsequently"
+        },
+        {
+          "text": "In manual mode the operator moves each axis, ___ in CNC mode the program does it.",
+          "options": [
+            "so that",
+            "therefore",
+            "whereas"
+          ],
+          "answer": "whereas"
+        },
+        {
+          "text": "The coolant pump has failed; ___, the machine cannot cut.",
+          "options": [
+            "consequently",
+            "moreover",
+            "meanwhile"
+          ],
+          "answer": "consequently"
+        },
+        {
+          "text": "___ the last part is finished, the machine stops automatically.",
+          "options": [
+            "Whereas",
+            "Therefore",
+            "As soon as"
+          ],
+          "answer": "As soon as"
+        },
+        {
+          "text": "The CNC follows the program; ___, it records the cycle time of every part.",
+          "options": [
+            "instead",
+            "moreover",
+            "however"
+          ],
+          "answer": "moreover"
+        },
+        {
+          "text": "___, the operator loads the blank; then the cycle runs; finally he checks the part.",
+          "options": [
+            "Finally",
+            "First",
+            "However"
+          ],
+          "answer": "First"
+        },
+        {
+          "text": "The dimension is within tolerance, ___ allowing the part to pass inspection.",
+          "options": [
+            "however",
+            "whereas",
+            "thus"
+          ],
+          "answer": "thus"
+        }
+      ]
+    },
+    {
+      "code": "SF",
+      "name": "SF Safety",
+      "heading": "Safety rules (modals)",
+      "icon": "⚠️",
+      "points": 8,
+      "color": "c-pink",
+      "instr": "Obligation, interdiction ou absence d'obligation ?",
+      "theme": "Modaux — sécurité",
+      "items": [
+        {
+          "text": "You ___ open the machine guard while the spindle is turning.",
+          "options": [
+            "needn't",
+            "must",
+            "mustn't"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Before changing the tool, the operator ___ stop the spindle.",
+          "options": [
+            "must",
+            "mustn't",
+            "needn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "Every new apprentice ___ follow the lock-out procedure.",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "has to"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "The machine is already set up, so you ___ enter the program again.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "If a dimension looks wrong, you ___ check the part with a micrometer.",
+          "options": [
+            "should",
+            "mustn't",
+            "shouldn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ wear safety glasses when chips are flying.",
+          "options": [
+            "don't have to",
+            "must",
+            "mustn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "Operators ___ remove the guard to work faster.",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "must"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "To pass the CE inspection, the machine ___ have a working emergency stop.",
+          "options": [
+            "mustn't",
+            "doesn't have to",
+            "has to"
+          ],
+          "answer": "has to"
+        }
+      ]
+    }
+  ]
+}

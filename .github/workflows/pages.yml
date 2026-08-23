@@ -1,4 +1,7 @@
-name: Deploy to GitHub Pages
+# Construit le site Astro (dist/) et le déploie sur GitHub Pages.
+# Remplace l'ancien workflow qui publiait la racine du dépôt telle quelle : la bascule
+# se fait au merge de cette branche dans `main` (Pages est déjà en mode « GitHub Actions »).
+name: Déployer le site (Astro → GitHub Pages)
 on:
   push:
     branches: [main]
@@ -11,16 +14,22 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - run: npm test            # gate : le code GTEST1 doit rester identique aux pages de référence (tests/golden/)
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
+        with: { path: dist }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.deployment.outputs.page_url }}" }
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,504 @@
+{
+  "classe": "cprp",
+  "slug": "nuclear-series-2",
+  "title": "⚙️ Workshop & Machines — CPRP 1 (No 2)",
+  "palette": "violet",
+  "deco": [
+    "⚙️",
+    "🔧",
+    "✨",
+    "🛠️"
+  ],
+  "hero_watermark": "⚙️",
+  "hero_pill": "BTS CPRP 1 · USINAGE · No 2",
+  "hero_h1": "The Workshop &<br/>the Machines ⚛️",
+  "hero_tagline": "Vocabulary & Grammar",
+  "level": "A1 / A2",
+  "class": "CPRP 1",
+  "test_name": "CPRP1 Nuclear Series No2 (A1-A2)",
+  "ps_title": "Result — CPRP 1 · English",
+  "ps_sub": "Nuclear Series · Worksheet No 2 · A1/A2",
+  "foot": "⚙️ CPRP 1 · Usinage — A1/A2 · Worksheet No 2 · self-marking ⚙️",
+  "story": [],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a machine that turns metal to make round parts → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "lathe"
+        },
+        {
+          "text": "a tool that makes holes → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "drill"
+        },
+        {
+          "text": "a technical drawing of the part → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "blueprint"
+        },
+        {
+          "text": "a liquid that keeps the tool cold → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "coolant"
+        },
+        {
+          "text": "a tool that holds the part tight → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "clamp"
+        },
+        {
+          "text": "a careful check of the part → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "inspection"
+        },
+        {
+          "text": "a company that sends us metal and tools → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "supplier"
+        },
+        {
+          "text": "a group of parts made together → ___",
+          "options": [
+            "coolant",
+            "clamp",
+            "batch",
+            "lathe",
+            "supplier",
+            "drill",
+            "inspection",
+            "blueprint"
+          ],
+          "answer": "batch"
+        }
+      ],
+      "id_prefix": "m"
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "We read the ___ before we start the part.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "blueprint"
+        },
+        {
+          "text": "The ___ makes round parts from a metal bar.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "lathe"
+        },
+        {
+          "text": "We use a ___ to make holes in the plate.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "drill"
+        },
+        {
+          "text": "The ___ holds the part tight in the machine.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "clamp"
+        },
+        {
+          "text": "The machine needs ___ to stay cold.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "coolant"
+        },
+        {
+          "text": "Every part goes to ___ before delivery.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "inspection"
+        },
+        {
+          "text": "The ___ delivers the steel every Monday.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "supplier"
+        },
+        {
+          "text": "We finished the first ___ of 50 parts.",
+          "options": [
+            "coolant",
+            "blueprint",
+            "batch",
+            "drill",
+            "supplier",
+            "lathe",
+            "inspection",
+            "clamp"
+          ],
+          "answer": "batch"
+        }
+      ],
+      "id_prefix": "g"
+    },
+    {
+      "code": "B1",
+      "name": "B1 Affirmative",
+      "heading": "Choose the right verb",
+      "icon": "⏱️",
+      "points": 6,
+      "color": "c-sun",
+      "theme": "Présent simple — affirmatif",
+      "items": [
+        {
+          "text": "The lathe ___ metal <span class=\"tw\">every day</span>.",
+          "options": [
+            "has cut",
+            "cuts",
+            "cut"
+          ],
+          "answer": "cuts"
+        },
+        {
+          "text": "<span class=\"tw\">Last week</span>, we ___ a new batch.",
+          "options": [
+            "started",
+            "has started",
+            "starts"
+          ],
+          "answer": "started",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, the supplier ___ the steel twice.",
+          "options": [
+            "delivers",
+            "delivered",
+            "has delivered"
+          ],
+          "answer": "has delivered",
+          "theme": "Present perfect — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, the operator ___ the part.",
+          "options": [
+            "clamped",
+            "clamps",
+            "has clamped"
+          ],
+          "answer": "clamped",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "The team ___ the tolerance <span class=\"tw\">every morning</span>.",
+          "options": [
+            "checked",
+            "checks",
+            "has checked"
+          ],
+          "answer": "checks"
+        },
+        {
+          "text": "We ___ 200 parts <span class=\"tw\">so far</span>.",
+          "options": [
+            "make",
+            "have made",
+            "made"
+          ],
+          "answer": "have made",
+          "theme": "Present perfect — affirmatif"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Negative",
+      "heading": "The negative form",
+      "icon": "🚫",
+      "points": 8,
+      "color": "c-sky",
+      "theme": "Présent simple — négatif",
+      "items": [
+        {
+          "text": "The machine ___ without coolant.",
+          "options": [
+            "didn't work",
+            "doesn't work",
+            "hasn't worked"
+          ],
+          "answers": [
+            "doesn't work",
+            "does not work"
+          ]
+        },
+        {
+          "text": "We ___ the batch <span class=\"tw\">yesterday</span>.",
+          "options": [
+            "didn't finish",
+            "hasn't finished",
+            "doesn't finish"
+          ],
+          "answers": [
+            "didn't finish",
+            "did not finish"
+          ],
+          "theme": "Passé simple — négatif"
+        },
+        {
+          "text": "The supplier ___ the tools <span class=\"tw\">yet</span>.",
+          "options": [
+            "doesn't send",
+            "hasn't sent",
+            "didn't send"
+          ],
+          "answers": [
+            "hasn't sent",
+            "has not sent"
+          ],
+          "theme": "Present perfect — négatif"
+        },
+        {
+          "text": "A good operator ___ the safety rules.",
+          "options": [
+            "hasn't forgotten",
+            "didn't forget",
+            "doesn't forget"
+          ],
+          "answers": [
+            "doesn't forget",
+            "does not forget"
+          ]
+        },
+        {
+          "text": "We ___ the new blueprint <span class=\"tw\">last week</span>.",
+          "options": [
+            "didn't receive",
+            "doesn't receive",
+            "hasn't received"
+          ],
+          "answers": [
+            "didn't receive",
+            "did not receive"
+          ],
+          "theme": "Passé simple — négatif"
+        },
+        {
+          "text": "The team ___ the drill <span class=\"tw\">since Monday</span>.",
+          "options": [
+            "doesn't change",
+            "hasn't changed",
+            "didn't change"
+          ],
+          "answers": [
+            "hasn't changed",
+            "has not changed"
+          ],
+          "theme": "Present perfect — négatif"
+        },
+        {
+          "text": "This old lathe ___ precise parts <span class=\"tw\">nowadays</span>.",
+          "options": [
+            "doesn't make",
+            "didn't make",
+            "hasn't made"
+          ],
+          "answers": [
+            "doesn't make",
+            "does not make"
+          ]
+        },
+        {
+          "text": "The client ___ the last batch <span class=\"tw\">yet</span>.",
+          "options": [
+            "didn't accept",
+            "hasn't accepted",
+            "doesn't accept"
+          ],
+          "answers": [
+            "hasn't accepted",
+            "has not accepted"
+          ],
+          "theme": "Present perfect — négatif"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Questions",
+      "heading": "Questions & answers",
+      "icon": "❓",
+      "points": 4,
+      "color": "c-grape",
+      "theme": "Questions",
+      "items": [
+        {
+          "text": "___ the lathe need coolant? — Yes, it does.",
+          "options": [
+            "Does",
+            "Do",
+            "Did"
+          ],
+          "answer": "Does"
+        },
+        {
+          "text": "___ you finished the batch <span class=\"tw\">yet</span>? — No, not yet.",
+          "options": [
+            "Do",
+            "Have",
+            "Did"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "___ the team start a new series <span class=\"tw\">last week</span>? — Yes, they did.",
+          "options": [
+            "Do",
+            "Did",
+            "Does"
+          ],
+          "answer": "Did"
+        },
+        {
+          "text": "___ the supplier delivered the steel? — Yes, he has.",
+          "options": [
+            "Have",
+            "Has",
+            "Did"
+          ],
+          "answer": "Has"
+        }
+      ]
+    }
+  ]
+}

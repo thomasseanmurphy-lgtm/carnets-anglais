@@ -1,0 +1,502 @@
+{
+  "classe": "elec",
+  "slug": "industrial-electrician",
+  "title": "⚡ Industrial Electrician — ELEC 1",
+  "palette": "violet",
+  "deco": [
+    "⚡",
+    "🔌",
+    "💡",
+    "🔋"
+  ],
+  "hero_watermark": "⚡",
+  "hero_pill": "BTS ELEC 1 · INDUSTRIAL ELECTRICIAN",
+  "hero_h1": "A Day on the<br/>Shop Floor ⚡",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1",
+  "class": "ELEC 1",
+  "test_name": "ELEC1 Industrial Electrician (B1)",
+  "ps_title": "Result — ELEC 1 · English",
+  "ps_sub": "Industrial Electrician · B1 · self-marking",
+  "foot": "⚡ ELEC 1 · Industrial Electrician — B1 · self-marking ⚡",
+  "story": [
+    "Marta <span class=\"hl\">is</span> an industrial electrician in a large factory. Every morning, she <span class=\"hl\">checks</span> the main switchboard and <span class=\"hl\">tests</span> the circuit breakers. She always <span class=\"hl\">wears</span> gloves and safety boots, because the panels <span class=\"hl\">carry</span> a high voltage. If a machine <span class=\"hl\">loses</span> power, the whole production line <span class=\"hl\">stops</span>.",
+    "Last week, the team <span class=\"hl\">installed</span> a new control panel. First, Marta <span class=\"hl\">cut</span> the power and <span class=\"hl\">locked</span> the switch. Then she <span class=\"hl\">connected</span> the wires and <span class=\"hl\">tightened</span> each terminal. Finally, an engineer <span class=\"hl\">measured</span> the voltage and <span class=\"hl\">signed</span> the report.",
+    "Since Monday, Marta <span class=\"hl\">has replaced</span> four old fuses and <span class=\"hl\">has tested</span> every socket. She <span class=\"hl\">has not found</span> any fault yet, and the line <span class=\"hl\">has run</span> without a single stop. Her supervisor is very happy! 🔧"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a metal cabinet with switches that controls the electricity → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "switchboard"
+        },
+        {
+          "text": "a switch that stops the current when there is a fault → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "circuit breaker"
+        },
+        {
+          "text": "the electrical pressure that pushes the current → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "voltage"
+        },
+        {
+          "text": "all the cables that carry electricity in a building → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "wiring"
+        },
+        {
+          "text": "a material that stops electricity from escaping → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "insulation"
+        },
+        {
+          "text": "the point where you connect a wire → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "terminal"
+        },
+        {
+          "text": "a small part that melts and cuts the power if the current is too high → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "fuse"
+        },
+        {
+          "text": "a safe connection to the ground that protects people → ___",
+          "options": [
+            "circuit breaker",
+            "voltage",
+            "switchboard",
+            "wiring",
+            "insulation",
+            "terminal",
+            "fuse",
+            "earthing"
+          ],
+          "answer": "earthing"
+        }
+      ],
+      "id_prefix": "m"
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "Marta checks the main ___ every morning.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "switchboard"
+        },
+        {
+          "text": "If the current is too high, the ___ trips and cuts the power.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "circuit breaker"
+        },
+        {
+          "text": "Never touch a live wire — the ___ is dangerous.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "voltage"
+        },
+        {
+          "text": "She connected the ___ to the new panel.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "wires"
+        },
+        {
+          "text": "Good ___ stops the electricity from escaping.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "insulation"
+        },
+        {
+          "text": "Tighten each ___ so the connection is safe.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "terminal"
+        },
+        {
+          "text": "He plugged the drill into the ___.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "socket"
+        },
+        {
+          "text": "The technician looked for the ___ in the circuit.",
+          "options": [
+            "socket",
+            "voltage",
+            "switchboard",
+            "wires",
+            "insulation",
+            "terminal",
+            "circuit breaker",
+            "fault"
+          ],
+          "answer": "fault"
+        }
+      ],
+      "id_prefix": "g"
+    },
+    {
+      "code": "B1",
+      "name": "B1 Affirmative",
+      "heading": "Choose the right verb",
+      "icon": "⏱️",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Présent simple — affirmatif",
+      "items": [
+        {
+          "text": "<span class=\"tw\">Every morning</span>, Marta ___ the switchboard.",
+          "options": [
+            "has checked",
+            "checks",
+            "checked"
+          ],
+          "answer": "checks"
+        },
+        {
+          "text": "<span class=\"tw\">Last week</span>, the team ___ a new control panel.",
+          "options": [
+            "installed",
+            "has installed",
+            "installs"
+          ],
+          "answer": "installed",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, she ___ four old fuses.",
+          "options": [
+            "replaces",
+            "replaced",
+            "has replaced"
+          ],
+          "answer": "has replaced",
+          "theme": "Present perfect — affirmatif"
+        },
+        {
+          "text": "The panels ___ a high voltage <span class=\"tw\">in general</span>.",
+          "options": [
+            "have carried",
+            "carry",
+            "carried"
+          ],
+          "answer": "carry"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, the engineer ___ the voltage.",
+          "options": [
+            "measured",
+            "measures",
+            "has measured"
+          ],
+          "answer": "measured",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "The line ___ without a stop <span class=\"tw\">so far</span>.",
+          "options": [
+            "ran",
+            "runs",
+            "has run"
+          ],
+          "answer": "has run",
+          "theme": "Present perfect — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Every day</span>, the electrician ___ safety gloves.",
+          "options": [
+            "has worn",
+            "wears",
+            "wore"
+          ],
+          "answer": "wears"
+        },
+        {
+          "text": "First, she ___ the power and locked the switch <span class=\"tw\">last week</span>.",
+          "options": [
+            "cuts",
+            "has cut",
+            "cut"
+          ],
+          "answer": "cut",
+          "theme": "Passé simple — affirmatif"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Negative",
+      "heading": "The negative form",
+      "icon": "🚫",
+      "points": 6,
+      "color": "c-sky",
+      "theme": "Present perfect — négatif",
+      "items": [
+        {
+          "text": "She ___ any fault <span class=\"tw\">yet</span>.",
+          "options": [
+            "didn't find",
+            "hasn't found",
+            "doesn't find"
+          ],
+          "answers": [
+            "hasn't found",
+            "has not found"
+          ]
+        },
+        {
+          "text": "<span class=\"tw\">Last night</span>, the team ___ the machine.",
+          "options": [
+            "hasn't stopped",
+            "doesn't stop",
+            "didn't stop"
+          ],
+          "answers": [
+            "didn't stop",
+            "did not stop"
+          ],
+          "theme": "Passé simple — négatif"
+        },
+        {
+          "text": "A good fuse ___ at normal current.",
+          "options": [
+            "didn't melt",
+            "doesn't melt",
+            "hasn't melted"
+          ],
+          "answers": [
+            "doesn't melt",
+            "does not melt"
+          ],
+          "theme": "Présent simple — négatif"
+        },
+        {
+          "text": "We ___ the new panel <span class=\"tw\">yet</span>.",
+          "options": [
+            "haven't tested",
+            "didn't test",
+            "don't test"
+          ],
+          "answers": [
+            "haven't tested",
+            "have not tested"
+          ]
+        },
+        {
+          "text": "The electrician ___ the wire <span class=\"tw\">yesterday</span>.",
+          "options": [
+            "hasn't changed",
+            "didn't change",
+            "doesn't change"
+          ],
+          "answers": [
+            "didn't change",
+            "did not change"
+          ],
+          "theme": "Passé simple — négatif"
+        },
+        {
+          "text": "This breaker ___ by itself <span class=\"tw\">normally</span>; you must reset it.",
+          "options": [
+            "didn't reset",
+            "doesn't reset",
+            "hasn't reset"
+          ],
+          "answers": [
+            "doesn't reset",
+            "does not reset"
+          ],
+          "theme": "Présent simple — négatif"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Questions",
+      "heading": "Questions & answers",
+      "icon": "❓",
+      "points": 4,
+      "color": "c-grape",
+      "theme": "Questions",
+      "items": [
+        {
+          "text": "___ the team install a new panel <span class=\"tw\">last week</span>? — Yes, they did.",
+          "options": [
+            "Do",
+            "Did",
+            "Have"
+          ],
+          "answer": "Did"
+        },
+        {
+          "text": "___ you tested the sockets <span class=\"tw\">yet</span>? — No, not yet.",
+          "options": [
+            "Have",
+            "Do",
+            "Did"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "___ Marta wear gloves <span class=\"tw\">every day</span>? — Yes, she does.",
+          "options": [
+            "Did",
+            "Does",
+            "Has"
+          ],
+          "answer": "Does"
+        },
+        {
+          "text": "___ the line stopped <span class=\"tw\">since Monday</span>? — No, it hasn't.",
+          "options": [
+            "Have",
+            "Has",
+            "Did"
+          ],
+          "answer": "Has"
+        }
+      ]
+    }
+  ]
+}

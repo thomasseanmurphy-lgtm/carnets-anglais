@@ -1,0 +1,479 @@
+{
+  "classe": "cprp",
+  "slug": "delivery-qc",
+  "title": "📐 Delivery, Calibration & QC — CPRP 1",
+  "palette": "blue",
+  "deco": [
+    "📦",
+    "⚙️",
+    "📐",
+    "✅"
+  ],
+  "hero_watermark": "📐",
+  "hero_pill": "BTS CPRP 1 · MACHINING WORKSHOP",
+  "hero_h1": "From Delivery<br>to Inspection 📐",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1+",
+  "class": "CPRP 1",
+  "test_name": "CPRP1 Delivery, Calibration &amp; QC (B1+)",
+  "ps_title": "Result — CPRP 1 · English",
+  "ps_sub": "Delivery, Calibration & Quality Control · B1+ · self-marking",
+  "foot": "📐 CPRP 1 · Delivery, Calibration & Quality Control — B1+ · self-marking 📐",
+  "story": [
+    "Théo <span class=\"hl\">works</span> in the goods-in area of a machining workshop. Every morning, a lorry <span class=\"hl\">delivers</span> raw material — steel bars and aluminium plates — on pallets. He <span class=\"hl\">checks</span> the delivery note, <span class=\"hl\">counts</span> the parts and <span class=\"hl\">signs</span> for the order. Nobody <span class=\"hl\">can start</span> a job before the material is checked.",
+    "Yesterday, before a big production run, Théo <span class=\"hl\">calibrated</span> the milling machine and <span class=\"hl\">set</span> the tool offsets. Then the team <span class=\"hl\">machined</span> the first part and <span class=\"hl\">measured</span> it with a caliper. The dimension <span class=\"hl\">was</span> inside the tolerance, so the run <span class=\"hl\">began</span>.",
+    "Since Monday, the workshop <span class=\"hl\">has produced</span> 500 parts and <span class=\"hl\">has inspected</span> every batch. The inspectors <span class=\"hl\">have rejected</span> only three parts so far. They <span class=\"hl\">haven't found</span> any serious defect yet. Théo says good calibration is <span class=\"hl\">the most important</span> step of the day. 📐"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "raw material",
+        "delivery note",
+        "supplier",
+        "caliper",
+        "tolerance",
+        "defect",
+        "calibrate",
+        "inspect"
+      ],
+      "items": [
+        {
+          "text": "the metal a part is made from → ___",
+          "answer": "raw material"
+        },
+        {
+          "text": "the paper that lists what is in a delivery → ___",
+          "answer": "delivery note"
+        },
+        {
+          "text": "a company that sells and delivers materials → ___",
+          "answer": "supplier"
+        },
+        {
+          "text": "a tool that measures the exact size of a part → ___",
+          "answer": "caliper"
+        },
+        {
+          "text": "the small difference that is allowed on a size → ___",
+          "answer": "tolerance"
+        },
+        {
+          "text": "a fault that makes a part unusable → ___",
+          "answer": "defect"
+        },
+        {
+          "text": "to set a machine to a known correct value → ___",
+          "answer": "calibrate"
+        },
+        {
+          "text": "to check a part carefully to find faults → ___",
+          "answer": "inspect"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "pallet",
+        "delivery note",
+        "supplier",
+        "calibrate",
+        "tolerance",
+        "inspect",
+        "reject",
+        "batch"
+      ],
+      "items": [
+        {
+          "text": "The steel arrived this morning on a wooden ___.",
+          "answer": "pallet"
+        },
+        {
+          "text": "Théo signed the ___ when the lorry arrived.",
+          "answer": "delivery note"
+        },
+        {
+          "text": "We order our aluminium from the same ___.",
+          "answer": "supplier"
+        },
+        {
+          "text": "Before machining, he must ___ the new tool.",
+          "answer": "calibrate"
+        },
+        {
+          "text": "The diameter must stay inside the ___.",
+          "answer": "tolerance"
+        },
+        {
+          "text": "The inspector will ___ every tenth part.",
+          "answer": "inspect"
+        },
+        {
+          "text": "If a part is faulty, we ___ it.",
+          "answer": "reject"
+        },
+        {
+          "text": "The whole ___ of 200 parts was checked.",
+          "answer": "batch"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "points": 8,
+      "items": [
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, the team ___ 500 parts.",
+          "options": [
+            "has produced",
+            "produced",
+            "produces"
+          ],
+          "answer": "has produced"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, Théo ___ the milling machine.",
+          "options": [
+            "has calibrated",
+            "calibrated",
+            "calibrates"
+          ],
+          "answer": "calibrated"
+        },
+        {
+          "text": "The supplier ___ steel to us <span class=\"tw\">for five years</span>.",
+          "options": [
+            "delivered",
+            "has delivered",
+            "delivers"
+          ],
+          "answer": "has delivered"
+        },
+        {
+          "text": "We ___ this batch <span class=\"tw\">yet</span>.",
+          "options": [
+            "didn't inspect",
+            "haven't inspected",
+            "don't inspect"
+          ],
+          "answers": [
+            "haven't inspected",
+            "have not inspected"
+          ]
+        },
+        {
+          "text": "<span class=\"tw\">Last week</span>, the client ___ a new order.",
+          "options": [
+            "has placed",
+            "placed",
+            "places"
+          ],
+          "answer": "placed"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> measured a part with a micrometer?",
+          "options": [
+            "Did",
+            "Have",
+            "Do"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "The inspector has <span class=\"tw\">just</span> ___ a faulty part.",
+          "options": [
+            "find",
+            "found",
+            "finds"
+          ],
+          "answer": "found"
+        },
+        {
+          "text": "<span class=\"tw\">In 2021</span>, the workshop ___ a new measuring machine.",
+          "options": [
+            "has bought",
+            "bought",
+            "buys"
+          ],
+          "answer": "bought"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "color": "c-pink",
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "points": 8,
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "items": [
+        {
+          "text": "« Depuis ce matin, nous avons contrôlé 50 pièces. »",
+          "options": [
+            "Since this morning, we have inspected 50 parts.",
+            "Since this morning, we inspected 50 parts."
+          ],
+          "answer": "Since this morning, we have inspected 50 parts."
+        },
+        {
+          "text": "« Hier, il a calibré la machine. »",
+          "options": [
+            "Yesterday, he has calibrated the machine.",
+            "Yesterday, he calibrated the machine."
+          ],
+          "answer": "Yesterday, he calibrated the machine."
+        },
+        {
+          "text": "« Le fournisseur nous livre de l'acier depuis 2019. »",
+          "options": [
+            "The supplier has delivered steel to us since 2019.",
+            "The supplier delivered steel to us since 2019."
+          ],
+          "answer": "The supplier has delivered steel to us since 2019."
+        },
+        {
+          "text": "« Nous n'avons pas encore mesuré cette pièce. »",
+          "options": [
+            "We didn't measure this part yet.",
+            "We haven't measured this part yet."
+          ],
+          "answer": "We haven't measured this part yet."
+        },
+        {
+          "text": "« Il y a deux ans, l'atelier a acheté un micromètre. »",
+          "options": [
+            "Two years ago, the workshop has bought a micrometer.",
+            "Two years ago, the workshop bought a micrometer."
+          ],
+          "answer": "Two years ago, the workshop bought a micrometer."
+        },
+        {
+          "text": "« As-tu déjà rejeté une pièce ? »",
+          "options": [
+            "Have you ever rejected a part?",
+            "Did you ever reject a part?"
+          ],
+          "answer": "Have you ever rejected a part?"
+        },
+        {
+          "text": "« La semaine dernière, le client a passé une grosse commande. »",
+          "options": [
+            "Last week, the client has placed a big order.",
+            "Last week, the client placed a big order."
+          ],
+          "answer": "Last week, the client placed a big order."
+        },
+        {
+          "text": "« Nous fabriquons ces pièces depuis trois mois. »",
+          "options": [
+            "We have made these parts for three months.",
+            "We made these parts for three months."
+          ],
+          "answer": "We have made these parts for three months."
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Rules & advice (modals)",
+      "icon": "⚠️",
+      "color": "c-sky",
+      "theme": "Modaux — obligation/conseil",
+      "points": 8,
+      "items": [
+        {
+          "text": "You ___ check the delivery note before you sign.",
+          "options": [
+            "must",
+            "mustn't",
+            "needn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ use a part that is outside the tolerance.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Every operator ___ calibrate the tool before a run.",
+          "options": [
+            "has to",
+            "doesn't have to",
+            "mustn't"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "The machine is already set, so you ___ calibrate it again.",
+          "options": [
+            "must",
+            "have to",
+            "don't have to"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "If you find a defect, you ___ tell the supervisor.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ ignore a strange noise from the spindle.",
+          "options": [
+            "should",
+            "shouldn't",
+            "don't have to"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "Visitors ___ touch the measuring instruments.",
+          "options": [
+            "must",
+            "mustn't",
+            "needn't"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "We ___ record every measurement if we want the ISO 9001 label.",
+          "options": [
+            "have to",
+            "don't have to",
+            "mustn't"
+          ],
+          "answer": "have to"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Compare",
+      "heading": "Compare & measure",
+      "icon": "📊",
+      "color": "c-grape",
+      "theme": "Comparatifs & quantifieurs",
+      "points": 8,
+      "items": [
+        {
+          "text": "This caliper is ___ than the old one.",
+          "options": [
+            "more accurate",
+            "most accurate",
+            "accurater"
+          ],
+          "answer": "more accurate"
+        },
+        {
+          "text": "The CMM is the ___ precise machine in the lab.",
+          "options": [
+            "more",
+            "most",
+            "much"
+          ],
+          "answer": "most"
+        },
+        {
+          "text": "Calibration is not as ___ as it looks.",
+          "options": [
+            "long",
+            "longer",
+            "longest"
+          ],
+          "answer": "long"
+        },
+        {
+          "text": "This month we produce ___ scrap than before.",
+          "options": [
+            "fewer",
+            "less",
+            "least"
+          ],
+          "answer": "less"
+        },
+        {
+          "text": "There aren't ___ defects in this batch.",
+          "options": [
+            "much",
+            "many",
+            "a lot"
+          ],
+          "answer": "many"
+        },
+        {
+          "text": "How ___ material did the supplier deliver?",
+          "options": [
+            "many",
+            "much",
+            "more"
+          ],
+          "answer": "much"
+        },
+        {
+          "text": "Steel is one of the ___ used materials in the shop.",
+          "options": [
+            "more",
+            "most",
+            "much"
+          ],
+          "answer": "most"
+        },
+        {
+          "text": "The blue gauge is the ___ one in the drawer.",
+          "options": [
+            "small",
+            "smaller",
+            "smallest"
+          ],
+          "answer": "smallest"
+        }
+      ]
+    }
+  ]
+}

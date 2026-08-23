@@ -1,0 +1,307 @@
+{
+  "classe": "ndrc",
+  "slug": "first-day-store",
+  "title": "🛍️ First Day in the Store — NDRC 1",
+  "palette": "amber",
+  "deco": [
+    "🛍️",
+    "🏷️",
+    "🧾",
+    "🛒"
+  ],
+  "hero_watermark": "🛍️",
+  "hero_pill": "BTS NDRC 1 · SALES & CUSTOMER RELATIONS",
+  "hero_h1": "First Day<br>in the Store 🛍️",
+  "hero_tagline": "Reading & Grammar",
+  "level": "A1–A2",
+  "class": "NDRC 1",
+  "test_name": "NDRC1 First Day in the Store (A1-A2)",
+  "ps_title": "Result — NDRC 1 · English",
+  "ps_sub": "First Day in the Store · A1–A2 · self-marking",
+  "foot": "🛍️ NDRC 1 · First Day in the Store — A1–A2 · self-marking 🛍️",
+  "story": [
+    "Emma is a sales apprentice in a big store in Dijon. Every morning, she <span class=\"hl\">opens</span> the store at 9 a.m. She puts the products on the <span class=\"hl\">shelves</span> and checks the <span class=\"hl\">prices</span>. She likes to help <span class=\"hl\">customers</span> and answer their questions.",
+    "Today is a special day: there is a <span class=\"hl\">sale</span>! Many products have a <span class=\"hl\">discount</span> — 20% off jeans and sneakers. A customer asks: “How much is this jacket?” Emma looks at the price tag and answers: “It costs 49 euros. It's a very good <span class=\"hl\">brand</span>.”",
+    "At the <span class=\"hl\">cash register</span>, Emma scans the products and takes the payment. She gives the customer a <span class=\"hl\">receipt</span>. Her manager says: “Good job, Emma!” She <span class=\"hl\">doesn't work</span> on Sundays, but she loves her new job. 🛍️"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "customer",
+        "price",
+        "discount",
+        "receipt",
+        "shelf",
+        "cash register",
+        "brand",
+        "sale"
+      ],
+      "items": [
+        {
+          "text": "the person who buys something in a store → ___",
+          "answer": "customer"
+        },
+        {
+          "text": "how much a product costs → ___",
+          "answer": "price"
+        },
+        {
+          "text": "a reduction on the normal price → ___",
+          "answer": "discount"
+        },
+        {
+          "text": "the small paper you get after paying → ___",
+          "answer": "receipt"
+        },
+        {
+          "text": "the place where products are displayed in a store → ___",
+          "answer": "shelf"
+        },
+        {
+          "text": "the machine where you pay in a store → ___",
+          "answer": "cash register"
+        },
+        {
+          "text": "the name of the company that makes a product (Nike, Zara…) → ___",
+          "answer": "brand"
+        },
+        {
+          "text": "a period when prices are lower in a store → ___",
+          "answer": "sale"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "customer",
+        "price",
+        "sale",
+        "discount",
+        "shelf",
+        "cash register",
+        "receipt",
+        "order"
+      ],
+      "items": [
+        {
+          "text": "A ___ asks Emma for help.",
+          "answer": "customer"
+        },
+        {
+          "text": "The ___ of this jacket is 49 euros.",
+          "answer": "price"
+        },
+        {
+          "text": "During the ___, everything is 20% off.",
+          "answer": "sale"
+        },
+        {
+          "text": "With your student card, you get a 10% ___.",
+          "answer": "discount"
+        },
+        {
+          "text": "Emma puts the new T-shirts on the ___.",
+          "answer": "shelf"
+        },
+        {
+          "text": "You pay at the ___.",
+          "answer": "cash register"
+        },
+        {
+          "text": "Keep your ___ if you want to return the product.",
+          "answer": "receipt"
+        },
+        {
+          "text": "The customer places an ___ for two pairs of shoes.",
+          "answer": "order"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Present simple",
+      "heading": "Present simple — he works / they work",
+      "icon": "⏰",
+      "color": "c-sun",
+      "theme": "Présent simple",
+      "points": 8,
+      "items": [
+        {
+          "text": "Emma ___ in a store in Dijon.",
+          "options": [
+            "works",
+            "work",
+            "working"
+          ],
+          "answer": "works"
+        },
+        {
+          "text": "She ___ the store at 9 a.m.",
+          "options": [
+            "opens",
+            "open",
+            "opening"
+          ],
+          "answer": "opens"
+        },
+        {
+          "text": "The customers ___ questions about the prices.",
+          "options": [
+            "ask",
+            "asks",
+            "asking"
+          ],
+          "answer": "ask"
+        },
+        {
+          "text": "Emma ___ on Sundays.",
+          "options": [
+            "doesn't work",
+            "don't work",
+            "doesn't works"
+          ],
+          "answers": [
+            "doesn't work",
+            "does not work"
+          ]
+        },
+        {
+          "text": "My colleagues ___ the products on the shelves.",
+          "options": [
+            "put",
+            "puts",
+            "putting"
+          ],
+          "answer": "put"
+        },
+        {
+          "text": "The manager ___ the store keys.",
+          "options": [
+            "has",
+            "have",
+            "haves"
+          ],
+          "answer": "has"
+        },
+        {
+          "text": "We ___ a receipt to every customer.",
+          "options": [
+            "give",
+            "gives",
+            "giving"
+          ],
+          "answer": "give"
+        },
+        {
+          "text": "The store ___ at 7 p.m.",
+          "options": [
+            "closes",
+            "close",
+            "closing"
+          ],
+          "answer": "closes"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Questions",
+      "heading": "Questions in the store",
+      "icon": "❓",
+      "color": "c-sky",
+      "theme": "Questions / interrogation",
+      "points": 8,
+      "items": [
+        {
+          "text": "___ is this jacket? — It's 49 euros.",
+          "options": [
+            "How much",
+            "How many",
+            "Where"
+          ],
+          "answer": "How much"
+        },
+        {
+          "text": "___ customers come on Saturdays? — About 200.",
+          "options": [
+            "How many",
+            "How much",
+            "What"
+          ],
+          "answer": "How many"
+        },
+        {
+          "text": "___ does the store open? — At 9 a.m.",
+          "options": [
+            "When",
+            "Who",
+            "How much"
+          ],
+          "answer": "When"
+        },
+        {
+          "text": "___ is the fitting room? — Next to the shoes.",
+          "options": [
+            "Where",
+            "When",
+            "Why"
+          ],
+          "answer": "Where"
+        },
+        {
+          "text": "___ you help me, please? — Of course!",
+          "options": [
+            "Can",
+            "Do",
+            "Is"
+          ],
+          "answer": "Can"
+        },
+        {
+          "text": "___ Emma work on Sundays? — No, she doesn't.",
+          "options": [
+            "Does",
+            "Do",
+            "Is"
+          ],
+          "answer": "Does"
+        },
+        {
+          "text": "___ do you want to return it? — Because it's too small.",
+          "options": [
+            "Why",
+            "Where",
+            "Who"
+          ],
+          "answer": "Why"
+        },
+        {
+          "text": "___ pays at the cash register? — The customer.",
+          "options": [
+            "Who",
+            "What",
+            "Where"
+          ],
+          "answer": "Who"
+        }
+      ]
+    }
+  ]
+}

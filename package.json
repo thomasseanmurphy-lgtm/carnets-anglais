@@ -1,0 +1,20 @@
+{
+  "name": "carnets-anglais",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Carnets d'anglais — site statique (Astro) : un carnet = une fiche JSON → une page, note /20, code GTEST1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node tests/gtest1-diff.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.2.4"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

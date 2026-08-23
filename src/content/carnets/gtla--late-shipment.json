@@ -1,0 +1,479 @@
+{
+  "classe": "gtla",
+  "slug": "late-shipment",
+  "title": "🚛 The Late Shipment — GTLA 1",
+  "palette": "blue",
+  "deco": [
+    "🚛",
+    "🚢",
+    "📋",
+    "🌍"
+  ],
+  "hero_watermark": "🚛",
+  "hero_pill": "BTS GTLA 1 · TRANSPORT & LOGISTICS",
+  "hero_h1": "The Late<br>Shipment 🚛",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1–B2",
+  "class": "GTLA 1",
+  "test_name": "GTLA1 The Late Shipment (B1-B2)",
+  "ps_title": "Result — GTLA 1 · English",
+  "ps_sub": "The Late Shipment · B1–B2 · self-marking",
+  "foot": "🚛 GTLA 1 · The Late Shipment — B1–B2 · self-marking 🚛",
+  "story": [
+    "Nadia works as a transport coordinator for a logistics company in Dijon. This week, she has a problem: container TC-4519 <span class=\"hl\">has not arrived yet</span>. The goods <span class=\"hl\">were loaded</span> in Rotterdam <span class=\"hl\">last Wednesday</span>, and the customer in Lyon <span class=\"hl\">has already called</span> twice.",
+    "Yesterday, Nadia <span class=\"hl\">checked</span> the <span class=\"hl\">tracking number</span>: the container <span class=\"hl\">was blocked</span> at <span class=\"hl\">customs</span> for two days because a document was missing. The <span class=\"hl\">carrier</span> apologized and sent a new <span class=\"hl\">ETA</span>: Thursday, 8 a.m. Nadia called the customer: “I'm really sorry for the <span class=\"hl\">delay</span>. The <span class=\"hl\">freight</span> has just cleared customs, and the truck is on the highway now.”",
+    "This morning, the shipment finally arrived. Two boxes <span class=\"hl\">were damaged</span> during the trip, so Nadia has opened a <span class=\"hl\">claim</span> with the carrier's insurance. Rule number one in transport: every incident <span class=\"hl\">must be reported</span> within 48 hours. She has already written the incident report — now she <span class=\"hl\">should call</span> the customer with the good news. 🚛"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "carrier",
+        "customs",
+        "tracking number",
+        "freight",
+        "ETA",
+        "claim",
+        "container",
+        "delay"
+      ],
+      "items": [
+        {
+          "text": "the company that transports the goods → ___",
+          "answer": "carrier"
+        },
+        {
+          "text": "the office that controls goods at the border → ___",
+          "answer": "customs"
+        },
+        {
+          "text": "the code you use to follow a shipment online → ___",
+          "answer": "tracking number"
+        },
+        {
+          "text": "the goods transported by truck, ship or plane → ___",
+          "answer": "freight"
+        },
+        {
+          "text": "the estimated time of arrival → ___",
+          "answer": "ETA"
+        },
+        {
+          "text": "an official request for money after damage or loss → ___",
+          "answer": "claim"
+        },
+        {
+          "text": "a big metal box for transporting goods by ship → ___",
+          "answer": "container"
+        },
+        {
+          "text": "the extra time you wait when something is late → ___",
+          "answer": "delay"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "carrier",
+        "customs",
+        "tracking number",
+        "freight",
+        "ETA",
+        "claim",
+        "delay",
+        "damaged"
+      ],
+      "items": [
+        {
+          "text": "The container was blocked at ___ for two days.",
+          "answer": "customs"
+        },
+        {
+          "text": "Enter the ___ to see where your shipment is.",
+          "answer": "tracking number"
+        },
+        {
+          "text": "The new ___ is Thursday, 8 a.m.",
+          "answer": "ETA"
+        },
+        {
+          "text": "The ___ apologized for the problem.",
+          "answer": "carrier"
+        },
+        {
+          "text": "Two boxes were ___ during the trip.",
+          "answer": "damaged"
+        },
+        {
+          "text": "Nadia opened a ___ with the insurance.",
+          "answer": "claim"
+        },
+        {
+          "text": "The ___ left Rotterdam by ship.",
+          "answer": "freight"
+        },
+        {
+          "text": "We are sorry for the ___ — the truck is coming.",
+          "answer": "delay"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "points": 8,
+      "items": [
+        {
+          "text": "The container ___ <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't arrived",
+            "didn't arrive",
+            "doesn't arrive"
+          ],
+          "answers": [
+            "hasn't arrived",
+            "has not arrived"
+          ]
+        },
+        {
+          "text": "The goods ___ Rotterdam <span class=\"tw\">last Wednesday</span>.",
+          "options": [
+            "left",
+            "have left",
+            "leave"
+          ],
+          "answer": "left"
+        },
+        {
+          "text": "The customer ___ twice <span class=\"tw\">since Monday</span>.",
+          "options": [
+            "has called",
+            "called",
+            "calls"
+          ],
+          "answer": "has called"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, Nadia ___ the tracking number.",
+          "options": [
+            "checked",
+            "has checked",
+            "checks"
+          ],
+          "answer": "checked"
+        },
+        {
+          "text": "The freight has <span class=\"tw\">just</span> ___ customs.",
+          "options": [
+            "cleared",
+            "clear",
+            "clears"
+          ],
+          "answer": "cleared"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> lost a container?",
+          "options": [
+            "Have",
+            "Did",
+            "Do"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "<span class=\"tw\">In 2023</span>, the company ___ 2,000 shipments.",
+          "options": [
+            "handled",
+            "has handled",
+            "handles"
+          ],
+          "answer": "handled"
+        },
+        {
+          "text": "Nadia ___ <span class=\"tw\">already</span> written the incident report.",
+          "options": [
+            "has",
+            "have",
+            "had"
+          ],
+          "answer": "has"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "color": "c-pink",
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "points": 8,
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "items": [
+        {
+          "text": "« Le conteneur n'est pas encore arrivé. »",
+          "options": [
+            "The container hasn't arrived yet.",
+            "The container didn't arrive yet."
+          ],
+          "answer": "The container hasn't arrived yet."
+        },
+        {
+          "text": "« Hier, le transporteur a envoyé une nouvelle ETA. »",
+          "options": [
+            "Yesterday, the carrier sent a new ETA.",
+            "Yesterday, the carrier has sent a new ETA."
+          ],
+          "answer": "Yesterday, the carrier sent a new ETA."
+        },
+        {
+          "text": "« Le client a appelé deux fois depuis lundi. »",
+          "options": [
+            "The customer has called twice since Monday.",
+            "The customer called twice since Monday."
+          ],
+          "answer": "The customer has called twice since Monday."
+        },
+        {
+          "text": "« Nous travaillons avec ce transporteur depuis 2020. »",
+          "options": [
+            "We have worked with this carrier since 2020.",
+            "We worked with this carrier since 2020."
+          ],
+          "answer": "We have worked with this carrier since 2020."
+        },
+        {
+          "text": "« Il y a trois jours, la marchandise a quitté Rotterdam. »",
+          "options": [
+            "Three days ago, the freight left Rotterdam.",
+            "Three days ago, the freight has left Rotterdam."
+          ],
+          "answer": "Three days ago, the freight left Rotterdam."
+        },
+        {
+          "text": "« As-tu déjà ouvert un dossier de litige ? »",
+          "options": [
+            "Have you ever opened a claim?",
+            "Did you ever opened a claim?"
+          ],
+          "answer": "Have you ever opened a claim?"
+        },
+        {
+          "text": "« La semaine dernière, deux cartons ont été endommagés. »",
+          "options": [
+            "Last week, two boxes were damaged.",
+            "Last week, two boxes have been damaged."
+          ],
+          "answer": "Last week, two boxes were damaged."
+        },
+        {
+          "text": "« Nous n'avons pas encore reçu les documents. »",
+          "options": [
+            "We haven't received the documents yet.",
+            "We didn't receive the documents yet."
+          ],
+          "answer": "We haven't received the documents yet."
+        }
+      ]
+    },
+    {
+      "code": "PV",
+      "name": "PV Passive",
+      "heading": "Passive voice — the goods were loaded",
+      "icon": "🔄",
+      "color": "c-sky",
+      "theme": "Voix passive",
+      "points": 8,
+      "items": [
+        {
+          "text": "The goods ___ in Rotterdam last Wednesday.",
+          "options": [
+            "were loaded",
+            "loaded",
+            "are loading"
+          ],
+          "answer": "were loaded"
+        },
+        {
+          "text": "The container ___ at customs for two days.",
+          "options": [
+            "was blocked",
+            "blocked",
+            "is blocking"
+          ],
+          "answer": "was blocked"
+        },
+        {
+          "text": "Two boxes ___ during the trip.",
+          "options": [
+            "were damaged",
+            "damaged",
+            "have damaged"
+          ],
+          "answer": "were damaged"
+        },
+        {
+          "text": "Every shipment ___ before it leaves the warehouse.",
+          "options": [
+            "is checked",
+            "checks",
+            "is checking"
+          ],
+          "answer": "is checked"
+        },
+        {
+          "text": "The documents ___ to the carrier yesterday.",
+          "options": [
+            "were sent",
+            "sent",
+            "are sending"
+          ],
+          "answer": "were sent"
+        },
+        {
+          "text": "English ___ everywhere in international transport.",
+          "options": [
+            "is used",
+            "uses",
+            "is using"
+          ],
+          "answer": "is used"
+        },
+        {
+          "text": "The damaged boxes ___ by the insurance expert tomorrow.",
+          "options": [
+            "will be inspected",
+            "will inspect",
+            "are inspecting"
+          ],
+          "answer": "will be inspected"
+        },
+        {
+          "text": "The claim ___ by the insurance last month.",
+          "options": [
+            "was accepted",
+            "accepted",
+            "is accepting"
+          ],
+          "answer": "was accepted"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Transport procedures — must / should / have to",
+      "icon": "📋",
+      "color": "c-grape",
+      "theme": "Modaux — obligation/conseil",
+      "points": 8,
+      "items": [
+        {
+          "text": "Every incident ___ be reported within 48 hours.",
+          "options": [
+            "must",
+            "mustn't",
+            "doesn't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ sign the delivery note without checking the goods.",
+          "options": [
+            "shouldn't",
+            "should",
+            "have to"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "Drivers ___ respect the legal driving times.",
+          "options": [
+            "have to",
+            "don't have to",
+            "mustn't"
+          ],
+          "answer": "have to"
+        },
+        {
+          "text": "You ___ open a claim if nothing is damaged.",
+          "options": [
+            "don't have to",
+            "must",
+            "should"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "Dangerous goods ___ travel without the correct labels.",
+          "options": [
+            "mustn't",
+            "must",
+            "should"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "You ___ always keep a copy of the transport document.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "The customer ___ pay before the delivery — it depends on the contract.",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "shouldn't"
+          ],
+          "answers": [
+            "doesn't have to",
+            "does not have to"
+          ]
+        },
+        {
+          "text": "You ___ call the customer as soon as there is a delay.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        }
+      ]
+    }
+  ]
+}

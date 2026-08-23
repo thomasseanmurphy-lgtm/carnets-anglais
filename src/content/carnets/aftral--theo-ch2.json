@@ -1,0 +1,639 @@
+{
+  "classe": "aftral",
+  "slug": "theo-ch2",
+  "title": "🤝 The Interview — Théo Ch.2",
+  "palette": "violet",
+  "deco": [
+    "📞",
+    "👔",
+    "📄",
+    "🤝"
+  ],
+  "hero_watermark": "🤝",
+  "hero_pill": "BAC PRO 1 · LOGISTICS · CH.2",
+  "hero_h1": "The<br/>Interview 🤝",
+  "hero_tagline": "Théo's Internship Adventure · Reading & Grammar",
+  "level": "A2–B1",
+  "class": "BAC 1",
+  "test_name": "BAC1 Théo Ch.2 The Interview (A2-B1)",
+  "ps_title": "Result — BAC 1 · English",
+  "ps_sub": "Théo's Internship Adventure · Ch.2 The Interview · A2–B1 · self-marking",
+  "foot": "🤝 BAC PRO 1 · Théo's Internship Adventure · Ch.2 The Interview — self-marking 🤝",
+  "story": [
+    "Good news! A recruiter <span class=\"hl\">has</span> just <span class=\"hl\">phoned</span> Théo: the company wants to meet him for an interview on Friday. Théo is excited but nervous. He <span class=\"hl\">has never had</span> a real job interview before.",
+    "First, he researches the company online. The firm <span class=\"hl\">has grown</span> a lot since 2010, and last year it <span class=\"hl\">opened</span> a new hub near the highway. Its trucks <span class=\"hl\">are used</span> all over Europe, and thousands of packages <span class=\"hl\">are sent</span> every day. Théo takes notes to remember the key facts.",
+    "Then he prepares for the big day. He chooses smart clothes <span class=\"hl\">for</span> the interview and prints his CV <span class=\"hl\">to</span> show his skills. His teacher says: \"You <span class=\"hl\">should</span> research the company, and you <span class=\"hl\">mustn't</span> be late!\"",
+    "On Friday, Théo <span class=\"hl\">is interviewed</span> by the manager. Here is part of their conversation:",
+    "<b>Manager:</b> \"Why do you <span class=\"hl\">want</span> this internship?\"<br/><b>Théo:</b> \"I want it because your warehouse is very modern.\"<br/><b>Manager:</b> \"What are your strengths?\"<br/><b>Théo:</b> \"I <span class=\"hl\">am</span> organized and I <span class=\"hl\">work</span> hard.\"<br/><b>Manager:</b> \"When can you start?\"<br/><b>Théo:</b> \"I <span class=\"hl\">can</span> start in June.\"<br/><b>Manager:</b> \"Great! We <span class=\"hl\">are</span> happy to offer you the job.\"<br/><b>Théo:</b> \"Thank you very much!\"",
+    "The manager was happy with his answers — and Théo <span class=\"hl\">is hired</span>! 🎉"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a meeting where you answer questions to get a job → ___",
+          "options": [
+            "strengths",
+            "interview",
+            "weaknesses",
+            "salary",
+            "contract",
+            "application",
+            "recruiter",
+            "candidate"
+          ],
+          "answer": "interview"
+        },
+        {
+          "text": "a person who wants a job → ___",
+          "options": [
+            "weaknesses",
+            "interview",
+            "recruiter",
+            "strengths",
+            "contract",
+            "candidate",
+            "application",
+            "salary"
+          ],
+          "answer": "candidate"
+        },
+        {
+          "text": "a formal request to get a job → ___",
+          "options": [
+            "application",
+            "weaknesses",
+            "recruiter",
+            "interview",
+            "candidate",
+            "contract",
+            "strengths",
+            "salary"
+          ],
+          "answer": "application"
+        },
+        {
+          "text": "the money you earn each month → ___",
+          "options": [
+            "recruiter",
+            "strengths",
+            "interview",
+            "contract",
+            "weaknesses",
+            "salary",
+            "candidate",
+            "application"
+          ],
+          "answer": "salary"
+        },
+        {
+          "text": "the things you are good at → ___",
+          "options": [
+            "recruiter",
+            "interview",
+            "contract",
+            "weaknesses",
+            "application",
+            "salary",
+            "strengths",
+            "candidate"
+          ],
+          "answer": "strengths"
+        },
+        {
+          "text": "the things you find difficult → ___",
+          "options": [
+            "salary",
+            "strengths",
+            "interview",
+            "candidate",
+            "contract",
+            "application",
+            "weaknesses",
+            "recruiter"
+          ],
+          "answer": "weaknesses"
+        },
+        {
+          "text": "a signed agreement to work for a company → ___",
+          "options": [
+            "recruiter",
+            "candidate",
+            "weaknesses",
+            "contract",
+            "application",
+            "interview",
+            "strengths",
+            "salary"
+          ],
+          "answer": "contract"
+        },
+        {
+          "text": "the person who looks for and hires new staff → ___",
+          "options": [
+            "interview",
+            "strengths",
+            "salary",
+            "recruiter",
+            "candidate",
+            "application",
+            "contract",
+            "weaknesses"
+          ],
+          "answer": "recruiter"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "items": [
+        {
+          "text": "The company ___ a lot <span class=\"tw\">since 2010</span>.",
+          "options": [
+            "has grown",
+            "grows",
+            "grew"
+          ],
+          "answer": "has grown"
+        },
+        {
+          "text": "<span class=\"tw\">Last year</span>, they ___ a new hub.",
+          "options": [
+            "have opened",
+            "open",
+            "opened"
+          ],
+          "answer": "opened"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> had a job interview?",
+          "options": [
+            "Do",
+            "Did",
+            "Have"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "He has <span class=\"tw\">just</span> ___ his CV to the recruiter.",
+          "options": [
+            "sends",
+            "sent",
+            "send"
+          ],
+          "answer": "sent"
+        },
+        {
+          "text": "<span class=\"tw\">In 2019</span>, the firm ___ a big award.",
+          "options": [
+            "wins",
+            "has won",
+            "won"
+          ],
+          "answer": "won"
+        },
+        {
+          "text": "They ___ in logistics <span class=\"tw\">for thirty years</span>.",
+          "options": [
+            "have worked",
+            "work",
+            "worked"
+          ],
+          "answer": "have worked"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, the recruiter ___ Théo.",
+          "options": [
+            "phoned",
+            "has phoned",
+            "phones"
+          ],
+          "answer": "phoned"
+        },
+        {
+          "text": "We ___ this client <span class=\"tw\">since 2015</span>.",
+          "options": [
+            "had",
+            "have",
+            "have had"
+          ],
+          "answer": "have had"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "items": [
+        {
+          "text": "« Hier, Théo a passé son entretien. » ___",
+          "options": [
+            "Yesterday, Théo has had his interview.",
+            "Yesterday, Théo had his interview."
+          ],
+          "answer": "Yesterday, Théo had his interview."
+        },
+        {
+          "text": "« Il porte toujours une cravate à l'entretien. » ___",
+          "options": [
+            "He always wears a tie to an interview.",
+            "He always wore a tie to an interview."
+          ],
+          "answer": "He always wears a tie to an interview."
+        },
+        {
+          "text": "« L'entreprise a ouvert un bureau à Lyon en 2020. » ___",
+          "options": [
+            "The company opened an office in Lyon in 2020.",
+            "The company has opened an office in Lyon in 2020."
+          ],
+          "answer": "The company opened an office in Lyon in 2020."
+        },
+        {
+          "text": "« Elle dirige l'équipe depuis cinq ans. » ___",
+          "options": [
+            "She managed the team for five years.",
+            "She has managed the team for five years."
+          ],
+          "answer": "She has managed the team for five years."
+        },
+        {
+          "text": "« Le manager a déjà lu son CV. » ___",
+          "options": [
+            "The manager has already read his CV.",
+            "The manager already read his CV."
+          ],
+          "answer": "The manager has already read his CV."
+        },
+        {
+          "text": "« La semaine dernière, ils ont embauché deux stagiaires. » ___",
+          "options": [
+            "Last week, they hired two trainees.",
+            "Last week, they have hired two trainees."
+          ],
+          "answer": "Last week, they hired two trainees."
+        },
+        {
+          "text": "« As-tu déjà négocié un salaire ? » ___",
+          "options": [
+            "Did you ever negotiate a salary?",
+            "Have you ever negotiated a salary?"
+          ],
+          "answer": "Have you ever negotiated a salary?"
+        },
+        {
+          "text": "« Il n'a pas encore reçu de réponse. » ___",
+          "options": [
+            "He didn't receive an answer yet.",
+            "He hasn't received an answer yet."
+          ],
+          "answer": "He hasn't received an answer yet."
+        }
+      ]
+    },
+    {
+      "code": "FT",
+      "name": "FT For/To",
+      "heading": "FOR or TO?",
+      "icon": "🎯",
+      "points": 8,
+      "color": "c-mint",
+      "instr": "« pour » se traduit par TO + verbe (le but) ou par FOR + nom. Choisis le bon mot.",
+      "theme": "FOR vs TO (but/objectif)",
+      "items": [
+        {
+          "text": "He travelled to Dijon ___ visit the company.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "He prepared answers ___ the interview.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "This form is ___ new applicants.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "She called him ___ offer him the job.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "He bought a new shirt ___ the interview.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "He researched the firm ___ impress the manager.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "Thank you ___ your application.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "They use robots ___ move the pallets.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "to"
+        }
+      ]
+    },
+    {
+      "code": "PV",
+      "name": "PV Passive",
+      "heading": "The passive voice",
+      "icon": "🔄",
+      "points": 8,
+      "color": "c-sky",
+      "instr": "Qui fait l'action n'est pas important : on utilise la voix passive (be + participe passé).",
+      "theme": "Voix passive",
+      "items": [
+        {
+          "text": "The candidates ___ by the manager.",
+          "options": [
+            "interview",
+            "interviews",
+            "are interviewed"
+          ],
+          "answer": "are interviewed"
+        },
+        {
+          "text": "Théo ___ for the job last week.",
+          "options": [
+            "is hired",
+            "hired",
+            "was hired"
+          ],
+          "answer": "was hired"
+        },
+        {
+          "text": "The orders ___ every morning.",
+          "options": [
+            "prepare",
+            "prepared",
+            "are prepared"
+          ],
+          "answer": "are prepared"
+        },
+        {
+          "text": "The goods ___ yesterday.",
+          "options": [
+            "were delivered",
+            "delivered",
+            "are delivered"
+          ],
+          "answer": "were delivered"
+        },
+        {
+          "text": "English ___ in many logistics jobs.",
+          "options": [
+            "used",
+            "is used",
+            "uses"
+          ],
+          "answer": "is used"
+        },
+        {
+          "text": "The contract ___ next week.",
+          "options": [
+            "signs",
+            "will be signed",
+            "will sign"
+          ],
+          "answer": "will be signed"
+        },
+        {
+          "text": "Thousands of packages ___ every day.",
+          "options": [
+            "sent",
+            "send",
+            "are sent"
+          ],
+          "answer": "are sent"
+        },
+        {
+          "text": "The warehouse ___ in 2015.",
+          "options": [
+            "builds",
+            "built",
+            "was built"
+          ],
+          "answer": "was built"
+        }
+      ]
+    },
+    {
+      "code": "MOD",
+      "name": "MOD Modals",
+      "heading": "Interview advice (modals)",
+      "icon": "⚠️",
+      "points": 8,
+      "color": "c-grape",
+      "instr": "Conseil, obligation, interdiction ou pas nécessaire ? Choisis le modal qui a le bon sens.",
+      "theme": "Modaux — conseils entretien",
+      "items": [
+        {
+          "text": "It's a good idea: you ___ research the company before the interview.",
+          "options": [
+            "should",
+            "may",
+            "can"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "It is strictly forbidden: you ___ be late — arrive early!",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "shouldn't"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "It's a rule: you ___ bring your ID card to enter the building.",
+          "options": [
+            "can",
+            "must",
+            "may"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "Never do this in an interview: you ___ lie about your skills.",
+          "options": [
+            "mustn't",
+            "shouldn't",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "The dress code is relaxed, so you ___ wear a tie.",
+          "options": [
+            "shouldn't",
+            "don't have to",
+            "mustn't"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "It's obligatory: you ___ turn off your phone during the interview.",
+          "options": [
+            "may",
+            "must",
+            "can"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "It's only advice: you ___ speak too fast.",
+          "options": [
+            "can't",
+            "mustn't",
+            "shouldn't"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "It's optional: at the end, you ___ ask a few questions if you want.",
+          "options": [
+            "must",
+            "can",
+            "have to"
+          ],
+          "answer": "can"
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "name": "RS Reported",
+      "heading": "Reported speech (said / told)",
+      "icon": "💬",
+      "points": 6,
+      "color": "c-mint",
+      "instr": "On rapporte ce qui a été dit à l'entretien. Attention : say / tell (+ personne), et le temps recule (want → wanted).",
+      "theme": "Discours rapporté (said/told)",
+      "items": [
+        {
+          "text": "\"I want this internship,\" said Théo. → Théo said he ___ the internship.",
+          "options": [
+            "wanted",
+            "wants",
+            "want"
+          ],
+          "answer": "wanted"
+        },
+        {
+          "text": "The manager ___ Théo that the job was hard.",
+          "options": [
+            "said",
+            "says",
+            "told"
+          ],
+          "answer": "told"
+        },
+        {
+          "text": "Théo ___ that he was organized.",
+          "options": [
+            "told",
+            "say",
+            "said"
+          ],
+          "answer": "said"
+        },
+        {
+          "text": "\"I can start in June.\" → Théo said he ___ start in June.",
+          "options": [
+            "can",
+            "could",
+            "will"
+          ],
+          "answer": "could"
+        },
+        {
+          "text": "\"We are happy to offer you the job.\" → The manager said they ___ happy.",
+          "options": [
+            "are",
+            "were",
+            "is"
+          ],
+          "answer": "were"
+        },
+        {
+          "text": "\"I work hard,\" said Théo. → Théo said he ___ hard.",
+          "options": [
+            "works",
+            "worked",
+            "work"
+          ],
+          "answer": "worked"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+---
+/* UN carnet = une fiche src/content/carnets/<classe>--<slug>.json → /<classe>/<slug>/index.html */
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Carnet.astro';
+import { engineData, inlineJson, itemHtml, totalItems } from '../../../lib/carnet';
+
+export async function getStaticPaths() {
+  const carnets = await getCollection('carnets');
+  return carnets.map((c) => ({ params: { classe: c.data.classe, slug: c.data.slug }, props: { carnet: c.data } }));
+}
+const { carnet: c } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const data = engineData(c);
+const total = totalItems(c);
+const pageData = { ...data, classe: c.classe, slug: c.slug, title: c.title, level: c.level, cls: c.class,
+  audio: `${base}/audio/${c.slug}`, glossary: c.glossary ?? {} };
+---
+<Layout title={c.title} classe={c.classe} slug={c.slug} clsLabel={c.class}>
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <span class="lvl">{c.hero_pill} · {c.level}</span>
+    <h1 set:html={c.hero_h1} />
+    <span class="em">{c.hero_watermark}</span>
+  </div>
+
+  <!-- IDENTITÉ + PROGRESSION -->
+  <div class="card pop-in">
+    <div class="idcard">
+      <label class="chip">🙂 <input id="stuName" placeholder="Ton nom" autocomplete="off"></label>
+      <label class="chip">🏷️ <input id="stuClass" value={c.class}></label>
+    </div>
+    <div class="track"><i id="bar"></i></div>
+    <div class="track-label" id="progTxt-inflow">0 / {total} ✍️</div>
+  </div>
+
+  {c.intro && <p class="intro pop-in" set:html={c.intro} />}
+
+  <!-- HISTOIRE -->
+  {c.story.length > 0 && <div class="card pop-in">
+    <div class="story-top"><span class="badge">📖 The story</span>
+      <button class="kbtn" id="karaoke" type="button">🎧 Écouter</button></div>
+    <h2>Read me first!</h2>
+    <div id="story">
+      {c.story.map((p) => (p.trim().startsWith('<p') ? <Fragment set:html={p} /> : <p set:html={p} />))}
+    </div>
+  </div>}
+
+  <!-- EXERCICES -->
+  {c.sections.map((sec) => (
+    <div class={`card ex pop-in ${sec.color}`} data-sec={sec.name}>
+      <div class="chead"><span class="ico">{sec.icon}</span><h3>{sec.heading ?? sec.name}</h3><span class="pts">{sec.points ?? sec.items.length} pts</span></div>
+      {sec.instr && <p class="instr">{sec.instr}</p>}
+      <ol class={sec.block ? 'q vmatch' : 'q'}>
+        {sec.items.map((_, i) => <li set:html={itemHtml(sec, i)} />)}
+      </ol>
+      <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec={sec.name}>✓ Validate</button><span class="modmsg"></span></div>
+    </div>
+  ))}
+
+  <!-- VALIDATION FINALE (n'apparaît qu'une fois chaque section validée) -->
+  <div class="submit-zone pop-in">
+    <div class="gate-hint"></div>
+    <button type="button" class="btn go" data-act="submit" style="display:none;">✨ Check my answers!</button>
+  </div>
+
+  <!-- RÉSULTAT -->
+  <div class="card banner" id="banner">
+    <div class="emo" id="bEmo">🎉</div>
+    <h3 id="bTitle">Your result</h3>
+    <div class="dial" id="bDial"></div>
+    <div class="subs" id="bSubs"></div>
+    <div class="export">
+      <p class="export-title">✅ Résultat enregistré automatiquement</p>
+      <p class="export-steps">Ton résultat part tout seul chez le prof. Tu peux aussi garder un <b>PDF</b>.</p>
+      <div class="export-btns">
+        <button type="button" class="btn xp" id="copyBtn" data-act="copy">⧉ Copier mon code</button>
+        <button type="button" class="btn xp" data-act="pdf">📄 Enregistrer en PDF</button>
+      </div>
+      <details><summary>code du résultat</summary>
+        <textarea class="export-code" id="exportCode" readonly onclick="this.select()"></textarea>
+      </details>
+    </div>
+  </div>
+
+  <p class="foot pop-in" set:html={c.foot} />
+
+  <script is:inline set:html={`window.CARNET=${inlineJson(pageData)};`} />
+</Layout>

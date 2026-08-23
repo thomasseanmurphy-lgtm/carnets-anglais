@@ -1,0 +1,484 @@
+{
+  "classe": "elec",
+  "slug": "automation-grafcet",
+  "title": "🤖 Automation & GRAFCET — ELEC",
+  "palette": "amber",
+  "deco": [
+    "🤖",
+    "⚙️",
+    "🔧",
+    "⚡"
+  ],
+  "hero_watermark": "⚙️",
+  "hero_pill": "BTS ELEC · AUTOMATION",
+  "hero_h1": "Creating a<br>GRAFCET 🤖",
+  "hero_tagline": "Automation · Reading & Grammar",
+  "level": "B1–B2",
+  "class": "ELEC",
+  "test_name": "ELEC Automation &amp; GRAFCET (B1-B2)",
+  "ps_title": "Result — ELEC · English",
+  "ps_sub": "Automation & GRAFCET · B1–B2 · self-marking",
+  "foot": "🤖 ELEC · Automation & GRAFCET — B1–B2 · self-marking ⚡",
+  "story": [
+    "Lucas is an <span class=\"hl\">automation technician</span>. This week, he <span class=\"hl\">designs</span> a new <span class=\"hl\">GRAFCET</span> for an automated drilling station. On the line, a <span class=\"hl\">conveyor</span> brings the metal parts one by one. A <span class=\"hl\">proximity sensor</span> detects each part, and a pneumatic <span class=\"hl\">cylinder</span> clamps it before the drill turns. Every movement <span class=\"hl\">is controlled</span> by a <span class=\"hl\">PLC</span>.",
+    "First, the operator selects the automatic mode. <span class=\"hl\">As soon as</span> a part is detected, step 1 becomes active and the part <span class=\"hl\">is clamped</span>. <span class=\"hl\">Subsequently</span>, the drill goes down and makes the hole. When the <span class=\"hl\">limit switch</span> is triggered, the cylinder retracts; <span class=\"hl\">therefore</span> the cycle can start again. If a sensor sends no signal, the <span class=\"hl\">transition</span> is not validated and the machine waits.",
+    "Safety comes first. The technician <span class=\"hl\">must</span> switch off the power before he opens the cabinet, and operators <span class=\"hl\">mustn't</span> bypass a safety sensor. If the operator presses the <span class=\"hl\">emergency stop</span>, all the outputs <span class=\"hl\">will be</span> deactivated immediately. Since Monday, Lucas has tested every step, and the station has produced 300 parts without a single fault. ⚡"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "sensor",
+        "actuator",
+        "PLC",
+        "step",
+        "transition",
+        "cylinder",
+        "limit switch",
+        "emergency stop"
+      ],
+      "items": [
+        {
+          "text": "a device that detects a presence or a position and sends a signal → ___",
+          "answer": "sensor"
+        },
+        {
+          "text": "a component that produces movement, for example turning a motor or moving a cylinder → ___",
+          "answer": "actuator"
+        },
+        {
+          "text": "the programmable controller that runs the automation program → ___",
+          "answer": "PLC"
+        },
+        {
+          "text": "one stage of the GRAFCET, which is either active or inactive → ___",
+          "answer": "step"
+        },
+        {
+          "text": "the link between two steps, validated by a condition → ___",
+          "answer": "transition"
+        },
+        {
+          "text": "a pneumatic part that extends and retracts to push or clamp a part → ___",
+          "answer": "cylinder"
+        },
+        {
+          "text": "a sensor that detects the end position of a moving part → ___",
+          "answer": "limit switch"
+        },
+        {
+          "text": "the red button that stops the machine immediately → ___",
+          "answer": "emergency stop"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "conveyor",
+        "input",
+        "detects",
+        "clamps",
+        "cycle",
+        "PLC",
+        "trigger",
+        "actuator"
+      ],
+      "items": [
+        {
+          "text": "The parts arrive one by one on a ___.",
+          "answer": "conveyor"
+        },
+        {
+          "text": "Every sensor is wired to an ___ of the PLC.",
+          "answer": "input"
+        },
+        {
+          "text": "When a part passes, the proximity sensor ___ it.",
+          "answer": "detects"
+        },
+        {
+          "text": "The pneumatic cylinder ___ the part before drilling.",
+          "answer": "clamps"
+        },
+        {
+          "text": "At the end of the ___, the outputs are reset.",
+          "answer": "cycle"
+        },
+        {
+          "text": "The ___ runs the program and controls all the outputs.",
+          "answer": "PLC"
+        },
+        {
+          "text": "A signal from a sensor can ___ the next step.",
+          "answer": "trigger"
+        },
+        {
+          "text": "The PLC sends a signal to an ___ to move the cylinder.",
+          "answer": "actuator"
+        }
+      ]
+    },
+    {
+      "code": "PV",
+      "name": "PV Passive",
+      "heading": "The passive voice (describing the system)",
+      "icon": "🔁",
+      "color": "c-sky",
+      "theme": "Voix passive",
+      "points": 8,
+      "instr": "En anglais technique, on décrit un système à la voix passive : is / are + participe passé.",
+      "items": [
+        {
+          "text": "The steel part ___ by the proximity sensor.",
+          "options": [
+            "is detected",
+            "detects",
+            "is detecting"
+          ],
+          "answer": "is detected"
+        },
+        {
+          "text": "Before drilling, the workpiece ___ by a pneumatic cylinder.",
+          "options": [
+            "is clamped",
+            "clamps",
+            "clamping"
+          ],
+          "answer": "is clamped"
+        },
+        {
+          "text": "The two actuators ___ directly by the PLC.",
+          "options": [
+            "are controlled",
+            "controls",
+            "control"
+          ],
+          "answer": "are controlled"
+        },
+        {
+          "text": "The automation program ___ into the PLC before the first run.",
+          "options": [
+            "is loaded",
+            "loads",
+            "is loading"
+          ],
+          "answer": "is loaded"
+        },
+        {
+          "text": "Each sensor ___ to a digital input of the PLC.",
+          "options": [
+            "is wired",
+            "wires",
+            "wiring"
+          ],
+          "answer": "is wired"
+        },
+        {
+          "text": "At the end of the cycle, all the outputs ___.",
+          "options": [
+            "are deactivated",
+            "deactivate",
+            "deactivates"
+          ],
+          "answer": "are deactivated"
+        },
+        {
+          "text": "The GRAFCET ___ on paper before the code is written.",
+          "options": [
+            "is designed",
+            "designs",
+            "is designing"
+          ],
+          "answer": "is designed"
+        },
+        {
+          "text": "The whole line ___ at any time by the operator.",
+          "options": [
+            "can be stopped",
+            "can stop",
+            "stops"
+          ],
+          "answer": "can be stopped"
+        }
+      ]
+    },
+    {
+      "code": "CD",
+      "name": "CD Conditionals",
+      "heading": "Conditionals — the logic of transitions",
+      "icon": "⚡",
+      "color": "c-sun",
+      "theme": "Conditionnels (transitions)",
+      "points": 8,
+      "instr": "Après if / when / as soon as, on n'utilise JAMAIS will : le verbe reste au présent.",
+      "items": [
+        {
+          "text": "If the sensor ___ a part, the transition is validated.",
+          "options": [
+            "detects",
+            "will detect",
+            "is detecting"
+          ],
+          "answer": "detects"
+        },
+        {
+          "text": "When the operator ___ the start button, the cycle begins.",
+          "options": [
+            "presses",
+            "will press",
+            "pressed"
+          ],
+          "answer": "presses"
+        },
+        {
+          "text": "The cylinder retracts as soon as the limit switch ___ activated.",
+          "options": [
+            "is",
+            "will be",
+            "was"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "If the safety guard ___ open, the machine does not start.",
+          "options": [
+            "is",
+            "will be",
+            "was"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "When step 4 is active, the drill motor ___ automatically.",
+          "options": [
+            "starts",
+            "will start",
+            "started"
+          ],
+          "answer": "starts"
+        },
+        {
+          "text": "The conveyor stops if the safety gate ___ opened.",
+          "options": [
+            "is",
+            "will be",
+            "was"
+          ],
+          "answer": "is"
+        },
+        {
+          "text": "If we install a faster PLC, the cycle time ___ shorter.",
+          "options": [
+            "will be",
+            "is",
+            "was"
+          ],
+          "answer": "will be"
+        },
+        {
+          "text": "If the maintenance team ___ the sensor, the machine will work again.",
+          "options": [
+            "repairs",
+            "will repair",
+            "repaired"
+          ],
+          "answer": "repairs"
+        }
+      ]
+    },
+    {
+      "code": "LK",
+      "name": "LK Linkers",
+      "heading": "Linking words (sequence, cause & contrast)",
+      "icon": "🔗",
+      "color": "c-grape",
+      "theme": "Connecteurs logiques",
+      "points": 8,
+      "block": true,
+      "instr": "Choisis le connecteur logique qui convient : séquence, cause → conséquence, condition ou contraste.",
+      "items": [
+        {
+          "text": "The sensor detects no part; ___, the transition is not validated.",
+          "options": [
+            "therefore",
+            "however",
+            "meanwhile"
+          ],
+          "answer": "therefore"
+        },
+        {
+          "text": "Step 1 is activated. ___, the cylinder extends and the part is clamped.",
+          "options": [
+            "Subsequently",
+            "However",
+            "Because"
+          ],
+          "answer": "Subsequently"
+        },
+        {
+          "text": "In manual mode the operator triggers each step, ___ in automatic mode the sensors do it.",
+          "options": [
+            "whereas",
+            "therefore",
+            "so that"
+          ],
+          "answer": "whereas"
+        },
+        {
+          "text": "The safety guard is open; ___, the machine cannot start.",
+          "options": [
+            "consequently",
+            "moreover",
+            "meanwhile"
+          ],
+          "answer": "consequently"
+        },
+        {
+          "text": "___ the tank is full, the pump stops automatically.",
+          "options": [
+            "As soon as",
+            "Whereas",
+            "Therefore"
+          ],
+          "answer": "As soon as"
+        },
+        {
+          "text": "The PLC stores the sequence; ___, it monitors every sensor in real time.",
+          "options": [
+            "moreover",
+            "however",
+            "instead"
+          ],
+          "answer": "moreover"
+        },
+        {
+          "text": "___, the operator selects the mode; then step 1 becomes active; finally the cycle repeats.",
+          "options": [
+            "First",
+            "Finally",
+            "However"
+          ],
+          "answer": "First"
+        },
+        {
+          "text": "Step 3 is active, ___ enabling the next transition.",
+          "options": [
+            "thus",
+            "however",
+            "whereas"
+          ],
+          "answer": "thus"
+        }
+      ]
+    },
+    {
+      "code": "SF",
+      "name": "SF Safety",
+      "heading": "Safety rules (modals)",
+      "icon": "⚠️",
+      "color": "c-pink",
+      "theme": "Modaux — sécurité",
+      "points": 8,
+      "instr": "Obligation, interdiction ou absence d'obligation ?",
+      "items": [
+        {
+          "text": "You ___ open the electrical cabinet while the PLC is powered on.",
+          "options": [
+            "must",
+            "mustn't",
+            "needn't"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Before any work on the machine, the technician ___ switch off the main power.",
+          "options": [
+            "must",
+            "mustn't",
+            "needn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "Every new operator ___ follow the lock-out procedure.",
+          "options": [
+            "has to",
+            "doesn't have to",
+            "mustn't"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "The program is already loaded, so you ___ write it again.",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "must"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "If the cycle looks abnormal, you ___ check the GRAFCET step by step.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ wear insulating gloves when you work inside the cabinet.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "Operators ___ bypass a safety sensor to save time.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "To get the CE marking, the machine ___ have a working emergency stop.",
+          "options": [
+            "has to",
+            "doesn't have to",
+            "mustn't"
+          ],
+          "answer": "has to"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,697 @@
+{
+  "classe": "cprp",
+  "slug": "recycling-drive",
+  "title": "♻️ Machining Workshop — CPRP 1",
+  "palette": "green",
+  "deco": [
+    "⚙️",
+    "♻️",
+    "🔧",
+    "🌱"
+  ],
+  "hero_watermark": "♻️",
+  "hero_pill": "BTS CPRP 1 · MACHINING WORKSHOP",
+  "hero_h1": "A Clean Sweep:<br/>The Recycling Drive ♻️",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1+",
+  "class": "CPRP 1",
+  "test_name": "CPRP1 Machining & Recycling (B1+)",
+  "ps_title": "Result — CPRP 1 · English",
+  "ps_sub": "Machining & Recycling · B1+ · self-marking",
+  "foot": "♻️ CPRP 1 · Machining & Recycling — B1+ · self-marking ♻️",
+  "story": [
+    "Hugo <span class=\"hl\">is</span> a machinist in a metalworking workshop. He <span class=\"hl\">operates</span> a CNC lathe and a milling machine. Every day, the cutting tools <span class=\"hl\">produce</span> a lot of swarf, and the machines <span class=\"hl\">use</span> coolant to stay cool. Safety comes first: operators <span class=\"hl\">must wear</span> glasses, and they <span class=\"hl\">mustn't pour</span> used coolant into the drain.",
+    "Last month, the workshop <span class=\"hl\">started</span> a big recycling drive. First, the team <span class=\"hl\">sorted</span> the waste into three skips: one for scrap metal, one for plastic and one for cardboard. Then Hugo <span class=\"hl\">emptied</span> the coolant tank and <span class=\"hl\">sent</span> the old fluid to a treatment plant. The drive <span class=\"hl\">was harder</span> than expected, but the results <span class=\"hl\">were better</span> than last year.",
+    "Since the drive began, the team <span class=\"hl\">has collected</span> two tonnes of scrap metal and <span class=\"hl\">has recycled</span> almost 90% of its waste. They <span class=\"hl\">haven't sent</span> any swarf to landfill yet. Hugo says recycling <span class=\"hl\">is cheaper</span> than throwing metal away, and it is one of <span class=\"hl\">the best</span> things the workshop has ever done. 🌱"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a machine that turns a workpiece against a cutting tool → ___",
+          "options": [
+            "sort",
+            "scrap metal",
+            "salvage",
+            "skip",
+            "milling machine",
+            "lathe",
+            "coolant",
+            "swarf"
+          ],
+          "answer": "lathe"
+        },
+        {
+          "text": "a machine that removes metal with a rotating cutter → ___",
+          "options": [
+            "salvage",
+            "sort",
+            "scrap metal",
+            "coolant",
+            "swarf",
+            "lathe",
+            "skip",
+            "milling machine"
+          ],
+          "answer": "milling machine"
+        },
+        {
+          "text": "the small curled pieces of metal cut away during machining → ___",
+          "options": [
+            "swarf",
+            "coolant",
+            "salvage",
+            "lathe",
+            "scrap metal",
+            "milling machine",
+            "skip",
+            "sort"
+          ],
+          "answer": "swarf"
+        },
+        {
+          "text": "the liquid that cools and lubricates the cutting tool → ___",
+          "options": [
+            "swarf",
+            "lathe",
+            "scrap metal",
+            "coolant",
+            "sort",
+            "milling machine",
+            "skip",
+            "salvage"
+          ],
+          "answer": "coolant"
+        },
+        {
+          "text": "waste metal that can be melted and used again → ___",
+          "options": [
+            "lathe",
+            "scrap metal",
+            "skip",
+            "swarf",
+            "milling machine",
+            "coolant",
+            "salvage",
+            "sort"
+          ],
+          "answer": "scrap metal"
+        },
+        {
+          "text": "a large open container for collecting waste → ___",
+          "options": [
+            "milling machine",
+            "swarf",
+            "lathe",
+            "skip",
+            "salvage",
+            "sort",
+            "scrap metal",
+            "coolant"
+          ],
+          "answer": "skip"
+        },
+        {
+          "text": "to separate waste into different types → ___",
+          "options": [
+            "salvage",
+            "scrap metal",
+            "swarf",
+            "sort",
+            "milling machine",
+            "lathe",
+            "skip",
+            "coolant"
+          ],
+          "answer": "sort"
+        },
+        {
+          "text": "to save useful material from waste instead of throwing it away → ___",
+          "options": [
+            "lathe",
+            "salvage",
+            "sort",
+            "milling machine",
+            "swarf",
+            "skip",
+            "scrap metal",
+            "coolant"
+          ],
+          "answer": "salvage"
+        }
+      ],
+      "id_prefix": "m"
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "Hugo fixes the ___ in the chuck before he starts.",
+          "options": [
+            "recycle",
+            "coolant",
+            "skip",
+            "workpiece",
+            "swarf",
+            "sort",
+            "lathe",
+            "scrap"
+          ],
+          "answer": "workpiece"
+        },
+        {
+          "text": "The ___ turns the part while the tool cuts it.",
+          "options": [
+            "coolant",
+            "sort",
+            "workpiece",
+            "skip",
+            "swarf",
+            "recycle",
+            "lathe",
+            "scrap"
+          ],
+          "answer": "lathe"
+        },
+        {
+          "text": "Every hour he clears the ___ off the machine bed.",
+          "options": [
+            "coolant",
+            "workpiece",
+            "scrap",
+            "recycle",
+            "skip",
+            "lathe",
+            "sort",
+            "swarf"
+          ],
+          "answer": "swarf"
+        },
+        {
+          "text": "The used ___ is drained into a sealed tank.",
+          "options": [
+            "skip",
+            "lathe",
+            "swarf",
+            "workpiece",
+            "coolant",
+            "sort",
+            "recycle",
+            "scrap"
+          ],
+          "answer": "coolant"
+        },
+        {
+          "text": "Please ___ the metal, the plastic and the cardboard into the three skips.",
+          "options": [
+            "lathe",
+            "coolant",
+            "scrap",
+            "swarf",
+            "recycle",
+            "skip",
+            "sort",
+            "workpiece"
+          ],
+          "answer": "sort"
+        },
+        {
+          "text": "The blue ___ outside is only for metal.",
+          "options": [
+            "workpiece",
+            "lathe",
+            "coolant",
+            "scrap",
+            "sort",
+            "recycle",
+            "skip",
+            "swarf"
+          ],
+          "answer": "skip"
+        },
+        {
+          "text": "The plant can ___ almost 90% of its scrap back into new metal.",
+          "options": [
+            "recycle",
+            "coolant",
+            "scrap",
+            "sort",
+            "lathe",
+            "swarf",
+            "workpiece",
+            "skip"
+          ],
+          "answer": "recycle"
+        },
+        {
+          "text": "Old brass offcuts are sold as ___.",
+          "options": [
+            "skip",
+            "scrap",
+            "lathe",
+            "workpiece",
+            "coolant",
+            "recycle",
+            "swarf",
+            "sort"
+          ],
+          "answer": "scrap"
+        }
+      ],
+      "id_prefix": "g"
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "items": [
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, the team ___ two tonnes of scrap.",
+          "options": [
+            "collected",
+            "has collected",
+            "collects"
+          ],
+          "answer": "has collected"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, Hugo ___ the coolant tank.",
+          "options": [
+            "empties",
+            "has emptied",
+            "emptied"
+          ],
+          "answer": "emptied"
+        },
+        {
+          "text": "The workshop ___ scrap metal <span class=\"tw\">for ten years</span>.",
+          "options": [
+            "has recycled",
+            "recycles",
+            "recycled"
+          ],
+          "answer": "has recycled"
+        },
+        {
+          "text": "We ___ the plastic <span class=\"tw\">yet</span>.",
+          "options": [
+            "don't sort",
+            "didn't sort",
+            "haven't sorted"
+          ],
+          "answers": [
+            "haven't sorted",
+            "have not sorted"
+          ]
+        },
+        {
+          "text": "<span class=\"tw\">Last month</span>, the plant ___ a new chip conveyor.",
+          "options": [
+            "bought",
+            "has bought",
+            "buys"
+          ],
+          "answer": "bought"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> visited a recycling centre?",
+          "options": [
+            "Have",
+            "Do",
+            "Did"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "The lorry has <span class=\"tw\">just</span> ___ the full skip away.",
+          "options": [
+            "took",
+            "taken",
+            "take"
+          ],
+          "answer": "taken"
+        },
+        {
+          "text": "<span class=\"tw\">In 2019</span>, the company ___ the recycling drive.",
+          "options": [
+            "has started",
+            "starts",
+            "started"
+          ],
+          "answer": "started"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "items": [
+        {
+          "text": "« Depuis ce matin, la machine n'a pas produit de copeaux. »\n        ___",
+          "options": [
+            "Since this morning, the machine didn't produce any swarf.",
+            "Since this morning, the machine hasn't produced any swarf."
+          ],
+          "answers": [
+            "Since this morning, the machine hasn't produced any swarf.",
+            "Since this morning, the machine has not produced any swarf."
+          ]
+        },
+        {
+          "text": "« Hier, nous avons rempli trois bennes. »\n        ___",
+          "options": [
+            "Yesterday, we filled three skips.",
+            "Yesterday, we have filled three skips."
+          ],
+          "answer": "Yesterday, we filled three skips."
+        },
+        {
+          "text": "« Il travaille dans l'atelier depuis 2020. »\n        ___",
+          "options": [
+            "He has worked in the workshop since 2020.",
+            "He worked in the workshop since 2020."
+          ],
+          "answer": "He has worked in the workshop since 2020."
+        },
+        {
+          "text": "« Le fournisseur a déjà emporté la ferraille. »\n        ___",
+          "options": [
+            "The supplier already took the scrap.",
+            "The supplier has already taken the scrap."
+          ],
+          "answer": "The supplier has already taken the scrap."
+        },
+        {
+          "text": "« Il y a deux ans, l'usine a réduit ses déchets de moitié. »\n        ___",
+          "options": [
+            "Two years ago, the plant cut its waste by half.",
+            "Two years ago, the plant has cut its waste by half."
+          ],
+          "answer": "Two years ago, the plant cut its waste by half."
+        },
+        {
+          "text": "« Je n'ai jamais utilisé cette fraiseuse. »\n        ___",
+          "options": [
+            "I have never used this milling machine.",
+            "I never used this milling machine."
+          ],
+          "answer": "I have never used this milling machine."
+        },
+        {
+          "text": "« La semaine dernière, le technicien a changé l'huile. »\n        ___",
+          "options": [
+            "Last week, the technician has changed the oil.",
+            "Last week, the technician changed the oil."
+          ],
+          "answer": "Last week, the technician changed the oil."
+        },
+        {
+          "text": "« Nous recyclons le carton depuis trois mois. »\n        ___",
+          "options": [
+            "We recycled cardboard for three months.",
+            "We have recycled cardboard for three months."
+          ],
+          "answer": "We have recycled cardboard for three months."
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Rules & advice (modals)",
+      "icon": "⚠️",
+      "points": 8,
+      "color": "c-sky",
+      "theme": "Modaux — obligation/conseil",
+      "items": [
+        {
+          "text": "You ___ wear safety glasses near the machines.",
+          "options": [
+            "must",
+            "needn't",
+            "mustn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ pour used coolant into the drain — it's illegal.",
+          "options": [
+            "must",
+            "don't have to",
+            "mustn't"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Every operator ___ sort the swarf before the break.",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "has to"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "The bins are labelled, so you ___ guess where the waste goes.",
+          "options": [
+            "don't have to",
+            "have to",
+            "must"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "If a skip is full, you ___ call the supplier.",
+          "options": [
+            "mustn't",
+            "should",
+            "shouldn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ leave oily rags near the machines; it's a fire risk.",
+          "options": [
+            "shouldn't",
+            "should",
+            "don't have to"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "Visitors ___ enter the workshop without a helmet.",
+          "options": [
+            "needn't",
+            "mustn't",
+            "must"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "We ___ cut our waste if we want the ISO 14001 label.",
+          "options": [
+            "have to",
+            "don't have to",
+            "mustn't"
+          ],
+          "answer": "have to"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Compare",
+      "heading": "Compare & measure",
+      "icon": "📊",
+      "points": 8,
+      "color": "c-grape",
+      "theme": "Comparatifs & quantifieurs",
+      "items": [
+        {
+          "text": "Recycling metal is ___ than throwing it away.",
+          "options": [
+            "more cheap",
+            "cheaper",
+            "cheapest"
+          ],
+          "answer": "cheaper"
+        },
+        {
+          "text": "The new mill is the ___ efficient machine in the shop.",
+          "options": [
+            "much",
+            "most",
+            "more"
+          ],
+          "answer": "most"
+        },
+        {
+          "text": "Sorting waste is not as ___ as people think.",
+          "options": [
+            "hardest",
+            "hard",
+            "harder"
+          ],
+          "answer": "hard"
+        },
+        {
+          "text": "This year we produce ___ swarf than last year.",
+          "options": [
+            "fewer",
+            "less",
+            "least"
+          ],
+          "answer": "less"
+        },
+        {
+          "text": "There aren't ___ plastic parts in this batch.",
+          "options": [
+            "many",
+            "a lot",
+            "much"
+          ],
+          "answer": "many"
+        },
+        {
+          "text": "How ___ coolant do you recycle each month?",
+          "options": [
+            "more",
+            "many",
+            "much"
+          ],
+          "answer": "much"
+        },
+        {
+          "text": "Aluminium is one of the ___ recycled metals in the world.",
+          "options": [
+            "more",
+            "much",
+            "most"
+          ],
+          "answer": "most"
+        },
+        {
+          "text": "The blue skip is the ___ one in the yard.",
+          "options": [
+            "biggest",
+            "bigger",
+            "big"
+          ],
+          "answer": "biggest"
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "machinist": {
+      "fr": "usineur / machiniste",
+      "en": "a person who operates machines to make or repair metal parts"
+    },
+    "workshop": {
+      "fr": "atelier",
+      "en": "a room or building where things are made, repaired or built"
+    },
+    "operates": {
+      "fr": "fait fonctionner, utilise",
+      "en": "uses and controls a machine or a tool"
+    },
+    "lathe": {
+      "fr": "tour (machine-outil)",
+      "en": "a machine that shapes metal or wood by turning it against a tool"
+    },
+    "milling": {
+      "fr": "fraisage",
+      "en": "shaping metal by cutting it with a rotating tool"
+    },
+    "swarf": {
+      "fr": "copeaux (métalliques)",
+      "en": "the small pieces of metal removed when cutting or machining"
+    },
+    "coolant": {
+      "fr": "liquide de refroidissement",
+      "en": "a liquid used to keep a machine or cutting tool cool"
+    },
+    "drain": {
+      "fr": "canalisation d'évacuation, égout",
+      "en": "a pipe or channel that carries away waste liquid"
+    },
+    "recycling": {
+      "fr": "recyclage",
+      "en": "treating used materials so they can be used again"
+    },
+    "sorted": {
+      "fr": "trié",
+      "en": "arranged or separated into groups or types"
+    },
+    "scrap": {
+      "fr": "ferraille, rebut",
+      "en": "waste metal or material that can be reused"
+    },
+    "cardboard": {
+      "fr": "carton",
+      "en": "thick, stiff paper used to make boxes"
+    },
+    "emptied": {
+      "fr": "a vidé, vidé",
+      "en": "removed everything from a container"
+    },
+    "landfill": {
+      "fr": "décharge, enfouissement",
+      "en": "a place where waste is buried in the ground"
+    },
+    "cheaper": {
+      "fr": "moins cher",
+      "en": "costing less money"
+    },
+    "gloves": {
+      "fr": "gants",
+      "en": "coverings that protect the hands"
+    },
+    "waste": {
+      "fr": "déchets",
+      "en": "material that is no longer wanted or usable"
+    },
+    "tonnes": {
+      "fr": "tonnes",
+      "en": "units of weight, each equal to 1000 kilograms"
+    }
+  }
+}

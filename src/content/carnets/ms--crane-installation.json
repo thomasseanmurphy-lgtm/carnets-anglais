@@ -1,0 +1,481 @@
+{
+  "classe": "ms",
+  "slug": "crane-installation",
+  "title": "🏗️ Crane Installation — BTS MS",
+  "palette": "green",
+  "deco": [
+    "🏗️",
+    "⚙️",
+    "🔧",
+    "🏭"
+  ],
+  "hero_watermark": "🏗️",
+  "hero_pill": "BTS MS · INDUSTRIAL MAINTENANCE",
+  "hero_h1": "Heavy Lift &<br/>Installation 🏗️",
+  "hero_tagline": "Théo supervises the crane lift · Reading & Grammar",
+  "level": "B1–B2",
+  "class": "BTS MS",
+  "test_name": "MS Théo Crane Installation (B1-B2)",
+  "ps_title": "Result — BTS MS · English",
+  "ps_sub": "Crane Delivery & Installation · B1–B2 · self-marking",
+  "foot": "🏗️ BTS MS · Heavy Lift & Installation — B1–B2 · self-marking 🏗️",
+  "story": [
+    "Théo <span class=\"hl\">works</span> as a maintenance technician in a large factory. Every week, he <span class=\"hl\">plans</span> the servicing of the machines and <span class=\"hl\">supervises</span> the team. Today is special: a new hydraulic press arrives, and he must oversee its installation.",
+    "This morning, two trucks <span class=\"hl\">delivered</span> the press in several parts. A mobile crane <span class=\"hl\">lifted</span> the heaviest part — nearly twelve tonnes — over the wall and <span class=\"hl\">lowered</span> it slowly onto the concrete base. The riggers <span class=\"hl\">attached</span> the load with steel slings and guided it into position.",
+    "Since then, the team <span class=\"hl\">has bolted</span> the machine to the floor and <span class=\"hl\">has checked</span> the alignment twice. They <span class=\"hl\">haven't started</span> the commissioning yet, but everything is on schedule. Théo <span class=\"hl\">has already signed</span> the safety checklist.",
+    "During the lift, Théo talked with the foreman and the crane operator:",
+    "<b>Foreman:</b> \"The load <span class=\"hl\">is</span> very heavy — over ten tonnes.\"<br/><b>Théo:</b> \"We <span class=\"hl\">must</span> check the slings before we lift.\"<br/><b>Operator:</b> \"I <span class=\"hl\">can</span> lift it now.\"<br/><b>Théo:</b> \"Wait — the area <span class=\"hl\">isn't</span> clear yet.\"<br/><b>Foreman:</b> \"OK, the machine is in position.\"<br/><b>Théo:</b> \"Good. We <span class=\"hl\">have finished</span> the alignment.\"",
+    "By the end of the day, the press was ready for testing. 🏗️"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a tall machine that lifts and moves very heavy loads → ___",
+          "options": [
+            "sling",
+            "load",
+            "commissioning",
+            "anchor bolt",
+            "to align",
+            "hazard",
+            "crane",
+            "foreman"
+          ],
+          "answer": "crane"
+        },
+        {
+          "text": "the heavy object that is lifted → ___",
+          "options": [
+            "hazard",
+            "sling",
+            "crane",
+            "commissioning",
+            "load",
+            "to align",
+            "foreman",
+            "anchor bolt"
+          ],
+          "answer": "load"
+        },
+        {
+          "text": "the strap or chain that attaches the load to the hook → ___",
+          "options": [
+            "load",
+            "crane",
+            "hazard",
+            "sling",
+            "to align",
+            "commissioning",
+            "anchor bolt",
+            "foreman"
+          ],
+          "answer": "sling"
+        },
+        {
+          "text": "a bolt that fixes a machine firmly to the floor → ___",
+          "options": [
+            "to align",
+            "foreman",
+            "load",
+            "anchor bolt",
+            "sling",
+            "crane",
+            "hazard",
+            "commissioning"
+          ],
+          "answer": "anchor bolt"
+        },
+        {
+          "text": "to set something in the correct straight position → ___",
+          "options": [
+            "commissioning",
+            "foreman",
+            "anchor bolt",
+            "sling",
+            "crane",
+            "hazard",
+            "to align",
+            "load"
+          ],
+          "answer": "to align"
+        },
+        {
+          "text": "the final tests before a new machine is put into service → ___",
+          "options": [
+            "foreman",
+            "load",
+            "crane",
+            "anchor bolt",
+            "commissioning",
+            "sling",
+            "to align",
+            "hazard"
+          ],
+          "answer": "commissioning"
+        },
+        {
+          "text": "the worker who supervises the team on site → ___",
+          "options": [
+            "commissioning",
+            "anchor bolt",
+            "load",
+            "to align",
+            "foreman",
+            "crane",
+            "hazard",
+            "sling"
+          ],
+          "answer": "foreman"
+        },
+        {
+          "text": "something that could cause an accident or injury → ___",
+          "options": [
+            "sling",
+            "anchor bolt",
+            "commissioning",
+            "foreman",
+            "load",
+            "to align",
+            "crane",
+            "hazard"
+          ],
+          "answer": "hazard"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "name": "TN Tenses",
+      "heading": "Present simple, past simple or present perfect?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-sun",
+      "instr": "Le repère de temps t'indique le temps à choisir.",
+      "theme": "Present simple / prétérit / present perfect",
+      "items": [
+        {
+          "text": "Théo <span class=\"tw\">usually</span> ___ the maintenance team.",
+          "options": [
+            "supervises",
+            "supervised",
+            "has supervised"
+          ],
+          "answer": "supervises"
+        },
+        {
+          "text": "A good foreman <span class=\"tw\">always</span> ___ a lifting plan first.",
+          "options": [
+            "prepared",
+            "prepares",
+            "has prepared"
+          ],
+          "answer": "prepares"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, the crane ___ the new press into the workshop.",
+          "options": [
+            "lifts",
+            "has lifted",
+            "lifted"
+          ],
+          "answer": "lifted"
+        },
+        {
+          "text": "<span class=\"tw\">Last week</span>, the supplier ___ the equipment on two trucks.",
+          "options": [
+            "delivers",
+            "has delivered",
+            "delivered"
+          ],
+          "answer": "delivered"
+        },
+        {
+          "text": "<span class=\"tw\">Since this morning</span>, the team ___ the machine to the floor.",
+          "options": [
+            "has bolted",
+            "bolts",
+            "bolted"
+          ],
+          "answer": "has bolted"
+        },
+        {
+          "text": "The engineers ___ the alignment <span class=\"tw\">for two hours</span> now.",
+          "options": [
+            "checked",
+            "have checked",
+            "check"
+          ],
+          "answer": "have checked"
+        },
+        {
+          "text": "The technician has <span class=\"tw\">just</span> ___ the safety test.",
+          "options": [
+            "finish",
+            "finished",
+            "finishes"
+          ],
+          "answer": "finished"
+        },
+        {
+          "text": "___ the machine start correctly <span class=\"tw\">last night</span>?",
+          "options": [
+            "Does",
+            "Did",
+            "Has"
+          ],
+          "answer": "Did"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : quel temps ?",
+      "icon": "🇫🇷",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "theme": "Traduction FR→EN (temps)",
+      "items": [
+        {
+          "text": "« Le technicien graisse les roulements chaque semaine. » ___",
+          "options": [
+            "The technician greased the bearings every week.",
+            "The technician greases the bearings every week."
+          ],
+          "answer": "The technician greases the bearings every week."
+        },
+        {
+          "text": "« Hier, la grue est tombée en panne. » ___",
+          "options": [
+            "Yesterday, the crane has broken down.",
+            "Yesterday, the crane broke down."
+          ],
+          "answer": "Yesterday, the crane broke down."
+        },
+        {
+          "text": "« Depuis lundi, nous avons remplacé trois moteurs. » ___",
+          "options": [
+            "Since Monday, we have replaced three motors.",
+            "Since Monday, we replaced three motors."
+          ],
+          "answer": "Since Monday, we have replaced three motors."
+        },
+        {
+          "text": "« L'usine fonctionne 24 heures sur 24. » ___",
+          "options": [
+            "The factory ran 24 hours a day.",
+            "The factory runs 24 hours a day."
+          ],
+          "answer": "The factory runs 24 hours a day."
+        },
+        {
+          "text": "« Il y a un mois, ils ont modernisé la ligne de production. » ___",
+          "options": [
+            "A month ago, they modernized the production line.",
+            "A month ago, they have modernized the production line."
+          ],
+          "answer": "A month ago, they modernized the production line."
+        },
+        {
+          "text": "« Le fournisseur nous livre des pièces depuis 2018. » ___",
+          "options": [
+            "The supplier has delivered parts to us since 2018.",
+            "The supplier delivered parts to us since 2018."
+          ],
+          "answer": "The supplier has delivered parts to us since 2018."
+        },
+        {
+          "text": "« L'année dernière, le pont roulant a soulevé un moteur de 8 tonnes. » ___",
+          "options": [
+            "Last year, the overhead crane lifted an 8-tonne motor.",
+            "Last year, the overhead crane has lifted an 8-tonne motor."
+          ],
+          "answer": "Last year, the overhead crane lifted an 8-tonne motor."
+        },
+        {
+          "text": "« Nous n'avons pas encore réglé la pression. » ___",
+          "options": [
+            "We haven't set the pressure yet.",
+            "We didn't set the pressure yet."
+          ],
+          "answer": "We haven't set the pressure yet."
+        }
+      ]
+    },
+    {
+      "code": "FT",
+      "name": "FT For/To",
+      "heading": "FOR or TO?",
+      "icon": "🎯",
+      "points": 8,
+      "color": "c-mint",
+      "instr": "« pour » se traduit par TO + verbe (le but) ou par FOR + nom. Choisis le bon mot.",
+      "theme": "FOR vs TO (but/objectif)",
+      "items": [
+        {
+          "text": "They used a crane ___ lift the press.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "This sling is ___ heavy loads only.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "He wore gloves ___ protect his hands.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "Thank you ___ your help with the installation.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "Théo checked the bolts ___ make sure they were tight.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "This wrench is ___ tightening the anchor bolts.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "for"
+        },
+        {
+          "text": "They stopped the line ___ install the new machine.",
+          "options": [
+            "for",
+            "to"
+          ],
+          "answer": "to"
+        },
+        {
+          "text": "The team met ___ a safety briefing.",
+          "options": [
+            "to",
+            "for"
+          ],
+          "answer": "for"
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "name": "RS Reported",
+      "heading": "Reported speech (said / told)",
+      "icon": "💬",
+      "points": 8,
+      "color": "c-sky",
+      "instr": "On rapporte le dialogue du chantier. say / tell (+ personne) ; le temps recule (is → was, can → could, must → had to, have → had).",
+      "theme": "Discours rapporté (said/told)",
+      "items": [
+        {
+          "text": "\"The load is very heavy,\" said the foreman. → The foreman said the load ___ very heavy.",
+          "options": [
+            "is",
+            "has been",
+            "was"
+          ],
+          "answer": "was"
+        },
+        {
+          "text": "Théo ___ the operator to wait.",
+          "options": [
+            "say",
+            "said",
+            "told"
+          ],
+          "answer": "told"
+        },
+        {
+          "text": "\"I can lift it now.\" → The operator said he ___ lift it.",
+          "options": [
+            "can",
+            "will",
+            "could"
+          ],
+          "answer": "could"
+        },
+        {
+          "text": "\"We must check the slings.\" → Théo said they ___ check the slings.",
+          "options": [
+            "had to",
+            "have to",
+            "must"
+          ],
+          "answer": "had to"
+        },
+        {
+          "text": "\"The area isn't clear.\" → Théo said the area ___ clear.",
+          "options": [
+            "isn't",
+            "wasn't",
+            "hasn't been"
+          ],
+          "answers": [
+            "wasn't",
+            "was not"
+          ]
+        },
+        {
+          "text": "\"We have finished the alignment.\" → Théo said they ___ finished the alignment.",
+          "options": [
+            "has",
+            "had",
+            "have"
+          ],
+          "answer": "had"
+        },
+        {
+          "text": "Théo ___ that the machine was in position.",
+          "options": [
+            "tell",
+            "said",
+            "told"
+          ],
+          "answer": "said"
+        },
+        {
+          "text": "Théo told the operator ___ start the crane.",
+          "options": [
+            "that",
+            "to",
+            "for"
+          ],
+          "answer": "to"
+        }
+      ]
+    }
+  ]
+}

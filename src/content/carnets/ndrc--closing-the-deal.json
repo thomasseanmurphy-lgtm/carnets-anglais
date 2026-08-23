@@ -1,0 +1,479 @@
+{
+  "classe": "ndrc",
+  "slug": "closing-the-deal",
+  "title": "🤝 Closing the Deal — NDRC 1",
+  "palette": "violet",
+  "deco": [
+    "🤝",
+    "📞",
+    "📈",
+    "💼"
+  ],
+  "hero_watermark": "🤝",
+  "hero_pill": "BTS NDRC 1 · SALES & NEGOTIATION",
+  "hero_h1": "Closing<br>the Deal 🤝",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1–B2",
+  "class": "NDRC 1",
+  "test_name": "NDRC1 Closing the Deal (B1-B2)",
+  "ps_title": "Result — NDRC 1 · English",
+  "ps_sub": "Closing the Deal · B1–B2 · self-marking",
+  "foot": "🤝 NDRC 1 · Closing the Deal — B1–B2 · self-marking 🤝",
+  "story": [
+    "Emma <span class=\"hl\">has worked</span> in the sales team of a software company <span class=\"hl\">for two years</span>. Her job: turning <span class=\"hl\">prospects</span> into customers. <span class=\"hl\">Since January</span>, she <span class=\"hl\">has contacted</span> more than 80 companies, and she has <span class=\"hl\">already signed</span> 12 contracts.",
+    "<span class=\"hl\">Last Tuesday</span>, she <span class=\"hl\">sent</span> a <span class=\"hl\">quote</span> to a transport company in Lyon. The prospect wanted a better price, so yesterday Emma called him. He said: “Your <span class=\"hl\">competitor</span> is cheaper.” Emma answered: “Maybe, but our service is <span class=\"hl\">more reliable</span>, and our deadlines are shorter.” She offered a 5% <span class=\"hl\">discount</span> for a two-year contract.",
+    "This morning, the prospect <span class=\"hl\">hasn't answered yet</span>. Emma has <span class=\"hl\">just written</span> a <span class=\"hl\">follow-up</span> email: “Have you received our new offer? I can call you tomorrow at 10 a.m.” Her manager says a good salesperson <span class=\"hl\">must listen</span> more than they talk — and <span class=\"hl\">should never sound</span> desperate. The <span class=\"hl\">deadline</span> for closing the deal is Friday. 🤝"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "prospect",
+        "quote",
+        "discount",
+        "deadline",
+        "follow-up",
+        "contract",
+        "competitor",
+        "target"
+      ],
+      "items": [
+        {
+          "text": "a potential customer who hasn't bought yet → ___",
+          "answer": "prospect"
+        },
+        {
+          "text": "a document with the detailed price of an offer → ___",
+          "answer": "quote"
+        },
+        {
+          "text": "a reduction on the normal price → ___",
+          "answer": "discount"
+        },
+        {
+          "text": "the date when something must be finished → ___",
+          "answer": "deadline"
+        },
+        {
+          "text": "a second contact (call, email) after the first one → ___",
+          "answer": "follow-up"
+        },
+        {
+          "text": "a legal agreement signed by two companies → ___",
+          "answer": "contract"
+        },
+        {
+          "text": "another company that sells the same product → ___",
+          "answer": "competitor"
+        },
+        {
+          "text": "the sales objective for a month or a year → ___",
+          "answer": "target"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "quote",
+        "prospect",
+        "discount",
+        "deadline",
+        "follow-up",
+        "contract",
+        "competitor",
+        "target"
+      ],
+      "items": [
+        {
+          "text": "Emma sent a ___ with the exact price yesterday.",
+          "answer": "quote"
+        },
+        {
+          "text": "This ___ is interested but hasn't signed yet.",
+          "answer": "prospect"
+        },
+        {
+          "text": "We offer a 5% ___ for long contracts.",
+          "answer": "discount"
+        },
+        {
+          "text": "The ___ for the decision is Friday.",
+          "answer": "deadline"
+        },
+        {
+          "text": "No answer? Send a polite ___ email.",
+          "answer": "follow-up"
+        },
+        {
+          "text": "The customer signed a two-year ___.",
+          "answer": "contract"
+        },
+        {
+          "text": "Our main ___ is cheaper than us.",
+          "answer": "competitor"
+        },
+        {
+          "text": "Emma has already reached 80% of her sales ___.",
+          "answer": "target"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "points": 8,
+      "items": [
+        {
+          "text": "Emma ___ in the sales team <span class=\"tw\">for two years</span>.",
+          "options": [
+            "has worked",
+            "worked",
+            "works"
+          ],
+          "answer": "has worked"
+        },
+        {
+          "text": "<span class=\"tw\">Last Tuesday</span>, she ___ a quote to a prospect.",
+          "options": [
+            "has sent",
+            "sent",
+            "sends"
+          ],
+          "answer": "sent"
+        },
+        {
+          "text": "<span class=\"tw\">Since January</span>, she ___ more than 80 companies.",
+          "options": [
+            "has contacted",
+            "contacted",
+            "contacts"
+          ],
+          "answer": "has contacted"
+        },
+        {
+          "text": "The prospect ___ <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't answered",
+            "didn't answer",
+            "doesn't answer"
+          ],
+          "answers": [
+            "hasn't answered",
+            "has not answered"
+          ]
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, Emma ___ him about the price.",
+          "options": [
+            "has called",
+            "called",
+            "calls"
+          ],
+          "answer": "called"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> lost a big deal?",
+          "options": [
+            "Have",
+            "Did",
+            "Do"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "She has <span class=\"tw\">just</span> ___ a follow-up email.",
+          "options": [
+            "written",
+            "wrote",
+            "write"
+          ],
+          "answer": "written"
+        },
+        {
+          "text": "<span class=\"tw\">In 2024</span>, the company ___ its biggest contract.",
+          "options": [
+            "has signed",
+            "signed",
+            "signs"
+          ],
+          "answer": "signed"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "color": "c-pink",
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "points": 8,
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "items": [
+        {
+          "text": "« Depuis janvier, Emma a signé 12 contrats. »",
+          "options": [
+            "Since January, Emma has signed 12 contracts.",
+            "Since January, Emma signed 12 contracts."
+          ],
+          "answer": "Since January, Emma has signed 12 contracts."
+        },
+        {
+          "text": "« Hier, elle a appelé le prospect. »",
+          "options": [
+            "Yesterday, she called the prospect.",
+            "Yesterday, she has called the prospect."
+          ],
+          "answer": "Yesterday, she called the prospect."
+        },
+        {
+          "text": "« Nous travaillons avec ce client depuis 2023. »",
+          "options": [
+            "We have worked with this client since 2023.",
+            "We worked with this client since 2023."
+          ],
+          "answer": "We have worked with this client since 2023."
+        },
+        {
+          "text": "« Le prospect n'a pas encore répondu. »",
+          "options": [
+            "The prospect hasn't answered yet.",
+            "The prospect didn't answer yet."
+          ],
+          "answer": "The prospect hasn't answered yet."
+        },
+        {
+          "text": "« Il y a deux ans, elle a décroché son premier contrat. »",
+          "options": [
+            "Two years ago, she won her first contract.",
+            "Two years ago, she has won her first contract."
+          ],
+          "answer": "Two years ago, she won her first contract."
+        },
+        {
+          "text": "« As-tu déjà négocié avec ce client ? »",
+          "options": [
+            "Have you ever negotiated with this client?",
+            "Did you ever negotiated with this client?"
+          ],
+          "answer": "Have you ever negotiated with this client?"
+        },
+        {
+          "text": "« La semaine dernière, nous avons offert une remise. »",
+          "options": [
+            "Last week, we offered a discount.",
+            "Last week, we have offered a discount."
+          ],
+          "answer": "Last week, we offered a discount."
+        },
+        {
+          "text": "« Nous n'avons pas encore reçu le devis. »",
+          "options": [
+            "We haven't received the quote yet.",
+            "We didn't receive the quote yet."
+          ],
+          "answer": "We haven't received the quote yet."
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Sales advice — should / must / have to",
+      "icon": "💡",
+      "color": "c-sky",
+      "theme": "Modaux — obligation/conseil",
+      "points": 8,
+      "items": [
+        {
+          "text": "A good salesperson ___ listen more than they talk.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ sound desperate on the phone.",
+          "options": [
+            "shouldn't",
+            "should",
+            "have to"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "You ___ answer a customer email within 24 hours.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ lie about a competitor's product.",
+          "options": [
+            "mustn't",
+            "should",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "The contract is ready, so you ___ rewrite the quote.",
+          "options": [
+            "don't have to",
+            "must",
+            "mustn't"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "Every salesperson ___ know the product perfectly.",
+          "options": [
+            "has to",
+            "doesn't have to",
+            "mustn't"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "You ___ interrupt a customer when they explain a problem.",
+          "options": [
+            "shouldn't",
+            "should",
+            "must"
+          ],
+          "answers": [
+            "shouldn't",
+            "should not"
+          ]
+        },
+        {
+          "text": "If the prospect says no, you ___ stay polite.",
+          "options": [
+            "should",
+            "shouldn't",
+            "mustn't"
+          ],
+          "answer": "should"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Compare",
+      "heading": "Compare the offers",
+      "icon": "📊",
+      "color": "c-grape",
+      "theme": "Comparatifs & quantifieurs",
+      "points": 8,
+      "items": [
+        {
+          "text": "Our service is ___ than the competitor's.",
+          "options": [
+            "more reliable",
+            "most reliable",
+            "reliabler"
+          ],
+          "answer": "more reliable"
+        },
+        {
+          "text": "Their software is ___ — 20% less expensive.",
+          "options": [
+            "cheaper",
+            "cheapest",
+            "more cheap"
+          ],
+          "answer": "cheaper"
+        },
+        {
+          "text": "This is the ___ deal of the year.",
+          "options": [
+            "biggest",
+            "bigger",
+            "most big"
+          ],
+          "answer": "biggest"
+        },
+        {
+          "text": "Our deadlines are not as ___ as theirs.",
+          "options": [
+            "long",
+            "longer",
+            "longest"
+          ],
+          "answer": "long"
+        },
+        {
+          "text": "Our prices are ___ than our competitor's.",
+          "options": [
+            "lower",
+            "lowest",
+            "more low"
+          ],
+          "answer": "lower"
+        },
+        {
+          "text": "How ___ prospects did you call this week?",
+          "options": [
+            "many",
+            "much",
+            "more"
+          ],
+          "answer": "many"
+        },
+        {
+          "text": "There isn't ___ time before the deadline.",
+          "options": [
+            "much",
+            "many",
+            "more"
+          ],
+          "answer": "much"
+        },
+        {
+          "text": "Emma is the ___ negotiator in the team.",
+          "options": [
+            "best",
+            "better",
+            "most good"
+          ],
+          "answer": "best"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-23 — Refonte Astro (branche `refonte-astro`, non mergée)
+
+- Socle Astro : 19 carnets = 19 fiches `src/content/carnets/*.json` (schéma Zod, « réponse ∈ options » vérifié au build), mêmes URLs.
+- Moteur porté dans `public/assets/carnet-engine.js` ; **code GTEST1 identique** à la prod (gate `npm test`, 76 comparaisons).
+- Design partagé repris de la maquette : 6 skins, bulles glass, paillettes, mascotte (1 par skin), karaoké, dico au tap.
+- `platform.js` inchangé. Workflow Pages : build + test + déploiement de `dist/`.
+- Détails : `docs/refonte-astro.md`.
+
 Historique des évolutions notables de la plateforme (site + serveur `carnets-api`).
 Le fonctionnement **actuel** est décrit dans [`docs/`](docs/) ; les idées **futures** dans
 [`notes/`](notes/). Dates au format AAAA-MM.

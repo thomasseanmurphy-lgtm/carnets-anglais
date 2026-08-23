@@ -1,0 +1,519 @@
+{
+  "classe": "elec",
+  "slug": "industrial-electrician-b2",
+  "title": "⚡ Industrial Electrician — B2 · ELEC 1",
+  "palette": "violet",
+  "deco": [
+    "⚡",
+    "🔌",
+    "💡",
+    "🔋"
+  ],
+  "hero_watermark": "⚡",
+  "hero_pill": "BTS ELEC 1 · INDUSTRIAL ELECTRICIAN",
+  "hero_h1": "A Day on the<br/>Plant Floor ⚡",
+  "hero_tagline": "Grammar in Action",
+  "level": "B2",
+  "class": "ELEC 1",
+  "test_name": "ELEC1 Industrial Electrician (B2)",
+  "ps_title": "Result — ELEC 1 · English",
+  "ps_sub": "Industrial Electrician · B2 · self-marking",
+  "foot": "⚡ ELEC 1 · Industrial Electrician — B2 · self-marking ⚡",
+  "story": [],
+  "sections": [
+    {
+      "code": "Passive",
+      "name": "Passive",
+      "heading": "Active or passive?",
+      "icon": "🔁",
+      "points": 8,
+      "color": "c-pink",
+      "wide": true,
+      "theme": "Voix passive",
+      "items": [
+        {
+          "text": "Before each shift, the main switchboard ___ by the duty electrician.",
+          "options": [
+            "is inspected",
+            "inspects",
+            "is inspecting"
+          ],
+          "answer": "is inspected"
+        },
+        {
+          "text": "Yesterday, the faulty contactor ___ within an hour.",
+          "options": [
+            "was replaced",
+            "replaced",
+            "has been replaced"
+          ],
+          "answer": "was replaced"
+        },
+        {
+          "text": "The new variable-speed drive ___ next week.",
+          "options": [
+            "will be installed",
+            "will install",
+            "is installed"
+          ],
+          "answer": "will be installed"
+        },
+        {
+          "text": "Right now, the transformer ___ by the maintenance team.",
+          "options": [
+            "is being tested",
+            "is tested",
+            "tests"
+          ],
+          "answer": "is being tested"
+        },
+        {
+          "text": "The lock-out procedure ___ on every job since 2019.",
+          "options": [
+            "has been followed",
+            "is following",
+            "was follow"
+          ],
+          "answer": "has been followed"
+        },
+        {
+          "text": "All the terminals ___ before the panel was closed.",
+          "options": [
+            "had been tightened",
+            "have been tightened",
+            "were tighten"
+          ],
+          "answer": "had been tightened"
+        },
+        {
+          "text": "Each maintenance report must ___ by a qualified engineer.",
+          "options": [
+            "be signed",
+            "be sign",
+            "being signed"
+          ],
+          "answer": "be signed"
+        },
+        {
+          "text": "Nobody knows exactly how the cable ___.",
+          "options": [
+            "was damaged",
+            "damaged",
+            "is damaging"
+          ],
+          "answer": "was damaged"
+        }
+      ],
+      "id_prefix": "p"
+    },
+    {
+      "code": "Tenses",
+      "name": "Tenses",
+      "heading": "Which tense fits?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Temps verbaux",
+      "items": [
+        {
+          "text": "Marta ___ at this plant since 2015.",
+          "options": [
+            "has worked",
+            "works",
+            "worked"
+          ],
+          "answer": "has worked"
+        },
+        {
+          "text": "The overload alarm ___ at 6:42 this morning.",
+          "options": [
+            "triggered",
+            "has triggered",
+            "triggers"
+          ],
+          "answer": "triggered"
+        },
+        {
+          "text": "He's exhausted — he ___ cables all day.",
+          "options": [
+            "has been pulling",
+            "have been pulling",
+            "pulls"
+          ],
+          "answer": "has been pulling"
+        },
+        {
+          "text": "We ___ the earth fault yet.",
+          "options": [
+            "haven't located",
+            "didn't locate",
+            "don't locate"
+          ],
+          "answers": [
+            "haven't located",
+            "have not located"
+          ]
+        },
+        {
+          "text": "By the time I arrived, the team ___ the supply.",
+          "options": [
+            "had already isolated",
+            "has already isolated",
+            "already isolated"
+          ],
+          "answer": "had already isolated"
+        },
+        {
+          "text": "How long ___ that motor been overheating?",
+          "options": [
+            "has",
+            "is",
+            "does"
+          ],
+          "answer": "has"
+        },
+        {
+          "text": "The production line ___ twice last week.",
+          "options": [
+            "went down",
+            "has gone down",
+            "has been going down"
+          ],
+          "answer": "went down"
+        },
+        {
+          "text": "Since lunch, the oil pressure ___ steadily.",
+          "options": [
+            "has been rising",
+            "is rising",
+            "rises"
+          ],
+          "answer": "has been rising"
+        }
+      ],
+      "id_prefix": "t"
+    },
+    {
+      "code": "Modals",
+      "name": "Modals",
+      "heading": "Rules, deductions & regrets",
+      "icon": "⚠️",
+      "points": 8,
+      "color": "c-sun",
+      "wide": true,
+      "theme": "Modaux",
+      "items": [
+        {
+          "text": "You ___ work on a live panel without a permit.",
+          "options": [
+            "mustn't",
+            "don't have to",
+            "can"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Visitors ___ wear a hard hat in the workshop.",
+          "options": [
+            "have to",
+            "could",
+            "might"
+          ],
+          "answer": "have to"
+        },
+        {
+          "text": "You ___ come in early tomorrow — the job is finished.",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "can't"
+          ],
+          "answers": [
+            "don't have to",
+            "do not have to"
+          ]
+        },
+        {
+          "text": "The breaker keeps tripping, so there ___ be a short circuit somewhere.",
+          "options": [
+            "must",
+            "can",
+            "would"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "That reading ___ be right — the meter is clearly faulty.",
+          "options": [
+            "can't",
+            "mustn't",
+            "shouldn't"
+          ],
+          "answers": [
+            "can't",
+            "cannot",
+            "can not"
+          ]
+        },
+        {
+          "text": "Apprentices ___ operate the crane on their own — only certified operators may.",
+          "options": [
+            "aren't allowed to",
+            "needn't",
+            "don't need to"
+          ],
+          "answers": [
+            "aren't allowed to",
+            "are not allowed to"
+          ]
+        },
+        {
+          "text": "We ___ the spare part yesterday, but we forgot.",
+          "options": [
+            "should have ordered",
+            "must have ordered",
+            "could order"
+          ],
+          "answer": "should have ordered"
+        },
+        {
+          "text": "The office is unlocked, so someone ___ the alarm off.",
+          "options": [
+            "must have switched",
+            "should have switched",
+            "can have switched"
+          ],
+          "answer": "must have switched"
+        }
+      ],
+      "id_prefix": "mo"
+    },
+    {
+      "code": "Conditionals",
+      "name": "Conditionals",
+      "heading": "Conditionals",
+      "icon": "🔀",
+      "points": 8,
+      "color": "c-sky",
+      "wide": true,
+      "theme": "Conditionnels",
+      "items": [
+        {
+          "text": "If the load increases, the cable temperature ___.",
+          "options": [
+            "rises",
+            "would rise",
+            "rose"
+          ],
+          "answer": "rises"
+        },
+        {
+          "text": "If we don't replace the seal, water ___ into the enclosure.",
+          "options": [
+            "will get",
+            "got",
+            "would get"
+          ],
+          "answer": "will get"
+        },
+        {
+          "text": "If the breaker ___ yesterday, the motor would have burned out.",
+          "options": [
+            "hadn't tripped",
+            "didn't trip",
+            "wouldn't trip"
+          ],
+          "answers": [
+            "hadn't tripped",
+            "had not tripped"
+          ]
+        },
+        {
+          "text": "If I ___ the plant manager, I would upgrade the whole panel.",
+          "options": [
+            "were",
+            "am",
+            "will be"
+          ],
+          "answer": "were"
+        },
+        {
+          "text": "The alarm would have sounded if the sensor ___ connected.",
+          "options": [
+            "had been",
+            "is",
+            "would be"
+          ],
+          "answer": "had been"
+        },
+        {
+          "text": "Unless you ___ the supply first, don't open the cabinet.",
+          "options": [
+            "isolate",
+            "will isolate",
+            "isolated"
+          ],
+          "answer": "isolate"
+        },
+        {
+          "text": "If the voltage ___ stable, we wouldn't need this regulator.",
+          "options": [
+            "were",
+            "is",
+            "will be"
+          ],
+          "answer": "were"
+        },
+        {
+          "text": "Had we noticed the leak earlier, we ___ the damage.",
+          "options": [
+            "would have prevented",
+            "will prevent",
+            "prevented"
+          ],
+          "answer": "would have prevented"
+        }
+      ],
+      "id_prefix": "c"
+    },
+    {
+      "code": "Linkers",
+      "name": "Linkers",
+      "heading": "Linking the steps",
+      "icon": "🔗",
+      "points": 6,
+      "color": "c-grape",
+      "wide": true,
+      "theme": "Connecteurs logiques",
+      "items": [
+        {
+          "text": "___ he had locked out the supply, he started the repair.",
+          "options": [
+            "Once",
+            "During",
+            "Unless"
+          ],
+          "answer": "Once"
+        },
+        {
+          "text": "Always test for voltage ___ you touch the busbar.",
+          "options": [
+            "before",
+            "after",
+            "until"
+          ],
+          "answer": "before"
+        },
+        {
+          "text": "Keep the guard closed ___ the motor has stopped completely.",
+          "options": [
+            "until",
+            "since",
+            "while"
+          ],
+          "answer": "until"
+        },
+        {
+          "text": "___ the storm, three feeders tripped.",
+          "options": [
+            "During",
+            "While",
+            "Once"
+          ],
+          "answer": "During"
+        },
+        {
+          "text": "He checked the torque ___ tightening every bolt.",
+          "options": [
+            "while",
+            "until",
+            "unless"
+          ],
+          "answer": "while"
+        },
+        {
+          "text": "___ the panel is energized, nobody may open it.",
+          "options": [
+            "As long as",
+            "Until",
+            "By the time"
+          ],
+          "answer": "As long as"
+        }
+      ],
+      "id_prefix": "l"
+    },
+    {
+      "code": "Reported",
+      "name": "Reported",
+      "heading": "Reporting the day",
+      "icon": "💬",
+      "points": 6,
+      "color": "c-pink",
+      "wide": true,
+      "theme": "Discours indirect",
+      "items": [
+        {
+          "text": "Last week the supervisor said the line ___ down; it's fine now.",
+          "options": [
+            "was",
+            "is",
+            "has"
+          ],
+          "answer": "was"
+        },
+        {
+          "text": "She asked whether we ___ the report.",
+          "options": [
+            "had signed",
+            "have signed",
+            "did sign"
+          ],
+          "answer": "had signed"
+        },
+        {
+          "text": "He told me ___ the main switch before leaving.",
+          "options": [
+            "to lock",
+            "lock",
+            "locking"
+          ],
+          "answer": "to lock"
+        },
+        {
+          "text": "The engineer asked what ___ the fault.",
+          "options": [
+            "had caused",
+            "did cause",
+            "has caused"
+          ],
+          "answer": "had caused"
+        },
+        {
+          "text": "They wanted to know how long the outage ___.",
+          "options": [
+            "had lasted",
+            "has lasted",
+            "lasts"
+          ],
+          "answer": "had lasted"
+        },
+        {
+          "text": "Marta said she ___ finish the wiring the next day.",
+          "options": [
+            "would",
+            "will",
+            "is going"
+          ],
+          "answer": "would"
+        }
+      ],
+      "id_prefix": "r"
+    }
+  ],
+  "intro": "Follow a full shift — from the pre-start checks to the end-of-day handover — and pick the one correct form in each sentence. Read carefully: the clues are in the sentence, not in the colours."
+}

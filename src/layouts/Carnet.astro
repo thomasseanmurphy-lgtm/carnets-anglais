@@ -1,0 +1,87 @@
+---
+/* Coquille commune de TOUS les carnets : head, fond/skins, chrome (barre du haut, barre de statut),
+   popovers (avatar, fond, réglages), mascotte, canvas paillettes, scripts.
+   Le contenu du carnet (hero, histoire, exercices, résultat) vient du slot. */
+import '../styles/carnet.css';
+interface Props { title: string; classe: string; slug: string; clsLabel: string; }
+const { title, classe, slug, clsLabel } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (p: string) => `${base}/${p.replace(/^\//, '')}`;
+---
+<!DOCTYPE html>
+<html lang="fr" data-theme="aurore">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script is:inline>/* skin mémorisé, appliqué avant le premier rendu (pas de flash) */
+try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body data-classe={classe} data-slug={slug}>
+  <div class="amb"><b class="a1"></b><b class="a2"></b><b class="a3"></b></div>
+  <canvas id="fx"></canvas>
+
+  <!-- MASCOTTE (réagit : repos · bonne réponse · erreur · section · victoire) -->
+  <div class="mascot" id="mascot" role="button" aria-label="Mascotte" title="Ta mascotte">
+    <div class="mbubble" id="mbubble" aria-live="polite"></div>
+    <div class="mbody" id="mbody"><span id="mface">🐿️</span><span class="mreact" id="mreact"></span></div>
+    <div class="mshadow"></div>
+  </div>
+
+  <!-- BARRE DU HAUT -->
+  <div class="topbar">
+    <a class="brand" href={`${base}/`} title="Tous les carnets">📗 Carnets</a>
+    <div class="nav">
+      <button class="on" type="button">📖 Carnet</button>
+      <a href={`${base}/`}><button type="button">📚 Banque</button></a>
+    </div>
+    <div class="spacer"></div>
+    <div class="timer" id="timer">⏱ 00:00</div>
+    <div class="who" id="avatarBtn"><span class="avatar" data-ava></span><span><span id="whoName">—</span><small>avatar ▾</small></span></div>
+    <button class="gear" id="skinBtn" type="button" title="Fond">🎨</button>
+    <button class="gear" id="gearBtn" type="button" title="Réglages">⚙️</button>
+  </div>
+
+  <div class="pop avpop" id="avatarPop">
+    <h4>🎭 Choisis ton avatar</h4>
+    <div class="avstyles" id="avstyles"></div>
+    <div class="avgrid" id="avgrid"></div>
+    <button class="btn ghost" id="avshuffle" type="button" style="width:100%;margin-top:10px;">🎲 D'autres avatars</button>
+  </div>
+  <div class="pop skinpop" id="skinPop"><h4>🎨 Choisis ton fond</h4><div class="themes" id="themes"></div></div>
+  <div class="pop settings" id="settingsPop">
+    <h4>⚙️ Réglages</h4>
+    <label class="setrow"><span>🔊 Son</span><input type="checkbox" id="sound"></label>
+    <label class="setrow"><span>✨ Animations réduites <small>(mode calme)</small></span><input type="checkbox" id="calm"></label>
+    <label class="setrow"><span>🇫🇷 Traduction française <small>(un peu plus lent)</small></span><input type="checkbox" id="frToggle"></label>
+    <label class="setrow"><span>🐿️ Mascotte <small>(elle t'encourage)</small></span><input type="checkbox" id="mascotToggle" checked></label>
+  </div>
+  <div class="wordpop" id="wordpop"></div>
+
+  <!-- LE CARNET -->
+  <div class="view on" id="view-carnet"><div class="wrap">
+    <slot />
+  </div></div>
+
+  <!-- BARRE DE STATUT -->
+  <div class="statusbar">
+    <div class="s"><span class="avatar" data-ava></span><b id="whoName2">—</b></div>
+    <div class="s"><span>🏷️</span><b>{clsLabel}</b></div>
+    <div class="s"><span>⏱</span>session <b id="timer2">00:00</b></div>
+    <div class="grow"></div>
+    <div class="s"><b id="progTxt">0 / 0</b></div>
+    <div class="s mark"><span>📊</span><b id="scoreNum">— / 20</b></div>
+    <button class="reset" type="button" data-act="reset">↻ Reset</button>
+  </div>
+
+  <div id="printSheet"></div>
+
+  <!-- 1. moteur (/20 + GTEST1) · 2. plateforme (envoi auto, roster, sons, menu maison) · 3. design (skins, paillettes, mascotte, karaoké, dico) -->
+  <script is:inline src={asset('assets/carnet-engine.js')} defer></script>
+  <script is:inline src={asset('assets/platform.js')} defer></script>
+  <script is:inline src={asset('assets/carnet-ui.js')} defer></script>
+</body>
+</html>

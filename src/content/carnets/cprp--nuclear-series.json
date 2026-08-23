@@ -1,0 +1,447 @@
+{
+  "classe": "cprp",
+  "slug": "nuclear-series",
+  "title": "⚙️ A New Series — CPRP 1",
+  "palette": "violet",
+  "deco": [
+    "⚙️",
+    "🔧",
+    "✨",
+    "🛠️"
+  ],
+  "hero_watermark": "⚙️",
+  "hero_pill": "BTS CPRP 1 · USINAGE",
+  "hero_h1": "A New Series for the<br/>Nuclear Industry ⚛️",
+  "hero_tagline": "Reading & Grammar",
+  "level": "A1 / A2",
+  "class": "CPRP 1",
+  "test_name": "CPRP1 Nuclear Series (A1-A2)",
+  "ps_title": "Result — CPRP 1 · English",
+  "ps_sub": "Nuclear Series · A1/A2 · self-marking",
+  "foot": "⚙️ CPRP 1 · Usinage — A1/A2 · self-marking ⚙️",
+  "story": [
+    "Our workshop <span class=\"hl\">makes</span> metal parts. These parts <span class=\"hl\">go</span> to the nuclear industry, so they <span class=\"hl\">must</span> be very precise. Every day, our CNC machines <span class=\"hl\">cut</span> steel.",
+    "Last Monday, the team <span class=\"hl\">started</span> a new series. First, the programmer <span class=\"hl\">wrote</span> the program. Then the operator <span class=\"hl\">put</span> a metal bar in the machine. The machine <span class=\"hl\">cut</span> the first part in ten minutes. The quality team <span class=\"hl\">measured</span> it. The part <span class=\"hl\">was</span> perfect.",
+    "Since Monday, we <span class=\"hl\">have made</span> 300 parts. We <span class=\"hl\">have checked</span> every part with a gauge. We <span class=\"hl\">have not had</span> any problem. The client is happy! 🎉"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "the place where we make parts → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "workshop"
+        },
+        {
+          "text": "a machine that cuts metal by itself → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "CNC machine"
+        },
+        {
+          "text": "a strong grey metal → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "steel"
+        },
+        {
+          "text": "the person who uses the machine → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "operator"
+        },
+        {
+          "text": "a piece of metal that we make → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "part"
+        },
+        {
+          "text": "a tool to check the size → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "gauge"
+        },
+        {
+          "text": "many parts of the same type → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "series"
+        },
+        {
+          "text": "very exact, with no mistake → ___",
+          "options": [
+            "operator",
+            "steel",
+            "precise",
+            "workshop",
+            "series",
+            "part",
+            "CNC machine",
+            "gauge"
+          ],
+          "answer": "precise"
+        }
+      ],
+      "id_prefix": "m"
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "The ___ writes the program.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "programmer"
+        },
+        {
+          "text": "The ___ puts the metal bar in the machine.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "operator"
+        },
+        {
+          "text": "Our parts must be very ___.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "precise"
+        },
+        {
+          "text": "The CNC ___ cuts the metal.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "machine"
+        },
+        {
+          "text": "We make 300 parts in this ___.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "series"
+        },
+        {
+          "text": "We use a gauge to ___ the part.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "measure"
+        },
+        {
+          "text": "This ___ is very small and light.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "part"
+        },
+        {
+          "text": "The machine cuts a bar of ___.",
+          "options": [
+            "machine",
+            "precise",
+            "operator",
+            "steel",
+            "series",
+            "programmer",
+            "measure",
+            "part"
+          ],
+          "answer": "steel"
+        }
+      ],
+      "id_prefix": "g"
+    },
+    {
+      "code": "B1",
+      "name": "B1 Affirmative",
+      "heading": "Choose the right verb",
+      "icon": "⏱️",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Présent simple — affirmatif",
+      "items": [
+        {
+          "text": "Our workshop ___ metal parts <span class=\"tw\">every day</span>.",
+          "options": [
+            "has made",
+            "makes",
+            "made"
+          ],
+          "answer": "makes"
+        },
+        {
+          "text": "<span class=\"tw\">Last Monday</span>, the team ___ a new series.",
+          "options": [
+            "started",
+            "has started",
+            "starts"
+          ],
+          "answer": "started",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, we ___ 300 parts.",
+          "options": [
+            "make",
+            "have made",
+            "made"
+          ],
+          "answer": "have made",
+          "theme": "Present perfect — affirmatif"
+        },
+        {
+          "text": "The CNC machine ___ the metal <span class=\"tw\">every day</span>.",
+          "options": [
+            "cut",
+            "has cut",
+            "cuts"
+          ],
+          "answer": "cuts"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, the operator ___ the first part.",
+          "options": [
+            "measured",
+            "measures",
+            "has measured"
+          ],
+          "answer": "measured",
+          "theme": "Passé simple — affirmatif"
+        },
+        {
+          "text": "The company ___ every part <span class=\"tw\">since Monday</span>.",
+          "options": [
+            "checks",
+            "has checked",
+            "checked"
+          ],
+          "answer": "has checked",
+          "theme": "Present perfect — affirmatif"
+        },
+        {
+          "text": "<span class=\"tw\">Every morning</span>, the programmer ___ the program.",
+          "options": [
+            "has written",
+            "writes",
+            "wrote"
+          ],
+          "answer": "writes"
+        },
+        {
+          "text": "We ___ no problem <span class=\"tw\">so far</span>.",
+          "options": [
+            "have",
+            "have had",
+            "had"
+          ],
+          "answer": "have had",
+          "theme": "Present perfect — affirmatif"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Negative",
+      "heading": "The negative form",
+      "icon": "🚫",
+      "points": 4,
+      "color": "c-sky",
+      "theme": "Présent simple — négatif",
+      "items": [
+        {
+          "text": "A good part ___ a mistake.",
+          "options": [
+            "hasn't had",
+            "doesn't have",
+            "didn't have"
+          ],
+          "answer": "doesn't have"
+        },
+        {
+          "text": "We ___ the machine <span class=\"tw\">last night</span>.",
+          "options": [
+            "didn't stop",
+            "haven't stopped",
+            "don't stop"
+          ],
+          "answer": "didn't stop",
+          "theme": "Passé simple — négatif"
+        },
+        {
+          "text": "The client ___ the parts <span class=\"tw\">yet</span>.",
+          "options": [
+            "didn't receive",
+            "hasn't received",
+            "doesn't receive"
+          ],
+          "answer": "hasn't received",
+          "theme": "Present perfect — négatif"
+        },
+        {
+          "text": "The operator ___ the bar <span class=\"tw\">yesterday</span>.",
+          "options": [
+            "hasn't changed",
+            "didn't change",
+            "doesn't change"
+          ],
+          "answer": "didn't change",
+          "theme": "Passé simple — négatif"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Questions",
+      "heading": "Questions & answers",
+      "icon": "❓",
+      "points": 2,
+      "color": "c-grape",
+      "theme": "Questions",
+      "items": [
+        {
+          "text": "___ the team start a new series <span class=\"tw\">last week</span>? — Yes, they did.",
+          "options": [
+            "Do",
+            "Did",
+            "Does"
+          ],
+          "answer": "Did"
+        },
+        {
+          "text": "___ you finished the series <span class=\"tw\">yet</span>? — No, not yet.",
+          "options": [
+            "Have",
+            "Do",
+            "Does"
+          ],
+          "answer": "Have"
+        }
+      ]
+    }
+  ]
+}

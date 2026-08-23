@@ -1,0 +1,624 @@
+{
+  "classe": "cprp",
+  "slug": "qc-series",
+  "title": "🔎 Quality Control on a Series — CPRP",
+  "palette": "amber",
+  "deco": [
+    "🔎",
+    "📏",
+    "📐",
+    "✅"
+  ],
+  "hero_watermark": "🔎",
+  "hero_pill": "BTS CPRP · QUALITY CONTROL",
+  "hero_h1": "Inspecting a<br/>Series 🔎",
+  "hero_tagline": "Quality Control · Reading & Grammar",
+  "level": "B1+",
+  "class": "CPRP 1",
+  "test_name": "CPRP Quality Control on a Series (B1+)",
+  "ps_title": "Result — CPRP · English",
+  "ps_sub": "Quality Control on a Series · B1+ · self-marking",
+  "foot": "🔎 CPRP · Quality Control on a Series — B1+ · self-marking 📏",
+  "story": [
+    "Théo runs the final <span class=\"hl\">quality control</span> of a <span class=\"hl\">series</span> of 200 steel shafts. First, he takes a <span class=\"hl\">sample</span> from the <span class=\"hl\">batch</span>. Each shaft <span class=\"hl\">is measured</span> with a caliper and a micrometer, and every dimension is compared to the <span class=\"hl\">nominal</span> value on the drawing. A part that is <span class=\"hl\">out of tolerance</span> is a <span class=\"hl\">non-conforming</span> part, and it is put aside.",
+    "So far, Théo <span class=\"hl\">has checked</span> fifty parts. Most of them are <span class=\"hl\">within</span> the limits, but two shafts are 0.03 mm <span class=\"hl\">larger than</span> the maximum size — they are <span class=\"hl\">too big</span>. He <span class=\"hl\">found</span> the same <span class=\"hl\">deviation</span> yesterday, so the <span class=\"hl\">reject rate</span> is higher than last week.",
+    "The team leader <span class=\"hl\">said</span> that the whole batch <span class=\"hl\">had to be</span> inspected 100 %. Théo thinks the tool <span class=\"hl\">must be</span> worn, because the parts <span class=\"hl\">can't</span> all drift by chance. He has written a non-conformity report, and the series has been put on hold until the machine is checked. ✅"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "a small number of parts taken from the series to be checked → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "sample"
+        },
+        {
+          "text": "the complete group of parts produced together → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "batch"
+        },
+        {
+          "text": "the allowed range between the maximum and the minimum size → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "tolerance"
+        },
+        {
+          "text": "the target dimension written on the drawing → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "nominal"
+        },
+        {
+          "text": "the difference between the measured value and the nominal value → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "deviation"
+        },
+        {
+          "text": "a fault or imperfection that makes a part unacceptable → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "defect"
+        },
+        {
+          "text": "a go / no-go tool that shows if a part is within the limits → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "gauge"
+        },
+        {
+          "text": "a part that is outside the tolerance and must be rejected → ___",
+          "options": [
+            "sample",
+            "batch",
+            "tolerance",
+            "nominal",
+            "deviation",
+            "defect",
+            "gauge",
+            "non-conforming"
+          ],
+          "answer": "non-conforming"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire (texte à trous)",
+      "items": [
+        {
+          "text": "Every part is measured and checked for ___.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "conformity"
+        },
+        {
+          "text": "Two shafts are ___ tolerance, so they are rejected.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "out of"
+        },
+        {
+          "text": "The other parts are all ___ the limits.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "within"
+        },
+        {
+          "text": "This week the ___ has risen to 3 %.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "reject rate"
+        },
+        {
+          "text": "The whole series was ___ 100 % after the alarm.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "inspected"
+        },
+        {
+          "text": "Each batch has a number for full ___ back to the machine.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "traceability"
+        },
+        {
+          "text": "The operator plots every measurement on a ___.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "control chart"
+        },
+        {
+          "text": "A shaft that is too big is ___; a shaft that is too small is undersize.",
+          "options": [
+            "inspected",
+            "reject rate",
+            "within",
+            "out of",
+            "conformity",
+            "traceability",
+            "control chart",
+            "oversize"
+          ],
+          "answer": "oversize"
+        }
+      ]
+    },
+    {
+      "code": "CP",
+      "name": "CP Compare",
+      "heading": "Comparing to the tolerance",
+      "icon": "📏",
+      "points": 8,
+      "color": "c-sky",
+      "instr": "Comparer une cote à la tolérance : comparatif, superlatif ou quantifieur (too / enough, more / less / fewer).",
+      "theme": "Comparatifs & quantifieurs",
+      "items": [
+        {
+          "text": "This shaft is 0.03 mm ___ than the maximum size.",
+          "options": [
+            "large",
+            "larger",
+            "largest"
+          ],
+          "answer": "larger"
+        },
+        {
+          "text": "The diameter is ___ big; it does not fit the gauge.",
+          "options": [
+            "too",
+            "enough",
+            "more"
+          ],
+          "answer": "too"
+        },
+        {
+          "text": "The hole is not ___ for the pin to enter.",
+          "options": [
+            "wide enough",
+            "enough wide",
+            "too wide"
+          ],
+          "answer": "wide enough"
+        },
+        {
+          "text": "Batch B has ___ defects than batch A.",
+          "options": [
+            "fewer",
+            "less",
+            "fewest"
+          ],
+          "answer": "fewer"
+        },
+        {
+          "text": "There is ___ deviation on the second series than on the first.",
+          "options": [
+            "less",
+            "fewer",
+            "least"
+          ],
+          "answer": "less"
+        },
+        {
+          "text": "This is the ___ tolerance of the three drawings.",
+          "options": [
+            "tighter",
+            "tightest",
+            "tight"
+          ],
+          "answer": "tightest"
+        },
+        {
+          "text": "The measured value is exactly the same ___ the nominal one.",
+          "options": [
+            "as",
+            "than",
+            "like"
+          ],
+          "answer": "as"
+        },
+        {
+          "text": "The more we tighten the tolerance, the ___ parts we reject.",
+          "options": [
+            "more",
+            "most",
+            "many"
+          ],
+          "answer": "more"
+        }
+      ]
+    },
+    {
+      "code": "PP",
+      "name": "PP Perfect",
+      "heading": "Reporting results — perfect vs past",
+      "icon": "⏱️",
+      "points": 8,
+      "color": "c-sun",
+      "instr": "Present perfect (résultat qui compte maintenant : so far / yet / already) ou prétérit (moment passé précis) ?",
+      "theme": "Present perfect vs prétérit",
+      "items": [
+        {
+          "text": "So far, Théo ___ fifty parts of the series.",
+          "options": [
+            "has checked",
+            "checked",
+            "checks"
+          ],
+          "answer": "has checked"
+        },
+        {
+          "text": "He ___ the same defect yesterday morning.",
+          "options": [
+            "found",
+            "has found",
+            "finds"
+          ],
+          "answer": "found"
+        },
+        {
+          "text": "The batch ___ left the workshop yet.",
+          "options": [
+            "hasn't",
+            "didn't",
+            "wasn't"
+          ],
+          "answers": [
+            "hasn't",
+            "has not"
+          ]
+        },
+        {
+          "text": "Last week, the reject rate ___ only 1 %.",
+          "options": [
+            "was",
+            "has been",
+            "is"
+          ],
+          "answer": "was"
+        },
+        {
+          "text": "We ___ already recorded three non-conforming parts today.",
+          "options": [
+            "have",
+            "did",
+            "had"
+          ],
+          "answer": "have"
+        },
+        {
+          "text": "The inspector ___ the control chart an hour ago.",
+          "options": [
+            "updated",
+            "has updated",
+            "updates"
+          ],
+          "answer": "updated"
+        },
+        {
+          "text": "This machine ___ 200 shafts since Monday.",
+          "options": [
+            "has produced",
+            "produced",
+            "produces"
+          ],
+          "answer": "has produced"
+        },
+        {
+          "text": "When he ___ the deviation, he stopped the machine.",
+          "options": [
+            "saw",
+            "has seen",
+            "sees"
+          ],
+          "answer": "saw"
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "name": "RS Reported",
+      "heading": "Reported speech (writing up the findings)",
+      "icon": "💬",
+      "points": 8,
+      "color": "c-grape",
+      "block": true,
+      "instr": "Discours rapporté : recule les temps (is→was, will→would, have→had) et adapte pronoms / repères.",
+      "theme": "Discours rapporté (reported speech)",
+      "items": [
+        {
+          "text": "\"The part is out of tolerance.\" → The inspector said the part ___ out of tolerance.",
+          "options": [
+            "was",
+            "is",
+            "were"
+          ],
+          "answer": "was"
+        },
+        {
+          "text": "\"We have rejected two shafts.\" → He said they ___ rejected two shafts.",
+          "options": [
+            "had",
+            "have",
+            "has"
+          ],
+          "answer": "had"
+        },
+        {
+          "text": "\"I will inspect the whole batch.\" → She said she ___ inspect the whole batch.",
+          "options": [
+            "would",
+            "will",
+            "will be"
+          ],
+          "answer": "would"
+        },
+        {
+          "text": "\"Record every measurement.\" → The supervisor told us ___ every measurement.",
+          "options": [
+            "to record",
+            "record",
+            "recording"
+          ],
+          "answer": "to record"
+        },
+        {
+          "text": "\"The tool is worn.\" → He explained that the tool ___ worn.",
+          "options": [
+            "was",
+            "is",
+            "has"
+          ],
+          "answer": "was"
+        },
+        {
+          "text": "\"Did you check the sample?\" → He asked me ___ I had checked the sample.",
+          "options": [
+            "if",
+            "that",
+            "did"
+          ],
+          "answer": "if"
+        },
+        {
+          "text": "\"Don't accept a non-conforming part.\" → The foreman told the operator ___ accept a non-conforming part.",
+          "options": [
+            "not to",
+            "to not",
+            "don't"
+          ],
+          "answer": "not to"
+        },
+        {
+          "text": "\"The batch passed the control.\" → The report stated that the batch ___ the control.",
+          "options": [
+            "had passed",
+            "has passed",
+            "passed"
+          ],
+          "answer": "had passed"
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "name": "DE Deduction",
+      "heading": "Deduction — reading the results (must / might / can't)",
+      "icon": "🕵️",
+      "points": 8,
+      "color": "c-pink",
+      "instr": "Déduction logique : certitude (must), impossibilité (can't), possibilité (might / could).",
+      "theme": "Modaux — déduction",
+      "items": [
+        {
+          "text": "All the parts are oversize, so the tool ___ be worn.",
+          "options": [
+            "must",
+            "can't",
+            "needn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "The deviation is only 0.01 mm — it ___ be a serious problem.",
+          "options": [
+            "can't",
+            "must",
+            "has to"
+          ],
+          "answers": [
+            "can't",
+            "cannot"
+          ]
+        },
+        {
+          "text": "We are not sure yet; the error ___ come from the machine or the operator.",
+          "options": [
+            "might",
+            "must",
+            "can't"
+          ],
+          "answer": "might"
+        },
+        {
+          "text": "The gauge shows green, so the part ___ be within tolerance.",
+          "options": [
+            "must",
+            "can't",
+            "mustn't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "He isn't answering; he ___ be in the measuring room.",
+          "options": [
+            "could",
+            "can't",
+            "must"
+          ],
+          "answer": "could"
+        },
+        {
+          "text": "This value is impossible to reach by hand, so it ___ be a typing mistake.",
+          "options": [
+            "must",
+            "might",
+            "can't"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "The two batches are identical, so the difference ___ be random.",
+          "options": [
+            "can't",
+            "must",
+            "should"
+          ],
+          "answers": [
+            "can't",
+            "cannot"
+          ]
+        },
+        {
+          "text": "The temperature changed during the night; that ___ explain the drift.",
+          "options": [
+            "might",
+            "can't",
+            "mustn't"
+          ],
+          "answer": "might"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "classe": "ms",
+  "slug": "insurance-audit",
+  "title": "🛡️ Insurance Audit — BTS MS",
+  "palette": "amber",
+  "deco": [
+    "🛡️",
+    "🔍",
+    "🧯",
+    "🏭"
+  ],
+  "hero_watermark": "🛡️",
+  "hero_pill": "BTS MS · INDUSTRIAL MAINTENANCE",
+  "hero_h1": "The Insurance<br/>Audit 🛡️",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1–B2",
+  "class": "MS 1",
+  "test_name": "MS1 Insurance Audit (B1-B2)",
+  "ps_title": "Result — MS 1 · English",
+  "ps_sub": "The Insurance Audit · B1–B2 · self-marking",
+  "foot": "🛡️ MS 1 · The Insurance Audit — B1–B2 · self-marking 🛡️",
+  "story": [
+    "Théo <span class=\"hl\">works</span> as a maintenance technician in a large production factory. Once a year, an insurance <span class=\"hl\">surveyor</span> <span class=\"hl\">visits</span> the plant for a safety <span class=\"hl\">audit</span>. Nobody <span class=\"hl\">can lower</span> the insurance premium if the factory fails the inspection, so Théo <span class=\"hl\">prepares</span> everything with care.",
+    "This morning, the surveyor <span class=\"hl\">arrived</span> at nine and <span class=\"hl\">put on</span> a helmet and safety glasses. She <span class=\"hl\">checked</span> every fire <span class=\"hl\">extinguisher</span>, <span class=\"hl\">opened</span> the electrical cabinets and <span class=\"hl\">tested</span> the emergency <span class=\"hl\">exits</span>. She also <span class=\"hl\">inspected</span> the machine <span class=\"hl\">guards</span> and <span class=\"hl\">found</span> a small oil <span class=\"hl\">leak</span> under the compressor.",
+    "Since January, the team <span class=\"hl\">has repaired</span> every guard and <span class=\"hl\">has updated</span> the maintenance <span class=\"hl\">logbook</span>. They <span class=\"hl\">haven't fixed</span> the oil leak yet, but the surveyor says it is only a minor <span class=\"hl\">hazard</span>. Good <span class=\"hl\">compliance</span> is <span class=\"hl\">the best</span> way to keep the factory safe and the premium low. 🛡️"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "an official yearly check of safety and risks → ___",
+          "options": [
+            "fire extinguisher",
+            "machine guard",
+            "surveyor",
+            "logbook",
+            "hazard",
+            "compliance",
+            "emergency exit",
+            "audit"
+          ],
+          "answer": "audit"
+        },
+        {
+          "text": "the person from the insurance company who inspects the site → ___",
+          "options": [
+            "machine guard",
+            "hazard",
+            "fire extinguisher",
+            "compliance",
+            "audit",
+            "logbook",
+            "surveyor",
+            "emergency exit"
+          ],
+          "answer": "surveyor"
+        },
+        {
+          "text": "a red device used to put out a small fire → ___",
+          "options": [
+            "machine guard",
+            "logbook",
+            "emergency exit",
+            "audit",
+            "fire extinguisher",
+            "compliance",
+            "surveyor",
+            "hazard"
+          ],
+          "answer": "fire extinguisher"
+        },
+        {
+          "text": "a cover that stops hands reaching the moving parts of a machine → ___",
+          "options": [
+            "machine guard",
+            "compliance",
+            "fire extinguisher",
+            "hazard",
+            "logbook",
+            "emergency exit",
+            "audit",
+            "surveyor"
+          ],
+          "answer": "machine guard"
+        },
+        {
+          "text": "a door used only to leave the building quickly in a crisis → ___",
+          "options": [
+            "emergency exit",
+            "compliance",
+            "audit",
+            "logbook",
+            "hazard",
+            "surveyor",
+            "machine guard",
+            "fire extinguisher"
+          ],
+          "answer": "emergency exit"
+        },
+        {
+          "text": "the book where every repair and check is recorded → ___",
+          "options": [
+            "emergency exit",
+            "audit",
+            "machine guard",
+            "logbook",
+            "surveyor",
+            "hazard",
+            "compliance",
+            "fire extinguisher"
+          ],
+          "answer": "logbook"
+        },
+        {
+          "text": "anything that could cause an injury or damage → ___",
+          "options": [
+            "logbook",
+            "audit",
+            "surveyor",
+            "fire extinguisher",
+            "machine guard",
+            "emergency exit",
+            "compliance",
+            "hazard"
+          ],
+          "answer": "hazard"
+        },
+        {
+          "text": "the fact of following the rules and legal safety standards → ___",
+          "options": [
+            "compliance",
+            "emergency exit",
+            "fire extinguisher",
+            "machine guard",
+            "audit",
+            "surveyor",
+            "hazard",
+            "logbook"
+          ],
+          "answer": "compliance"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "items": [
+        {
+          "text": "<span class=\"tw\">Since January</span>, the factory ___ two safety audits.",
+          "options": [
+            "passes",
+            "has passed",
+            "passed"
+          ],
+          "answer": "has passed"
+        },
+        {
+          "text": "<span class=\"tw\">This morning</span>, the surveyor ___ every extinguisher.",
+          "options": [
+            "checked",
+            "has checked",
+            "checks"
+          ],
+          "answer": "checked"
+        },
+        {
+          "text": "Théo ___ in maintenance <span class=\"tw\">for eight years</span>.",
+          "options": [
+            "has worked",
+            "works",
+            "worked"
+          ],
+          "answer": "has worked"
+        },
+        {
+          "text": "The team ___ the oil leak <span class=\"tw\">yet</span>.",
+          "options": [
+            "didn't fix",
+            "don't fix",
+            "haven't fixed"
+          ],
+          "answer": "haven't fixed"
+        },
+        {
+          "text": "<span class=\"tw\">Last month</span>, the plant ___ a new compressor.",
+          "options": [
+            "has installed",
+            "installed",
+            "installs"
+          ],
+          "answer": "installed"
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> done a fire drill?",
+          "options": [
+            "Did",
+            "Have",
+            "Do"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "The surveyor has <span class=\"tw\">just</span> ___ the logbook.",
+          "options": [
+            "reads",
+            "reading",
+            "read"
+          ],
+          "answer": "read"
+        },
+        {
+          "text": "<span class=\"tw\">In 2021</span>, the company ___ its emergency exits.",
+          "options": [
+            "widens",
+            "widened",
+            "has widened"
+          ],
+          "answer": "widened"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : choisis la bonne phrase anglaise",
+      "icon": "🇫🇷",
+      "points": 8,
+      "color": "c-sky",
+      "block": true,
+      "instr": "Le sens est le même — seul le temps change. Choisis la traduction correcte.",
+      "theme": "Traduction / temps",
+      "items": [
+        {
+          "text": "Depuis ce matin, le technicien a vérifié tous les extincteurs. ___",
+          "options": [
+            "Since this morning, the technician checked all the fire extinguishers.",
+            "Since this morning, the technician has checked all the fire extinguishers."
+          ],
+          "answer": "Since this morning, the technician has checked all the fire extinguishers."
+        },
+        {
+          "text": "Hier, l'expert a inspecté les armoires électriques. ___",
+          "options": [
+            "Yesterday, the surveyor inspected the electrical cabinets.",
+            "Yesterday, the surveyor has inspected the electrical cabinets."
+          ],
+          "answer": "Yesterday, the surveyor inspected the electrical cabinets."
+        },
+        {
+          "text": "Il travaille dans cette usine depuis 2019. ___",
+          "options": [
+            "He has worked in this factory since 2019.",
+            "He worked in this factory since 2019."
+          ],
+          "answer": "He has worked in this factory since 2019."
+        },
+        {
+          "text": "L'assureur a déjà relevé deux dangers. ___",
+          "options": [
+            "The surveyor already found two hazards.",
+            "The surveyor has already found two hazards."
+          ],
+          "answer": "The surveyor has already found two hazards."
+        },
+        {
+          "text": "Il y a deux ans, l'usine a réduit ses accidents de moitié. ___",
+          "options": [
+            "Two years ago, the plant has cut its accidents by half.",
+            "Two years ago, the plant cut its accidents by half."
+          ],
+          "answer": "Two years ago, the plant cut its accidents by half."
+        },
+        {
+          "text": "Je n'ai jamais vu un tel défaut. ___",
+          "options": [
+            "I have never seen such a defect.",
+            "I never saw such a defect."
+          ],
+          "answer": "I have never seen such a defect."
+        },
+        {
+          "text": "La semaine dernière, le technicien a changé le carter. ___",
+          "options": [
+            "Last week, the technician changed the guard.",
+            "Last week, the technician has changed the guard."
+          ],
+          "answer": "Last week, the technician changed the guard."
+        },
+        {
+          "text": "Depuis janvier, nous avons formé tout le personnel. ___",
+          "options": [
+            "Since January, we trained all the staff.",
+            "Since January, we have trained all the staff."
+          ],
+          "answer": "Since January, we have trained all the staff."
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Must, mustn't, have to, should…",
+      "icon": "⚠️",
+      "points": 8,
+      "color": "c-grape",
+      "theme": "Modaux (obligation/interdiction)",
+      "items": [
+        {
+          "text": "You ___ wear a helmet near the machines.",
+          "options": [
+            "mustn't",
+            "needn't",
+            "must"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ pour used oil into the drain — it's illegal.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answer": "mustn't"
+        },
+        {
+          "text": "Every machine ___ have a working guard.",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "has to"
+          ],
+          "answer": "has to"
+        },
+        {
+          "text": "The bins are labelled, so you ___ guess where the waste goes.",
+          "options": [
+            "must",
+            "have to",
+            "don't have to"
+          ],
+          "answer": "don't have to"
+        },
+        {
+          "text": "If an extinguisher is empty, you ___ report it at once.",
+          "options": [
+            "mustn't",
+            "shouldn't",
+            "should"
+          ],
+          "answer": "should"
+        },
+        {
+          "text": "You ___ block the emergency exit.",
+          "options": [
+            "should",
+            "mustn't",
+            "needn't"
+          ],
+          "answer": "mustn't"
+        },
+        {
+          "text": "Visitors ___ enter the workshop without safety glasses.",
+          "options": [
+            "needn't",
+            "must",
+            "mustn't"
+          ],
+          "answer": "mustn't"
+        },
+        {
+          "text": "We ___ keep the logbook up to date for the audit.",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "have to"
+          ],
+          "answer": "have to"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Compare",
+      "heading": "Compare & measure",
+      "icon": "📊",
+      "points": 8,
+      "color": "c-mint",
+      "theme": "Comparatifs / quantifieurs",
+      "items": [
+        {
+          "text": "Prevention is ___ than repair.",
+          "options": [
+            "cheaper",
+            "cheapest",
+            "more cheap"
+          ],
+          "answer": "cheaper"
+        },
+        {
+          "text": "This is the ___ machine in the whole plant.",
+          "options": [
+            "dangerousest",
+            "most dangerous",
+            "more dangerous"
+          ],
+          "answer": "most dangerous"
+        },
+        {
+          "text": "Checking the risks is not as ___ as people think.",
+          "options": [
+            "hard",
+            "harder",
+            "hardest"
+          ],
+          "answer": "hard"
+        },
+        {
+          "text": "This year we had ___ accidents than last year.",
+          "options": [
+            "less",
+            "fewer",
+            "least"
+          ],
+          "answer": "fewer"
+        },
+        {
+          "text": "There aren't ___ hazards in the new workshop.",
+          "options": [
+            "much",
+            "many",
+            "a lot"
+          ],
+          "answer": "many"
+        },
+        {
+          "text": "How ___ oil do you store on site?",
+          "options": [
+            "much",
+            "more",
+            "many"
+          ],
+          "answer": "much"
+        },
+        {
+          "text": "Fire is one of the ___ serious risks in a factory.",
+          "options": [
+            "much",
+            "more",
+            "most"
+          ],
+          "answer": "most"
+        },
+        {
+          "text": "The main exit is the ___ one in the building.",
+          "options": [
+            "big",
+            "biggest",
+            "bigger"
+          ],
+          "answer": "biggest"
+        }
+      ]
+    }
+  ]
+}

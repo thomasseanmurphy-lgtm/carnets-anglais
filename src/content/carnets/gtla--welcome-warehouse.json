@@ -1,0 +1,319 @@
+{
+  "classe": "gtla",
+  "slug": "welcome-warehouse",
+  "title": "📦 Welcome to the Warehouse — GTLA 1",
+  "palette": "green",
+  "deco": [
+    "📦",
+    "🚛",
+    "🏗️",
+    "🦺"
+  ],
+  "hero_watermark": "📦",
+  "hero_pill": "BTS GTLA 1 · TRANSPORT & LOGISTICS",
+  "hero_h1": "Welcome to<br>the Warehouse 📦",
+  "hero_tagline": "Reading & Grammar",
+  "level": "A1–A2",
+  "class": "GTLA 1",
+  "test_name": "GTLA1 Welcome to the Warehouse (A1-A2)",
+  "ps_title": "Result — GTLA 1 · English",
+  "ps_sub": "Welcome to the Warehouse · A1–A2 · self-marking",
+  "foot": "📦 GTLA 1 · Welcome to the Warehouse — A1–A2 · self-marking 📦",
+  "story": [
+    "Karim is a logistics apprentice. He <span class=\"hl\">works</span> in a big <span class=\"hl\">warehouse</span> near Dijon. Every day, trucks <span class=\"hl\">arrive</span> at the <span class=\"hl\">dock</span> with <span class=\"hl\">pallets</span> of goods. Karim checks the delivery note and counts the boxes.",
+    "In the warehouse, a <span class=\"hl\">forklift</span> moves the heavy pallets. The goods go on tall shelves in long <span class=\"hl\">aisles</span>. Karim <span class=\"hl\">scans</span> each box with a scanner — the computer knows where everything is.",
+    "Safety first! Everybody <span class=\"hl\">must wear</span> a <span class=\"hl\">safety vest</span> and safety shoes. You <span class=\"hl\">mustn't run</span> in the aisles, and you mustn't walk under a forklift. At 5 p.m., the last truck leaves with the <span class=\"hl\">shipments</span> for the customers. 🚛"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "warehouse",
+        "forklift",
+        "pallet",
+        "dock",
+        "aisle",
+        "shipment",
+        "goods",
+        "safety vest"
+      ],
+      "items": [
+        {
+          "text": "a big building where goods are stored → ___",
+          "answer": "warehouse"
+        },
+        {
+          "text": "a small machine that lifts and moves pallets → ___",
+          "answer": "forklift"
+        },
+        {
+          "text": "a wooden platform for transporting boxes → ___",
+          "answer": "pallet"
+        },
+        {
+          "text": "the place where trucks load and unload → ___",
+          "answer": "dock"
+        },
+        {
+          "text": "the corridor between the shelves → ___",
+          "answer": "aisle"
+        },
+        {
+          "text": "goods sent to a customer → ___",
+          "answer": "shipment"
+        },
+        {
+          "text": "the products a company sells or stores → ___",
+          "answer": "goods"
+        },
+        {
+          "text": "the orange or yellow jacket you wear to be visible → ___",
+          "answer": "safety vest"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "truck",
+        "unload",
+        "forklift",
+        "scanner",
+        "warehouse",
+        "pallet",
+        "dock",
+        "delivery"
+      ],
+      "items": [
+        {
+          "text": "The ___ arrives at 8 a.m. with 20 pallets.",
+          "answer": "truck"
+        },
+        {
+          "text": "The driver backs up to the ___.",
+          "answer": "dock"
+        },
+        {
+          "text": "Karim checks the ___ note and counts the boxes.",
+          "answer": "delivery"
+        },
+        {
+          "text": "We ___ the truck in 30 minutes.",
+          "answer": "unload"
+        },
+        {
+          "text": "The ___ lifts the heavy pallets.",
+          "answer": "forklift"
+        },
+        {
+          "text": "Karim reads each barcode with a ___.",
+          "answer": "scanner"
+        },
+        {
+          "text": "The boxes are on a wooden ___.",
+          "answer": "pallet"
+        },
+        {
+          "text": "The goods stay in the ___ for two weeks.",
+          "answer": "warehouse"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Present simple",
+      "heading": "Present simple — he works / they work",
+      "icon": "⏰",
+      "color": "c-sun",
+      "theme": "Présent simple",
+      "points": 8,
+      "items": [
+        {
+          "text": "Karim ___ in a warehouse.",
+          "options": [
+            "works",
+            "work",
+            "working"
+          ],
+          "answer": "works"
+        },
+        {
+          "text": "The trucks ___ at the dock every morning.",
+          "options": [
+            "arrive",
+            "arrives",
+            "arriving"
+          ],
+          "answer": "arrive"
+        },
+        {
+          "text": "He ___ every box with a scanner.",
+          "options": [
+            "scans",
+            "scan",
+            "scanning"
+          ],
+          "answer": "scans"
+        },
+        {
+          "text": "The forklift ___ the pallets to the shelves.",
+          "options": [
+            "moves",
+            "move",
+            "moving"
+          ],
+          "answer": "moves"
+        },
+        {
+          "text": "We ___ the orders before 5 p.m.",
+          "options": [
+            "ship",
+            "ships",
+            "shipping"
+          ],
+          "answer": "ship"
+        },
+        {
+          "text": "Karim ___ the boxes by hand — the computer does it.",
+          "options": [
+            "doesn't count",
+            "don't count",
+            "doesn't counts"
+          ],
+          "answers": [
+            "doesn't count",
+            "does not count"
+          ]
+        },
+        {
+          "text": "The warehouse ___ at 6 a.m.",
+          "options": [
+            "opens",
+            "open",
+            "opening"
+          ],
+          "answer": "opens"
+        },
+        {
+          "text": "My colleagues ___ the orders for the customers.",
+          "options": [
+            "prepare",
+            "prepares",
+            "preparing"
+          ],
+          "answer": "prepare"
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 Modals",
+      "heading": "Safety rules — must / mustn't",
+      "icon": "🦺",
+      "color": "c-sky",
+      "theme": "Modaux — obligation/interdiction",
+      "points": 8,
+      "items": [
+        {
+          "text": "You ___ wear a safety vest in the warehouse.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ run in the aisles.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Visitors ___ stay in the yellow zone.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ walk under a forklift.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Drivers ___ stop at the gate.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ smoke inside the warehouse.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        },
+        {
+          "text": "Everybody ___ wear safety shoes.",
+          "options": [
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "answer": "must"
+        },
+        {
+          "text": "You ___ use your phone when you drive the forklift.",
+          "options": [
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "answers": [
+            "mustn't",
+            "must not"
+          ]
+        }
+      ]
+    }
+  ]
+}

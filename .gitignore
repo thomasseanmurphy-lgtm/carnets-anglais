@@ -14,3 +14,11 @@ Tableau de bord PROF — lien.docx
 
 # NB : docs/, notes/, CHANGELOG.md, CLAUDE.md et README.md SONT versionnés
 #      (documentation publique = source de vérité du fonctionnement).
+
+# === Astro ===
+node_modules/
+dist/
+.astro/
+
+# === Maquette / atelier de refonte (local) ===
+_rebuild/

@@ -1,0 +1,471 @@
+{
+  "classe": "gtla",
+  "slug": "delivery-route",
+  "title": "🗺️ The New Delivery Route — GTLA 1",
+  "palette": "violet",
+  "deco": [
+    "🚚",
+    "🗺️",
+    "⛽",
+    "📦"
+  ],
+  "hero_watermark": "🗺️",
+  "hero_pill": "BTS GTLA 1 · TRANSPORT & LOGISTICS",
+  "hero_h1": "The New<br>Delivery Route 🗺️",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1–B2",
+  "class": "GTLA 1",
+  "test_name": "GTLA1 The New Delivery Route (B1-B2)",
+  "ps_title": "Result — GTLA 1 · English",
+  "ps_sub": "The New Delivery Route · B1–B2 · self-marking",
+  "foot": "🗺️ GTLA 1 · The New Delivery Route — B1–B2 · self-marking 🗺️",
+  "story": [
+    "Nadia is a logistics manager in Dijon. Every day, her drivers <span class=\"hl\">deliver</span> goods to twenty shops in the region. The current <span class=\"hl\">route</span> is not optimized: the trucks <span class=\"hl\">drive</span> too many kilometers, they often <span class=\"hl\">come back</span> empty, and two drivers sometimes <span class=\"hl\">visit</span> the same area. Nadia <span class=\"hl\">knows</span> the company loses time and fuel.",
+    "<span class=\"hl\">Last week</span>, Nadia <span class=\"hl\">analyzed</span> the delivery data. She <span class=\"hl\">mapped</span> every stop, <span class=\"hl\">measured</span> the distances and <span class=\"hl\">tested</span> a new route on the computer. She also <span class=\"hl\">called</span> the drivers and <span class=\"hl\">asked</span> for their opinion. The new plan <span class=\"hl\">grouped</span> the shops by zone and <span class=\"hl\">removed</span> the empty return trips.",
+    "Since Monday, the new route <span class=\"hl\">has reduced</span> the distance by twenty percent and <span class=\"hl\">has saved</span> fuel. But one important client, a supermarket, <span class=\"hl\">hasn't accepted</span> the new delivery time yet. Nadia <span class=\"hl\">has called</span> the manager to negotiate: she wants to keep the client happy without breaking the whole schedule. 🚚"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "route",
+        "warehouse",
+        "fuel",
+        "schedule",
+        "detour",
+        "empty run",
+        "dispatch",
+        "deadline"
+      ],
+      "items": [
+        {
+          "text": "the path a truck follows to deliver goods → ___",
+          "answer": "route"
+        },
+        {
+          "text": "the building where goods are stored → ___",
+          "answer": "warehouse"
+        },
+        {
+          "text": "what the engine burns to run (diesel, gas) → ___",
+          "answer": "fuel"
+        },
+        {
+          "text": "the plan of times for each delivery → ___",
+          "answer": "schedule"
+        },
+        {
+          "text": "a longer way around, off the direct road → ___",
+          "answer": "detour"
+        },
+        {
+          "text": "a trip when the truck comes back with nothing → ___",
+          "answer": "empty run"
+        },
+        {
+          "text": "to send trucks and drivers on their missions → ___",
+          "answer": "dispatch"
+        },
+        {
+          "text": "the latest time a delivery can arrive → ___",
+          "answer": "deadline"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire (texte à trous)",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "route",
+        "fuel",
+        "schedule",
+        "detour",
+        "optimize",
+        "zone",
+        "driver",
+        "delivery"
+      ],
+      "items": [
+        {
+          "text": "The old ___ was too long and expensive.",
+          "answer": "route"
+        },
+        {
+          "text": "The new plan saves ___ every week.",
+          "answer": "fuel"
+        },
+        {
+          "text": "Each ___ starts his truck at 6 a.m.",
+          "answer": "driver"
+        },
+        {
+          "text": "Roadworks forced the truck to take a ___.",
+          "answer": "detour"
+        },
+        {
+          "text": "Nadia wants to ___ the whole delivery plan.",
+          "answer": "optimize"
+        },
+        {
+          "text": "The shops are now grouped by ___.",
+          "answer": "zone"
+        },
+        {
+          "text": "The morning ___ shows every stop and time.",
+          "answer": "schedule"
+        },
+        {
+          "text": "The ___ must arrive before noon.",
+          "answer": "delivery"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "name": "TN Tenses",
+      "heading": "Conjugation — present, past or present perfect?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Temps (choix du temps)",
+      "points": 8,
+      "instr": "Choisis le bon temps : présent simple (habitude), prétérit (fini, daté) ou present perfect (bilan, depuis).",
+      "items": [
+        {
+          "text": "Nadia ___ a logistics team <span class=\"tw\">every day</span>.",
+          "options": [
+            "manages",
+            "managed",
+            "has managed"
+          ],
+          "answer": "manages"
+        },
+        {
+          "text": "<span class=\"tw\">Last week</span>, she ___ the delivery data.",
+          "options": [
+            "analyzed",
+            "has analyzed",
+            "analyzes"
+          ],
+          "answer": "analyzed"
+        },
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, the new route ___ the distance.",
+          "options": [
+            "has reduced",
+            "reduced",
+            "reduces"
+          ],
+          "answer": "has reduced"
+        },
+        {
+          "text": "The drivers ___ back empty <span class=\"tw\">yesterday</span>.",
+          "options": [
+            "came",
+            "have come",
+            "come"
+          ],
+          "answer": "came"
+        },
+        {
+          "text": "The company ___ a lot of fuel <span class=\"tw\">so far</span>.",
+          "options": [
+            "has saved",
+            "saved",
+            "saves"
+          ],
+          "answer": "has saved"
+        },
+        {
+          "text": "A good driver ___ the schedule <span class=\"tw\">every morning</span>.",
+          "options": [
+            "checks",
+            "checked",
+            "has checked"
+          ],
+          "answer": "checks"
+        },
+        {
+          "text": "She ___ a new route on the computer <span class=\"tw\">last Tuesday</span>.",
+          "options": [
+            "tested",
+            "has tested",
+            "tests"
+          ],
+          "answer": "tested"
+        },
+        {
+          "text": "The client ___ the new time <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't accepted",
+            "didn't accept",
+            "doesn't accept"
+          ],
+          "answers": [
+            "hasn't accepted",
+            "has not accepted"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : quel temps choisir ?",
+      "icon": "🇫🇷",
+      "color": "c-sky",
+      "theme": "Traduction FR→EN",
+      "points": 8,
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction. Le repère de temps t'indique le temps à utiliser.",
+      "items": [
+        {
+          "text": "« Chaque jour, les camions livrent les marchandises. »",
+          "options": [
+            "Every day, the trucks deliver the goods.",
+            "Every day, the trucks delivered the goods."
+          ],
+          "answer": "Every day, the trucks deliver the goods."
+        },
+        {
+          "text": "« La semaine dernière, Nadia a analysé les données. »",
+          "options": [
+            "Last week, Nadia analyzed the data.",
+            "Last week, Nadia has analyzed the data."
+          ],
+          "answer": "Last week, Nadia analyzed the data."
+        },
+        {
+          "text": "« Depuis lundi, la nouvelle route a réduit la distance. »",
+          "options": [
+            "Since Monday, the new route has reduced the distance.",
+            "Since Monday, the new route reduced the distance."
+          ],
+          "answer": "Since Monday, the new route has reduced the distance."
+        },
+        {
+          "text": "« Hier, les chauffeurs sont revenus à vide. »",
+          "options": [
+            "Yesterday, the drivers came back empty.",
+            "Yesterday, the drivers have come back empty."
+          ],
+          "answer": "Yesterday, the drivers came back empty."
+        },
+        {
+          "text": "« Elle n'a pas encore optimisé toute la tournée. »",
+          "options": [
+            "She hasn't optimized the whole route yet.",
+            "She didn't optimize the whole route yet."
+          ],
+          "answer": "She hasn't optimized the whole route yet."
+        },
+        {
+          "text": "« L'an dernier, l'entreprise a acheté trois camions. »",
+          "options": [
+            "Last year, the company bought three trucks.",
+            "Last year, the company has bought three trucks."
+          ],
+          "answer": "Last year, the company bought three trucks."
+        },
+        {
+          "text": "« Nous livrons ce client depuis 2021. »",
+          "options": [
+            "We have delivered to this client since 2021.",
+            "We delivered to this client since 2021."
+          ],
+          "answer": "We have delivered to this client since 2021."
+        },
+        {
+          "text": "« Mardi dernier, elle a testé la nouvelle route. »",
+          "options": [
+            "Last Tuesday, she tested the new route.",
+            "Last Tuesday, she has tested the new route."
+          ],
+          "answer": "Last Tuesday, she tested the new route."
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "name": "RS Reported",
+      "heading": "Reported speech — what did they say?",
+      "icon": "💬",
+      "color": "c-grape",
+      "theme": "Discours rapporté (reported speech)",
+      "points": 8,
+      "instr": "Passe du discours direct au discours rapporté (backshift des temps, modaux, pronoms).",
+      "items": [
+        {
+          "text": "“I will optimize the route,” Nadia said. → Nadia said she ___ the route.",
+          "options": [
+            "would optimize",
+            "will optimize",
+            "optimized"
+          ],
+          "answer": "would optimize"
+        },
+        {
+          "text": "“We have saved fuel,” she said. → She said they ___ fuel.",
+          "options": [
+            "had saved",
+            "have saved",
+            "saved"
+          ],
+          "answer": "had saved"
+        },
+        {
+          "text": "“The trucks are coming back empty,” he said. → He said the trucks ___ back empty.",
+          "options": [
+            "were coming",
+            "are coming",
+            "came"
+          ],
+          "answer": "were coming"
+        },
+        {
+          "text": "“I can change the schedule,” she said. → She said she ___ change the schedule.",
+          "options": [
+            "could",
+            "can",
+            "will"
+          ],
+          "answer": "could"
+        },
+        {
+          "text": "“Do you deliver on Saturdays?” the client asked. → The client asked if we ___ on Saturdays.",
+          "options": [
+            "delivered",
+            "deliver",
+            "do deliver"
+          ],
+          "answer": "delivered"
+        },
+        {
+          "text": "“Call the driver,” she said. → She told me ___ the driver.",
+          "options": [
+            "to call",
+            "call",
+            "calling"
+          ],
+          "answer": "to call"
+        },
+        {
+          "text": "“We changed the route yesterday,” Nadia said. → Nadia said they ___ the route the day before.",
+          "options": [
+            "had changed",
+            "have changed",
+            "changed"
+          ],
+          "answer": "had changed"
+        },
+        {
+          "text": "“The delivery isn't late,” he said. → He said the delivery ___ late.",
+          "options": [
+            "wasn't",
+            "isn't",
+            "hasn't been"
+          ],
+          "answer": "wasn't"
+        }
+      ]
+    },
+    {
+      "code": "NG",
+      "name": "NG Negotiation",
+      "heading": "Choose the right expression",
+      "icon": "🤝",
+      "color": "c-pink",
+      "theme": "Négociation (expressions)",
+      "points": 8,
+      "block": true,
+      "instr": "Lis le but entre parenthèses, puis choisis l'expression la plus adaptée. Les trois sont du bon anglais, mais une seule convient à la situation.",
+      "items": [
+        {
+          "text": "(You want to <b>open</b> the call politely.)",
+          "options": [
+            "Thank you for taking my call. Do you have a few minutes?",
+            "We need to talk, and it's urgent.",
+            "I know you're busy, but this is more important."
+          ],
+          "answer": "Thank you for taking my call. Do you have a few minutes?"
+        },
+        {
+          "text": "(The client is angry about the new time. You want to stay <b>calm</b> and listen.)",
+          "options": [
+            "I understand this is frustrating. Can you tell me what works best for you?",
+            "Rules are rules, there's nothing I can do.",
+            "You always complain about everything."
+          ],
+          "answer": "I understand this is frustrating. Can you tell me what works best for you?"
+        },
+        {
+          "text": "(The client asks for free delivery you <b>cannot</b> offer. Refuse politely.)",
+          "options": [
+            "I'm sorry, I can't remove the fee, but I can offer an earlier slot.",
+            "No way, that's impossible.",
+            "Okay, no charge then."
+          ],
+          "answer": "I'm sorry, I can't remove the fee, but I can offer an earlier slot."
+        },
+        {
+          "text": "(You want to <b>propose a compromise</b> on the time.)",
+          "options": [
+            "Could we agree on 8 a.m. instead of 7?",
+            "You'll take the time I give you.",
+            "Fine, choose any time you like."
+          ],
+          "answer": "Could we agree on 8 a.m. instead of 7?"
+        },
+        {
+          "text": "(The client is <b>unsure</b> about the change. Reassure them.)",
+          "options": [
+            "Don't worry — the same driver will handle your store.",
+            "If it doesn't work, that's on you.",
+            "To be honest, it might cause delays."
+          ],
+          "answer": "Don't worry — the same driver will handle your store."
+        },
+        {
+          "text": "(You need to <b>check</b> with your team before deciding.)",
+          "options": [
+            "Let me confirm with my drivers and call you back today.",
+            "I'll promise anything to keep you happy.",
+            "Just trust me, no need to check."
+          ],
+          "answer": "Let me confirm with my drivers and call you back today."
+        },
+        {
+          "text": "(You want to know the client's <b>main priority</b>.)",
+          "options": [
+            "What matters most to you — the time or the price?",
+            "Honestly, your requests don't help me.",
+            "Let's not waste time on details."
+          ],
+          "answer": "What matters most to you — the time or the price?"
+        },
+        {
+          "text": "(You want to <b>close the deal</b> on good terms.)",
+          "options": [
+            "Perfect — I'll send you the new schedule in writing.",
+            "You'd better stick to this now.",
+            "I suppose that will have to do."
+          ],
+          "answer": "Perfect — I'll send you the new schedule in writing."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "classe": "ndrc",
+  "slug": "recruitment-drive",
+  "title": "🤝 The Recruitment Drive — NDRC 1",
+  "palette": "blue",
+  "deco": [
+    "🤝",
+    "💼",
+    "📋",
+    "🎓"
+  ],
+  "hero_watermark": "🤝",
+  "hero_pill": "BTS NDRC 1 · SALES & RECRUITMENT",
+  "hero_h1": "The Recruitment<br>Drive 🤝",
+  "hero_tagline": "Reading & Grammar",
+  "level": "B1–B2",
+  "class": "NDRC 1",
+  "test_name": "NDRC1 The Recruitment Drive (B1-B2)",
+  "ps_title": "Result — NDRC 1 · English",
+  "ps_sub": "The Recruitment Drive · B1–B2 · self-marking",
+  "foot": "🤝 NDRC 1 · The Recruitment Drive — B1–B2 · self-marking 🤝",
+  "story": [
+    "Emma is a second-year sales student (BTS NDRC). This month, her class <span class=\"hl\">runs</span> a “recruitment drive”: the students <span class=\"hl\">visit</span> local companies to present their program and find apprenticeship partners. Every morning, Emma <span class=\"hl\">prepares</span> her <span class=\"hl\">pitch</span>, <span class=\"hl\">checks</span> her appointments and <span class=\"hl\">calls</span> the companies on her list.",
+    "<span class=\"hl\">Last Tuesday</span>, Emma <span class=\"hl\">visited</span> a logistics company near Dijon. She <span class=\"hl\">met</span> the HR manager, <span class=\"hl\">presented</span> the program and <span class=\"hl\">gave</span> him a short brochure. The manager <span class=\"hl\">liked</span> the idea, but he <span class=\"hl\">asked</span> about the cost and the working hours. Emma <span class=\"hl\">stayed</span> calm and <span class=\"hl\">proposed</span> a flexible schedule.",
+    "Since the start of the drive, Emma <span class=\"hl\">has contacted</span> fifteen companies and <span class=\"hl\">has signed</span> three partnerships. She <span class=\"hl\">hasn't reached</span> her target yet, but she <span class=\"hl\">has already learned</span> a lot about negotiation. “A good salesperson listens more than they talk,” her tutor <span class=\"hl\">has told</span> her many times. 🤝"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "pool": [
+        "apprentice",
+        "pitch",
+        "appointment",
+        "HR manager",
+        "partnership",
+        "target",
+        "brochure",
+        "tutor"
+      ],
+      "items": [
+        {
+          "text": "a student who works in a company and studies at school → ___",
+          "answer": "apprentice"
+        },
+        {
+          "text": "a short, convincing sales presentation → ___",
+          "answer": "pitch"
+        },
+        {
+          "text": "a fixed time to meet someone → ___",
+          "answer": "appointment"
+        },
+        {
+          "text": "the person in charge of hiring in a company → ___",
+          "answer": "HR manager"
+        },
+        {
+          "text": "an agreement between two organizations to work together → ___",
+          "answer": "partnership"
+        },
+        {
+          "text": "the goal you must reach → ___",
+          "answer": "target"
+        },
+        {
+          "text": "a small printed document that presents a program → ___",
+          "answer": "brochure"
+        },
+        {
+          "text": "the teacher who follows your training → ___",
+          "answer": "tutor"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire (texte à trous)",
+      "points": 8,
+      "wide": true,
+      "pool": [
+        "pitch",
+        "appointment",
+        "HR manager",
+        "apprentice",
+        "partnership",
+        "brochure",
+        "recruit",
+        "benefits"
+      ],
+      "items": [
+        {
+          "text": "Emma prepared her ___ before the meeting.",
+          "answer": "pitch"
+        },
+        {
+          "text": "She has an ___ with the manager at 10 a.m.",
+          "answer": "appointment"
+        },
+        {
+          "text": "The ___ decides who the company hires.",
+          "answer": "HR manager"
+        },
+        {
+          "text": "An ___ studies at school and works in a company.",
+          "answer": "apprentice"
+        },
+        {
+          "text": "The two organizations signed a ___.",
+          "answer": "partnership"
+        },
+        {
+          "text": "She gave the manager a ___ about the program.",
+          "answer": "brochure"
+        },
+        {
+          "text": "The company wants to ___ two new apprentices.",
+          "answer": "recruit"
+        },
+        {
+          "text": "Health insurance is one of the ___ of the job.",
+          "answer": "benefits"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "name": "TN Tenses",
+      "heading": "Conjugation — present, past or present perfect?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Temps (choix du temps)",
+      "points": 8,
+      "instr": "Choisis le bon temps : présent simple (habitude), prétérit (fini, daté) ou present perfect (bilan, depuis).",
+      "items": [
+        {
+          "text": "Emma ___ her pitch <span class=\"tw\">every morning</span>.",
+          "options": [
+            "prepares",
+            "prepared",
+            "has prepared"
+          ],
+          "answer": "prepares"
+        },
+        {
+          "text": "<span class=\"tw\">Last Tuesday</span>, she ___ a logistics company.",
+          "options": [
+            "visited",
+            "has visited",
+            "visits"
+          ],
+          "answer": "visited"
+        },
+        {
+          "text": "<span class=\"tw\">Since Monday</span>, she ___ fifteen companies.",
+          "options": [
+            "has contacted",
+            "contacted",
+            "contacts"
+          ],
+          "answer": "has contacted"
+        },
+        {
+          "text": "The manager ___ her many questions <span class=\"tw\">yesterday</span>.",
+          "options": [
+            "asked",
+            "has asked",
+            "asks"
+          ],
+          "answer": "asked"
+        },
+        {
+          "text": "She ___ three partnerships <span class=\"tw\">so far</span>.",
+          "options": [
+            "has signed",
+            "signed",
+            "signs"
+          ],
+          "answer": "has signed"
+        },
+        {
+          "text": "A good apprentice ___ hard <span class=\"tw\">every day</span>.",
+          "options": [
+            "works",
+            "worked",
+            "has worked"
+          ],
+          "answer": "works"
+        },
+        {
+          "text": "They ___ the program to the class <span class=\"tw\">last week</span>.",
+          "options": [
+            "presented",
+            "have presented",
+            "present"
+          ],
+          "answer": "presented"
+        },
+        {
+          "text": "She ___ her target <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't reached",
+            "didn't reach",
+            "doesn't reach"
+          ],
+          "answers": [
+            "hasn't reached",
+            "has not reached"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : quel temps choisir ?",
+      "icon": "🇫🇷",
+      "color": "c-sky",
+      "theme": "Traduction FR→EN",
+      "points": 8,
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction. Le repère de temps t'indique le temps à utiliser.",
+      "items": [
+        {
+          "text": "« Chaque matin, Emma prépare son argumentaire. »",
+          "options": [
+            "Every morning, Emma prepares her pitch.",
+            "Every morning, Emma prepared her pitch."
+          ],
+          "answer": "Every morning, Emma prepares her pitch."
+        },
+        {
+          "text": "« Mardi dernier, elle a visité une entreprise. »",
+          "options": [
+            "Last Tuesday, she visited a company.",
+            "Last Tuesday, she has visited a company."
+          ],
+          "answer": "Last Tuesday, she visited a company."
+        },
+        {
+          "text": "« Depuis lundi, elle a contacté quinze entreprises. »",
+          "options": [
+            "Since Monday, she has contacted fifteen companies.",
+            "Since Monday, she contacted fifteen companies."
+          ],
+          "answer": "Since Monday, she has contacted fifteen companies."
+        },
+        {
+          "text": "« Hier, le manager lui a posé beaucoup de questions. »",
+          "options": [
+            "Yesterday, the manager asked her many questions.",
+            "Yesterday, the manager has asked her many questions."
+          ],
+          "answer": "Yesterday, the manager asked her many questions."
+        },
+        {
+          "text": "« Elle n'a pas encore atteint son objectif. »",
+          "options": [
+            "She hasn't reached her target yet.",
+            "She didn't reach her target yet."
+          ],
+          "answer": "She hasn't reached her target yet."
+        },
+        {
+          "text": "« L'année dernière, elle a travaillé dans un magasin. »",
+          "options": [
+            "Last year, she worked in a store.",
+            "Last year, she has worked in a store."
+          ],
+          "answer": "Last year, she worked in a store."
+        },
+        {
+          "text": "« Nous travaillons avec cette entreprise depuis 2022. »",
+          "options": [
+            "We have worked with this company since 2022.",
+            "We worked with this company since 2022."
+          ],
+          "answer": "We have worked with this company since 2022."
+        },
+        {
+          "text": "« La semaine dernière, elle a présenté le programme. »",
+          "options": [
+            "Last week, she presented the program.",
+            "Last week, she has presented the program."
+          ],
+          "answer": "Last week, she presented the program."
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "name": "RS Reported",
+      "heading": "Reported speech — what did they say?",
+      "icon": "💬",
+      "color": "c-grape",
+      "theme": "Discours rapporté (reported speech)",
+      "points": 8,
+      "instr": "Passe du discours direct au discours rapporté (backshift des temps, modaux, pronoms).",
+      "items": [
+        {
+          "text": "“I will call you tomorrow,” Emma said. → Emma said she ___ me the next day.",
+          "options": [
+            "would call",
+            "will call",
+            "called"
+          ],
+          "answer": "would call"
+        },
+        {
+          "text": "“I have finished the brochure,” he said. → He said he ___ the brochure.",
+          "options": [
+            "had finished",
+            "has finished",
+            "finished"
+          ],
+          "answer": "had finished"
+        },
+        {
+          "text": "“We are hiring two apprentices,” the manager said. → The manager said they ___ two apprentices.",
+          "options": [
+            "were hiring",
+            "are hiring",
+            "hired"
+          ],
+          "answer": "were hiring"
+        },
+        {
+          "text": "“I can start in September,” she said. → She said she ___ start in September.",
+          "options": [
+            "could",
+            "can",
+            "will"
+          ],
+          "answer": "could"
+        },
+        {
+          "text": "“Do you have a tutor?” he asked. → He asked if I ___ a tutor.",
+          "options": [
+            "had",
+            "have",
+            "do have"
+          ],
+          "answer": "had"
+        },
+        {
+          "text": "“Send me the file,” she said. → She told me ___ the file.",
+          "options": [
+            "to send",
+            "send",
+            "sending"
+          ],
+          "answer": "to send"
+        },
+        {
+          "text": "“I visited the company yesterday,” Emma said. → Emma said she ___ the company the day before.",
+          "options": [
+            "had visited",
+            "has visited",
+            "visited"
+          ],
+          "answer": "had visited"
+        },
+        {
+          "text": "“We don't work on Sundays,” they said. → They said they ___ on Sundays.",
+          "options": [
+            "didn't work",
+            "don't work",
+            "haven't worked"
+          ],
+          "answer": "didn't work"
+        }
+      ]
+    },
+    {
+      "code": "NG",
+      "name": "NG Negotiation",
+      "heading": "Choose the right expression",
+      "icon": "🤝",
+      "color": "c-pink",
+      "theme": "Négociation (expressions)",
+      "points": 8,
+      "block": true,
+      "instr": "Lis le but entre parenthèses, puis choisis l'expression la plus adaptée. Les trois sont du bon anglais, mais une seule convient à la situation.",
+      "items": [
+        {
+          "text": "(You want to <b>open</b> the meeting politely.)",
+          "options": [
+            "Thank you for seeing me today. Shall we start?",
+            "Let's get this over with.",
+            "You finally found time for me."
+          ],
+          "answer": "Thank you for seeing me today. Shall we start?"
+        },
+        {
+          "text": "(The manager says the program is expensive. You want to stay <b>flexible</b>.)",
+          "options": [
+            "I understand. Could we look at the options together?",
+            "Take it or leave it.",
+            "That's not my problem."
+          ],
+          "answer": "I understand. Could we look at the options together?"
+        },
+        {
+          "text": "(The manager asks for a discount you <b>cannot</b> give. Refuse politely.)",
+          "options": [
+            "I'm afraid I can't go that low, but I can offer flexible hours.",
+            "No. Next question.",
+            "Fine, whatever you want."
+          ],
+          "answer": "I'm afraid I can't go that low, but I can offer flexible hours."
+        },
+        {
+          "text": "(You want to <b>propose a compromise</b>.)",
+          "options": [
+            "How about we meet halfway on the schedule?",
+            "It's my way or nothing.",
+            "I give up, you win."
+          ],
+          "answer": "How about we meet halfway on the schedule?"
+        },
+        {
+          "text": "(The manager <b>hesitates</b>. You want to reassure him.)",
+          "options": [
+            "Don't worry — our team will support the apprentice every week.",
+            "If you don't decide now, you'll regret it.",
+            "Honestly, I'm not sure it will work."
+          ],
+          "answer": "Don't worry — our team will support the apprentice every week."
+        },
+        {
+          "text": "(You need <b>more time</b> to think about an offer.)",
+          "options": [
+            "Could I get back to you by Friday?",
+            "I'll decide right now, no matter what.",
+            "Forget it, I'm not interested."
+          ],
+          "answer": "Could I get back to you by Friday?"
+        },
+        {
+          "text": "(You want to understand what <b>matters most</b> to the manager.)",
+          "options": [
+            "What is the most important point for you?",
+            "Just sign here, the details don't matter.",
+            "Why are you making this so difficult?"
+          ],
+          "answer": "What is the most important point for you?"
+        },
+        {
+          "text": "(You want to <b>close the deal</b> on good terms.)",
+          "options": [
+            "Great — shall we put this in writing?",
+            "You'd better not change your mind.",
+            "I guess that's good enough."
+          ],
+          "answer": "Great — shall we put this in writing?"
+        }
+      ]
+    }
+  ]
+}

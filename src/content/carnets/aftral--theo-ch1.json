@@ -1,0 +1,608 @@
+{
+  "classe": "aftral",
+  "slug": "theo-ch1",
+  "title": "🔎 Finding the Company — Théo Ch.1",
+  "palette": "amber",
+  "deco": [
+    "🏭",
+    "🚚",
+    "🤖",
+    "📄"
+  ],
+  "hero_watermark": "🔎",
+  "hero_pill": "BAC PRO 1 · LOGISTICS · CH.1",
+  "hero_h1": "Finding the<br/>Company 🔎",
+  "hero_tagline": "Théo's Internship Adventure · Reading & Grammar",
+  "level": "A2–B1",
+  "class": "BAC 1",
+  "test_name": "BAC1 Théo Ch.1 Finding the Company (A2-B1)",
+  "ps_title": "Result — BAC 1 · English",
+  "ps_sub": "Théo's Internship Adventure · Ch.1 Finding the Company · A2–B1 · self-marking",
+  "foot": "🔎 BAC PRO 1 · Théo's Internship Adventure · Ch.1 Finding the Company — self-marking 🔎",
+  "story": [
+    "Théo is a first-year logistics student. He <span class=\"hl\">needs</span> an internship for the summer, so he <span class=\"hl\">wants</span> to find the best company possible. This morning, he <span class=\"hl\">walks</span> around the industrial park and <span class=\"hl\">looks</span> at every warehouse.",
+    "Some companies look <span class=\"hl\">run-down</span>: old trucks, broken windows and a <span class=\"hl\">messy</span> yard. Then Théo sees a brand-new warehouse. It is <span class=\"hl\">bigger</span> and <span class=\"hl\">more modern</span> than the others. Fast robots move the pallets, the loading dock is <span class=\"hl\">tidy</span>, and the staff look <span class=\"hl\">organized</span> and friendly.",
+    "Théo takes a deep breath. He walks up to a supervisor and <span class=\"hl\">speaks</span> clearly and politely. The company <span class=\"hl\">has looked</span> for trainees since March, so the supervisor is happy. Théo <span class=\"hl\">has made</span> a good impression, and yesterday he <span class=\"hl\">printed</span> a fresh CV — so he <span class=\"hl\">leaves</span> it and goes home to prepare. 📄"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the word & the meaning",
+      "icon": "🧩",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "an area with many companies and factories → ___",
+          "options": [
+            "supplier",
+            "loading dock",
+            "industrial park",
+            "forklift",
+            "internship",
+            "warehouse",
+            "CV",
+            "supervisor"
+          ],
+          "answer": "industrial park"
+        },
+        {
+          "text": "a big building where goods are stored → ___",
+          "options": [
+            "loading dock",
+            "internship",
+            "supervisor",
+            "CV",
+            "supplier",
+            "forklift",
+            "warehouse",
+            "industrial park"
+          ],
+          "answer": "warehouse"
+        },
+        {
+          "text": "a period of work experience for a student → ___",
+          "options": [
+            "CV",
+            "forklift",
+            "supervisor",
+            "industrial park",
+            "warehouse",
+            "supplier",
+            "internship",
+            "loading dock"
+          ],
+          "answer": "internship"
+        },
+        {
+          "text": "a document that lists your studies and skills → ___",
+          "options": [
+            "forklift",
+            "loading dock",
+            "internship",
+            "supervisor",
+            "CV",
+            "industrial park",
+            "warehouse",
+            "supplier"
+          ],
+          "answer": "CV"
+        },
+        {
+          "text": "the person who manages a team → ___",
+          "options": [
+            "industrial park",
+            "warehouse",
+            "supplier",
+            "loading dock",
+            "CV",
+            "supervisor",
+            "forklift",
+            "internship"
+          ],
+          "answer": "supervisor"
+        },
+        {
+          "text": "a small truck that lifts and moves pallets → ___",
+          "options": [
+            "industrial park",
+            "CV",
+            "internship",
+            "supplier",
+            "loading dock",
+            "forklift",
+            "warehouse",
+            "supervisor"
+          ],
+          "answer": "forklift"
+        },
+        {
+          "text": "the area where trucks load and unload → ___",
+          "options": [
+            "supplier",
+            "loading dock",
+            "supervisor",
+            "CV",
+            "warehouse",
+            "internship",
+            "forklift",
+            "industrial park"
+          ],
+          "answer": "loading dock"
+        },
+        {
+          "text": "a company that provides goods to another → ___",
+          "options": [
+            "forklift",
+            "supplier",
+            "internship",
+            "supervisor",
+            "CV",
+            "industrial park",
+            "loading dock",
+            "warehouse"
+          ],
+          "answer": "supplier"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "points": 8,
+      "color": "c-mint",
+      "wide": true,
+      "theme": "Vocabulaire",
+      "items": [
+        {
+          "text": "Théo is looking for an ___ for the summer.",
+          "options": [
+            "internship",
+            "forklift",
+            "interview",
+            "loading dock",
+            "warehouse",
+            "CV",
+            "supervisor",
+            "apply"
+          ],
+          "answer": "internship"
+        },
+        {
+          "text": "The company stores its goods in a huge ___.",
+          "options": [
+            "forklift",
+            "interview",
+            "supervisor",
+            "CV",
+            "internship",
+            "warehouse",
+            "loading dock",
+            "apply"
+          ],
+          "answer": "warehouse"
+        },
+        {
+          "text": "He wants to ___ for the job online.",
+          "options": [
+            "supervisor",
+            "CV",
+            "warehouse",
+            "apply",
+            "interview",
+            "forklift",
+            "loading dock",
+            "internship"
+          ],
+          "answer": "apply"
+        },
+        {
+          "text": "He gave his ___ to the supervisor.",
+          "options": [
+            "warehouse",
+            "forklift",
+            "supervisor",
+            "apply",
+            "interview",
+            "CV",
+            "internship",
+            "loading dock"
+          ],
+          "answer": "CV"
+        },
+        {
+          "text": "A ___ moves the pallets in the yard.",
+          "options": [
+            "supervisor",
+            "loading dock",
+            "apply",
+            "warehouse",
+            "interview",
+            "internship",
+            "CV",
+            "forklift"
+          ],
+          "answer": "forklift"
+        },
+        {
+          "text": "Trucks load and unload at the ___.",
+          "options": [
+            "CV",
+            "forklift",
+            "interview",
+            "internship",
+            "apply",
+            "supervisor",
+            "loading dock",
+            "warehouse"
+          ],
+          "answer": "loading dock"
+        },
+        {
+          "text": "The ___ showed Théo around the site.",
+          "options": [
+            "interview",
+            "forklift",
+            "loading dock",
+            "apply",
+            "internship",
+            "warehouse",
+            "supervisor",
+            "CV"
+          ],
+          "answer": "supervisor"
+        },
+        {
+          "text": "Next week he has an ___ with the manager.",
+          "options": [
+            "supervisor",
+            "internship",
+            "warehouse",
+            "interview",
+            "CV",
+            "forklift",
+            "apply",
+            "loading dock"
+          ],
+          "answer": "interview"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "points": 8,
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "items": [
+        {
+          "text": "<span class=\"tw\">Since this morning</span>, Théo ___ five companies.",
+          "options": [
+            "visited",
+            "has visited",
+            "visits"
+          ],
+          "answer": "has visited"
+        },
+        {
+          "text": "<span class=\"tw\">Yesterday</span>, he ___ his CV.",
+          "options": [
+            "has printed",
+            "printed",
+            "prints"
+          ],
+          "answer": "printed"
+        },
+        {
+          "text": "This company ___ in the town <span class=\"tw\">for twenty years</span>.",
+          "options": [
+            "has been",
+            "was",
+            "is"
+          ],
+          "answer": "has been"
+        },
+        {
+          "text": "He ___ to a supervisor <span class=\"tw\">five minutes ago</span>.",
+          "options": [
+            "has talked",
+            "talked",
+            "talks"
+          ],
+          "answer": "talked"
+        },
+        {
+          "text": "He ___ an internship <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't found",
+            "didn't find",
+            "doesn't find"
+          ],
+          "answers": [
+            "hasn't found",
+            "has not found"
+          ]
+        },
+        {
+          "text": "___ you <span class=\"tw\">ever</span> visited a modern warehouse?",
+          "options": [
+            "Do",
+            "Have",
+            "Did"
+          ],
+          "answer": "Have"
+        },
+        {
+          "text": "The company has <span class=\"tw\">just</span> ___ ten new robots.",
+          "options": [
+            "installs",
+            "installed",
+            "install"
+          ],
+          "answer": "installed"
+        },
+        {
+          "text": "<span class=\"tw\">In 2015</span>, the company ___ a new hub.",
+          "options": [
+            "has opened",
+            "opened",
+            "opens"
+          ],
+          "answer": "opened"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Traduis : present perfect ou prétérit ?",
+      "icon": "🇫🇷",
+      "points": 8,
+      "color": "c-pink",
+      "block": true,
+      "instr": "Lis la phrase française et choisis la bonne traduction anglaise. Le repère de temps te dit quel temps utiliser.",
+      "theme": "Traduction FR→EN (perfect/prétérit)",
+      "items": [
+        {
+          "text": "« Hier, Théo a envoyé trois candidatures. » ___",
+          "options": [
+            "Yesterday, Théo has sent three applications.",
+            "Yesterday, Théo sent three applications."
+          ],
+          "answer": "Yesterday, Théo sent three applications."
+        },
+        {
+          "text": "« Il travaille dur depuis septembre. » ___",
+          "options": [
+            "He has worked hard since September.",
+            "He worked hard since September."
+          ],
+          "answer": "He has worked hard since September."
+        },
+        {
+          "text": "« L'entreprise emploie deux cents personnes. » ___",
+          "options": [
+            "The company employs two hundred people.",
+            "The company employed two hundred people."
+          ],
+          "answer": "The company employs two hundred people."
+        },
+        {
+          "text": "« L'année dernière, l'usine a gagné un prix de sécurité. » ___",
+          "options": [
+            "Last year, the factory has won a safety award.",
+            "Last year, the factory won a safety award."
+          ],
+          "answer": "Last year, the factory won a safety award."
+        },
+        {
+          "text": "« As-tu déjà visité une zone industrielle ? » ___",
+          "options": [
+            "Did you ever visit an industrial park?",
+            "Have you ever visited an industrial park?"
+          ],
+          "answer": "Have you ever visited an industrial park?"
+        },
+        {
+          "text": "« Ils cherchent un stagiaire depuis deux semaines. » ___",
+          "options": [
+            "They have looked for a trainee for two weeks.",
+            "They looked for a trainee for two weeks."
+          ],
+          "answer": "They have looked for a trainee for two weeks."
+        },
+        {
+          "text": "« Il y a trois jours, il a téléphoné à l'entreprise. » ___",
+          "options": [
+            "Three days ago, he called the company.",
+            "Three days ago, he has called the company."
+          ],
+          "answer": "Three days ago, he called the company."
+        },
+        {
+          "text": "« Nous n'avons pas encore reçu de réponse. » ___",
+          "options": [
+            "We haven't received an answer yet.",
+            "We didn't receive an answer yet."
+          ],
+          "answer": "We haven't received an answer yet."
+        }
+      ]
+    },
+    {
+      "code": "ADJ",
+      "name": "ADJ Adjectives",
+      "heading": "Describe the companies (adjectives)",
+      "icon": "🏢",
+      "points": 8,
+      "color": "c-sky",
+      "instr": "Théo passe en revue les qualités et les défauts. Choisis le bon adjectif.",
+      "theme": "Adjectifs (qualités/défauts)",
+      "items": [
+        {
+          "text": "The new warehouse is very ___: everything is in its place.",
+          "options": [
+            "tidy",
+            "messy",
+            "dark"
+          ],
+          "answer": "tidy"
+        },
+        {
+          "text": "The first company looked ___: broken windows and old trucks.",
+          "options": [
+            "run-down",
+            "clean",
+            "modern"
+          ],
+          "answer": "run-down"
+        },
+        {
+          "text": "The staff were friendly and ___.",
+          "options": [
+            "rude",
+            "lazy",
+            "helpful"
+          ],
+          "answer": "helpful"
+        },
+        {
+          "text": "The robots make the site very ___.",
+          "options": [
+            "efficient",
+            "dirty",
+            "slow"
+          ],
+          "answer": "efficient"
+        },
+        {
+          "text": "The offices were bright and ___.",
+          "options": [
+            "dark",
+            "old-fashioned",
+            "modern"
+          ],
+          "answer": "modern"
+        },
+        {
+          "text": "The manager was ___ and answered all his questions.",
+          "options": [
+            "polite",
+            "rude",
+            "nervous"
+          ],
+          "answer": "polite"
+        },
+        {
+          "text": "Théo felt ___, but he stayed calm.",
+          "options": [
+            "nervous",
+            "bored",
+            "proud"
+          ],
+          "answer": "nervous"
+        },
+        {
+          "text": "The whole place was well ___ and clean.",
+          "options": [
+            "noisy",
+            "messy",
+            "organized"
+          ],
+          "answer": "organized"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Compare",
+      "heading": "Compare the companies",
+      "icon": "📊",
+      "points": 8,
+      "color": "c-grape",
+      "theme": "Comparatifs",
+      "items": [
+        {
+          "text": "The new warehouse is ___ than the old one.",
+          "options": [
+            "modernest",
+            "more modern",
+            "most modern"
+          ],
+          "answer": "more modern"
+        },
+        {
+          "text": "This company is the ___ on the estate.",
+          "options": [
+            "big",
+            "bigger",
+            "biggest"
+          ],
+          "answer": "biggest"
+        },
+        {
+          "text": "The robots are ___ than people.",
+          "options": [
+            "fast",
+            "faster",
+            "fastest"
+          ],
+          "answer": "faster"
+        },
+        {
+          "text": "The first firm was not as ___ as the second.",
+          "options": [
+            "clean",
+            "cleaner",
+            "cleanest"
+          ],
+          "answer": "clean"
+        },
+        {
+          "text": "This site is ___ organized than the other.",
+          "options": [
+            "better",
+            "gooder",
+            "best"
+          ],
+          "answer": "better"
+        },
+        {
+          "text": "The second company has ___ trucks than the first.",
+          "options": [
+            "much",
+            "most",
+            "more"
+          ],
+          "answer": "more"
+        },
+        {
+          "text": "There are ___ workers here than before.",
+          "options": [
+            "less",
+            "fewer",
+            "least"
+          ],
+          "answer": "fewer"
+        },
+        {
+          "text": "It is the ___ company he has ever seen.",
+          "options": [
+            "most impressive",
+            "more impressive",
+            "impressivest"
+          ],
+          "answer": "most impressive"
+        }
+      ]
+    }
+  ]
+}
