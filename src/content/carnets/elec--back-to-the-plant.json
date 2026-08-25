@@ -1,0 +1,475 @@
+{
+  "classe": "elec",
+  "slug": "back-to-the-plant",
+  "title": "🏭 Back to the Plant — ELEC 2",
+  "palette": "amber",
+  "deco": [
+    "⚡",
+    "🔌",
+    "🛠️",
+    "💡"
+  ],
+  "hero_watermark": "⚡",
+  "hero_pill": "BTS ELEC 2 · RENTRÉE 2026",
+  "hero_h1": "Back to the Plant ⚡",
+  "hero_tagline": "Diagnostic — Reading & Grammar",
+  "level": "B1",
+  "class": "ELEC 2",
+  "test_name": "ELEC2 Rentrée Diagnostic — Back to the Plant (B1)",
+  "ps_title": "Back to the Plant — Résultats",
+  "ps_sub": "BTS ELEC 2 · Diagnostic de rentrée 2026",
+  "foot": "BTS ELEC 2 · 2026-2027 · English — Thomas Murphy",
+  "story": [
+    "Max is an apprentice <span class=\"hl\">industrial electrician</span> at a food-processing plant near Dijon. Today is his first day back after the summer break, and the workshop smells like coffee and hot metal.",
+    "During the summer, the plant never stopped. The night team <span class=\"hl\">monitored</span> the production lines, and a contractor replaced the old lighting in warehouse B.",
+    "This morning, the supervisor gives Max a work order: \"Line 2 stopped twice last week. The operators heard a <span class=\"hl\">buzzing noise</span> near the <span class=\"hl\">electrical cabinet</span>. Check it before lunch.\"",
+    "Max opens the cabinet and inspects the connections. One <span class=\"hl\">wire</span> is <span class=\"hl\">loose</span>, and a <span class=\"hl\">fuse</span> looks black. \"Someone has already opened this door,\" he thinks — the screws are new.",
+    "He <span class=\"hl\">tightens</span> the terminal, replaces the fuse, and tests the circuit with his multimeter. The readings are normal now. No <span class=\"hl\">short circuit</span> today!",
+    "At 11:30, he calls the <span class=\"hl\">supplier</span> to order <span class=\"hl\">spare parts</span> for the next inspection: two fuses, one relay, and five meters of cable. \"Since June, we have changed four fuses on this line,\" he writes in the report. Line 2 is repaired — welcome back, Max!"
+  ],
+  "sections": [
+    {
+      "code": "A1",
+      "name": "A1 Match",
+      "heading": "Match the definition to the word",
+      "icon": "🧩",
+      "color": "c-pink",
+      "theme": "Vocabulaire électricité",
+      "points": 8,
+      "block": true,
+      "wide": true,
+      "instr": "Choose the word that matches each definition.",
+      "pool": [
+        "a supplier",
+        "a fuse",
+        "loose",
+        "to monitor",
+        "a wire",
+        "spare parts",
+        "to tighten",
+        "a short circuit"
+      ],
+      "items": [
+        {
+          "text": "A company that sells parts and materials to your company. ___",
+          "answer": "a supplier"
+        },
+        {
+          "text": "A small safety part that breaks the circuit when the current is too high. ___",
+          "answer": "a fuse"
+        },
+        {
+          "text": "The opposite of tight — not firmly fixed. ___",
+          "answer": "loose"
+        },
+        {
+          "text": "To watch a machine or a system regularly to check that it works. ___",
+          "answer": "to monitor"
+        },
+        {
+          "text": "A thin metal conductor, often covered with plastic. ___",
+          "answer": "a wire"
+        },
+        {
+          "text": "Extra components you keep in stock to replace broken ones. ___",
+          "answer": "spare parts"
+        },
+        {
+          "text": "To turn a screw until it is firmly fixed. ___",
+          "answer": "to tighten"
+        },
+        {
+          "text": "A dangerous contact between two points that should not touch. ___",
+          "answer": "a short circuit"
+        }
+      ]
+    },
+    {
+      "code": "A2",
+      "name": "A2 Gap-fill",
+      "heading": "Complete the sentence",
+      "icon": "🔤",
+      "color": "c-mint",
+      "theme": "Vocabulaire électricité",
+      "points": 8,
+      "wide": true,
+      "instr": "Use the vocabulary from the story.",
+      "pool": [
+        "wires",
+        "short circuit",
+        "supplier",
+        "loose",
+        "monitors",
+        "fuse",
+        "spare parts",
+        "tightens"
+      ],
+      "items": [
+        {
+          "text": "The copper ___ inside this cable are too thin for the motor.",
+          "answer": "wires"
+        },
+        {
+          "text": "The motor stopped because of a ___ between two terminals.",
+          "answer": "short circuit"
+        },
+        {
+          "text": "Our ___ in Germany delivers the parts in 48 hours.",
+          "answer": "supplier"
+        },
+        {
+          "text": "This screw is ___ — tighten it, please.",
+          "answer": "loose"
+        },
+        {
+          "text": "A sensor ___ the temperature of the oven day and night.",
+          "answer": "monitors"
+        },
+        {
+          "text": "The ___ is black — replace it before you restart the machine.",
+          "answer": "fuse"
+        },
+        {
+          "text": "We keep the ___ in the storeroom: relays, fuses, and cables.",
+          "answer": "spare parts"
+        },
+        {
+          "text": "At the end of the job, Max ___ every terminal with his screwdriver.",
+          "answer": "tightens"
+        }
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "B1 Perfect/Past",
+      "heading": "Present perfect or past simple?",
+      "icon": "⏳",
+      "color": "c-sun",
+      "theme": "Present perfect vs prétérit",
+      "points": 8,
+      "instr": "Look at the time words before you choose.",
+      "items": [
+        {
+          "text": "Max ___ the electrical cabinet <span class=\"tw\">an hour ago</span>.",
+          "options": [
+            "opened",
+            "has opened"
+          ],
+          "answer": "opened"
+        },
+        {
+          "text": "<span class=\"tw\">Since June</span>, we ___ four fuses on Line 2.",
+          "options": [
+            "have changed",
+            "changed"
+          ],
+          "answer": "have changed"
+        },
+        {
+          "text": "The contractor ___ the lighting <span class=\"tw\">in July</span>.",
+          "options": [
+            "replaced",
+            "has replaced"
+          ],
+          "answer": "replaced"
+        },
+        {
+          "text": "The operators ___ a buzzing noise <span class=\"tw\">last week</span>.",
+          "options": [
+            "heard",
+            "have heard"
+          ],
+          "answer": "heard"
+        },
+        {
+          "text": "Max ___ his safety training <span class=\"tw\">yet</span>.",
+          "options": [
+            "hasn't finished",
+            "didn't finish"
+          ],
+          "answer": "hasn't finished"
+        },
+        {
+          "text": "Max ___ at this plant <span class=\"tw\">for one year</span>.",
+          "options": [
+            "has worked",
+            "worked"
+          ],
+          "answer": "has worked"
+        },
+        {
+          "text": "We ___ the readings <span class=\"tw\">yesterday</span> at 5 p.m.",
+          "options": [
+            "checked",
+            "have checked"
+          ],
+          "answer": "checked"
+        },
+        {
+          "text": "The supplier ___ the parts <span class=\"tw\">two days ago</span>.",
+          "options": [
+            "delivered",
+            "has delivered"
+          ],
+          "answer": "delivered"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "TR Traduction",
+      "heading": "Choose the correct translation",
+      "icon": "🇫🇷",
+      "color": "c-grape",
+      "theme": "Temps : traduction FR→EN",
+      "points": 8,
+      "block": true,
+      "instr": "One translation is correct. Watch the tense!",
+      "items": [
+        {
+          "text": "« Hier, le moteur s'est arrêté deux fois. » ___",
+          "options": [
+            "Yesterday, the motor stopped twice.",
+            "Yesterday, the motor has stopped twice."
+          ],
+          "answer": "Yesterday, the motor stopped twice."
+        },
+        {
+          "text": "« Nous travaillons ici depuis 2025. » ___",
+          "options": [
+            "We have worked here since 2025.",
+            "We work here since 2025."
+          ],
+          "answer": "We have worked here since 2025."
+        },
+        {
+          "text": "« Il remplace le fusible en ce moment. » ___",
+          "options": [
+            "He is replacing the fuse right now.",
+            "He replaces the fuse right now."
+          ],
+          "answer": "He is replacing the fuse right now."
+        },
+        {
+          "text": "« Le panneau est inspecté chaque mois. » ___",
+          "options": [
+            "The panel is inspected every month.",
+            "The panel inspects every month."
+          ],
+          "answer": "The panel is inspected every month."
+        },
+        {
+          "text": "« Quand je suis arrivé, l'équipe testait la ligne. » ___",
+          "options": [
+            "When I arrived, the team was testing the line.",
+            "When I arrived, the team tested the line."
+          ],
+          "answer": "When I arrived, the team was testing the line."
+        },
+        {
+          "text": "« Est-ce que tu portes des gants isolants ? » ___",
+          "options": [
+            "Do you wear insulated gloves?",
+            "Are you wear insulated gloves?"
+          ],
+          "answer": "Do you wear insulated gloves?"
+        },
+        {
+          "text": "« Le câble a été déconnecté la semaine dernière. » ___",
+          "options": [
+            "The cable was disconnected last week.",
+            "The cable is disconnected last week."
+          ],
+          "answer": "The cable was disconnected last week."
+        },
+        {
+          "text": "« Il travaillait pendant que je vérifiais le schéma. » ___",
+          "options": [
+            "He was working while I was checking the diagram.",
+            "He worked during I checked the diagram."
+          ],
+          "answer": "He was working while I was checking the diagram."
+        }
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "B2 For/To/While/During",
+      "heading": "For, to, while or during?",
+      "icon": "🔀",
+      "color": "c-sky",
+      "theme": "For / To / While / During",
+      "points": 8,
+      "pool": [
+        "for",
+        "to",
+        "while",
+        "during"
+      ],
+      "items": [
+        {
+          "text": "The power went out ___ the storm.",
+          "answer": "during"
+        },
+        {
+          "text": "I need a new multimeter ___ measure the voltage.",
+          "answer": "to"
+        },
+        {
+          "text": "This new drill is ___ my colleague.",
+          "answer": "for"
+        },
+        {
+          "text": "Don't touch the panel ___ the machine is running.",
+          "answer": "while"
+        },
+        {
+          "text": "The conveyor was shut down ___ two hours.",
+          "answer": "for"
+        },
+        {
+          "text": "He came to the workshop ___ repair the conveyor.",
+          "answer": "to"
+        },
+        {
+          "text": "___ the test, we found a loose wire.",
+          "answer": "During"
+        },
+        {
+          "text": "Max took notes ___ the supervisor was explaining the fault.",
+          "answer": "while"
+        }
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "B3 Passive",
+      "heading": "Passive voice — is/are/was/were + participle",
+      "icon": "⚡",
+      "color": "c-sun",
+      "theme": "Voix passive",
+      "points": 8,
+      "instr": "Singular or plural? Present or past?",
+      "items": [
+        {
+          "text": "The wire ___ yesterday.",
+          "options": [
+            "was replaced",
+            "is replaced",
+            "replaced"
+          ],
+          "answer": "was replaced"
+        },
+        {
+          "text": "The panel ___ every month.",
+          "options": [
+            "is inspected",
+            "was inspected",
+            "inspects"
+          ],
+          "answer": "is inspected"
+        },
+        {
+          "text": "The screws ___ this morning — they are firm now.",
+          "options": [
+            "were tightened",
+            "are tightened",
+            "tightened"
+          ],
+          "answer": "were tightened"
+        },
+        {
+          "text": "Safety glasses ___ in the workshop at all times.",
+          "options": [
+            "are required",
+            "is required",
+            "require"
+          ],
+          "answer": "are required"
+        },
+        {
+          "text": "The fault ___ by a loose connection last week.",
+          "options": [
+            "was caused",
+            "is caused",
+            "caused"
+          ],
+          "answer": "was caused"
+        },
+        {
+          "text": "The machines ___ by the night team every evening.",
+          "options": [
+            "are monitored",
+            "is monitored",
+            "monitor"
+          ],
+          "answer": "are monitored"
+        },
+        {
+          "text": "The old cables ___ during the summer.",
+          "options": [
+            "were removed",
+            "was removed",
+            "removed"
+          ],
+          "answer": "were removed"
+        },
+        {
+          "text": "English ___ in many international companies.",
+          "options": [
+            "is spoken",
+            "is speaking",
+            "speaks"
+          ],
+          "answer": "is spoken"
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "industrial electrician": {
+      "fr": "électricien industriel",
+      "en": "a person who installs and repairs electrical systems in factories"
+    },
+    "monitored": {
+      "fr": "surveillé",
+      "en": "watched regularly to check that everything works"
+    },
+    "buzzing noise": {
+      "fr": "bourdonnement",
+      "en": "a continuous low sound, like a bee"
+    },
+    "electrical cabinet": {
+      "fr": "armoire électrique",
+      "en": "a metal box that contains electrical equipment and connections"
+    },
+    "wire": {
+      "fr": "fil (électrique)",
+      "en": "a thin metal conductor that carries electricity"
+    },
+    "loose": {
+      "fr": "desserré",
+      "en": "not firmly fixed — the opposite of tight"
+    },
+    "fuse": {
+      "fr": "fusible",
+      "en": "a small safety part that breaks the circuit when the current is too high"
+    },
+    "tightens": {
+      "fr": "serre",
+      "en": "turns a screw until it is firmly fixed"
+    },
+    "short circuit": {
+      "fr": "court-circuit",
+      "en": "a dangerous contact between two points that should not touch"
+    },
+    "supplier": {
+      "fr": "fournisseur",
+      "en": "a company that sells parts and materials to your company"
+    },
+    "spare parts": {
+      "fr": "pièces de rechange",
+      "en": "extra components you keep in stock to replace broken ones"
+    }
+  }
+}
