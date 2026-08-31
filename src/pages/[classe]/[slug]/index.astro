@@ -40,7 +40,7 @@ const pageData = { ...data, classe: c.classe, slug: c.slug, title: c.title, leve
     <div class="story-top"><span class="badge">📖 The story</span>
       <button class="kbtn" id="karaoke" type="button">🎧 Écouter</button></div>
     <h2>Read me first!</h2>
-    <div id="story">
+    <div id="story" translate="no">
       {c.story.map((p) => (p.trim().startsWith('<p') ? <Fragment set:html={p} /> : <p set:html={p} />))}
     </div>
   </div>}
@@ -50,7 +50,7 @@ const pageData = { ...data, classe: c.classe, slug: c.slug, title: c.title, leve
     <div class={`card ex pop-in ${sec.color}`} data-sec={sec.name}>
       <div class="chead"><span class="ico">{sec.icon}</span><h3>{sec.heading ?? sec.name}</h3><span class="pts">{sec.points ?? sec.items.length} pts</span></div>
       {sec.instr && <p class="instr">{sec.instr}</p>}
-      <ol class={sec.block ? 'q vmatch' : 'q'}>
+      <ol class={sec.block ? 'q vmatch' : 'q'} translate="no">
         {sec.items.map((_, i) => <li set:html={itemHtml(sec, i)} />)}
       </ol>
       <div class="modfoot"><button type="button" class="btn-val" data-act="validate" data-sec={sec.name}>✓ Validate</button><span class="modmsg"></span></div>

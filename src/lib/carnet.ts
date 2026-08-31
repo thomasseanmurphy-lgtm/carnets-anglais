@@ -44,10 +44,14 @@ export function inlineJson(v: unknown): string {
   return JSON.stringify(v).replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 }
 
-/** HTML d'un menu déroulant d'item (option vide en tête, puis les options dans l'ordre de la fiche ; le moteur mélange au chargement) */
+/** HTML d'un menu déroulant d'item (option vide en tête, puis les options dans l'ordre de la fiche ; le moteur mélange au chargement)
+    `value` explicite + `translate="no"` : sans eux, la traduction automatique du navigateur (Chrome propose
+    systématiquement de traduire une page en anglais) réécrit le texte des options — et comme `option.value`
+    retombe sur le texte quand l'attribut manque, le moteur comparait du français à une réponse anglaise
+    et comptait TOUTES les réponses fausses. */
 export function selectHtml(id: string, options: string[], wide: boolean): string {
-  const opts = '<option value=""></option>' + options.map((o) => `<option>${esc(o)}</option>`).join('');
-  return `<select${wide ? ' class="wide"' : ''} id="${id}">${opts}</select>`;
+  const opts = '<option value=""></option>' + options.map((o) => `<option value="${esc(o)}">${esc(o)}</option>`).join('');
+  return `<select${wide ? ' class="wide"' : ''} id="${id}" translate="no">${opts}</select>`;
 }
 
 /** HTML d'une ligne d'item : le texte (HTML autorisé) avec ___ remplacé par le menu */

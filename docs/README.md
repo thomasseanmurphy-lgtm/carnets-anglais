@@ -14,6 +14,7 @@ et recalcule les résultats).
 | **Remonter la plateforme de zéro** | [`reproduction.md`](reproduction.md) |
 | Comprendre **comment ça marche** | [`architecture.md`](architecture.md) |
 | **L'exploiter au quotidien** (rosters, export, mises à jour) | [`exploitation.md`](exploitation.md) |
+| **Construire et déployer sans rien casser** | [`build.md`](build.md) |
 
 ## Référence par sujet
 | Fichier | Contenu |
@@ -21,6 +22,7 @@ et recalcule les résultats).
 | [`architecture.md`](architecture.md) | Les deux mondes, le flux d'un résultat, le code `GTEST1`, l'identité `normId`, le modèle KV, les endpoints, la config, les coûts. |
 | [`reproduction.md`](reproduction.md) | Étapes pour reconstruire site + serveur ; dépendances externes. |
 | [`exploitation.md`](exploitation.md) | Runbook : consulter, exporter, réinitialiser, faire vivre les rosters, mises à jour à chaud, problème connu. |
+| [`build.md`](build.md) | **Le contrat de build** : les invariants qui protègent la note de l'élève et les stats du prof (gate GTEST1, ids d'items, résistance à la traduction auto), et la checklist avant déploiement. |
 | [`refonte-astro.md`](refonte-astro.md) | **La refonte Astro** (branche `refonte-astro`) : architecture, gate GTEST1, bascule, décisions. |
 | [`anatomie-carnet.md`](anatomie-carnet.md) | Comment un carnet est fabriqué : structure, fiche `_specs/*.json`, générateur `worksheet-b1`. |
 | [`plateforme-web.md`](plateforme-web.md) | Le front : `index.html` (hub) et `assets/platform.js` (le « tuyau »). |
