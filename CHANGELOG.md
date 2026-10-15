@@ -15,6 +15,9 @@ Le fonctionnement **actuel** est décrit dans [`docs/`](docs/) ; les idées **fu
   (`localStorage: carnet_sound_off`, même clé que `platform.js`) — avant, la case « Son » était
   décochée à chaque ouverture et rien ne jouait. Sons ajoutés sur les onglets (`page`), les boutons
   du bandeau (`press`) et le survol souris (`whisper`).
+  Menus de réponse : `press` à l'ouverture, puis `toggle` / `toggle2` alternés (juste) ou `error` (faux),
+  comme les pastilles de l'ancienne démo. Le contexte audio est débloqué au premier geste réel
+  (tap / clic / touche) : sur iPhone/iPad un `change` de `<select>` n'en est pas un, le son restait muet.
 - **Karaoké pilotable au tap** : pendant la lecture, toucher un mot **met en pause** ; toucher un
   mot (le même ou un autre) **reprend** la voix à ce mot (recul / avance). Bouton Pause / Reprendre,
   bouton ⏹ pour arrêter ; le dictionnaire au tap reste actif hors lecture.

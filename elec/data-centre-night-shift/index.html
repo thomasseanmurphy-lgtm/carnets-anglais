@@ -571,8 +571,13 @@
     function shimmerTail(sm){if(!sm||sm.feedback<=0)return 0;if(sm.feedback>=1)return sm.delay;return sm.delay*(1+Math.ceil(Math.log(INAUDIBLE)/Math.log(sm.feedback)));}
     function renderRecipe(c,r){var now=c.currentTime;var master=c.createGain();master.gain.value=r.masterGain;master.connect(c.destination);var sh=r.shimmer?attachShimmer(c,master,c.destination,r.shimmer):[];for(var i=0;i<r.layers.length;i++){var l=r.layers[i],t0=now+(l.offset||0);if(l.kind==="tone")renderTone(c,master,l,t0);else renderNoise(c,master,l,t0);}var ms=(sourceEnd(r)+shimmerTail(r.shimmer)+CLEANUP_MARGIN)*1000;setTimeout(function(){master.disconnect();for(var j=0;j<sh.length;j++)sh[j].disconnect();},ms);}
     function getCtx(){if(ctx)return ctx;var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;try{ctx=new C();}catch(e){return null;}return ctx;}
-    function play(name){name=name||"chime";if(!enabled||!RECIPES.hasOwnProperty(name))return;var c=getCtx();if(!c)return;var r=RECIPES[name];if(c.state==="running"){renderRecipe(c,r);return;}try{c.resume().then(function(){if(enabled&&c.state==="running")renderRecipe(c,r);},function(){});}catch(e){}}
+    function play(name){name=name||"chime";if(!enabled||!RECIPES.hasOwnProperty(name))return;var c=getCtx();if(!c)return;var r=RECIPES[name];if(c.state==="running"){renderRecipe(c,r);return;}
+      var t=Date.now();try{c.resume().then(function(){if(enabled&&c.state==="running"&&Date.now()-t<400)renderRecipe(c,r);},function(){});}catch(e){}}   // pas de rafale différée
     window.CarnetSound={play:play,setEnabled:function(v){if(typeof v==="boolean")enabled=v;},sounds:Object.keys(RECIPES)};
+    // Déblocage de l'audio dans un VRAI geste (iOS/Safari : un « change » de <select> n'en est pas un) — crée/réveille le contexte au premier tap, clic ou touche.
+    ['pointerdown','touchend','keydown'].forEach(function(ev){document.addEventListener(ev,function(){var c=getCtx();if(c&&c.state!=='running'){try{c.resume();}catch(e){}}},{passive:true,capture:true});});
+    // Menus de réponse : « press » à l'ouverture (le choix joue ensuite toggle / toggle2 / error dans le moteur)
+    document.addEventListener('pointerdown',function(e){var s=e.target.closest&&e.target.closest('select.sel');if(s&&!s.disabled)snd('press');},{passive:true,capture:true});
   })();
   function snd(name){if(document.getElementById('sound').checked)window.CarnetSound.play(name);}
 
