@@ -8,6 +8,18 @@ Le fonctionnement **actuel** est décrit dans [`docs/`](docs/) ; les idées **fu
 
 ---
 
+## 2026-10
+
+### Format démo (carnets ELEC 1 CL1 générés depuis `_rebuild/mockup.html`)
+- **Sons de navigation** : le son est **activé par défaut** et le choix est **mémorisé**
+  (`localStorage: carnet_sound_off`, même clé que `platform.js`) — avant, la case « Son » était
+  décochée à chaque ouverture et rien ne jouait. Sons ajoutés sur les onglets (`page`), les boutons
+  du bandeau (`press`) et le survol souris (`whisper`).
+- **Karaoké pilotable au tap** : pendant la lecture, toucher un mot **met en pause** ; toucher un
+  mot (le même ou un autre) **reprend** la voix à ce mot (recul / avance). Bouton Pause / Reprendre,
+  bouton ⏹ pour arrêter ; le dictionnaire au tap reste actif hors lecture.
+  Carnet republié : `elec/data-centre-night-shift`.
+
 ## 2026-07
 
 ### Sons & menu « maison » *(voir [`docs/sons.md`](docs/sons.md))*

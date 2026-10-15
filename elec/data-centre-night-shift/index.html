@@ -89,12 +89,16 @@
   .story-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
   .kbtn{margin-left:auto;font-family:'Baloo 2';font-weight:800;font-size:13px;border:none;border-radius:999px;padding:8px 15px;cursor:pointer;background:var(--accent);color:#fff;transition:.15s;}
   .kbtn:hover{transform:translateY(-1px);} .kbtn.on{background:var(--bad);}
+  .kbtn.kstop{margin-left:0;background:var(--muted);padding:8px 12px;}
+  .khint{flex-basis:100%;text-align:right;font-size:12px;color:var(--muted);margin-top:-4px;}
   .card h2{font-size:20px;margin:6px 0 8px;color:var(--ink);}
   #story p{font-size:17px;line-height:1.85;margin-bottom:10px;}
   .hl{background:linear-gradient(180deg,transparent 55%,var(--sun) 55%);opacity:.9;border-radius:2px;padding:0 2px;font-weight:700;}
   .w{transition:background .12s,color .12s;border-radius:6px;padding:0 1px;cursor:pointer;}
   .w:hover{background:rgba(127,127,127,.16);}
   .w.reading{background:var(--accent);color:#fff;padding:2px 4px;}
+  .w.reading.paused{background:transparent;color:inherit;outline:2px dashed var(--accent);outline-offset:1px;}
+  #story.k-on .w:hover{background:rgba(0,0,0,.08);}
   /* bulle de définition */
   .wordpop{position:fixed;z-index:95;width:280px;max-width:calc(100vw - 24px);background:var(--card-solid);border:1px solid var(--line);border-radius:18px;box-shadow:0 22px 55px rgba(30,40,60,.32);padding:14px 16px;display:none;animation:popIn .2s ease both;}
   .wordpop.show{display:block;}
@@ -278,7 +282,8 @@
     <div class="hero" id="hero"><span class="lvl">BTS ELEC 1 CL1 · RÉVISION DES BASES · A2 → B1</span><h1>The Night Shift at the Data Centre</h1><span class="em">🌙</span></div>
 
     <div class="card pop-in">
-      <div class="story-top"><span class="badge">📖 The story</span><button class="kbtn" id="karaoke">🎧 Écouter</button></div>
+      <div class="story-top"><span class="badge">📖 The story</span><button class="kbtn" id="karaoke">🎧 Écouter</button><button class="kbtn kstop" id="kstop" title="Arrêter la lecture" style="display:none">⏹</button>
+        <span class="khint" id="khint" style="display:none">Touche un mot : pause · reprise · saut</span></div>
       <h2>Listen first!</h2>
       <div id="story">
         <p>My name is Peter, and I am the night-shift team leader at a data centre near London. Our building never sleeps: <span class="hl">there are</span> 4,000 servers inside, and they need power every second of the day. The site <span class="hl">is fed by</span> two separate power lines, and <span class="hl">there is</span> a diesel generator behind the building for emergencies. The UPS batteries <span class="hl">protect</span> the servers against short cuts. Every evening, we check the generator, and the batteries <span class="hl">are tested</span> once a week.</p>
@@ -464,11 +469,12 @@
   var POPS=['avatarPop','settingsPop','skinPop'];
   function closePops(){POPS.forEach(function(id){document.getElementById(id).classList.remove('show');});}
   function togglePop(id){var p=document.getElementById(id),open=p.classList.contains('show');closePops();if(!open)p.classList.add('show');}
-  document.getElementById('avatarBtn').onclick=function(e){e.stopPropagation();togglePop('avatarPop');};
-  document.getElementById('skinBtn').onclick=function(e){e.stopPropagation();togglePop('skinPop');};
-  document.getElementById('gearBtn').onclick=function(e){e.stopPropagation();togglePop('settingsPop');};
+  document.getElementById('avatarBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('avatarPop');};
+  document.getElementById('skinBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('skinPop');};
+  document.getElementById('gearBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('settingsPop');};
   document.addEventListener('click',function(e){if(!POPS.some(function(id){return document.getElementById(id).contains(e.target);}))closePops();});
-  document.getElementById('sound').addEventListener('change',function(){window.CarnetSound.setEnabled(this.checked);if(this.checked)snd('chime');});
+  (function(){var sb=document.getElementById('sound'),off=false;try{off=localStorage.getItem('carnet_sound_off')==='1';}catch(e){}sb.checked=!off;   // son activé par défaut, choix mémorisé
+    sb.addEventListener('change',function(){try{localStorage.setItem('carnet_sound_off',this.checked?'0':'1');}catch(e){}window.CarnetSound.setEnabled(this.checked);if(this.checked)snd('chime');});})();
   (function(){var fr=document.getElementById('frToggle');fr.checked=localStorage.getItem('fr_on')==='1';
     fr.addEventListener('change',function(){localStorage.setItem('fr_on',this.checked?'1':'0');});})();
 
@@ -477,7 +483,9 @@
   document.querySelectorAll('.nav button').forEach(function(b){b.addEventListener('click',function(){
     document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
     document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on');});
-    var v=document.getElementById('view-'+b.dataset.view);v.classList.add('on');cascade(v);window.scrollTo({top:0,behavior:'smooth'});});});
+    var v=document.getElementById('view-'+b.dataset.view);v.classList.add('on');cascade(v);window.scrollTo({top:0,behavior:'smooth'});snd('page');});});
+  (function(){var SEL='.nav button,.kbtn,.cbtn,.gear,.who,.bk';if(!matchMedia('(hover:hover)').matches)return;   // survol = souris, jamais au doigt
+    document.addEventListener('mouseover',function(e){var t=e.target.closest&&e.target.closest(SEL);if(!t)return;var f=e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest(SEL);if(f===t)return;snd('whisper');});})();
 
   /* ---------- timer ---------- */
   var s=0;function tick(){s++;var m=String(Math.floor(s/60)).padStart(2,'0'),ss=String(s%60).padStart(2,'0');
@@ -523,7 +531,7 @@
   })();
   function snd(name){if(document.getElementById('sound').checked)window.CarnetSound.play(name);}
 
-  /* ---------- KARAOKÉ (démo: voix navigateur + pastille par mot ; voix ElevenLabs ensuite) ---------- */
+  /* ---------- KARAOKÉ (voix + pastille par mot ; un tap sur un mot = pause, reprise ou saut) ---------- */
   function wrapWords(root){(function walk(node){Array.prototype.slice.call(node.childNodes).forEach(function(n){
     if(n.nodeType===3){var parts=n.textContent.split(/(\s+)/),frag=document.createDocumentFragment();
       parts.forEach(function(p){if(p===''){return;}if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(p));}
@@ -531,32 +539,48 @@
       n.parentNode.replaceChild(frag,n);}
     else if(n.nodeType===1&&!n.classList.contains('w')){walk(n);}});})(root);}
   wrapWords(document.getElementById('story'));
-  var synth=window.speechSynthesis,words=[],kTimer=null,kAudio=null,AUDIO_ID='recycling';
-  function clearReading(){words.forEach(function(w){w.classList.remove('reading');});}
-  function hl(i){clearReading();if(words[i]){words[i].classList.add('reading');words[i].scrollIntoView({block:'center',behavior:'smooth'});}}
-  function stopK(){if(synth)synth.cancel();if(kTimer){clearInterval(kTimer);kTimer=null;}if(kAudio){kAudio.pause();kAudio=null;}clearReading();var b=document.getElementById('karaoke');b.classList.remove('on');b.innerHTML='🎧 Écouter';mascotListen(false);}
+  var synth=window.speechSynthesis,words=[],kTimer=null,kAudio=null,kUtt=null,AUDIO_ID='recycling';
+  var kState='off',kIdx=0,kT=null;   // off | playing | paused · mot courant · timings de la voix
+  // source audio : fichiers à côté de la page (les builders remplacent cette fonction par les données incluses)
+  function kLoad(){return Promise.resolve({T:KWORDS,src:KAUDIO_SRC});}
+  function clearReading(){words.forEach(function(w){w.classList.remove('reading','paused');});}
+  function hl(i,scroll){clearReading();kIdx=i;var w=words[i];if(!w)return;w.classList.add('reading');if(kState==='paused')w.classList.add('paused');
+    if(scroll!==false)w.scrollIntoView({block:'center',behavior:'smooth'});}
+  function kUI(){var b=document.getElementById('karaoke'),st=document.getElementById('kstop'),h=document.getElementById('khint');
+    b.classList.toggle('on',kState==='playing');b.innerHTML=kState==='playing'?'⏸ Pause':kState==='paused'?'▶ Reprendre':'🎧 Écouter';
+    if(st)st.style.display=kState==='off'?'none':'';if(h)h.style.display=kState==='off'?'none':'';
+    document.getElementById('story').classList.toggle('k-on',kState!=='off');mascotListen(kState==='playing');}
+  function kKill(){if(kTimer){clearInterval(kTimer);kTimer=null;}kUtt=null;if(synth)synth.cancel();}
+  function stopK(){kState='off';kKill();if(kAudio){kAudio.pause();kAudio=null;}kT=null;kIdx=0;clearReading();kUI();}
+  function pauseK(){if(kState!=='playing')return;kState='paused';kKill();if(kAudio)kAudio.pause();hl(kIdx,false);kUI();}
+  function playFrom(i){   // (re)lance la lecture au mot i (reprise = mot courant ; saut = autre mot)
+    if(kState==='off'||!words.length)return;i=Math.max(0,Math.min(i,words.length-1));kState='playing';kKill();hl(i);kUI();
+    if(kAudio&&kT){kAudio.currentTime=kT[i].start;kAudio.play().catch(function(){kAudio=null;kT=null;if(kState==='playing')startTTS(i);});}
+    else startTTS(i);}
   function startK(){
     words=Array.prototype.slice.call(document.querySelectorAll('#story .w'));if(!words.length)return;
-    var b=document.getElementById('karaoke');b.classList.add('on');b.innerHTML='⏸ Stop';mascotListen(true);
-    // 1) vraie voix ElevenLabs (audio + timings générés par build-audio.mjs)
-    (function(){var T=KWORDS;
-      kAudio=new Audio(KAUDIO_SRC);hl(0);
-      kAudio.ontimeupdate=function(){if(!kAudio)return;var t=kAudio.currentTime,idx=-1;for(var i=0;i<T.length&&i<words.length;i++){if(t>=T[i].start)idx=i;else break;}if(idx>=0)hl(idx);};
-      kAudio.onended=stopK;kAudio.play().catch(function(){kAudio=null;startTTS();});
-    })(); // 2) repli : voix du navigateur (démo)
+    kState='playing';hl(0);kUI();
+    // 1) vraie voix (audio + timings générés par build-audio.mjs)
+    kLoad().then(function(d){if(kState==='off')return;kT=d.T;kAudio=new Audio(d.src);
+      kAudio.ontimeupdate=function(){if(!kAudio||kState!=='playing')return;var t=kAudio.currentTime,idx=-1;for(var i=0;i<kT.length&&i<words.length;i++){if(t>=kT[i].start)idx=i;else break;}if(idx>=0&&idx!==kIdx)hl(idx);};
+      kAudio.onended=stopK;if(kState==='playing')kAudio.play().catch(function(){kAudio=null;kT=null;if(kState==='playing')startTTS(0);});
+    }).catch(function(){if(kState==='playing')startTTS(0);}); // 2) repli : voix du navigateur
   }
-  function startTTS(){
-    if(!synth){var i=0;hl(0);kTimer=setInterval(function(){i++;if(i>=words.length){stopK();return;}hl(i);},320);return;}
-    var text=words.map(function(w){return w.textContent;}).join(' ');
-    var offs=[],pos=0;words.forEach(function(w){offs.push([pos,pos+w.textContent.length]);pos+=w.textContent.length+1;});
+  function startTTS(from){   // repli voix du navigateur, à partir du mot « from »
+    from=from||0;var ws=words.slice(from);
+    function metronome(rate){var i=from;kTimer=setInterval(function(){i++;if(i>=words.length){stopK();return;}hl(i);},Math.round(60000/(150*rate)));}
+    if(!synth){hl(from);metronome(1.25);return;}
+    var text=ws.map(function(w){return w.textContent;}).join(' ');
+    var offs=[],pos=0;ws.forEach(function(w){offs.push([pos,pos+w.textContent.length]);pos+=w.textContent.length+1;});
     var u=new SpeechSynthesisUtterance(text);u.lang='en-GB';u.rate=.9;
     var vs=synth.getVoices(),en=vs.filter(function(v){return /^en/i.test(v.lang);});if(en.length)u.voice=en[0];
-    var fired=false;hl(0);
-    u.onboundary=function(e){if(e.name&&e.name!=='word')return;fired=true;var ci=e.charIndex||0;for(var k=0;k<offs.length;k++){if(ci<offs[k][1]){hl(k);break;}}};
-    u.onend=function(){stopK();};synth.cancel();synth.speak(u);
-    setTimeout(function(){if(!fired){var i=0;kTimer=setInterval(function(){i++;if(i>=words.length){stopK();return;}hl(i);},Math.round(60000/(150*u.rate)));}},700);
+    var fired=false;hl(from);kUtt=u;
+    u.onboundary=function(e){if(kUtt!==u||kState!=='playing')return;if(e.name&&e.name!=='word')return;fired=true;var ci=e.charIndex||0;for(var k=0;k<offs.length;k++){if(ci<offs[k][1]){hl(from+k);break;}}};
+    u.onend=function(){if(kUtt===u)stopK();};synth.cancel();synth.speak(u);
+    setTimeout(function(){if(!fired&&kUtt===u&&kState==='playing')metronome(u.rate);},700);
   }
-  document.getElementById('karaoke').onclick=function(){if((synth&&synth.speaking)||kTimer||kAudio){stopK();}else{snd('press');startK();}};
+  document.getElementById('karaoke').onclick=function(){if(kState==='playing'){snd('tick');pauseK();}else if(kState==='paused'){snd('press');playFrom(kIdx);}else{snd('press');startK();}};
+  (function(){var st=document.getElementById('kstop');if(st)st.onclick=function(){snd('page');stopK();};})();
 
   /* ---------- DICTIONNAIRE AU TAP (bilingue FR + EN) + Mon vocabulaire ---------- */
   var GLOSSARY={"night-shift": {"fr": "de nuit (équipe)", "en": "the team that works during the night"}, "shift": {"fr": "un poste, une équipe", "en": "a period of work"}, "leader": {"fr": "chef", "en": "the person in charge of a team"}, "data": {"fr": "données", "en": "information stored on computers"}, "centre": {"fr": "un centre", "en": "a building for a particular activity"}, "servers": {"fr": "serveurs", "en": "powerful computers that store data"}, "power": {"fr": "l'électricité, la puissance", "en": "electricity"}, "fed": {"fr": "alimenté (feed → fed)", "en": "supplied with electricity"}, "separate": {"fr": "séparé, distinct", "en": "not connected"}, "lines": {"fr": "lignes", "en": "cables that carry electricity"}, "diesel": {"fr": "diesel, gazole", "en": "a fuel for engines"}, "generator": {"fr": "un groupe électrogène", "en": "a machine that produces electricity"}, "emergencies": {"fr": "urgences", "en": "serious, unexpected situations"}, "UPS": {"fr": "un onduleur", "en": "uninterruptible power supply: batteries that keep servers on"}, "batteries": {"fr": "batteries", "en": "devices that store electricity"}, "protect": {"fr": "protéger", "en": "keep safe"}, "cuts": {"fr": "coupures", "en": "moments when the power stops"}, "check": {"fr": "vérifier", "en": "look at something to see if it is OK"}, "tested": {"fr": "testé", "en": "checked to see if it works"}, "alarm": {"fr": "une alarme", "en": "a signal that warns of danger"}, "went": {"fr": "est parti (go → went)", "en": "past of go"}, "failed": {"fr": "est tombé en panne", "en": "stopped working"}, "apprentice": {"fr": "un apprenti", "en": "a person learning a job"}, "control": {"fr": "contrôle, commande", "en": "the place where machines are managed"}, "grid": {"fr": "le réseau électrique", "en": "the network that carries electricity"}, "operator": {"fr": "l'exploitant, le gestionnaire", "en": "the company that runs the grid"}, "repaired": {"fr": "ont réparé", "en": "fixed"}, "normal": {"fr": "normal", "en": "as usual"}, "units": {"fr": "unités, appareils", "en": "single machines"}, "quieter": {"fr": "plus silencieux", "en": "making less noise"}, "efficient": {"fr": "efficace, performant", "en": "working well without wasting energy"}, "expensive": {"fr": "cher", "en": "costing a lot of money"}, "fuel": {"fr": "le carburant", "en": "diesel, petrol, gas"}, "litres": {"fr": "litres", "en": "units of volume"}, "tank": {"fr": "un réservoir", "en": "a container for liquid"}, "enough": {"fr": "assez", "en": "as much as needed"}, "logbook": {"fr": "le journal de bord", "en": "a book where you write what happened"}, "safety": {"fr": "la sécurité", "en": "being safe"}, "rules": {"fr": "les règles", "en": "what you must do"}, "badge": {"fr": "un badge", "en": "a card that opens doors"}, "keep": {"fr": "garder", "en": "not lose, hold"}, "yours": {"fr": "à toi, le tien", "en": "belonging to you"}, "inside": {"fr": "à l'intérieur", "en": "in the building"}, "behind": {"fr": "derrière", "en": "at the back of"}};
@@ -607,7 +631,9 @@
       addVocab(word,fr,def);render('',pos,fr,def,ex,'');});
   }
   document.getElementById('story').addEventListener('click',function(e){
-    var w=e.target.closest('.w');if(!w)return;e.stopPropagation();var word=cleanWord(w.textContent);if(word)showWordPop(w,word);});
+    var w=e.target.closest('.w');if(!w)return;e.stopPropagation();
+    if(kState!=='off'){var i=words.indexOf(w);if(kState==='playing'){snd('tick');pauseK();}else{snd('press');playFrom(i>=0?i:kIdx);}return;}   // lecture en cours : pause / reprise / saut
+    var word=cleanWord(w.textContent);if(word)showWordPop(w,word);});
   document.addEventListener('click',function(e){var pop=document.getElementById('wordpop');
     if(pop.classList.contains('show')&&!pop.contains(e.target)&&!(e.target.closest&&e.target.closest('#story .w')))pop.classList.remove('show');});
   renderVocab();
