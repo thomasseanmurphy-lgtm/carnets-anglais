@@ -213,16 +213,13 @@
   @media(max-width:640px){.mascot{right:10px;bottom:62px;}.mbody{font-size:46px;}.mshadow{width:36px;}.mbubble{font-size:13px;bottom:22px;}}
   #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90;}
 
-  /* ---- mobile : bandeau compact ; avatar flottant (bas droite) → bulle Avatar / Fond / Réglages, rangée en bas à gauche ---- */
-  .mfab,.msheet{display:none;}
+  /* ---- mobile : bandeau compact ; l'avatar du footer (bas gauche) ouvre la bulle Avatar / Fond / Réglages ---- */
+  .msheet{display:none;}
   @media(max-width:640px){
     .topbar{gap:6px;padding:0 10px;overflow-x:auto;scrollbar-width:none;} .topbar::-webkit-scrollbar{display:none;}
     .topbar .timer,.topbar .who,.topbar .gear{display:none;}
     .nav{gap:0;margin-left:0;} .nav button{font-size:12px;padding:6px 8px;}
-    .mfab{display:flex;align-items:center;gap:2px;position:fixed;right:10px;bottom:66px;z-index:46;border:none;background:var(--card-solid);border-radius:999px;padding:3px 8px 3px 3px;box-shadow:0 8px 24px rgba(30,40,60,.25);cursor:pointer;-webkit-tap-highlight-color:transparent;}
-    .mfab .avatar{width:38px;height:38px;min-width:38px;} .mfab-dot{font-size:12px;color:var(--muted);font-weight:800;}
-    .mascot{right:74px;}
-    .msheet{position:fixed;left:10px;right:10px;bottom:64px;z-index:70;max-height:min(72vh,560px);display:flex;flex-direction:column;background:var(--card-solid);border:2px solid var(--accent);border-radius:22px;box-shadow:0 22px 60px rgba(30,40,60,.35);padding:12px;transform-origin:100% 100%;transform:scale(.2);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s;}
+    .msheet{position:fixed;left:10px;right:10px;bottom:64px;z-index:70;max-height:min(72vh,560px);display:flex;flex-direction:column;background:var(--card-solid);border:2px solid var(--accent);border-radius:22px;box-shadow:0 22px 60px rgba(30,40,60,.35);padding:12px;transform-origin:0 100%;transform:translate(-30px,30px) scale(.2);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s;}
     .msheet.show{transform:none;opacity:1;pointer-events:auto;}
     .msheet.hide{transform-origin:0 100%;transform:translate(-30px,30px) scale(.08);opacity:0;}
     .msheet-tabs{display:flex;gap:4px;margin-bottom:8px;}
@@ -298,8 +295,7 @@
     <label class="setrow"><span>🐿️ Mascotte <small>(elle t'encourage)</small></span><input type="checkbox" id="mascotToggle" checked></label>
   </div>
   <div class="wordpop" id="wordpop"></div>
-  <!-- MOBILE : avatar flottant + bulle de choix (les trois popovers y sont déplacés à l'ouverture) -->
-  <button class="mfab" id="mfab" aria-label="Avatar, fond et réglages"><span class="avatar" data-ava></span><span class="mfab-dot">▾</span></button>
+  <!-- MOBILE : bulle de choix ouverte depuis l'avatar du footer (les trois popovers y sont déplacés à l'ouverture) -->
   <div class="msheet" id="msheet" role="dialog" aria-label="Tes choix">
     <div class="msheet-tabs"><button data-pop="avatarPop">👤 Avatar</button><button data-pop="skinPop">🎨 Fond</button><button data-pop="settingsPop">⚙️ Réglages</button></div>
     <div class="msheet-body"></div>
@@ -508,12 +504,11 @@
   function togglePop(id){var p=document.getElementById(id),open=p.classList.contains('show');
     if(isMobile()&&sheetEl()){if(open)closePops();else openSheet(id);return;}   // téléphone : tout passe par la bulle
     closePops();if(!open)p.classList.add('show');}
-  (function(){var fab=document.getElementById('mfab'),sh=sheetEl();if(!fab||!sh)return;
-    fab.onclick=function(e){e.stopPropagation();snd('press');if(sh.classList.contains('show'))closePops();else openSheet('avatarPop');};
+  (function(){var sh=sheetEl();if(!sh)return;
     sh.addEventListener('click',function(e){e.stopPropagation();});
     sh.querySelectorAll('.msheet-tabs button').forEach(function(b){b.onclick=function(){snd('tick');openSheet(b.dataset.pop);};});
     document.getElementById('msheetOk').onclick=function(){snd('toggle');closePops();};
-    var sa=document.querySelector('.statusbar .s');if(sa)sa.addEventListener('click',function(e){if(!isMobile())return;e.stopPropagation();snd('press');openSheet('avatarPop');});})();
+    var sa=document.querySelector('.statusbar .s');if(sa)sa.addEventListener('click',function(e){if(!isMobile())return;e.stopPropagation();snd('press');if(sh.classList.contains('show'))closePops();else openSheet('avatarPop');});})();
   document.getElementById('avatarBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('avatarPop');};
   document.getElementById('skinBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('skinPop');};
   document.getElementById('gearBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('settingsPop');};
