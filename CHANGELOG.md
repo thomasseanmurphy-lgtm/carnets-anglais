@@ -18,9 +18,10 @@ Le fonctionnement **actuel** est décrit dans [`docs/`](docs/) ; les idées **fu
   Menus de réponse : `press` à l'ouverture, puis `toggle` / `toggle2` alternés (juste) ou `error` (faux),
   comme les pastilles de l'ancienne démo. Le contexte audio est débloqué au premier geste réel
   (tap / clic / touche) : sur iPhone/iPad un `change` de `<select>` n'en est pas un, le son restait muet.
-- **Karaoké pilotable au tap** : pendant la lecture, toucher un mot **met en pause** ; toucher un
-  mot (le même ou un autre) **reprend** la voix à ce mot (recul / avance). Bouton Pause / Reprendre,
-  bouton ⏹ pour arrêter ; le dictionnaire au tap reste actif hors lecture.
+- **Karaoké pilotable au tap** : pendant la lecture, toucher un mot **arrête la voix sur ce mot** et
+  ouvre un petit menu **▶ Lire d'ici · 🇫🇷 Traduire** (reprise, recul / avance, ou dictionnaire du mot
+  sans conflit avec la lecture). Bouton Pause / Reprendre, bouton ⏹ pour arrêter ; hors lecture, un
+  tap ouvre directement le dictionnaire.
 - **Téléphone** : le bandeau est compact (onglets seuls) ; l'avatar du footer **en bas à gauche** ouvre
   une **bulle** à trois onglets (Avatar · Fond · Réglages) qui se range au même endroit à la fermeture.
   Avant, les menus débordaient hors écran.

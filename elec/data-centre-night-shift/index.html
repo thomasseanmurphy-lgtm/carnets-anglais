@@ -91,6 +91,10 @@
   .kbtn:hover{transform:translateY(-1px);} .kbtn.on{background:var(--bad);}
   .kbtn.kstop{margin-left:0;background:var(--muted);padding:8px 12px;}
   .khint{flex-basis:100%;text-align:right;font-size:12px;color:var(--muted);margin-top:-4px;}
+  .kmenu{position:fixed;z-index:65;display:none;gap:6px;background:var(--card-solid);border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:0 10px 30px rgba(30,40,60,.25);animation:popIn .2s ease both;}
+  .kmenu.show{display:flex;}
+  .kmenu button{font-family:'Baloo 2';font-weight:800;font-size:13px;border:none;border-radius:999px;padding:7px 12px;cursor:pointer;background:var(--accent);color:#fff;white-space:nowrap;}
+  .kmenu .km-tr{background:var(--card-solid);color:var(--ink);border:1px solid var(--line);}
   .card h2{font-size:20px;margin:6px 0 8px;color:var(--ink);}
   #story p{font-size:17px;line-height:1.85;margin-bottom:10px;}
   .hl{background:linear-gradient(180deg,transparent 55%,var(--sun) 55%);opacity:.9;border-radius:2px;padding:0 2px;font-weight:700;}
@@ -295,6 +299,7 @@
     <label class="setrow"><span>🐿️ Mascotte <small>(elle t'encourage)</small></span><input type="checkbox" id="mascotToggle" checked></label>
   </div>
   <div class="wordpop" id="wordpop"></div>
+  <div class="kmenu" id="kmenu"><button class="km-play">▶ Lire d'ici</button><button class="km-tr">🇫🇷 Traduire</button></div>
   <!-- MOBILE : bulle de choix ouverte depuis l'avatar du footer (les trois popovers y sont déplacés à l'ouverture) -->
   <div class="msheet" id="msheet" role="dialog" aria-label="Tes choix">
     <div class="msheet-tabs"><button data-pop="avatarPop">👤 Avatar</button><button data-pop="skinPop">🎨 Fond</button><button data-pop="settingsPop">⚙️ Réglages</button></div>
@@ -308,7 +313,7 @@
 
     <div class="card pop-in">
       <div class="story-top"><span class="badge">📖 The story</span><button class="kbtn" id="karaoke">🎧 Écouter</button><button class="kbtn kstop" id="kstop" title="Arrêter la lecture" style="display:none">⏹</button>
-        <span class="khint" id="khint" style="display:none">Touche un mot : pause · reprise · saut</span></div>
+        <span class="khint" id="khint" style="display:none">Touche un mot : la voix s'arrête, puis ▶ Lire d'ici ou 🇫🇷 Traduire</span></div>
       <h2>Listen first!</h2>
       <div id="story">
         <p>My name is Peter, and I am the night-shift team leader at a data centre near London. Our building never sleeps: <span class="hl">there are</span> 4,000 servers inside, and they need power every second of the day. The site <span class="hl">is fed by</span> two separate power lines, and <span class="hl">there is</span> a diesel generator behind the building for emergencies. The UPS batteries <span class="hl">protect</span> the servers against short cuts. Every evening, we check the generator, and the batteries <span class="hl">are tested</span> once a week.</p>
@@ -594,7 +599,15 @@
   function kUI(){var b=document.getElementById('karaoke'),st=document.getElementById('kstop'),h=document.getElementById('khint');
     b.classList.toggle('on',kState==='playing');b.innerHTML=kState==='playing'?'⏸ Pause':kState==='paused'?'▶ Reprendre':'🎧 Écouter';
     if(st)st.style.display=kState==='off'?'none':'';if(h)h.style.display=kState==='off'?'none':'';
-    document.getElementById('story').classList.toggle('k-on',kState!=='off');mascotListen(kState==='playing');}
+    document.getElementById('story').classList.toggle('k-on',kState!=='off');mascotListen(kState==='playing');hideKMenu();}
+  function hideKMenu(){var km=document.getElementById('kmenu');if(km)km.classList.remove('show');}
+  function showKMenu(w,i){   // la voix est arrêtée sur le mot i : petit menu ▶ Lire d'ici · 🇫🇷 Traduire
+    var km=document.getElementById('kmenu');if(!km)return;var wp=document.getElementById('wordpop');if(wp)wp.classList.remove('show');
+    km.querySelector('.km-play').onclick=function(e){e.stopPropagation();snd('press');playFrom(i);};
+    km.querySelector('.km-tr').onclick=function(e){e.stopPropagation();hideKMenu();var word=cleanWord(w.textContent);if(word)showWordPop(w,word);};
+    km.classList.add('show');var r=w.getBoundingClientRect(),mw=km.offsetWidth,mh=km.offsetHeight;
+    km.style.left=Math.max(8,Math.min(r.left+r.width/2-mw/2,innerWidth-mw-8))+'px';
+    km.style.top=(r.bottom+mh+70<innerHeight?r.bottom+6:r.top-mh-6)+'px';}
   function kKill(){if(kTimer){clearInterval(kTimer);kTimer=null;}kUtt=null;if(synth)synth.cancel();}
   function stopK(){kState='off';kKill();if(kAudio){kAudio.pause();kAudio=null;}kT=null;kIdx=0;clearReading();kUI();}
   function pauseK(){if(kState!=='playing')return;kState='paused';kKill();if(kAudio)kAudio.pause();hl(kIdx,false);kUI();}
@@ -677,10 +690,11 @@
   }
   document.getElementById('story').addEventListener('click',function(e){
     var w=e.target.closest('.w');if(!w)return;e.stopPropagation();
-    if(kState!=='off'){var i=words.indexOf(w);if(kState==='playing'){snd('tick');pauseK();}else{snd('press');playFrom(i>=0?i:kIdx);}return;}   // lecture en cours : pause / reprise / saut
+    if(kState!=='off'){var i=words.indexOf(w);if(i<0)return;if(kState==='playing'){snd('tick');pauseK();}hl(i,false);showKMenu(w,i);return;}   // lecture en cours : la voix s'arrête sur le mot → menu
     var word=cleanWord(w.textContent);if(word)showWordPop(w,word);});
   document.addEventListener('click',function(e){var pop=document.getElementById('wordpop');
-    if(pop.classList.contains('show')&&!pop.contains(e.target)&&!(e.target.closest&&e.target.closest('#story .w')))pop.classList.remove('show');});
+    if(pop.classList.contains('show')&&!pop.contains(e.target)&&!(e.target.closest&&e.target.closest('#story .w')))pop.classList.remove('show');
+    var km=document.getElementById('kmenu');if(km&&km.classList.contains('show')&&!km.contains(e.target)&&!(e.target.closest&&e.target.closest('#story .w')))hideKMenu();});
   renderVocab();
 
   /* ---------- moteur "juice" (paillettes fluo) ---------- */
