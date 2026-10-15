@@ -213,6 +213,28 @@
   @media(max-width:640px){.mascot{right:10px;bottom:62px;}.mbody{font-size:46px;}.mshadow{width:36px;}.mbubble{font-size:13px;bottom:22px;}}
   #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90;}
 
+  /* ---- mobile : bandeau compact ; avatar flottant (bas droite) → bulle Avatar / Fond / Réglages, rangée en bas à gauche ---- */
+  .mfab,.msheet{display:none;}
+  @media(max-width:640px){
+    .topbar{gap:6px;padding:0 10px;overflow-x:auto;scrollbar-width:none;} .topbar::-webkit-scrollbar{display:none;}
+    .topbar .timer,.topbar .who,.topbar .gear{display:none;}
+    .nav{gap:0;margin-left:0;} .nav button{font-size:12px;padding:6px 8px;}
+    .mfab{display:flex;align-items:center;gap:2px;position:fixed;right:10px;bottom:66px;z-index:46;border:none;background:var(--card-solid);border-radius:999px;padding:3px 8px 3px 3px;box-shadow:0 8px 24px rgba(30,40,60,.25);cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    .mfab .avatar{width:38px;height:38px;min-width:38px;} .mfab-dot{font-size:12px;color:var(--muted);font-weight:800;}
+    .mascot{right:74px;}
+    .msheet{position:fixed;left:10px;right:10px;bottom:64px;z-index:70;max-height:min(72vh,560px);display:flex;flex-direction:column;background:var(--card-solid);border:2px solid var(--accent);border-radius:22px;box-shadow:0 22px 60px rgba(30,40,60,.35);padding:12px;transform-origin:100% 100%;transform:scale(.2);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .25s;}
+    .msheet.show{transform:none;opacity:1;pointer-events:auto;}
+    .msheet.hide{transform-origin:0 100%;transform:translate(-30px,30px) scale(.08);opacity:0;}
+    .msheet-tabs{display:flex;gap:4px;margin-bottom:8px;}
+    .msheet-tabs button{flex:1;font-family:'Baloo 2';font-weight:700;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:7px 4px;background:var(--card-solid);color:var(--muted);cursor:pointer;}
+    .msheet-tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .msheet-body{overflow-y:auto;flex:1;min-height:0;}
+    .msheet-body .pop{position:static;width:auto;max-width:none;border:none;box-shadow:none;padding:4px 2px;animation:none;}
+    .msheet-ok{width:100%;margin-top:10px;}
+    .statusbar .s:first-child{cursor:pointer;} .statusbar .avatar.pulse{animation:saPulse .6s ease;}
+  }
+  @keyframes saPulse{0%{transform:scale(1);}40%{transform:scale(1.4);}100%{transform:scale(1);}}
+
   /* ---------- ajouts carnet ELEC 1 CL1 15/10 (menus déroulants, rappels de règle, roster) ---------- */
   select.sel.dd{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:30px;min-width:92px;max-width:100%;
     background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
@@ -276,6 +298,13 @@
     <label class="setrow"><span>🐿️ Mascotte <small>(elle t'encourage)</small></span><input type="checkbox" id="mascotToggle" checked></label>
   </div>
   <div class="wordpop" id="wordpop"></div>
+  <!-- MOBILE : avatar flottant + bulle de choix (les trois popovers y sont déplacés à l'ouverture) -->
+  <button class="mfab" id="mfab" aria-label="Avatar, fond et réglages"><span class="avatar" data-ava></span><span class="mfab-dot">▾</span></button>
+  <div class="msheet" id="msheet" role="dialog" aria-label="Tes choix">
+    <div class="msheet-tabs"><button data-pop="avatarPop">👤 Avatar</button><button data-pop="skinPop">🎨 Fond</button><button data-pop="settingsPop">⚙️ Réglages</button></div>
+    <div class="msheet-body"></div>
+    <button class="cbtn msheet-ok" id="msheetOk">✓ C'est bon</button>
+  </div>
 
   <!-- VUE CARNET -->
   <div class="view on" id="view-carnet" translate="no"><div class="wrap">
@@ -442,7 +471,7 @@
     STUDENT=firstName(STUDENT_FULL)||'there';buildWall();}
   function initRoster(){var c=document.getElementById('nameSel');ROSTER.forEach(function(n,i){var o=document.createElement('option');o.value=String(i);o.textContent=n;c.appendChild(o);});
     c.addEventListener('click',function(e){e.stopPropagation();});
-    c.addEventListener('change',function(e){e.stopPropagation();var n=ROSTER[parseInt(c.value,10)];if(!n)return;STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');closePops();mascot('greet');});applyName();
+    c.addEventListener('change',function(e){e.stopPropagation();var n=ROSTER[parseInt(c.value,10)];if(!n)return;STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');if(!isMobile())closePops();mascot('greet');});applyName();
     if(!STUDENT_FULL)setTimeout(function(){togglePop('avatarPop');},600);}
   function buildWall(){var w=document.getElementById('wall');w.innerHTML='';ROSTER.forEach(function(n){var d=document.createElement('div');var me=n===STUDENT_FULL;
     d.className='mate pop-in'+(me?' me':'');var img=me?'<img alt="" src="'+avaUrl(ava.style,ava.seed)+'">':'<img alt="" src="'+avaUrl('bottts',n)+'">';
@@ -467,8 +496,24 @@
 
   /* ---------- popovers ---------- */
   var POPS=['avatarPop','settingsPop','skinPop'];
-  function closePops(){POPS.forEach(function(id){document.getElementById(id).classList.remove('show');});}
-  function togglePop(id){var p=document.getElementById(id),open=p.classList.contains('show');closePops();if(!open)p.classList.add('show');}
+  function isMobile(){return matchMedia('(max-width:640px)').matches;}
+  function sheetEl(){return document.getElementById('msheet');}
+  function closePops(){POPS.forEach(function(id){document.getElementById(id).classList.remove('show');});
+    var sh=sheetEl();if(sh&&sh.classList.contains('show')){sh.classList.remove('show');sh.classList.add('hide');   // la bulle se range en bas à gauche…
+      setTimeout(function(){sh.classList.remove('hide');POPS.forEach(function(id){document.body.appendChild(document.getElementById(id));});},320);
+      var sa=document.querySelector('.statusbar .avatar');if(sa){sa.classList.remove('pulse');void sa.offsetWidth;sa.classList.add('pulse');}}}   // …dans l'avatar de la barre d'état
+  function openSheet(id){var sh=sheetEl();if(!sh)return;var body=sh.querySelector('.msheet-body');
+    POPS.forEach(function(p){var el=document.getElementById(p);el.classList.toggle('show',p===id);body.appendChild(el);});
+    sh.querySelectorAll('.msheet-tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.pop===id);});sh.classList.remove('hide');sh.classList.add('show');body.scrollTop=0;}
+  function togglePop(id){var p=document.getElementById(id),open=p.classList.contains('show');
+    if(isMobile()&&sheetEl()){if(open)closePops();else openSheet(id);return;}   // téléphone : tout passe par la bulle
+    closePops();if(!open)p.classList.add('show');}
+  (function(){var fab=document.getElementById('mfab'),sh=sheetEl();if(!fab||!sh)return;
+    fab.onclick=function(e){e.stopPropagation();snd('press');if(sh.classList.contains('show'))closePops();else openSheet('avatarPop');};
+    sh.addEventListener('click',function(e){e.stopPropagation();});
+    sh.querySelectorAll('.msheet-tabs button').forEach(function(b){b.onclick=function(){snd('tick');openSheet(b.dataset.pop);};});
+    document.getElementById('msheetOk').onclick=function(){snd('toggle');closePops();};
+    var sa=document.querySelector('.statusbar .s');if(sa)sa.addEventListener('click',function(e){if(!isMobile())return;e.stopPropagation();snd('press');openSheet('avatarPop');});})();
   document.getElementById('avatarBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('avatarPop');};
   document.getElementById('skinBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('skinPop');};
   document.getElementById('gearBtn').onclick=function(e){e.stopPropagation();snd('press');togglePop('settingsPop');};

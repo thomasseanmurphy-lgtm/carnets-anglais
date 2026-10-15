@@ -18,6 +18,9 @@ Le fonctionnement **actuel** est décrit dans [`docs/`](docs/) ; les idées **fu
 - **Karaoké pilotable au tap** : pendant la lecture, toucher un mot **met en pause** ; toucher un
   mot (le même ou un autre) **reprend** la voix à ce mot (recul / avance). Bouton Pause / Reprendre,
   bouton ⏹ pour arrêter ; le dictionnaire au tap reste actif hors lecture.
+- **Téléphone** : le bandeau est compact (onglets seuls) ; l'avatar flottant **en bas à droite** ouvre
+  une **bulle** à trois onglets (Avatar · Fond · Réglages) qui se range **en bas à gauche** (avatar de
+  la barre d'état, lui aussi tactile) à la fermeture. Avant, les menus débordaient hors écran.
   Carnet republié : `elec/data-centre-night-shift`.
 
 ## 2026-07
