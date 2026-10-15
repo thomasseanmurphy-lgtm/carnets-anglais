@@ -220,6 +220,7 @@
   .rule{font-size:13.5px;line-height:1.55;color:var(--ink);background:var(--card-solid);border-left:4px solid var(--accent);border-radius:10px;padding:9px 12px;margin:0 0 12px}
   .rule b{color:var(--accent)} .rule i{color:var(--muted)}
   .tr{color:var(--muted);font-size:13.5px;margin:8px 0 0;line-height:1.5}
+  select.namesel{display:block;width:100%;margin:6px 0 14px;font-size:14px}
   .names{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
   .names button{border:1px solid var(--line);background:var(--card-solid);color:var(--ink);border-radius:999px;padding:6px 11px;font:700 13px 'Nunito',sans-serif;cursor:pointer}
   .names button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -256,7 +257,7 @@
 
   <div class="pop avpop" id="avatarPop">
     <h4>👤 Qui es-tu ?</h4>
-    <div class="names" id="names"></div>
+    <select class="sel dd namesel" id="nameSel" aria-label="ton nom"><option value="">— Choisis ton nom —</option></select>
     <h4>🎭 Choisis ton avatar</h4>
     <div class="avstyles" id="avstyles"></div>
     <div class="avgrid" id="avgrid"></div>
@@ -432,14 +433,15 @@
   function shortName(full){if(!full)return 'Choisis ton nom';var p=full.split(' ');return p[p.length-1]+' '+p[0][0]+'.';}
   var STUDENT_FULL=localStorage.getItem('student_name')||'';
   function applyName(){document.querySelectorAll('[data-name]').forEach(function(e){e.textContent=shortName(STUDENT_FULL);});
-    document.querySelectorAll('#names button').forEach(function(b){b.classList.toggle('on',b.dataset.n===STUDENT_FULL);});
+    var ns=document.getElementById('nameSel');if(ns)ns.value=STUDENT_FULL?String(ROSTER.indexOf(STUDENT_FULL)):'';
     STUDENT=firstName(STUDENT_FULL)||'there';buildWall();}
-  function initRoster(){var c=document.getElementById('names');ROSTER.forEach(function(n){var b=document.createElement('button');b.dataset.n=n;b.textContent=shortName(n);
-    b.onclick=function(e){e.stopPropagation();STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');closePops();mascot('greet');};c.appendChild(b);});applyName();
+  function initRoster(){var c=document.getElementById('nameSel');ROSTER.forEach(function(n,i){var o=document.createElement('option');o.value=String(i);o.textContent=n;c.appendChild(o);});
+    c.addEventListener('click',function(e){e.stopPropagation();});
+    c.addEventListener('change',function(e){e.stopPropagation();var n=ROSTER[parseInt(c.value,10)];if(!n)return;STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');closePops();mascot('greet');});applyName();
     if(!STUDENT_FULL)setTimeout(function(){togglePop('avatarPop');},600);}
   function buildWall(){var w=document.getElementById('wall');w.innerHTML='';ROSTER.forEach(function(n){var d=document.createElement('div');var me=n===STUDENT_FULL;
     d.className='mate pop-in'+(me?' me':'');var img=me?'<img alt="" src="'+avaUrl(ava.style,ava.seed)+'">':'<img alt="" src="'+avaUrl('bottts',n)+'">';
-    d.innerHTML='<span class="avatar">'+img+'</span><div class="nm">'+shortName(n)+'</div><div class="st">'+(me?'c\'est toi':'ELEC 1 CL1')+'</div>';w.appendChild(d);});}
+    d.innerHTML='<span class="avatar">'+img+'</span><div class="nm">'+(me?shortName(n):'ELEC 1 CL1')+'</div><div class="st">'+(me?'c\'est toi':'camarade')+'</div>';w.appendChild(d);});}
 
   /* ---------- Banque UIMM · BTS ELEC (hub réel + ce carnet) ---------- */
   var BANK=[["The Night Shift at the Data Centre", "ELEC 1 CL1 · A2 → B1", "🌙", "doing", ""], ["Much, Many & the Day Spain Went Dark", "ELEC 1 CL1 · B1 → B2", "⚡", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/spain-blackout/"], ["Industrial Electrician", "ELEC · B1", "🔧", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/industrial-electrician/"], ["Industrial Electrician — B2", "ELEC · B2", "🔧", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/industrial-electrician-b2/"], ["Automation & GRAFCET", "ELEC · B1–B2", "🤖", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/automation-grafcet/"], ["The Day the Transformer Failed", "ELEC · B1", "🔌", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/transformer-failure/"], ["Back to the Plant", "ELEC 2 · B1", "🏭", "todo", "https://thomasseanmurphy-lgtm.github.io/carnets-anglais/elec/back-to-the-plant/"]];
