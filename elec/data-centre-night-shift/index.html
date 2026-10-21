@@ -248,6 +248,9 @@
   .rule b{color:var(--accent)} .rule i{color:var(--muted)}
   .tr{color:var(--muted);font-size:13.5px;margin:8px 0 0;line-height:1.5}
   select.namesel{display:block;width:100%;margin:6px 0 14px;font-size:14px}
+  .orname{font-size:12px;color:var(--muted);font-weight:700;margin:-6px 0 4px}
+  input.nametxt{display:block;width:100%;box-sizing:border-box;margin:0 0 14px;padding:9px 12px;font:700 14px 'Nunito',sans-serif;color:var(--ink);background:var(--card-solid);border:1px solid var(--line);border-radius:12px}
+  input.nametxt:focus{outline:none;border-color:var(--accent)}
   .names{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
   .names button{border:1px solid var(--line);background:var(--card-solid);color:var(--ink);border-radius:999px;padding:6px 11px;font:700 13px 'Nunito',sans-serif;cursor:pointer}
   .names button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -285,6 +288,8 @@
   <div class="pop avpop" id="avatarPop">
     <h4>👤 Qui es-tu ?</h4>
     <select class="sel dd namesel" id="nameSel" aria-label="ton nom"><option value="">— Choisis ton nom —</option></select>
+    <div class="orname">… ou écris ton nom (autre classe) :</div>
+    <input class="nametxt" id="nameTxt" type="text" placeholder="NOM Prénom" maxlength="40" autocomplete="off" autocapitalize="words" enterkeyhint="done" aria-label="écris ton nom">
     <h4>🎭 Choisis ton avatar</h4>
     <div class="avstyles" id="avstyles"></div>
     <div class="avgrid" id="avgrid"></div>
@@ -469,12 +474,16 @@
   var STUDENT_FULL=localStorage.getItem('student_name')||'';
   function applyName(){document.querySelectorAll('[data-name]').forEach(function(e){e.textContent=shortName(STUDENT_FULL);});
     var ns=document.getElementById('nameSel');if(ns)ns.value=STUDENT_FULL?String(ROSTER.indexOf(STUDENT_FULL)):'';
+    var nt=document.getElementById('nameTxt');if(nt)nt.value=(STUDENT_FULL&&ROSTER.indexOf(STUDENT_FULL)<0)?STUDENT_FULL:'';
     STUDENT=firstName(STUDENT_FULL)||'there';buildWall();}
   function initRoster(){var c=document.getElementById('nameSel');ROSTER.forEach(function(n,i){var o=document.createElement('option');o.value=String(i);o.textContent=n;c.appendChild(o);});
     c.addEventListener('click',function(e){e.stopPropagation();});
     c.addEventListener('change',function(e){e.stopPropagation();var n=ROSTER[parseInt(c.value,10)];if(!n)return;STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');if(!isMobile())closePops();mascot('greet');});applyName();
+    var t=document.getElementById('nameTxt');if(t){t.addEventListener('click',function(e){e.stopPropagation();});
+      function takeTyped(){var n=t.value.replace(/\s+/g,' ').trim();if(!n||n===STUDENT_FULL)return;STUDENT_FULL=n;localStorage.setItem('student_name',n);applyName();snd('chime');mascot('greet');}
+      t.addEventListener('change',takeTyped);t.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();takeTyped();t.blur();if(!isMobile())closePops();}});}
     if(!STUDENT_FULL)setTimeout(function(){togglePop('avatarPop');},600);}
-  function buildWall(){var w=document.getElementById('wall');w.innerHTML='';ROSTER.forEach(function(n){var d=document.createElement('div');var me=n===STUDENT_FULL;
+  function buildWall(){var w=document.getElementById('wall');w.innerHTML='';var list=(STUDENT_FULL&&ROSTER.indexOf(STUDENT_FULL)<0)?[STUDENT_FULL].concat(ROSTER):ROSTER;list.forEach(function(n){var d=document.createElement('div');var me=n===STUDENT_FULL;
     d.className='mate pop-in'+(me?' me':'');var img=me?'<img alt="" src="'+avaUrl(ava.style,ava.seed)+'">':'<img alt="" src="'+avaUrl('bottts',n)+'">';
     d.innerHTML='<span class="avatar">'+img+'</span><div class="nm">'+(me?shortName(n):'ELEC 1 CL1')+'</div><div class="st">'+(me?'c\'est toi':'camarade')+'</div>';w.appendChild(d);});}
 
